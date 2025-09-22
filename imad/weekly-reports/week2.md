@@ -1,5 +1,5 @@
 # O-RAN-SC CVE  
-**Week Starting: 08 Sept**
+**Week Starting: 15 Sept**
 
 ---
 
