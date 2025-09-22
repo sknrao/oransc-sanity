@@ -16,4 +16,7 @@ This mentorship is on **CVE management** across O-RAN-SC repositories.
 - **cve-scan-results/**  
   Outputs from scans
 
+- **scripts**
+  Scripts for various tasks
+
 
