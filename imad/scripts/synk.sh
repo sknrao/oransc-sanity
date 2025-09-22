@@ -55,7 +55,7 @@ repos=(
     "portal/nonrtric-controlpanel"
 )
 
-# Base URL - change this to your Git server
+# Base URL 
 BASE_URL="https://github.com/o-ran-sc"
 
 # Create results directory
