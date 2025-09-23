@@ -93,87 +93,475 @@ Total repositories analyzed: 77
 | o-ran-sc/smo-teiv | master | 4 | 3 | 0 | 2025-09-16 | Java | ✅ Active |
 | o-ran-sc/smo-ves | master | 5 | 3 | 0 | 2024-04-23 | Python | ✅ Active |
 
-## Analysis Summary Table
+## Enhanced Analysis Summary Table
 
-| Repo Name | Branches | Tags | Issues | Suggested Mechanism |
-|-----------|----------|------|--------|---------------------|
-| o-ran-sc/aiml-fw-aihp-ips-kserve-adapter | 6 branches (master) | 2 tags (Latest: 1.0.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.0.1 | 📏 Standardize 2 tags to v*.*.* format | +1 more |
-| o-ran-sc/aiml-fw-aimlfw-dep | 8 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) |
-| o-ran-sc/aiml-fw-athp-pipeline-components | 3 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🔧 Add automated CI/CD pipeline for releases |
-| o-ran-sc/aiml-fw-awmf-modelmgmtservice | 6 branches (master) | 5 tags (Latest: 4.0.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 4.0.0 | 📏 Standardize 5 tags to v*.*.* format | +1 more |
-| o-ran-sc/ci-management | 1 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) |
-| o-ran-sc/com-golog | 12 branches (master) | 2 tags (Latest: v0.0.2) | Uses 'master' branch; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v0.0.2 | ✅ Continue semantic versioning (current: v0.0.2) | +2 more |
-| o-ran-sc/com-log | 13 branches (master) | 7 tags (Latest: v0.0.4) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v0.0.4 | 📏 Standardize 4 tags to v*.*.* format | +2 more |
-| o-ran-sc/doc | 14 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🌿 Review branch strategy: 14 branches | +1 more |
-| o-ran-sc/it-dep | 10 branches (master) | 5 tags (Latest: 2.0.6) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag l-release | 📏 Standardize 5 tags to v*.*.* format |
-| o-ran-sc/it-test | 5 branches (master) | 3 tags (Latest: 0.2.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 0.2.0 | 📏 Standardize 3 tags to v*.*.* format |
-| o-ran-sc/it-tifg | 2 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🔧 Add automated CI/CD pipeline for releases |
-| o-ran-sc/nonrtric | 27 branches (master) | 19 tags (Latest: 2.3.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag l-release | 📏 Standardize 19 tags to v*.*.* format | +1 more |
-| o-ran-sc/nonrtric-plt-a1policymanagementservice | 8 branches (master) | 10 tags (Latest: 2.10.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 2.10.0 | 📏 Standardize 10 tags to v*.*.* format |
-| o-ran-sc/nonrtric-plt-dmaapadapter | 6 branches (master) | 6 tags (Latest: 1.4.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.4.0 | 📏 Standardize 6 tags to v*.*.* format | +1 more |
-| o-ran-sc/nonrtric-plt-dmaapmediatorproducer | 6 branches (master) | 3 tags (Latest: 1.2.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.2.0 | 📏 Standardize 3 tags to v*.*.* format | +1 more |
-| o-ran-sc/nonrtric-plt-helmmanager | 6 branches (master) | 2 tags (Latest: 1.3.0) | No releases; Inconsistent tag format | 📦 PRIORITY: Create GitHub release for tag 1.3.0 | 📏 Standardize 2 tags to v*.*.* format |
-| o-ran-sc/nonrtric-plt-informationcoordinatorservice | 6 branches (master) | 7 tags (Latest: 1.6.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.6.1 | 📏 Standardize 7 tags to v*.*.* format | +1 more |
-| o-ran-sc/nonrtric-plt-ranpm | 5 branches (master) | 5 tags (Latest: 1.2.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.2.0 | 📏 Standardize 5 tags to v*.*.* format | +1 more |
-| o-ran-sc/nonrtric-plt-rappcatalogue | 6 branches (master) | 5 tags (Latest: 1.2.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.2.0 | 📏 Standardize 5 tags to v*.*.* format | +1 more |
-| o-ran-sc/nonrtric-plt-rappmanager | 5 branches (master) | 4 tags (Latest: 0.3.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 0.3.0 | 📏 Standardize 4 tags to v*.*.* format | +1 more |
-| o-ran-sc/nonrtric-plt-sme | 7 branches (master) | 9 tags (Latest: 1.3.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.3.1 | 📏 Standardize 9 tags to v*.*.* format | +1 more |
-| o-ran-sc/nonrtric-rapp-healthcheck | 1 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🔧 Add automated CI/CD pipeline for releases |
-| o-ran-sc/nonrtric-rapp-orufhrecovery | 3 branches (master) | 1 tags (Latest: 1.1.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.1.0 | 📏 Standardize 1 tags to v*.*.* format | +1 more |
-| o-ran-sc/nonrtric-rapp-ransliceassurance | 4 branches (master) | 5 tags (Latest: 1.3.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.3.0 | 📏 Standardize 5 tags to v*.*.* format | +1 more |
-| o-ran-sc/o-du-l2 | 18 branches (master) | 1 tags (Latest: 1.0.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.0.1 | 📏 Standardize 1 tags to v*.*.* format | +1 more |
-| o-ran-sc/o-du-phy | 5 branches (master) | 8 tags | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag oran_release_bronze_v1.1 | 📏 Standardize 8 tags to v*.*.* format |
-| o-ran-sc/oam-oam-controller | 1 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🔧 Add automated CI/CD pipeline for releases |
-| o-ran-sc/oam-tr069-adapter | 9 branches (master) | 3 tags (Latest: 2.2.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag tr069adapter-version1 | 📏 Standardize 3 tags to v*.*.* format | +1 more |
-| o-ran-sc/portal-nonrtric-controlpanel | 8 branches (master) | 10 tags (Latest: 2.5.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag BronzeRC0 | 📏 Standardize 10 tags to v*.*.* format | +1 more |
-| o-ran-sc/pti-o2 | 10 branches (master) | 14 tags (Latest: 2.2.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag l-release | 📏 Standardize 14 tags to v*.*.* format | +1 more |
-| o-ran-sc/pti-rtp | 15 branches (master) | 19 tags | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag l-release | 📏 Standardize 19 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-app-ad | 13 branches (master) | 3 tags (Latest: 1.0.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.0.0 | 📏 Standardize 3 tags to v*.*.* format | +2 more |
-| o-ran-sc/ric-app-ad-cell | 1 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🔧 Add automated CI/CD pipeline for releases |
-| o-ran-sc/ric-app-bouncer | 7 branches (master) | 1 tags (Latest: 1.0.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.0.0 | 📏 Standardize 1 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-app-hw-rust | 5 branches (master) | 3 tags (Latest: 0.3.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 0.3.0 | 📏 Standardize 3 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-app-kpimon-go | 7 branches (master) | 1 tags (Latest: 1.0.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.0.1 | 📏 Standardize 1 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-app-lp | 3 branches (master) | 1 tags (Latest: 0.1.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 0.1.0 | 📏 Standardize 1 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-app-mc | 6 branches (master) | 22 tags (Latest: 1.12.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.12.0 | 📏 Standardize 22 tags to v*.*.* format |
-| o-ran-sc/ric-app-qp | 12 branches (master) | 4 tags (Latest: 0.0.5) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 0.0.5 | 📏 Standardize 4 tags to v*.*.* format | +2 more |
-| o-ran-sc/ric-app-qp-aimlfw | 1 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🔧 Add automated CI/CD pipeline for releases | +1 more |
-| o-ran-sc/ric-app-rc | 6 branches (master) | 4 tags (Latest: 1.0.4) | No releases; Inconsistent tag format | 📦 PRIORITY: Create GitHub release for tag 1.0.4 | 📏 Standardize 4 tags to v*.*.* format | 📅 Consider maintenance schedule - last update >6 months |
-| o-ran-sc/ric-plt-a1 | 15 branches (master) | 28 tags (Latest: 3.2.2) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 3.2.2 | 📏 Standardize 28 tags to v*.*.* format | +2 more |
-| o-ran-sc/ric-plt-alarm-cpp | 4 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) |
-| o-ran-sc/ric-plt-alarm-go | 17 branches (master) | 20 tags (Latest: v0.5.14) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v0.5.14 | 📏 Standardize 14 tags to v*.*.* format | +3 more |
-| o-ran-sc/ric-plt-appmgr | 13 branches (master) | 14 tags (Latest: v0.4.3) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v0.4.3 | 📏 Standardize 9 tags to v*.*.* format | +3 more |
-| o-ran-sc/ric-plt-conflictmgr | 1 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🔧 Add automated CI/CD pipeline for releases |
-| o-ran-sc/ric-plt-dbaas | 13 branches (master) | 15 tags (Latest: 0.6.4) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 0.6.4 | 📏 Standardize 15 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-plt-e2 | 20 branches (master) | 19 tags (Latest: 6.0.6) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 6.0.6 | 📏 Standardize 19 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-plt-e2mgr | 18 branches (master) | 30 tags (Latest: 6.0.6) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag R5_RC | 📏 Standardize 30 tags to v*.*.* format | +2 more |
-| o-ran-sc/ric-plt-jaegeradapter | 10 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 📅 Consider maintenance schedule - last update >6 months |
-| o-ran-sc/ric-plt-lib-rmr | 16 branches (master) | 30 tags | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag python-2.0.0 | 📏 Standardize 30 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-plt-libe2ap | 11 branches (master) | 2 tags (Latest: 1.1.0) | No releases; Inconsistent tag format | 📦 PRIORITY: Create GitHub release for tag 1.1.0 | 📏 Standardize 2 tags to v*.*.* format | 🌿 Review branch strategy: 11 branches |
-| o-ran-sc/ric-plt-nodeb-rnib | 16 branches (master) | 30 tags (Latest: v1.2.7) | Uses 'master' branch; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v1.2.7 | ✅ Continue semantic versioning (current: v1.2.7) | +2 more |
-| o-ran-sc/ric-plt-o1 | 17 branches (master) | 10 tags (Latest: v0.4.4) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v0.4.4 | 📏 Standardize 9 tags to v*.*.* format | +3 more |
-| o-ran-sc/ric-plt-ric-dep | 12 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🌿 Review branch strategy: 12 branches | +1 more |
-| o-ran-sc/ric-plt-rtmgr | 14 branches (master) | 16 tags (Latest: v0.1.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v0.1.0 | 📏 Standardize 15 tags to v*.*.* format | +3 more |
-| o-ran-sc/ric-plt-sdl | 13 branches (master) | 4 tags (Latest: 1.6.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.6.0 | 📏 Standardize 4 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-plt-sdlgo | 12 branches (master) | 30 tags (Latest: v0.10.4) | Uses 'master' branch; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v0.10.4 | ✅ Continue semantic versioning (current: v0.10.4) | +2 more |
-| o-ran-sc/ric-plt-sdlpy | 13 branches (master) | 17 tags (Latest: 3.1.3) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 3.1.3 | 📏 Standardize 17 tags to v*.*.* format | +2 more |
-| o-ran-sc/ric-plt-streaming-protobufs | 7 branches (master) | 17 tags (Latest: v6.0.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v6.0.0 | 📏 Standardize 4 tags to v*.*.* format | +2 more |
-| o-ran-sc/ric-plt-submgr | 17 branches (master) | 23 tags (Latest: v4.0.0.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v4.0.0.1 | 📏 Standardize 18 tags to v*.*.* format | +3 more |
-| o-ran-sc/ric-plt-tracelibcpp | 9 branches (master) | 4 tags (Latest: v0.0.4) | Uses 'master' branch; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v0.0.4 | ✅ Continue semantic versioning (current: v0.0.4) | +1 more |
-| o-ran-sc/ric-plt-utils | 6 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 📅 Consider maintenance schedule - last update >6 months |
-| o-ran-sc/ric-plt-xapp-frame | 15 branches (master) | 30 tags (Latest: v0.9.22) | Uses 'master' branch; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag v0.9.22 | ✅ Continue semantic versioning (current: v0.9.22) | +2 more |
-| o-ran-sc/ric-plt-xapp-frame-cpp | 11 branches (master) | 14 tags (Latest: 2.3.10) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 2.3.10 | 📏 Standardize 14 tags to v*.*.* format | +1 more |
-| o-ran-sc/ric-plt-xapp-frame-py | 11 branches (master) | 25 tags (Latest: 3.2.2) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 3.2.2 | 📏 Standardize 25 tags to v*.*.* format | +2 more |
-| o-ran-sc/ric-plt-xapp-frame-rust | 6 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) |
-| o-ran-sc/sim-a1-interface | 12 branches (master) | 13 tags (Latest: 2.8.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag BronzeRC0 | 📏 Standardize 13 tags to v*.*.* format | +2 more |
-| o-ran-sc/sim-e2-interface | 7 branches (master) | 0 tags | No tags; No releases | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) |
-| o-ran-sc/sim-e2-interface-data | 3 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) |
-| o-ran-sc/sim-ns3-o-ran-e2 | 4 branches (main, master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) |
-| o-ran-sc/sim-o1-interface | 13 branches (master) | 8 tags (Latest: 1.8.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 1.8.1 | 📏 Standardize 8 tags to v*.*.* format | +1 more |
-| o-ran-sc/sim-o1-ofhmp-interfaces | 3 branches (master) | 0 tags | Uses 'master' branch; No tags; No releases | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 🏷️ PRIORITY: Create initial version tags (start with v1.0.0) | 🔧 Add automated CI/CD pipeline for releases |
-| o-ran-sc/smo-o1 | 6 branches (master) | 2 tags (Latest: 6.0.1) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag g-release | 📏 Standardize 2 tags to v*.*.* format |
-| o-ran-sc/smo-o2 | 7 branches (master) | 2 tags | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag l-release | 📏 Standardize 2 tags to v*.*.* format | +1 more |
-| o-ran-sc/smo-teiv | 4 branches (master) | 3 tags (Latest: 0.2.0) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 0.2.0 | 📏 Standardize 3 tags to v*.*.* format | +1 more |
-| o-ran-sc/smo-ves | 5 branches (master) | 3 tags (Latest: 6.0.3) | Uses 'master' branch; No releases; Inconsistent tag format | 🔄 PRIORITY: Migrate default branch from 'master' to 'main' | 📦 PRIORITY: Create GitHub release for tag 6.0.3 | 📏 Standardize 3 tags to v*.*.* format | +1 more |
+| Repo Name | All Branches | All Tags | Issues | Suggested Mechanism |
+|-----------|--------------|----------|--------|---------------------|
+| o-ran-sc/oam-tr069-adapter | 9 branches: master, cherry, dawn, dependabot/maven/acs/application-booter/com.google.guava-guava-29.0-jre, dependabot/maven/mapper/commons-io-commons-io-2.7, +4 more | 3 tags: tr069adapter-version1, Initialcode, 2.2.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag tr069adapter-version1 |
+| o-ran-sc/aiml-fw-aimlfw-dep | 8 branches: master, g-release, h-release, i-release, j-release, +3 more | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |
+| o-ran-sc/aiml-fw-athp-pipeline-components | 3 branches: master, l-release, l-release-maintenance | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/aiml-fw-awmf-modelmgmtservice | 6 branches: master, i-release, j-release, k-release, k-release-maintenance, +1 more | 5 tags: 4.0.0, 3.0.0, 2.0.1, 2.0.0, 1.0.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 4.0.0 |
+| o-ran-sc/aiml-fw-aihp-ips-kserve-adapter | 6 branches: master, h-release, i-release, j-release, k-release, +1 more | 2 tags: 1.0.1, 1.0.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.0.1 |
+| o-ran-sc/ci-management | 1 branches: master | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/com-golog | 12 branches: master, Amber, bronze, cherry, dawn, +7 more | 2 tags: v0.0.2, v0.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v0.0.2 |
+| o-ran-sc/com-log | 13 branches: master, Amber, bronze, cherry, dawn, +8 more | 7 tags: v0.0.4, v0.0.3, v0.0.2, 0.1.4, 0.1.2, +2 more | Uses 'master' branch; No releases; Inconsistent tag format |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v0.0.4 |  Standardize 4 tags to v*.*.* format |
+| o-ran-sc/doc | 14 branches: master, Amber, amber, Bronze, bronze, +9 more | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |
+| o-ran-sc/it-dep | 10 branches: master, Amber, bronze, cherry, dependabot/github_actions/azure/setup-helm-4.3.1, +5 more | 5 tags: l-release, f-release, 2.0.6, 0.0.2, 0.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag l-release |
+| o-ran-sc/it-test | 5 branches: master, Amber, Bronze, bronze, cherry | 3 tags: 0.2.0, 0.0.3, 0.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 0.2.0 |
+| o-ran-sc/it-tifg | 2 branches: master, l-release | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/nonrtric | 27 branches: master, Amber, bronze, cherry, dawn, +22 more | 19 tags: l-release, BronzeRC0, 2.3.1, 2.3.0, 2.2.1, +14 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag l-release |  Review branch strategy: 27 branches |
+| o-ran-sc/nonrtric-plt-a1policymanagementservice | 8 branches: master, f-release, g-release, h-release, i-release, +3 more | 10 tags: 2.9.0, 2.8.1, 2.8.0, 2.7.0, 2.6.0, +5 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 2.9.0 |
+| o-ran-sc/nonrtric-plt-dmaapadapter | 6 branches: master, f-release, g-release, h-release, i-release, +1 more | 6 tags: 1.4.0, 1.3.0, 1.2.1, 1.2.0, 1.1.1, +1 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.4.0 |
+| o-ran-sc/nonrtric-plt-dmaapmediatorproducer | 6 branches: master, f-release, g-release, h-release, i-release, +1 more | 3 tags: 1.2.0, 1.1.1, 1.1.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.2.0 |
+| o-ran-sc/nonrtric-plt-helmmanager | 6 branches: master, f-release, g-release, h-release, i-release, +1 more | 2 tags: 1.3.0, 1.2.0 | No releases |  PRIORITY: Create GitHub release for tag 1.3.0 |
+| o-ran-sc/nonrtric-plt-informationcoordinatorservice | 6 branches: master, f-release, g-release, h-release, i-release, +1 more | 7 tags: 1.6.1, 1.6.0, 1.5.0, 1.4.1, 1.4.0, +2 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.6.1 |
+| o-ran-sc/nonrtric-plt-ranpm | 5 branches: master, h-release, i-release, j-release, l-release | 5 tags: 1.2.0, 1.1.1, 1.1.0, 1.0.1, 1.0.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.2.0 |
+| o-ran-sc/nonrtric-plt-rappcatalogue | 6 branches: master, f-release, g-release, h-release, i-release, +1 more | 5 tags: 1.2.0, 1.1.0, 1.0.2, 1.0.1, 1.0.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.2.0 |
+| o-ran-sc/nonrtric-plt-rappmanager | 5 branches: master, i-release, j-release, k-release, l-release | 4 tags: 0.3.0, 0.2.0, 0.1.0, 0.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 0.3.0 |
+| o-ran-sc/nonrtric-plt-sme | 7 branches: master, g-release, h-release, i-release, j-release, +2 more | 9 tags: 1.3.1, 1.2.0, 1.1.0, 1.0.1, 1.0.0, +4 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.3.1 |
+| o-ran-sc/nonrtric-rapp-healthcheck | 1 branches: master | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/nonrtric-rapp-orufhrecovery | 3 branches: master, f-release, g-release | 1 tags: 1.1.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.1.0 |
+| o-ran-sc/nonrtric-rapp-ransliceassurance | 4 branches: master, f-release, g-release, h-release | 5 tags: 1.3.0, 1.2.0, 1.1.1, 1.1.0, 1.0.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.3.0 |
+| o-ran-sc/o-du-l2 | 18 branches: master, Amber, bronze, cherry, D, +13 more | 1 tags: 1.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.0.1 |  Review branch strategy: 18 branches |
+| o-ran-sc/o-du-phy | 5 branches: master, Amber, bronze, cherry, oran_f_release | 8 tags: oran_release_bronze_v1.1, oran_release_bronze_v1.0, oran_k_release_v1.0, oran_f_release_v1.0, oran_e_maintenance_release_v1.0, +3 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag oran_release_bronze_v1.1 |
+| o-ran-sc/oam-oam-controller | 1 branches: master | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/portal-nonrtric-controlpanel | 8 branches: master, bronze, cherry, dawn, e-release, +3 more | 10 tags: BronzeRC0, 2.5.0, 2.4.0, 2.3.0, 2.2.0, +5 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag BronzeRC0 |
+| o-ran-sc/pti-o2 | 10 branches: master, e-release, f-release, g-release, h-release, +5 more | 14 tags: l-release, k-release, 2.2.1, 2.2.0, 2.0.4, +9 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag l-release |
+| o-ran-sc/pti-rtp | 15 branches: master, Amber, Bronze, bronze, cherry, +10 more | 19 tags: l-release, k-release, j-release, i-release, f-release, +14 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag l-release |
+| o-ran-sc/ric-app-ad | 13 branches: master, cheery, Cherry, cherry, dawn, +8 more | 3 tags: 1.0.0, 0.0.2, 0.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.0.0 |
+| o-ran-sc/ric-app-ad-cell | 1 branches: master | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/ric-app-bouncer | 7 branches: master, bouncer_f_rel, f-release, h-release, J-release, +2 more | 1 tags: 1.0.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.0.0 |
+| o-ran-sc/ric-app-hw-rust | 5 branches: master, h-release, i-release, j-release, k-release | 3 tags: 0.3.0, 0.2.0, 0.1.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 0.3.0 |
+| o-ran-sc/ric-app-kpimon-go | 7 branches: master, g-release, h-release, i-release, J-release, +2 more | 1 tags: 1.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.0.1 |
+| o-ran-sc/ric-app-lp | 3 branches: master, dawn, e-release | 1 tags: 0.1.0 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 0.1.0 |
+| o-ran-sc/ric-app-mc | 6 branches: master, Amber, bronze, cherry, dawn, +1 more | 22 tags: 1.9.0, 1.8.0, 1.7.0, 1.6.0, 1.5.0, +17 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.9.0 |
+| o-ran-sc/ric-app-qp | 12 branches: master, bronze, cherry, dawn, e-release, +7 more | 4 tags: 0.0.5, 0.0.4, 0.0.3, 0.0.2 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 0.0.5 |
+| o-ran-sc/ric-app-qp-aimlfw | 1 branches: master | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/ric-app-rc | 6 branches: master, e-release, f-release, g-release, h-release, +1 more | 4 tags: 1.0.4, 1.0.3, 1.0.1, 1.0.0 | No releases |  PRIORITY: Create GitHub release for tag 1.0.4 |
+| o-ran-sc/ric-plt-a1 | 15 branches: master, Amber, bronze, cherry, dawn, +10 more | 28 tags: 3.2.2, 3.2.1, 3.2.0, 3.1.2, 3.1.1, +23 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 3.2.2 |
+| o-ran-sc/ric-plt-alarm-cpp | 4 branches: master, j-release, k-release, l-release | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |
+| o-ran-sc/ric-plt-alarm-go | 17 branches: master, bronze, cherry, dawn, dependabot/go_modules/github.com/prometheus/client_golang-1.11.1, +12 more | 20 tags: v0.5.14, v0.4.4, v0.4.1, v0.4.0, v0.0.2, +15 more | Uses 'master' branch; No releases; Inconsistent tag format |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v0.5.14 |  Standardize 14 tags to v*.*.* format |  Review branch strategy: 17 branches |
+| o-ran-sc/ric-plt-appmgr | 13 branches: master, Amber, bronze, cherry, dawn, +8 more | 14 tags: v0.4.3, v0.2.0, v0.1.9, v0.1.10, v0.0.4, +9 more | Uses 'master' branch; No releases; Inconsistent tag format |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v0.4.3 |  Standardize 9 tags to v*.*.* format |
+| o-ran-sc/ric-plt-conflictmgr | 1 branches: master | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/ric-plt-dbaas | 13 branches: master, Amber, bronze, cherry, dawn, +8 more | 15 tags: 0.6.4, 0.6.3, 0.6.2, 0.6.1, 0.6.0, +10 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 0.6.4 |
+| o-ran-sc/ric-plt-e2 | 20 branches: master, Amber, bronze, cherry, dawn, +15 more | 19 tags: 6.0.6, 6.0.4, 6.0.3, 6.0.2, 6.0.1, +14 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 6.0.6 |  Review branch strategy: 20 branches |
+| o-ran-sc/ric-plt-e2mgr | 18 branches: master, Amber, bronze, cherry, dawn, +13 more | 30 tags: R5_RC, 6.0.6, 6.0.4, 6.0.2, 6.0.1, +25 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag R5_RC |  Review branch strategy: 18 branches |
+| o-ran-sc/ric-plt-jaegeradapter | 10 branches: master, Amber, bronze, cherry, f-release, +5 more | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |
+| o-ran-sc/ric-plt-lib-rmr | 16 branches: master, Amber, amber, bronze, cherry, +11 more | 30 tags: python-2.0.0, python-1.0.0, python-0.13.5, python-0.13.4, python-0.13.3, +25 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag python-2.0.0 |  Review branch strategy: 16 branches |
+| o-ran-sc/ric-plt-libe2ap | 11 branches: master, cherry, dawn, e-release, f-release, +6 more | 2 tags: 1.1.0, 1.0.0 | No releases |  PRIORITY: Create GitHub release for tag 1.1.0 |
+| o-ran-sc/ric-plt-nodeb-rnib | 16 branches: master, Amber, bronze, cherry, dawn, +11 more | 30 tags: v1.2.7, v1.2.6, v1.2.5, v1.2.4, v1.2.1, +25 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v1.2.7 |  Review branch strategy: 16 branches |
+| o-ran-sc/ric-plt-o1 | 17 branches: master, bronze, cherry, dawn, dependabot/go_modules/agent/github.com/prometheus/client_golang-1.11.1, +12 more | 10 tags: v0.4.4, 0.6.3, 0.6.2, 0.6.1, 0.6.0, +5 more | Uses 'master' branch; No releases; Inconsistent tag format |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v0.4.4 |  Standardize 9 tags to v*.*.* format |  Review branch strategy: 17 branches |
+| o-ran-sc/ric-plt-ric-dep | 12 branches: master, bronce, bronze, cherry, dawn, +7 more | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |
+| o-ran-sc/ric-plt-rtmgr | 14 branches: master, Amber, bronze, cherry, dawn, +9 more | 16 tags: v0.1.0, 0.9.6, 0.9.5, 0.9.4, 0.9.1, +11 more | Uses 'master' branch; No releases; Inconsistent tag format |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v0.1.0 |  Standardize 15 tags to v*.*.* format |
+| o-ran-sc/ric-plt-sdl | 13 branches: master, Amber, bronze, cherry, dawn, +8 more | 4 tags: 1.6.0, 1.5.1, 1.4.0, 1.2.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.6.0 |
+| o-ran-sc/ric-plt-sdlgo | 12 branches: master, Amber, bronze, cherry, dawn, +7 more | 30 tags: v0.9.6, v0.9.5, v0.9.4, v0.9.3, v0.9.2, +25 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v0.9.6 |
+| o-ran-sc/ric-plt-sdlpy | 13 branches: master, b-temp, bronze, cherry, dawn, +8 more | 17 tags: 3.1.3, 3.1.2, 3.1.1, 3.1.0, 3.0.2, +12 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 3.1.3 |
+| o-ran-sc/ric-plt-streaming-protobufs | 7 branches: master, Amber, bronze, cherry, dawn, +2 more | 17 tags: v6.0.0, v5.0.0, v4.0.3, v4.0.2, v4.0.1, +12 more | Uses 'master' branch; No releases; Inconsistent tag format |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v6.0.0 |  Standardize 4 tags to v*.*.* format |
+| o-ran-sc/ric-plt-submgr | 17 branches: master, Amber, Bronze, bronze, cherry, +12 more | 23 tags: v4.0.0.1, v0.5.0, v0.11.0, v0.1.1, v0.1.0, +18 more | Uses 'master' branch; No releases; Inconsistent tag format |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v4.0.0.1 |  Standardize 18 tags to v*.*.* format |  Review branch strategy: 17 branches |
+| o-ran-sc/ric-plt-tracelibcpp | 9 branches: master, Amber, bronze, cherry, f-release, +4 more | 4 tags: v0.0.4, v0.0.3, v0.0.2, v0.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v0.0.4 |
+| o-ran-sc/ric-plt-utils | 6 branches: master, cherry, f-release, g-release, h-release, +1 more | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |
+| o-ran-sc/ric-plt-xapp-frame | 15 branches: master, alarm_wa, alarm_workaround, Amber, bronze, +10 more | 30 tags: v0.9.9, v0.9.8, v0.9.7, v0.9.6, v0.9.5, +25 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag v0.9.9 |
+| o-ran-sc/ric-plt-xapp-frame-cpp | 11 branches: master, bronze, cherry, dawn, e-release, +6 more | 14 tags: 2.3.9, 2.3.8, 2.3.6, 2.3.5, 2.3.4, +9 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 2.3.9 |
+| o-ran-sc/ric-plt-xapp-frame-py | 11 branches: master, bronze, cherry, dawn, e-release, +6 more | 25 tags: 3.2.2, 3.2.1, 3.2.0, 3.0.2, 3.0.1, +20 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 3.2.2 |
+| o-ran-sc/ric-plt-xapp-frame-rust | 6 branches: master, g-release, h-release, i-release, j-release, +1 more | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |
+| o-ran-sc/sim-a1-interface | 12 branches: master, bronze, cherry, dawn, e-release, +7 more | 13 tags: BronzeRC0, 2.8.1, 2.8.0, 2.7.0, 2.6.1, +8 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag BronzeRC0 |
+| o-ran-sc/sim-e2-interface | 7 branches: master, cherry, dawn, e-release, h-release, +2 more | No tags | No tags; No releases | ️ PRIORITY: Create initial version tags (start with v1.0.0) |
+| o-ran-sc/sim-e2-interface-data | 3 branches: master, h-release, l-release | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/sim-ns3-o-ran-e2 | 4 branches: main, master, h-release, l-release | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |
+| o-ran-sc/sim-o1-interface | 13 branches: master, Amber, bronze, cherry, dawn, +8 more | 8 tags: 1.8.1, 1.5.2, 1.5.0, 1.4.3, 1.3.3, +3 more | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 1.8.1 |
+| o-ran-sc/sim-o1-ofhmp-interfaces | 3 branches: master, k-release-maintenance, l-release | No tags | Uses 'master' branch; No tags; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' | ️ PRIORITY: Create initial version tags (start with v1.0.0) |  Add automated CI/CD pipeline for releases |
+| o-ran-sc/smo-o1 | 6 branches: master, cherry, dawn, e-release, f-release, +1 more | 2 tags: g-release, 6.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag g-release |
+| o-ran-sc/smo-o2 | 7 branches: master, f-release, g-release, h-release, i-release, +2 more | 2 tags: l-release, g-release | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag l-release |
+| o-ran-sc/smo-teiv | 4 branches: master, j-release, k-release, l-release | 3 tags: 0.2.0, 0.1.0, 0.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 0.2.0 |
+| o-ran-sc/smo-ves | 5 branches: master, dawn, e-release, f-release, g-release | 3 tags: 6.0.3, 6.0.2, 6.0.1 | Uses 'master' branch; No releases |  PRIORITY: Migrate default branch from 'master' to 'main' |  PRIORITY: Create GitHub release for tag 6.0.3 |
+
+## Detailed Branch and Tag Listings
+
+### o-ran-sc/oam-tr069-adapter
+- **Default Branch**: master
+- **Branches (9)**: master, cherry, dawn, dependabot/maven/acs/application-booter/com.google.guava-guava-29.0-jre, dependabot/maven/mapper/commons-io-commons-io-2.7, h-release, Initialcode, tr069adapter-cmnotify, tr069adapter-version1
+- **Tags (3)**: tr069adapter-version1, Initialcode, 2.2.0
+
+### o-ran-sc/aiml-fw-aimlfw-dep
+- **Default Branch**: master
+- **Branches (8)**: master, g-release, h-release, i-release, j-release, k-release, k-release-maintenance, l-release
+- **Tags**: None
+
+### o-ran-sc/aiml-fw-athp-pipeline-components
+- **Default Branch**: master
+- **Branches (3)**: master, l-release, l-release-maintenance
+- **Tags**: None
+
+### o-ran-sc/aiml-fw-awmf-modelmgmtservice
+- **Default Branch**: master
+- **Branches (6)**: master, i-release, j-release, k-release, k-release-maintenance, l-release
+- **Tags (5)**: 4.0.0, 3.0.0, 2.0.1, 2.0.0, 1.0.0
+
+### o-ran-sc/aiml-fw-aihp-ips-kserve-adapter
+- **Default Branch**: master
+- **Branches (6)**: master, h-release, i-release, j-release, k-release, l-release
+- **Tags (2)**: 1.0.1, 1.0.0
+
+### o-ran-sc/ci-management
+- **Default Branch**: master
+- **Branches (1)**: master
+- **Tags**: None
+
+### o-ran-sc/com-golog
+- **Default Branch**: master
+- **Branches (12)**: master, Amber, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, l-release
+- **Tags (2)**: v0.0.2, v0.0.1
+
+### o-ran-sc/com-log
+- **Default Branch**: master
+- **Branches (13)**: master, Amber, bronze, cherry, dawn, e-release, f-release, foo, g-release, h-release, i-release, j-release, l-release
+- **Tags (7)**: v0.0.4, v0.0.3, v0.0.2, 0.1.4, 0.1.2, 0.1.1, 0.1.0
+
+### o-ran-sc/doc
+- **Default Branch**: master
+- **Branches (14)**: master, Amber, amber, Bronze, bronze, cherry, dawn, e-release, F-release, H-release, I-release, J-release, k-release, l-release
+- **Tags**: None
+
+### o-ran-sc/it-dep
+- **Default Branch**: master
+- **Branches (10)**: master, Amber, bronze, cherry, dependabot/github_actions/azure/setup-helm-4.3.1, dependabot/github_actions/lfreleng-actions/nexus-publish-action-0.1.2, dependabot/github_actions/step-security/harden-runner-2.13.1, gh-testing, l-release, r3
+- **Tags (5)**: l-release, f-release, 2.0.6, 0.0.2, 0.0.1
+
+### o-ran-sc/it-test
+- **Default Branch**: master
+- **Branches (5)**: master, Amber, Bronze, bronze, cherry
+- **Tags (3)**: 0.2.0, 0.0.3, 0.0.1
+
+### o-ran-sc/it-tifg
+- **Default Branch**: master
+- **Branches (2)**: master, l-release
+- **Tags**: None
+
+### o-ran-sc/nonrtric
+- **Default Branch**: master
+- **Branches (27)**: master, Amber, bronze, cherry, dawn, dependabot/go_modules/auth-token-fetch/golang.org/x/sys-0.1.0, dependabot/go_modules/auth-token-fetch/golang.org/x/text-0.3.8, dependabot/go_modules/service-exposure/github.com/containerd/containerd-1.5.18, dependabot/go_modules/service-exposure/golang.org/x/crypto-0.1.0, dependabot/go_modules/service-exposure/golang.org/x/net-0.7.0, dependabot/go_modules/service-exposure/golang.org/x/sys-0.1.0, dependabot/go_modules/service-exposure/golang.org/x/text-0.3.8, dependabot/go_modules/service-exposure/helm.sh/helm/v3-3.11.1, dependabot/npm_and_yarn/dashboard/webapp-frontend/acorn-6.4.1, dependabot/pip/test/mrstub/app/pip-21.1, dependabot/pip/test/usecases/healthcheck/src/jinja2-2.11.3, dependabot/pip/test/usecases/healthcheck/src/pygments-2.7.4, dependabot/pip/test/usecases/oruclosedlooprecovery/scriptversion/app/urllib3-1.26.5, dependabot/pip/test/usecases/oruclosedlooprecovery/scriptversion/simulators/urllib3-1.26.5, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (19)**: l-release, BronzeRC0, 2.3.1, 2.3.0, 2.2.1, 2.2.0, 2.1.1, 2.1.0, 2.0.1, 2.0.0, 1.7.4, 1.7.3, 1.2.1, 1.2.0, 1.1.1, 1.1.0, 1.0.2, 1.0.1, 1.0.0
+
+### o-ran-sc/nonrtric-plt-a1policymanagementservice
+- **Default Branch**: master
+- **Branches (8)**: master, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (10)**: 2.9.0, 2.8.1, 2.8.0, 2.7.0, 2.6.0, 2.5.1, 2.5.0, 2.4.1, 2.4.0, 2.10.0
+
+### o-ran-sc/nonrtric-plt-dmaapadapter
+- **Default Branch**: master
+- **Branches (6)**: master, f-release, g-release, h-release, i-release, j-release
+- **Tags (6)**: 1.4.0, 1.3.0, 1.2.1, 1.2.0, 1.1.1, 1.1.0
+
+### o-ran-sc/nonrtric-plt-dmaapmediatorproducer
+- **Default Branch**: master
+- **Branches (6)**: master, f-release, g-release, h-release, i-release, j-release
+- **Tags (3)**: 1.2.0, 1.1.1, 1.1.0
+
+### o-ran-sc/nonrtric-plt-helmmanager
+- **Default Branch**: f-release
+- **Branches (6)**: master, f-release, g-release, h-release, i-release, j-release
+- **Tags (2)**: 1.3.0, 1.2.0
+
+### o-ran-sc/nonrtric-plt-informationcoordinatorservice
+- **Default Branch**: master
+- **Branches (6)**: master, f-release, g-release, h-release, i-release, j-release
+- **Tags (7)**: 1.6.1, 1.6.0, 1.5.0, 1.4.1, 1.4.0, 1.3.1, 1.3.0
+
+### o-ran-sc/nonrtric-plt-ranpm
+- **Default Branch**: master
+- **Branches (5)**: master, h-release, i-release, j-release, l-release
+- **Tags (5)**: 1.2.0, 1.1.1, 1.1.0, 1.0.1, 1.0.0
+
+### o-ran-sc/nonrtric-plt-rappcatalogue
+- **Default Branch**: master
+- **Branches (6)**: master, f-release, g-release, h-release, i-release, j-release
+- **Tags (5)**: 1.2.0, 1.1.0, 1.0.2, 1.0.1, 1.0.0
+
+### o-ran-sc/nonrtric-plt-rappmanager
+- **Default Branch**: master
+- **Branches (5)**: master, i-release, j-release, k-release, l-release
+- **Tags (4)**: 0.3.0, 0.2.0, 0.1.0, 0.0.1
+
+### o-ran-sc/nonrtric-plt-sme
+- **Default Branch**: master
+- **Branches (7)**: master, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (9)**: 1.3.1, 1.2.0, 1.1.0, 1.0.1, 1.0.0, 0.2.2, 0.2.1, 0.2.0, 0.1.2
+
+### o-ran-sc/nonrtric-rapp-healthcheck
+- **Default Branch**: master
+- **Branches (1)**: master
+- **Tags**: None
+
+### o-ran-sc/nonrtric-rapp-orufhrecovery
+- **Default Branch**: master
+- **Branches (3)**: master, f-release, g-release
+- **Tags (1)**: 1.1.0
+
+### o-ran-sc/nonrtric-rapp-ransliceassurance
+- **Default Branch**: master
+- **Branches (4)**: master, f-release, g-release, h-release
+- **Tags (5)**: 1.3.0, 1.2.0, 1.1.1, 1.1.0, 1.0.0
+
+### o-ran-sc/o-du-l2
+- **Default Branch**: master
+- **Branches (18)**: master, Amber, bronze, cherry, D, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release, nFapi_dev, oai-integration, ODU_Dev_O1, review/bimo_fransiscus_asisi/11653, sch_slice_based
+- **Tags (1)**: 1.0.1
+
+### o-ran-sc/o-du-phy
+- **Default Branch**: master
+- **Branches (5)**: master, Amber, bronze, cherry, oran_f_release
+- **Tags (8)**: oran_release_bronze_v1.1, oran_release_bronze_v1.0, oran_k_release_v1.0, oran_f_release_v1.0, oran_e_maintenance_release_v1.0, ORAN-seedcode_v1.2, ORAN-seedcode_v1.1, AAL_Specs_1.0
+
+### o-ran-sc/oam-oam-controller
+- **Default Branch**: master
+- **Branches (1)**: master
+- **Tags**: None
+
+### o-ran-sc/portal-nonrtric-controlpanel
+- **Default Branch**: master
+- **Branches (8)**: master, bronze, cherry, dawn, e-release, g-release, h-release, i-release
+- **Tags (10)**: BronzeRC0, 2.5.0, 2.4.0, 2.3.0, 2.2.0, 2.1.1, 2.1.0, 2.0.0, 1.2.0, 1.0.0
+
+### o-ran-sc/pti-o2
+- **Default Branch**: master
+- **Branches (10)**: master, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release, stx-7.0
+- **Tags (14)**: l-release, k-release, 2.2.1, 2.2.0, 2.0.4, 2.0.2, 2.0.1, 2.0.0_g39e022d7, 2.0.0-rc4, 2.0.0-rc3, 2.0.0-rc2, 2.0.0-rc1, 2.0.0, 1.0.0
+
+### o-ran-sc/pti-rtp
+- **Default Branch**: master
+- **Branches (15)**: master, Amber, Bronze, bronze, cherry, dawn, e-release, f-release, g-release, g_dev_debian, h-release, i-release, j-release, k-release, l-release
+- **Tags (19)**: l-release, k-release, j-release, i-release, f-release, e-release, duplex, dawn-rc0, dawn-pre, dawn, cherry-rc0, cherry-freeze, cherry, bronze-rc3, bronze-rc2, bronze-rc1, bronze-rc0, bronze, Amber
+
+### o-ran-sc/ric-app-ad
+- **Default Branch**: master
+- **Branches (13)**: master, cheery, Cherry, cherry, dawn, e-release, f-release, g-release, h-release, I-release, j-release, k-release, l-release
+- **Tags (3)**: 1.0.0, 0.0.2, 0.0.1
+
+### o-ran-sc/ric-app-ad-cell
+- **Default Branch**: master
+- **Branches (1)**: master
+- **Tags**: None
+
+### o-ran-sc/ric-app-bouncer
+- **Default Branch**: master
+- **Branches (7)**: master, bouncer_f_rel, f-release, h-release, J-release, j-release, k-release
+- **Tags (1)**: 1.0.0
+
+### o-ran-sc/ric-app-hw-rust
+- **Default Branch**: master
+- **Branches (5)**: master, h-release, i-release, j-release, k-release
+- **Tags (3)**: 0.3.0, 0.2.0, 0.1.0
+
+### o-ran-sc/ric-app-kpimon-go
+- **Default Branch**: master
+- **Branches (7)**: master, g-release, h-release, i-release, J-release, j-release, k-release
+- **Tags (1)**: 1.0.1
+
+### o-ran-sc/ric-app-lp
+- **Default Branch**: master
+- **Branches (3)**: master, dawn, e-release
+- **Tags (1)**: 0.1.0
+
+### o-ran-sc/ric-app-mc
+- **Default Branch**: master
+- **Branches (6)**: master, Amber, bronze, cherry, dawn, e-release
+- **Tags (22)**: 1.9.0, 1.8.0, 1.7.0, 1.6.0, 1.5.0, 1.4.0, 1.3.3, 1.3.1, 1.12.0, 1.11.0, 1.10.1, 1.10.0, 1.0.9, 1.0.8, 1.0.7, 1.0.6, 1.0.5, 1.0.4, 1.0.3, 1.0.2, 1.0.11, 1.0.1
+
+### o-ran-sc/ric-app-qp
+- **Default Branch**: master
+- **Branches (12)**: master, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (4)**: 0.0.5, 0.0.4, 0.0.3, 0.0.2
+
+### o-ran-sc/ric-app-qp-aimlfw
+- **Default Branch**: master
+- **Branches (1)**: master
+- **Tags**: None
+
+### o-ran-sc/ric-app-rc
+- **Default Branch**: e-release
+- **Branches (6)**: master, e-release, f-release, g-release, h-release, k-release
+- **Tags (4)**: 1.0.4, 1.0.3, 1.0.1, 1.0.0
+
+### o-ran-sc/ric-plt-a1
+- **Default Branch**: master
+- **Branches (15)**: master, Amber, bronze, cherry, dawn, development, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release, r2-temp
+- **Tags (28)**: 3.2.2, 3.2.1, 3.2.0, 3.1.2, 3.1.1, 3.0.1, 3.0.0, 2.5.2, 2.5.1, 2.5.0, 2.4.0, 2.1.9, 2.1.8, 2.1.7, 2.1.6, 2.1.5, 2.1.4, 2.1.2, 2.1.1, 2.1.0, 2.0.0, 1.0.4, 1.0.3, 1.0.2, 1.0.1, 1.0.0, 0.10.3, 0.10.2
+
+### o-ran-sc/ric-plt-alarm-cpp
+- **Default Branch**: master
+- **Branches (4)**: master, j-release, k-release, l-release
+- **Tags**: None
+
+### o-ran-sc/ric-plt-alarm-go
+- **Default Branch**: master
+- **Branches (17)**: master, bronze, cherry, dawn, dependabot/go_modules/github.com/prometheus/client_golang-1.11.1, dependabot/go_modules/go.mongodb.org/mongo-driver-1.5.1, dependabot/go_modules/golang.org/x/net-0.7.0, dependabot/go_modules/golang.org/x/sys-0.1.0, dependabot/go_modules/golang.org/x/text-0.3.8, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (20)**: v0.5.14, v0.4.4, v0.4.1, v0.4.0, v0.0.2, v0.0.1, alarm/v0.5.14, alarm/v0.5.0, alarm/v0.4.2, alarm/v0.4.1, alarm/v0.4.0, 0.5.9, 0.5.16, 0.5.15, 0.5.14, 0.5.13, 0.5.12, 0.5.11, 0.5.10, 0.4.5
+
+### o-ran-sc/ric-plt-appmgr
+- **Default Branch**: master
+- **Branches (13)**: master, Amber, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (14)**: v0.4.3, v0.2.0, v0.1.9, v0.1.10, v0.0.4, 0.5.8, 0.5.7, 0.5.6, 0.5.5, 0.5.4, 0.5.3, 0.5.1, 0.4.3, 0.1.10
+
+### o-ran-sc/ric-plt-conflictmgr
+- **Default Branch**: master
+- **Branches (1)**: master
+- **Tags**: None
+
+### o-ran-sc/ric-plt-dbaas
+- **Default Branch**: master
+- **Branches (13)**: master, Amber, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (15)**: 0.6.4, 0.6.3, 0.6.2, 0.6.1, 0.6.0, 0.5.7, 0.5.6, 0.5.5, 0.5.3, 0.5.2, 0.5.1, 0.5.0, 0.4.0, 0.2.2, 0.1.0
+
+### o-ran-sc/ric-plt-e2
+- **Default Branch**: master
+- **Branches (20)**: master, Amber, bronze, cherry, dawn, e-release, e2ap-v02.00, f-release, g-release, h-release, i-release, j-release, k-release, l-release, PI3, PI4, PI5, r2, R5, test
+- **Tags (19)**: 6.0.6, 6.0.4, 6.0.3, 6.0.2, 6.0.1, 6.0.0, 5.5.0, 5.4.9, 5.4.8, 5.4.0, 5.0.8, 5.0.6, 5.0.4, 4.4.1, 4.4.0, 4.3.1, 3.0.4, 3.0.1, 2.0.10
+
+### o-ran-sc/ric-plt-e2mgr
+- **Default Branch**: master
+- **Branches (18)**: master, Amber, bronze, cherry, dawn, e-release, e2ap-v02.00, f-release, g-release, h-release, i-release, j-release, k-release, l-release, PI3, PI4, PI5, r2
+- **Tags (30)**: R5_RC, 6.0.6, 6.0.4, 6.0.2, 6.0.1, 6.0.0, 5.4.7, 5.4.6, 5.4.5, 5.4.4, 5.4.2, 5.4.19, 5.4.18, 5.4.17, 5.4.16, 5.4.15, 5.4.14, 5.4.13, 5.4.1, 5.2.9, 5.2.6, 5.2.5, 5.2.21, 5.2.20, 5.2.19, 5.2.17, 5.2.15, 5.2.14, 5.2.12, 5.2.10
+
+### o-ran-sc/ric-plt-jaegeradapter
+- **Default Branch**: master
+- **Branches (10)**: master, Amber, bronze, cherry, f-release, g-release, h-release, i-release, j-release, k-release
+- **Tags**: None
+
+### o-ran-sc/ric-plt-lib-rmr
+- **Default Branch**: master
+- **Branches (16)**: master, Amber, amber, bronze, cherry, dawn, dev-b, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release, r2-temp
+- **Tags (30)**: python-2.0.0, python-1.0.0, python-0.13.5, python-0.13.4, python-0.13.3, 4.9.4, 4.9.2, 4.9.1, 4.9.0, 4.8.5, 4.8.3, 4.8.2, 4.8.1, 4.8.0, 4.7.4, 4.7.3, 4.7.0, 4.6.1, 4.6.0, 4.5.2, 4.5.1, 4.5.0, 4.4.6, 4.4.5, 4.4.4, 4.4.3, 4.4.2, 4.4.1, 4.4.0, 4.04
+
+### o-ran-sc/ric-plt-libe2ap
+- **Default Branch**: cherry
+- **Branches (11)**: master, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (2)**: 1.1.0, 1.0.0
+
+### o-ran-sc/ric-plt-nodeb-rnib
+- **Default Branch**: master
+- **Branches (16)**: master, Amber, bronze, cherry, dawn, e-release, e2ap-v02.00, f-release, g-release, h-release, i-release, j-release, k-release, l-release, PI3, r2
+- **Tags (30)**: v1.2.7, v1.2.6, v1.2.5, v1.2.4, v1.2.1, v1.0.48, v1.0.47, v1.0.46, v1.0.45, v1.0.44, v1.0.43, v1.0.42, v1.0.41, v1.0.40, v1.0.39, v1.0.38, v1.0.36, v1.0.35, v1.0.34, v1.0.33, v1.0.32, v1.0.31, v1.0.30, v1.0.29, v1.0.28, v1.0.27, v1.0.26, v1.0.25, v1.0.24, v1.0.23
+
+### o-ran-sc/ric-plt-o1
+- **Default Branch**: master
+- **Branches (17)**: master, bronze, cherry, dawn, dependabot/go_modules/agent/github.com/prometheus/client_golang-1.11.1, dependabot/go_modules/agent/golang.org/x/crypto-0.1.0, dependabot/go_modules/agent/golang.org/x/net-0.7.0, dependabot/go_modules/agent/golang.org/x/sys-0.1.0, dependabot/go_modules/agent/golang.org/x/text-0.3.8, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (10)**: v0.4.4, 0.6.3, 0.6.2, 0.6.1, 0.6.0, 0.5.3, 0.5.2, 0.5.1, 0.5.0, 0.4.4
+
+### o-ran-sc/ric-plt-ric-dep
+- **Default Branch**: master
+- **Branches (12)**: master, bronce, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, l-release
+- **Tags**: None
+
+### o-ran-sc/ric-plt-rtmgr
+- **Default Branch**: master
+- **Branches (14)**: master, Amber, bronze, cherry, dawn, DEV_Temp, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (16)**: v0.1.0, 0.9.6, 0.9.5, 0.9.4, 0.9.1, 0.8.2, 0.7.8, 0.7.2, 0.6.3, 0.6.10, 0.6.1, 0.6.0, 0.5.8, 0.4.9, 0.4.15, 0.3.9
+
+### o-ran-sc/ric-plt-sdl
+- **Default Branch**: master
+- **Branches (13)**: master, Amber, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (4)**: 1.6.0, 1.5.1, 1.4.0, 1.2.1
+
+### o-ran-sc/ric-plt-sdlgo
+- **Default Branch**: master
+- **Branches (12)**: master, Amber, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, l-release
+- **Tags (30)**: v0.9.6, v0.9.5, v0.9.4, v0.9.3, v0.9.2, v0.9.1, v0.9.0, v0.8.0, v0.7.0, v0.6.0, v0.5.5, v0.5.4, v0.5.3, v0.5.2, v0.5.1, v0.5.0, v0.4.0, v0.3.1, v0.3.0, v0.2.1, v0.2.0, v0.10.4, v0.10.3, v0.10.2, v0.10.1, v0.10.0, v0.1.1, v0.1.0, v0.0.2, v0.0.1
+
+### o-ran-sc/ric-plt-sdlpy
+- **Default Branch**: master
+- **Branches (13)**: master, b-temp, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, l-release, sOMQghdrUwEcx9iu
+- **Tags (17)**: 3.1.3, 3.1.2, 3.1.1, 3.1.0, 3.0.2, 3.0.1, 3.0.0, 2.3.0, 2.2.0, 2.1.1, 2.1.0, 2.0.4, 2.0.3, 2.0.2, 2.0.0, 1.0.2, 1.0.1
+
+### o-ran-sc/ric-plt-streaming-protobufs
+- **Default Branch**: master
+- **Branches (7)**: master, Amber, bronze, cherry, dawn, e-release, f-release
+- **Tags (17)**: v6.0.0, v5.0.0, v4.0.3, v4.0.2, v4.0.1, v4.0.0, v3.0.0, v2.0.0, v1.0.0, v0.2.3, v0.2.2, v0.2.1, v0.2.0, protogen/go/streaming_protobufs/v6.0.0, protogen/go/streaming_protobufs/v5.0.0, protogen/go/streaming_protobufs/v4.0.3, protogen/go/streaming_protobufs/v4.0.2
+
+### o-ran-sc/ric-plt-submgr
+- **Default Branch**: master
+- **Branches (17)**: master, Amber, Bronze, bronze, cherry, dawn, e-release, e2ap-v02.00, f-release, g-release, h-release, i-release, j-release, l-release, metrics, NewE2, rest_interfce
+- **Tags (23)**: v4.0.0.1, v0.5.0, v0.11.0, v0.1.1, v0.1.0, 4.0.0.1, 0.9.6, 0.9.5, 0.9.3, 0.8.2, 0.8.0, 0.7.1, 0.5.8, 0.5.5, 0.5.4, 0.4.3, 0.4.2, 0.4.0, 0.12.0, 0.10.7, 0.10.2, 0.10.1, 0.10.0
+
+### o-ran-sc/ric-plt-tracelibcpp
+- **Default Branch**: master
+- **Branches (9)**: master, Amber, bronze, cherry, f-release, g-release, h-release, i-release, j-release
+- **Tags (4)**: v0.0.4, v0.0.3, v0.0.2, v0.0.1
+
+### o-ran-sc/ric-plt-utils
+- **Default Branch**: master
+- **Branches (6)**: master, cherry, f-release, g-release, h-release, i-release
+- **Tags**: None
+
+### o-ran-sc/ric-plt-xapp-frame
+- **Default Branch**: master
+- **Branches (15)**: master, alarm_wa, alarm_workaround, Amber, bronze, cherry, dawn, e-release, f-release, g-release, go1.16, h-release, i-release, j-release, l-release
+- **Tags (30)**: v0.9.9, v0.9.8, v0.9.7, v0.9.6, v0.9.5, v0.9.4, v0.9.3, v0.9.22, v0.9.21, v0.9.20, v0.9.2-1, v0.9.2, v0.9.19, v0.9.18, v0.9.17, v0.9.16, v0.9.15, v0.9.14, v0.9.13, v0.9.12, v0.9.11, v0.9.10, v0.9.1, v0.9.0, v0.8.5, v0.8.4-1, v0.8.4, v0.8.3-1, v0.8.3, v0.8.2
+
+### o-ran-sc/ric-plt-xapp-frame-cpp
+- **Default Branch**: master
+- **Branches (11)**: master, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, l-release
+- **Tags (14)**: 2.3.9, 2.3.8, 2.3.6, 2.3.5, 2.3.4, 2.3.3, 2.3.2, 2.3.10, 2.3.1, 2.2.0, 2.1.0, 2.0.0, 1.1.0, 1.0.0
+
+### o-ran-sc/ric-plt-xapp-frame-py
+- **Default Branch**: master
+- **Branches (11)**: master, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, l-release
+- **Tags (25)**: 3.2.2, 3.2.1, 3.2.0, 3.0.2, 3.0.1, 3.0.0, 2.3.0, 2.2.0, 2.1.0, 2.0.0, 1.6.0, 1.3.0, 1.2.1, 1.2.0, 1.1.1, 1.1.0, 1.0.2, 1.0.1, 1.0.0, 0.7.0, 0.6.0, 0.5.0, 0.4.0, 0.3.0, 0.2.0
+
+### o-ran-sc/ric-plt-xapp-frame-rust
+- **Default Branch**: master
+- **Branches (6)**: master, g-release, h-release, i-release, j-release, l-release
+- **Tags**: None
+
+### o-ran-sc/sim-a1-interface
+- **Default Branch**: master
+- **Branches (12)**: master, bronze, cherry, dawn, e-release, f-release, g-release, h-release, i-release, j-release, k-release, l-release
+- **Tags (13)**: BronzeRC0, 2.8.1, 2.8.0, 2.7.0, 2.6.1, 2.6.0, 2.5.0, 2.4.0, 2.3.1, 2.3.0, 2.2.0, 2.1.0, 2.0.0
+
+### o-ran-sc/sim-e2-interface
+- **Default Branch**: dawn
+- **Branches (7)**: master, cherry, dawn, e-release, h-release, k-release, l-release
+- **Tags**: None
+
+### o-ran-sc/sim-e2-interface-data
+- **Default Branch**: master
+- **Branches (3)**: master, h-release, l-release
+- **Tags**: None
+
+### o-ran-sc/sim-ns3-o-ran-e2
+- **Default Branch**: master
+- **Branches (4)**: main, master, h-release, l-release
+- **Tags**: None
+
+### o-ran-sc/sim-o1-interface
+- **Default Branch**: master
+- **Branches (13)**: master, Amber, bronze, cherry, dawn, e-release, f-release, g-release, h-release, j-release, k-release, l-release, x-ran-models
+- **Tags (8)**: 1.8.1, 1.5.2, 1.5.0, 1.4.3, 1.3.3, 1.0.3, 0.6.1, 0.0.1
+
+### o-ran-sc/sim-o1-ofhmp-interfaces
+- **Default Branch**: master
+- **Branches (3)**: master, k-release-maintenance, l-release
+- **Tags**: None
+
+### o-ran-sc/smo-o1
+- **Default Branch**: master
+- **Branches (6)**: master, cherry, dawn, e-release, f-release, i-release
+- **Tags (2)**: g-release, 6.0.1
+
+### o-ran-sc/smo-o2
+- **Default Branch**: master
+- **Branches (7)**: master, f-release, g-release, h-release, i-release, j-release, l-release
+- **Tags (2)**: l-release, g-release
+
+### o-ran-sc/smo-teiv
+- **Default Branch**: master
+- **Branches (4)**: master, j-release, k-release, l-release
+- **Tags (3)**: 0.2.0, 0.1.0, 0.0.1
+
+### o-ran-sc/smo-ves
+- **Default Branch**: master
+- **Branches (5)**: master, dawn, e-release, f-release, g-release
+- **Tags (3)**: 6.0.3, 6.0.2, 6.0.1
+
 
 ## Branch Naming Patterns Analysis
 
@@ -967,7 +1355,7 @@ Total repositories analyzed: 77
 
 ## Detailed Recommendations for Standardization
 
-### 🚨 HIGH PRIORITY ACTIONS
+###  HIGH PRIORITY ACTIONS
 
 #### 1. Branch Migration (ALL 77 repositories)
 - **Current State**: All repositories use 'master' as default branch
@@ -1003,7 +1391,7 @@ Total repositories analyzed: 77
   - *... and 9 more*
 - **Action Required**: Implement semantic versioning starting with v1.0.0
 
-### 📋 STANDARDIZATION STRATEGIES
+###  STANDARDIZATION STRATEGIES
 
 #### Branch Strategy
 1. **Default Branch**: 'main' (industry standard)
@@ -1035,7 +1423,7 @@ Total repositories analyzed: 77
    - Migration guides for breaking changes
    - Security advisories when applicable
 
-### 🎯 IMPLEMENTATION ROADMAP
+###  IMPLEMENTATION ROADMAP
 
 #### Phase 1: Foundation (Weeks 1-4)
 1. **Branch Migration** (All repositories)
@@ -1056,7 +1444,7 @@ Total repositories analyzed: 77
 2. **Developer Training** (New workflows and standards)
 3. **Policy Enforcement** (Branch protection, required reviews)
 
-### 📦 REPOSITORY-SPECIFIC RECOMMENDATIONS
+###  REPOSITORY-SPECIFIC RECOMMENDATIONS
 
 #### High-Activity Repositories (18 repos)
 *Repositories with >15 tags or >15 branches - need immediate attention*
