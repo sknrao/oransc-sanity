@@ -8,7 +8,7 @@
 ).
 - Built the [Nexus IQ patch table](../docs/nexus-iq-table.md) (Repo Name, Patch Link, PTL Approval, Issues).
 - Tried understanding synk
-- created a [script](../scripts/synk.sh) to scan the active repos using synk (the script has issues, needs to be fixed, have to debug further)
+- created a [script](../scripts/snyk.sh) to scan the active repos using synk (the script has issues, needs to be fixed, have to debug further)
 - Completed Grype scans for the remaining active repositories.
 - Click to view grype scan reports:
     - [aimlfw-dep](../cve-scan-results/)
