@@ -1,3 +1,7 @@
+# RIC Platform Installation Guide - Changelog
+
+## 🔧 **2. Container Runtime Configuration**
+
 **Step 2: Configure containerd for Kubernetes (Ubuntu 24.04 fix)**
 ```bash
 sudo mkdir -p /etc/containerd
@@ -6,7 +10,7 @@ sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/conf
 sudo systemctl restart containerd
 ```
 
-### ☸️ **3. Detailed Kubernetes Setup Steps**
+## ☸️ **3. Detailed Kubernetes Setup Steps**
 
 **Before:** Basic script execution
 ```bash
@@ -16,7 +20,7 @@ cd ric-dep/bin
 ```
 
 **After:** Step-by-step detailed instructions
-```bash
+
 **Step 3: Initialize Kubernetes cluster**
 ```bash
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
@@ -31,12 +35,12 @@ kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.18.1/Do
 kubectl taint nodes --all node-role.kubernetes.io/control-plane:NoSchedule-
 ```
 
-### 🎯 **4. Fixed Helm Repository Setup**
+## 🎯 **4. Fixed Helm Repository Setup**
 
 **Before:** Problematic chartmuseum setup that often failed
 
 **After:** Reliable local HTTP server approach
-```bash
+
 **Step 5: Install Helm and setup ric-common templates**
 ```bash
 # Download and install Helm
@@ -55,7 +59,7 @@ helm repo add local http://127.0.0.1:8879
 helm search repo local/ric-common
 ```
 
-### 🌐 **5. Critical IP Address Configuration**
+## 🌐 **5. Critical IP Address Configuration**
 
 **Before:** Empty IP addresses causing deployment failures
 ```yaml
@@ -65,7 +69,7 @@ extsvcplt:
 ```
 
 **After:** Clear instructions with commands
-```yaml
+
 **IMPORTANT:** You must set the correct IP addresses for your system:
 
 ```yaml
@@ -79,7 +83,7 @@ To get your host IP address, run:
 hostname -I | awk '{print $1}'
 ```
 
-### 🔍 **6. Comprehensive Troubleshooting Section**
+## 🔍 **6. Comprehensive Troubleshooting Section**
 
 **Added:** Complete troubleshooting guide with 7 major sections:
 
@@ -91,10 +95,10 @@ hostname -I | awk '{print $1}'
 6. **Checking Deployment Status**
 7. **Testing Application Manager Health**
 
-### ✅ **7. Success Indicators Section**
+## ✅ **7. Success Indicators Section**
 
 **Added:** Clear criteria for successful deployment:
-```
+
 ### Successful Deployment Indicators
 
 A successful RIC deployment should show:
@@ -103,9 +107,8 @@ A successful RIC deployment should show:
 - Application manager responding to health checks
 - Database (dbaas) pod running
 - All helm releases in `deployed` status
-```
 
-### 📊 **8. Verification Commands**
+## 📊 **8. Verification Commands**
 
 **Added:** Specific commands to check deployment status:
 ```bash
