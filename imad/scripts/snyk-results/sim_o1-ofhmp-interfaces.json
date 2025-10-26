@@ -1,0 +1,7 @@
+[
+  {
+    "ok": false,
+    "error": "Failed to get dependencies for all 3 potential projects.\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/sim_o1-ofhmp-interfaces/base/src/requirements.txt:\nSomething went wrong getting dependencies\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/sim_o1-ofhmp-interfaces/o-du-o1/src/requirements.txt:\nSomething went wrong getting dependencies\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/sim_o1-ofhmp-interfaces/o-ru-mplane/src/requirements.txt:\nSomething went wrong getting dependencies",
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/sim_o1-ofhmp-interfaces"
+  }
+]

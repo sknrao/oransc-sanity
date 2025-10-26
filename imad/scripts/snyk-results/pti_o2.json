@@ -1,0 +1,1676 @@
+[
+  {
+    "vulnerabilities": [
+      {
+        "id": "SNYK-PYTHON-URLLIB3-10390193",
+        "title": "Open Redirect",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Illia Volochii"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[2.2.0,2.5.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "2.5.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "medium",
+        "cvssScore": 6,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "urllib3",
+        "references": [
+          {
+            "url": "https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-06-19T05:32:04.441153Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-07-29T09:00:34.326735Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-07-29T09:00:34.326735Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T05:32:04.441153Z"
+          }
+        ],
+        "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect when used within a Pyodide runtime utilizing the JavaScript Fetch API or falling back on `XMLHttpRequest`, due to the `retries` and `redirect` parameters being ignored and the runtime determining redirect behavior. An attacker can access sensitive information by leveraging uncontrolled redirects in browsers or Node.js environments. \r\n\r\n**Notes:**\r\n\r\n1) This is only exploitable if the application relies on the `retries` and `redirect` parameters to limit or prevent redirects;\r\n\r\n2) This issue was fixed in version 2.5.0 for Node.js environments but not for browsers due to `XMLHttpRequest` providing no control over redirects. Default browser behavior for redirects should be expected.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f)\n",
+        "epssDetails": {
+          "percentile": "0.01490",
+          "probability": "0.00013",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-50182"
+          ],
+          "CWE": [
+            "CWE-601"
+          ],
+          "GHSA": [
+            "GHSA-48p4-8xcf-vxj5"
+          ]
+        },
+        "packageName": "urllib3",
+        "proprietary": false,
+        "creationTime": "2025-06-19T07:22:45.914920Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-18T17:50:11Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2025-06-19T09:33:05.670729Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-07-29T09:00:34.326735Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "pti_o2@0.0.0",
+          "kubernetes@34.1.0",
+          "urllib3@2.3.0"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "urllib3",
+        "version": "2.3.0"
+      },
+      {
+        "id": "SNYK-PYTHON-URLLIB3-10390194",
+        "title": "Open Redirect",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Jacob Sandum"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,2.5.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "2.5.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "medium",
+        "cvssScore": 6,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "urllib3",
+        "references": [
+          {
+            "url": "https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "cvssV3BaseScore": 6.1,
+            "modificationTime": "2025-09-19T01:13:27.484242Z"
+          },
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-06-19T13:36:01.860093Z"
+          },
+          {
+            "assigner": "SUSE",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-08-09T11:01:51.385912Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-06-19T10:33:10.780903Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T10:33:10.780903Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "assigner": "NVD",
+            "severity": "medium",
+            "baseScore": 6.1,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-09-19T01:13:27.484242Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T13:36:01.860093Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "SUSE",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-08-09T11:01:51.385912Z"
+          }
+        ],
+        "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect due to the `retries` parameter being ignored during `PoolManager` instantiation. An attacker can access unintended resources or endpoints by leveraging automatic redirects when the application expects redirects to be disabled at the connection pool level.\r\n\r\n**Note:**\r\n\r\n`requests` and `botocore` users are not affected.\r\n\r\n## Workaround\r\n\r\nThis can be mitigated by disabling redirects at the `request()` level instead of the `PoolManager()` level.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857)\n",
+        "epssDetails": {
+          "percentile": "0.02347",
+          "probability": "0.00016",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-50181"
+          ],
+          "CWE": [
+            "CWE-601"
+          ],
+          "GHSA": [
+            "GHSA-pq67-6m6q-mj2v"
+          ]
+        },
+        "packageName": "urllib3",
+        "proprietary": false,
+        "creationTime": "2025-06-19T07:42:26.685719Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-18T17:50:00Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2025-06-19T10:33:10.764765Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-09-19T01:13:27.484242Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "pti_o2@0.0.0",
+          "kubernetes@34.1.0",
+          "urllib3@2.3.0"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "urllib3",
+        "version": "2.3.0"
+      },
+      {
+        "id": "SNYK-PYTHON-URLLIB3-10390193",
+        "title": "Open Redirect",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Illia Volochii"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[2.2.0,2.5.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "2.5.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "medium",
+        "cvssScore": 6,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "urllib3",
+        "references": [
+          {
+            "url": "https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-06-19T05:32:04.441153Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-07-29T09:00:34.326735Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-07-29T09:00:34.326735Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T05:32:04.441153Z"
+          }
+        ],
+        "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect when used within a Pyodide runtime utilizing the JavaScript Fetch API or falling back on `XMLHttpRequest`, due to the `retries` and `redirect` parameters being ignored and the runtime determining redirect behavior. An attacker can access sensitive information by leveraging uncontrolled redirects in browsers or Node.js environments. \r\n\r\n**Notes:**\r\n\r\n1) This is only exploitable if the application relies on the `retries` and `redirect` parameters to limit or prevent redirects;\r\n\r\n2) This issue was fixed in version 2.5.0 for Node.js environments but not for browsers due to `XMLHttpRequest` providing no control over redirects. Default browser behavior for redirects should be expected.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f)\n",
+        "epssDetails": {
+          "percentile": "0.01490",
+          "probability": "0.00013",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-50182"
+          ],
+          "CWE": [
+            "CWE-601"
+          ],
+          "GHSA": [
+            "GHSA-48p4-8xcf-vxj5"
+          ]
+        },
+        "packageName": "urllib3",
+        "proprietary": false,
+        "creationTime": "2025-06-19T07:22:45.914920Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-18T17:50:11Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2025-06-19T09:33:05.670729Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-07-29T09:00:34.326735Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "pti_o2@0.0.0",
+          "requests-oauthlib@2.0.0",
+          "requests@2.32.5",
+          "urllib3@2.3.0"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "urllib3",
+        "version": "2.3.0"
+      },
+      {
+        "id": "SNYK-PYTHON-URLLIB3-10390194",
+        "title": "Open Redirect",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Jacob Sandum"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,2.5.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "2.5.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "medium",
+        "cvssScore": 6,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "urllib3",
+        "references": [
+          {
+            "url": "https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "cvssV3BaseScore": 6.1,
+            "modificationTime": "2025-09-19T01:13:27.484242Z"
+          },
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-06-19T13:36:01.860093Z"
+          },
+          {
+            "assigner": "SUSE",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-08-09T11:01:51.385912Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-06-19T10:33:10.780903Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T10:33:10.780903Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "assigner": "NVD",
+            "severity": "medium",
+            "baseScore": 6.1,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-09-19T01:13:27.484242Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T13:36:01.860093Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "SUSE",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-08-09T11:01:51.385912Z"
+          }
+        ],
+        "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect due to the `retries` parameter being ignored during `PoolManager` instantiation. An attacker can access unintended resources or endpoints by leveraging automatic redirects when the application expects redirects to be disabled at the connection pool level.\r\n\r\n**Note:**\r\n\r\n`requests` and `botocore` users are not affected.\r\n\r\n## Workaround\r\n\r\nThis can be mitigated by disabling redirects at the `request()` level instead of the `PoolManager()` level.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857)\n",
+        "epssDetails": {
+          "percentile": "0.02347",
+          "probability": "0.00016",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-50181"
+          ],
+          "CWE": [
+            "CWE-601"
+          ],
+          "GHSA": [
+            "GHSA-pq67-6m6q-mj2v"
+          ]
+        },
+        "packageName": "urllib3",
+        "proprietary": false,
+        "creationTime": "2025-06-19T07:42:26.685719Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-18T17:50:00Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2025-06-19T10:33:10.764765Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-09-19T01:13:27.484242Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "pti_o2@0.0.0",
+          "requests-oauthlib@2.0.0",
+          "requests@2.32.5",
+          "urllib3@2.3.0"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "urllib3",
+        "version": "2.3.0"
+      },
+      {
+        "id": "SNYK-PYTHON-URLLIB3-10390193",
+        "title": "Open Redirect",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Illia Volochii"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[2.2.0,2.5.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "2.5.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "medium",
+        "cvssScore": 6,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "urllib3",
+        "references": [
+          {
+            "url": "https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-06-19T05:32:04.441153Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-07-29T09:00:34.326735Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-07-29T09:00:34.326735Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T05:32:04.441153Z"
+          }
+        ],
+        "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect when used within a Pyodide runtime utilizing the JavaScript Fetch API or falling back on `XMLHttpRequest`, due to the `retries` and `redirect` parameters being ignored and the runtime determining redirect behavior. An attacker can access sensitive information by leveraging uncontrolled redirects in browsers or Node.js environments. \r\n\r\n**Notes:**\r\n\r\n1) This is only exploitable if the application relies on the `retries` and `redirect` parameters to limit or prevent redirects;\r\n\r\n2) This issue was fixed in version 2.5.0 for Node.js environments but not for browsers due to `XMLHttpRequest` providing no control over redirects. Default browser behavior for redirects should be expected.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f)\n",
+        "epssDetails": {
+          "percentile": "0.01490",
+          "probability": "0.00013",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-50182"
+          ],
+          "CWE": [
+            "CWE-601"
+          ],
+          "GHSA": [
+            "GHSA-48p4-8xcf-vxj5"
+          ]
+        },
+        "packageName": "urllib3",
+        "proprietary": false,
+        "creationTime": "2025-06-19T07:22:45.914920Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-18T17:50:11Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2025-06-19T09:33:05.670729Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-07-29T09:00:34.326735Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "pti_o2@0.0.0",
+          "kubernetes@34.1.0",
+          "requests@2.32.5",
+          "urllib3@2.3.0"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "urllib3",
+        "version": "2.3.0"
+      },
+      {
+        "id": "SNYK-PYTHON-URLLIB3-10390194",
+        "title": "Open Redirect",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Jacob Sandum"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,2.5.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "2.5.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "medium",
+        "cvssScore": 6,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "urllib3",
+        "references": [
+          {
+            "url": "https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "cvssV3BaseScore": 6.1,
+            "modificationTime": "2025-09-19T01:13:27.484242Z"
+          },
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-06-19T13:36:01.860093Z"
+          },
+          {
+            "assigner": "SUSE",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-08-09T11:01:51.385912Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-06-19T10:33:10.780903Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T10:33:10.780903Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "assigner": "NVD",
+            "severity": "medium",
+            "baseScore": 6.1,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-09-19T01:13:27.484242Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T13:36:01.860093Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "SUSE",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-08-09T11:01:51.385912Z"
+          }
+        ],
+        "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect due to the `retries` parameter being ignored during `PoolManager` instantiation. An attacker can access unintended resources or endpoints by leveraging automatic redirects when the application expects redirects to be disabled at the connection pool level.\r\n\r\n**Note:**\r\n\r\n`requests` and `botocore` users are not affected.\r\n\r\n## Workaround\r\n\r\nThis can be mitigated by disabling redirects at the `request()` level instead of the `PoolManager()` level.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857)\n",
+        "epssDetails": {
+          "percentile": "0.02347",
+          "probability": "0.00016",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-50181"
+          ],
+          "CWE": [
+            "CWE-601"
+          ],
+          "GHSA": [
+            "GHSA-pq67-6m6q-mj2v"
+          ]
+        },
+        "packageName": "urllib3",
+        "proprietary": false,
+        "creationTime": "2025-06-19T07:42:26.685719Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-18T17:50:00Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2025-06-19T10:33:10.764765Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-09-19T01:13:27.484242Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "pti_o2@0.0.0",
+          "kubernetes@34.1.0",
+          "requests@2.32.5",
+          "urllib3@2.3.0"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "urllib3",
+        "version": "2.3.0"
+      },
+      {
+        "id": "SNYK-PYTHON-URLLIB3-10390193",
+        "title": "Open Redirect",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Illia Volochii"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[2.2.0,2.5.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "2.5.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "medium",
+        "cvssScore": 6,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "urllib3",
+        "references": [
+          {
+            "url": "https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-06-19T05:32:04.441153Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-07-29T09:00:34.326735Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-07-29T09:00:34.326735Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T05:32:04.441153Z"
+          }
+        ],
+        "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect when used within a Pyodide runtime utilizing the JavaScript Fetch API or falling back on `XMLHttpRequest`, due to the `retries` and `redirect` parameters being ignored and the runtime determining redirect behavior. An attacker can access sensitive information by leveraging uncontrolled redirects in browsers or Node.js environments. \r\n\r\n**Notes:**\r\n\r\n1) This is only exploitable if the application relies on the `retries` and `redirect` parameters to limit or prevent redirects;\r\n\r\n2) This issue was fixed in version 2.5.0 for Node.js environments but not for browsers due to `XMLHttpRequest` providing no control over redirects. Default browser behavior for redirects should be expected.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f)\n",
+        "epssDetails": {
+          "percentile": "0.01490",
+          "probability": "0.00013",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-50182"
+          ],
+          "CWE": [
+            "CWE-601"
+          ],
+          "GHSA": [
+            "GHSA-48p4-8xcf-vxj5"
+          ]
+        },
+        "packageName": "urllib3",
+        "proprietary": false,
+        "creationTime": "2025-06-19T07:22:45.914920Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-18T17:50:11Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2025-06-19T09:33:05.670729Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-07-29T09:00:34.326735Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "pti_o2@0.0.0",
+          "kubernetes@34.1.0",
+          "requests-oauthlib@2.0.0",
+          "requests@2.32.5",
+          "urllib3@2.3.0"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "urllib3",
+        "version": "2.3.0"
+      },
+      {
+        "id": "SNYK-PYTHON-URLLIB3-10390194",
+        "title": "Open Redirect",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Jacob Sandum"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,2.5.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "2.5.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "medium",
+        "cvssScore": 6,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "urllib3",
+        "references": [
+          {
+            "url": "https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "cvssV3BaseScore": 6.1,
+            "modificationTime": "2025-09-19T01:13:27.484242Z"
+          },
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-06-19T13:36:01.860093Z"
+          },
+          {
+            "assigner": "SUSE",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-08-09T11:01:51.385912Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-06-19T10:33:10.780903Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T10:33:10.780903Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+            "assigner": "NVD",
+            "severity": "medium",
+            "baseScore": 6.1,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-09-19T01:13:27.484242Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-19T13:36:01.860093Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "SUSE",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-08-09T11:01:51.385912Z"
+          }
+        ],
+        "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect due to the `retries` parameter being ignored during `PoolManager` instantiation. An attacker can access unintended resources or endpoints by leveraging automatic redirects when the application expects redirects to be disabled at the connection pool level.\r\n\r\n**Note:**\r\n\r\n`requests` and `botocore` users are not affected.\r\n\r\n## Workaround\r\n\r\nThis can be mitigated by disabling redirects at the `request()` level instead of the `PoolManager()` level.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857)\n",
+        "epssDetails": {
+          "percentile": "0.02347",
+          "probability": "0.00016",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-50181"
+          ],
+          "CWE": [
+            "CWE-601"
+          ],
+          "GHSA": [
+            "GHSA-pq67-6m6q-mj2v"
+          ]
+        },
+        "packageName": "urllib3",
+        "proprietary": false,
+        "creationTime": "2025-06-19T07:42:26.685719Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-18T17:50:00Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2025-06-19T10:33:10.764765Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-09-19T01:13:27.484242Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "pti_o2@0.0.0",
+          "kubernetes@34.1.0",
+          "requests-oauthlib@2.0.0",
+          "requests@2.32.5",
+          "urllib3@2.3.0"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "urllib3",
+        "version": "2.3.0"
+      }
+    ],
+    "ok": false,
+    "dependencyCount": 54,
+    "org": "mdimado",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pip",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "8 vulnerable dependency paths",
+    "remediation": {
+      "unresolved": [
+        {
+          "id": "SNYK-PYTHON-URLLIB3-10390193",
+          "title": "Open Redirect",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "credit": [
+            "Illia Volochii"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[2.2.0,2.5.0)"
+            ]
+          },
+          "exploit": "Not Defined",
+          "fixedIn": [
+            "2.5.0"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "python",
+          "severity": "medium",
+          "cvssScore": 6,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "urllib3",
+          "references": [
+            {
+              "url": "https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f",
+              "title": "GitHub Commit"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "Red Hat",
+              "severity": "medium",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "cvssV3BaseScore": 5.3,
+              "modificationTime": "2025-06-19T05:32:04.441153Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+              "assigner": "Snyk",
+              "severity": "medium",
+              "baseScore": 6,
+              "cvssVersion": "4.0",
+              "modificationTime": "2025-07-29T09:00:34.326735Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "assigner": "Snyk",
+              "severity": "medium",
+              "baseScore": 5.3,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-07-29T09:00:34.326735Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "assigner": "Red Hat",
+              "severity": "medium",
+              "baseScore": 5.3,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-06-19T05:32:04.441153Z"
+            }
+          ],
+          "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect when used within a Pyodide runtime utilizing the JavaScript Fetch API or falling back on `XMLHttpRequest`, due to the `retries` and `redirect` parameters being ignored and the runtime determining redirect behavior. An attacker can access sensitive information by leveraging uncontrolled redirects in browsers or Node.js environments. \r\n\r\n**Notes:**\r\n\r\n1) This is only exploitable if the application relies on the `retries` and `redirect` parameters to limit or prevent redirects;\r\n\r\n2) This issue was fixed in version 2.5.0 for Node.js environments but not for browsers due to `XMLHttpRequest` providing no control over redirects. Default browser behavior for redirects should be expected.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/7eb4a2aafe49a279c29b6d1f0ed0f42e9736194f)\n",
+          "epssDetails": {
+            "percentile": "0.01490",
+            "probability": "0.00013",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2025-50182"
+            ],
+            "CWE": [
+              "CWE-601"
+            ],
+            "GHSA": [
+              "GHSA-48p4-8xcf-vxj5"
+            ]
+          },
+          "packageName": "urllib3",
+          "proprietary": false,
+          "creationTime": "2025-06-19T07:22:45.914920Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2025-06-18T17:50:11Z",
+          "exploitDetails": {
+            "sources": [],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Not Defined",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Not Defined",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "pip",
+          "publicationTime": "2025-06-19T09:33:05.670729Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2025-07-29T09:00:34.326735Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 100,
+          "from": [
+            "pti_o2@0.0.0",
+            "kubernetes@34.1.0",
+            "requests-oauthlib@2.0.0",
+            "requests@2.32.5",
+            "urllib3@2.3.0"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": true,
+          "isRuntime": false,
+          "name": "urllib3",
+          "version": "2.3.0",
+          "severityWithCritical": "medium"
+        },
+        {
+          "id": "SNYK-PYTHON-URLLIB3-10390194",
+          "title": "Open Redirect",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+          "credit": [
+            "Jacob Sandum"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[,2.5.0)"
+            ]
+          },
+          "exploit": "Not Defined",
+          "fixedIn": [
+            "2.5.0"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "python",
+          "severity": "medium",
+          "cvssScore": 6,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "urllib3",
+          "references": [
+            {
+              "url": "https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857",
+              "title": "GitHub Commit"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "NVD",
+              "severity": "medium",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+              "cvssV3BaseScore": 6.1,
+              "modificationTime": "2025-09-19T01:13:27.484242Z"
+            },
+            {
+              "assigner": "Red Hat",
+              "severity": "medium",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "cvssV3BaseScore": 5.3,
+              "modificationTime": "2025-06-19T13:36:01.860093Z"
+            },
+            {
+              "assigner": "SUSE",
+              "severity": "medium",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "cvssV3BaseScore": 5.3,
+              "modificationTime": "2025-08-09T11:01:51.385912Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+              "assigner": "Snyk",
+              "severity": "medium",
+              "baseScore": 6,
+              "cvssVersion": "4.0",
+              "modificationTime": "2025-06-19T10:33:10.780903Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "assigner": "Snyk",
+              "severity": "medium",
+              "baseScore": 5.3,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-06-19T10:33:10.780903Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+              "assigner": "NVD",
+              "severity": "medium",
+              "baseScore": 6.1,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-09-19T01:13:27.484242Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "assigner": "Red Hat",
+              "severity": "medium",
+              "baseScore": 5.3,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-06-19T13:36:01.860093Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N",
+              "assigner": "SUSE",
+              "severity": "medium",
+              "baseScore": 5.3,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-08-09T11:01:51.385912Z"
+            }
+          ],
+          "description": "## Overview\n[urllib3](https://pypi.org/project/urllib3/) is a HTTP library with thread-safe connection pooling, file post, and more.\n\nAffected versions of this package are vulnerable to Open Redirect due to the `retries` parameter being ignored during `PoolManager` instantiation. An attacker can access unintended resources or endpoints by leveraging automatic redirects when the application expects redirects to be disabled at the connection pool level.\r\n\r\n**Note:**\r\n\r\n`requests` and `botocore` users are not affected.\r\n\r\n## Workaround\r\n\r\nThis can be mitigated by disabling redirects at the `request()` level instead of the `PoolManager()` level.\n## Remediation\nUpgrade `urllib3` to version 2.5.0 or higher.\n## References\n- [GitHub Commit](https://github.com/urllib3/urllib3/commit/f05b1329126d5be6de501f9d1e3e36738bc08857)\n",
+          "epssDetails": {
+            "percentile": "0.02347",
+            "probability": "0.00016",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2025-50181"
+            ],
+            "CWE": [
+              "CWE-601"
+            ],
+            "GHSA": [
+              "GHSA-pq67-6m6q-mj2v"
+            ]
+          },
+          "packageName": "urllib3",
+          "proprietary": false,
+          "creationTime": "2025-06-19T07:42:26.685719Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2025-06-18T17:50:00Z",
+          "exploitDetails": {
+            "sources": [],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Not Defined",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Not Defined",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "pip",
+          "publicationTime": "2025-06-19T10:33:10.764765Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2025-09-19T01:13:27.484242Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 100,
+          "from": [
+            "pti_o2@0.0.0",
+            "kubernetes@34.1.0",
+            "requests-oauthlib@2.0.0",
+            "requests@2.32.5",
+            "urllib3@2.3.0"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": true,
+          "isRuntime": false,
+          "name": "urllib3",
+          "version": "2.3.0",
+          "severityWithCritical": "medium"
+        }
+      ],
+      "upgrade": {},
+      "patch": {},
+      "ignore": {},
+      "pin": {
+        "urllib3@2.3.0": {
+          "upgradeTo": "urllib3@2.5.0",
+          "vulns": [
+            "SNYK-PYTHON-URLLIB3-10390193",
+            "SNYK-PYTHON-URLLIB3-10390194"
+          ],
+          "isTransitive": true
+        }
+      }
+    },
+    "filesystemPolicy": false,
+    "filtered": {
+      "ignore": [],
+      "patch": []
+    },
+    "uniqueCount": 2,
+    "projectName": "pti_o2",
+    "foundProjectCount": 1,
+    "displayTargetFile": "requirements.txt",
+    "hasUnknownVersions": false,
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/pti_o2"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 17,
+    "org": "mdimado",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pip",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No known vulnerabilities",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "mock_smo",
+    "foundProjectCount": 1,
+    "displayTargetFile": "mock_smo/requirements.txt",
+    "hasUnknownVersions": false,
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/pti_o2"
+  }
+]

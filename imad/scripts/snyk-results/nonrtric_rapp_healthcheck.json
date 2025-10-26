@@ -1,0 +1,7 @@
+[
+  {
+    "ok": false,
+    "error": "Failed to get dependencies for all 1 potential projects.\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/nonrtric_rapp_healthcheck/src/requirements.txt:\nSomething went wrong getting dependencies",
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/nonrtric_rapp_healthcheck"
+  }
+]

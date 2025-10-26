@@ -1,0 +1,26 @@
+Unique HIGH and CRITICAL Vulnerabilities:
+
+[CRITICAL] gomodules: Incorrect Implementation of Authentication Algorithm
+[CRITICAL] maven: Time-of-check Time-of-use (TOCTOU) Race Condition
+[CRITICAL] maven: Uncaught Exception
+[HIGH] gomodules: Access Restriction Bypass
+[HIGH] gomodules: Allocation of Resources Without Limits or Throttling
+[HIGH] gomodules: Arbitrary Code Injection
+[HIGH] gomodules: Denial of Service (DoS)
+[HIGH] gomodules: Directory Traversal
+[HIGH] gomodules: NULL Pointer Dereference
+[HIGH] gomodules: Uncontrolled Recursion
+[HIGH] gomodules: Use of Uninitialized Resource
+[HIGH] maven: Allocation of Resources Without Limits or Throttling
+[HIGH] maven: Deserialization of Untrusted Data
+[HIGH] maven: Improper Cleanup on Thrown Exception
+[HIGH] maven: Improper Resource Shutdown or Release
+[HIGH] maven: Incorrect Authorization
+[HIGH] maven: Incorrect Implementation of Authentication Algorithm
+[HIGH] maven: Insufficient Session Expiration
+[HIGH] maven: Integer Overflow or Wraparound
+[HIGH] maven: Open Redirect
+[HIGH] maven: Path Equivalence
+[HIGH] maven: Path Traversal
+[HIGH] maven: Relative Path Traversal
+[HIGH] maven: Server-side Request Forgery (SSRF)

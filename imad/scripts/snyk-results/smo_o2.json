@@ -1,0 +1,7 @@
+[
+  {
+    "ok": false,
+    "error": "Failed to get dependencies for all 2 potential projects.\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_o2/nfo/k8s/requirements.txt:\nSomething went wrong getting dependencies\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_o2/tacker/tacker/tests/xtesting/requirements.txt:\nSomething went wrong getting dependencies",
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_o2"
+  }
+]

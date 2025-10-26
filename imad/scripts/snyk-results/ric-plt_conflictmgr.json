@@ -1,0 +1,7 @@
+[
+  {
+    "ok": false,
+    "error": "Failed to get dependencies for all 1 potential projects.\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/ric-plt_conflictmgr/go.mod:\ngo: module gerrit.o-ran-sc.org/r/ric-plt/xapp-frame@upgrade found (v0.9.16, replaced by gerrit.o-ran-sc.org/r/ric-plt/xapp-frame.git@v0.9.16), but does not contain package gerrit.o-ran-sc.org/r/ric-plt/xapp-frame/pkg/grpc\n",
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/ric-plt_conflictmgr"
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {
+    "ok": false,
+    "error": "Failed to get dependencies for all 1 potential projects.\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/aiml-fw_athp_pipeline-components/requirements.txt:\nRequired packages missing: kfp, kfp-kubernetes, docker, build, colorlog, requests\n\nPlease run `pip install -r requirements.txt`. If the issue persists try again with --skip-unresolved.",
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/aiml-fw_athp_pipeline-components"
+  }
+]

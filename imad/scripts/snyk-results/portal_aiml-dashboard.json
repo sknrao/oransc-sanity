@@ -1,0 +1,7 @@
+[
+  {
+    "ok": false,
+    "error": "Failed to get dependencies for all 1 potential projects.\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/portal_aiml-dashboard/package.json:\nMissing node_modules folder: we can't test without dependencies.\nPlease run 'npm install' first.",
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/portal_aiml-dashboard"
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {
+    "ok": false,
+    "error": "Could not detect supported target files in /Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/aiml-fw_aihp_tps_kserve-adapter.\nPlease see our documentation for supported languages and target files: https://snyk.co/udVgQ and make sure you are in the right directory.",
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/aiml-fw_aihp_tps_kserve-adapter"
+  }
+]

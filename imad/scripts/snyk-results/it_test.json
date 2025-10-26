@@ -1,0 +1,7 @@
+[
+  {
+    "ok": false,
+    "error": "Failed to get dependencies for all 6 potential projects.\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/it_test/XTesting/kubeadm/requirements.txt:\nSomething went wrong getting dependencies\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/it_test/XTesting/kubespray/requirements.txt:\nSomething went wrong getting dependencies\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/it_test/XTesting/kubespray/scripts/gitlab-branch-cleanup/requirements.txt:\nSomething went wrong getting dependencies\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/it_test/XTesting/kubespray/scripts/openstack-cleanup/requirements.txt:\nSomething went wrong getting dependencies\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/it_test/XTesting/powder-control/requirements.txt:\nSomething went wrong getting dependencies\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/it_test/ric_robot_suite/xapp/src/go.mod:\ngo: github.com/go-redis/redis@v6.15.3+incompatible: invalid version: module contains a go.mod file, so module path must match major version (\"github.com/go-redis/redis/v6\")\n",
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/it_test"
+  }
+]

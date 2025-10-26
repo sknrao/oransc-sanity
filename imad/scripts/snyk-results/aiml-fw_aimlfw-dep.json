@@ -1,0 +1,7 @@
+[
+  {
+    "ok": false,
+    "error": "Failed to get dependencies for all 2 potential projects.\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/aiml-fw_aimlfw-dep/demos/example-rapp/rapp/app/requirements.txt:\nSomething went wrong getting dependencies\n\n/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/aiml-fw_aimlfw-dep/demos/model-deployment/myapplication/app/requirements.txt:\nSomething went wrong getting dependencies",
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/aiml-fw_aimlfw-dep"
+  }
+]

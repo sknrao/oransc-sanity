@@ -1,0 +1,2821 @@
+[
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mdimado",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "maven",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No known vulnerabilities",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "org.oran.smo:topology-exposure-inventory",
+    "foundProjectCount": 7,
+    "displayTargetFile": "pom.xml",
+    "hasUnknownVersions": false,
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_teiv"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mdimado",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "maven",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No known vulnerabilities",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "org.oran.smo:adapters",
+    "foundProjectCount": 7,
+    "displayTargetFile": "adapters/pom.xml",
+    "hasUnknownVersions": false,
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_teiv"
+  },
+  {
+    "vulnerabilities": [
+      {
+        "id": "SNYK-JAVA-ORGAPACHEKAFKA-10336719",
+        "title": "Server-side Request Forgery (SSRF)",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N/E:P",
+        "credit": [
+          "4ra1n",
+          "luelueking",
+          "enokiy"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[3.1.0,3.9.1)"
+          ]
+        },
+        "exploit": "Proof of Concept",
+        "fixedIn": [
+          "3.9.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "high",
+        "cvssScore": 8.7,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.apache.kafka:kafka-clients",
+        "references": [
+          {
+            "url": "https://kafka.apache.org/cve-list",
+            "title": "Apache Kafka"
+          },
+          {
+            "url": "https://github.com/apache/kafka/commit/35829fddcbcf375eb0462d07a51bf8becb1b8757",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "http://www.openwall.com/lists/oss-security/2025/06/09/1",
+            "title": "OSS Security Advisory"
+          },
+          {
+            "url": "https://github.com/kk12-30/CVE-2025-27817",
+            "title": "PoC in GitHub"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+            "cvssV3BaseScore": 8.1,
+            "modificationTime": "2025-06-10T13:37:20.095600Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:P",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.7,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-06-11T07:58:31.976256Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N/E:P",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-11T07:58:31.976256Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 8.1,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-10T13:37:20.095600Z"
+          }
+        ],
+        "description": "## Overview\n[org.apache.kafka:kafka-clients](http://kafka.apache.org/) is a streaming platform that can publish and subscribe to streams of records, store streams of records in a fault-tolerant durable way, and process streams of records as they occur.\n\nAffected versions of this package are vulnerable to Server-side Request Forgery (SSRF) due to the improper handling of `sasl.oauthbearer.token.endpoint.url` and `sasl.oauthbearer.jwks.endpoint.url` configurations. An attacker can read arbitrary contents of the disk and environment variables or make requests to an unintended location by manipulating these configurations.\r\n\r\n**Note:**\r\nThis is only exploitable if configurations can be specified by an untrusted party.\n## Remediation\nUpgrade `org.apache.kafka:kafka-clients` to version 3.9.1 or higher.\n## References\n- [Apache Kafka](https://kafka.apache.org/cve-list)\n- [GitHub Commit](https://github.com/apache/kafka/commit/35829fddcbcf375eb0462d07a51bf8becb1b8757)\n- [OSS Security Advisory](http://www.openwall.com/lists/oss-security/2025/06/09/1)\n- [PoC in GitHub](https://github.com/kk12-30/CVE-2025-27817)\n",
+        "epssDetails": {
+          "percentile": "0.07618",
+          "probability": "0.00031",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-27817"
+          ],
+          "CWE": [
+            "CWE-918"
+          ],
+          "GHSA": [
+            "GHSA-vgq5-3255-v292"
+          ]
+        },
+        "packageName": "org.apache.kafka:kafka-clients",
+        "proprietary": false,
+        "creationTime": "2025-06-11T07:25:30.049183Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-10T09:30:31Z",
+        "exploitDetails": {
+          "sources": [
+            "PoC in GitHub"
+          ],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Proof of Concept",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Proof of Concept",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.apache.kafka",
+          "artifactId": "kafka-clients"
+        },
+        "publicationTime": "2025-06-11T07:58:31.967596Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-06-18T05:20:04.361113Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+          "io.cloudevents:cloudevents-kafka@3.0.0",
+          "org.apache.kafka:kafka-clients@3.8.1"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "org.apache.kafka:kafka-clients",
+        "version": "3.8.1"
+      },
+      {
+        "id": "SNYK-JAVA-ORGAPACHEKAFKA-10350513",
+        "title": "Deserialization of Untrusted Data",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+        "credit": [
+          "Ziyang Li",
+          "Ji'an Zhou",
+          "Ying Zhu"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[2.0.0,3.9.1)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "3.9.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "high",
+        "cvssScore": 8.6,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.apache.kafka:kafka-clients",
+        "references": [
+          {
+            "url": "https://github.com/apache/kafka/commit/4038edfafe43f01f262c47d81786442ad7ab0b03",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://kafka.apache.org/cve-list",
+            "title": "Kafka Security Advisories"
+          },
+          {
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2371365",
+            "title": "Red Hat Bugzilla Bug"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "cvssV3BaseScore": 8.8,
+            "modificationTime": "2025-06-11T14:42:45.380583Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.6,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-06-13T16:13:45.186656Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.8,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-13T16:13:45.186656Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 8.8,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-11T14:42:45.380583Z"
+          }
+        ],
+        "description": "## Overview\n[org.apache.kafka:kafka-clients](http://kafka.apache.org/) is a streaming platform that can publish and subscribe to streams of records, store streams of records in a fault-tolerant durable way, and process streams of records as they occur.\n\nAffected versions of this package are vulnerable to Deserialization of Untrusted Data via the `JndiLoginModule` process in the SASL authentication mechanism. An attacker can execute arbitrary code or cause a denial of service by supplying a malicious JNDI URI in the broker's configuration.\r\n\r\n**Note:**\r\n\r\nThis is only exploitable if the attacker can connect to the Kafka cluster and has the AlterConfigs permission on the cluster resource.\n\n## Details\n\nSerialization is a process of converting an object into a sequence of bytes which can be persisted to a disk or database or can be sent through streams. The reverse process of creating object from sequence of bytes is called deserialization. Serialization is commonly used for communication (sharing objects between multiple hosts) and persistence (store the object state in a file or a database). It is an integral part of popular protocols like _Remote Method Invocation (RMI)_, _Java Management Extension (JMX)_, _Java Messaging System (JMS)_, _Action Message Format (AMF)_, _Java Server Faces (JSF) ViewState_, etc.\n\n_Deserialization of untrusted data_ ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)) is when the application deserializes untrusted data without sufficiently verifying that the resulting data will be valid, thus allowing the attacker to control the state or the flow of the execution.\n  \n## Remediation\nUpgrade `org.apache.kafka:kafka-clients` to version 3.9.1 or higher.\n## References\n- [GitHub Commit](https://github.com/apache/kafka/commit/4038edfafe43f01f262c47d81786442ad7ab0b03)\n- [Kafka Security Advisories](https://kafka.apache.org/cve-list)\n- [Red Hat Bugzilla Bug](https://bugzilla.redhat.com/show_bug.cgi?id=2371365)\n",
+        "epssDetails": {
+          "percentile": "0.64733",
+          "probability": "0.00492",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-27819"
+          ],
+          "CWE": [
+            "CWE-502"
+          ]
+        },
+        "packageName": "org.apache.kafka:kafka-clients",
+        "proprietary": false,
+        "creationTime": "2025-06-13T15:53:34.215532Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-10T07:54:41Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.apache.kafka",
+          "artifactId": "kafka-clients"
+        },
+        "publicationTime": "2025-06-13T15:53:34.489818Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-06-13T16:13:45.186656Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+          "io.cloudevents:cloudevents-kafka@3.0.0",
+          "org.apache.kafka:kafka-clients@3.8.1"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "org.apache.kafka:kafka-clients",
+        "version": "3.8.1"
+      },
+      {
+        "id": "SNYK-JAVA-ORGAPACHEKAFKA-10350567",
+        "title": "Deserialization of Untrusted Data",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+        "credit": [
+          "罗鑫",
+          "ra1lgun"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[2.3.0,3.9.1)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "3.9.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "high",
+        "cvssScore": 8.5,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.apache.kafka:kafka-clients",
+        "references": [
+          {
+            "url": "https://github.com/apache/kafka/commit/4038edfafe43f01f262c47d81786442ad7ab0b03",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://kafka.apache.org/cve-list",
+            "title": "Kafka Security Advisories"
+          },
+          {
+            "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2371368",
+            "title": "Red Hat Bugzilla Bug"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+            "cvssV3BaseScore": 8,
+            "modificationTime": "2025-06-10T13:37:20.755942Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.5,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-06-13T16:12:04.925257Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-13T16:12:04.925257Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 8,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-06-10T13:37:20.755942Z"
+          }
+        ],
+        "description": "## Overview\n[org.apache.kafka:kafka-clients](http://kafka.apache.org/) is a streaming platform that can publish and subscribe to streams of records, store streams of records in a fault-tolerant durable way, and process streams of records as they occur.\n\nAffected versions of this package are vulnerable to Deserialization of Untrusted Data due to improper handling of configuration data in the `sasl.jaas.config` property. An attacker can achieve arbitrary code execution by injecting a malicious configuration that causes the server to connect to an attacker-controlled LDAP server and deserialize untrusted data, leading to execution of deserialization gadget chains.\r\n\r\n**Note:**\r\n\r\nThis is only exploitable if the attacker has access to alterConfig for a cluster resource or Kafka Connect worker and can create or modify connectors with arbitrary Kafka client SASL JAAS configuration.\n\n## Details\n\nSerialization is a process of converting an object into a sequence of bytes which can be persisted to a disk or database or can be sent through streams. The reverse process of creating object from sequence of bytes is called deserialization. Serialization is commonly used for communication (sharing objects between multiple hosts) and persistence (store the object state in a file or a database). It is an integral part of popular protocols like _Remote Method Invocation (RMI)_, _Java Management Extension (JMX)_, _Java Messaging System (JMS)_, _Action Message Format (AMF)_, _Java Server Faces (JSF) ViewState_, etc.\n\n_Deserialization of untrusted data_ ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)) is when the application deserializes untrusted data without sufficiently verifying that the resulting data will be valid, thus allowing the attacker to control the state or the flow of the execution.\n  \n## Remediation\nUpgrade `org.apache.kafka:kafka-clients` to version 3.9.1 or higher.\n## References\n- [GitHub Commit](https://github.com/apache/kafka/commit/4038edfafe43f01f262c47d81786442ad7ab0b03)\n- [Kafka Security Advisories](https://kafka.apache.org/cve-list)\n- [Red Hat Bugzilla Bug](https://bugzilla.redhat.com/show_bug.cgi?id=2371368)\n",
+        "epssDetails": {
+          "percentile": "0.45327",
+          "probability": "0.00226",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-27818"
+          ],
+          "CWE": [
+            "CWE-502"
+          ]
+        },
+        "packageName": "org.apache.kafka:kafka-clients",
+        "proprietary": false,
+        "creationTime": "2025-06-13T16:10:51.814621Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-06-10T07:52:31Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.apache.kafka",
+          "artifactId": "kafka-clients"
+        },
+        "publicationTime": "2025-06-13T16:10:52.119702Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-06-13T16:12:04.925257Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+          "io.cloudevents:cloudevents-kafka@3.0.0",
+          "org.apache.kafka:kafka-clients@3.8.1"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "org.apache.kafka:kafka-clients",
+        "version": "3.8.1"
+      },
+      {
+        "id": "SNYK-JAVA-ORGJETBRAINSKOTLIN-2393744",
+        "title": "Information Exposure",
+        "CVSSv3": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N/E:P",
+        "credit": [
+          "JLLeitschuh"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,2.1.0)"
+          ]
+        },
+        "exploit": "Proof of Concept",
+        "fixedIn": [
+          "2.1.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "low",
+        "cvssScore": 3.3,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.jetbrains.kotlin:kotlin-stdlib",
+        "references": [
+          {
+            "url": "https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/create-temp-dir.html",
+            "title": "Documentation"
+          },
+          {
+            "url": "https://github.com/JetBrains/kotlin/commit/66f5c985057031117e173572dc339ba2acd4128d",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://youtrack.jetbrains.com/issue/KT-43306/Deprecate-createTempFile-and-createTempDir-functions-in-kotlin.io",
+            "title": "Issue"
+          },
+          {
+            "url": "https://github.com/JetBrains/kotlin/blob/9b157fd291d581a30a3194940b0ebbb95a2fd247/libraries/stdlib/jvm/src/kotlin/io/files/Utils.kt%23L14-L39",
+            "title": "Vulnerable Code #1"
+          },
+          {
+            "url": "https://github.com/JetBrains/kotlin/blob/9b157fd291d581a30a3194940b0ebbb95a2fd247/libraries/stdlib/jvm/src/kotlin/io/files/Utils.kt%23L41-L60",
+            "title": "Vulnerable Code #2"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2024-03-11T09:50:55.749386Z"
+          },
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2025-04-29T04:33:17.798099Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N/E:P",
+            "assigner": "Snyk",
+            "severity": "low",
+            "baseScore": 3.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2024-11-28T15:09:46.694131Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+            "assigner": "NVD",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2024-03-11T09:50:55.749386Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-04-29T04:33:17.798099Z"
+          }
+        ],
+        "description": "## Overview\n[org.jetbrains.kotlin:kotlin-stdlib](https://search.maven.org/artifact/org.jetbrains.kotlin/kotlin-stdlib) is a Kotlin Standard Library for JVM.\n\nAffected versions of this package are vulnerable to Information Exposure. A Kotlin application using `createTempDir` or `createTempFile` and placing sensitive information within either of these locations would be leaking this information in a read-only way to other users also on this system.\r\n\r\n**Note:** As of version 1.4.21, the vulnerable functions have been marked as deprecated. Due to still being usable, this advisory is kept as \"unfixed\".\r\n\r\n## PoC by JLLeitschuh\r\n```\r\npackage org.jlleitschuh.sandbox\r\n\r\nimport org.junit.jupiter.api.Test\r\nimport java.io.BufferedReader\r\nimport java.io.File\r\nimport java.io.IOException\r\nimport java.io.InputStreamReader\r\nimport java.nio.file.Files\r\n\r\nclass KotlinTempDirectoryPermissionCheck {\r\n    @Test\r\n    fun `kotlin check default directory permissions`() {\r\n        val dir = createTempDir()\r\n        runLS(dir.parentFile, dir) // Prints drwxr-xr-x\r\n    }\r\n\r\n    @Test\r\n    fun `Files check default directory permissions`() {\r\n        val dir = Files.createTempDirectory(\"random-directory\")\r\n        runLS(dir.toFile().parentFile, dir.toFile()) // Prints drwx------\r\n    }\r\n\r\n    @Test\r\n    fun `kotlin check default file permissions`() {\r\n        val file = createTempFile()\r\n        runLS(file.parentFile, file) // Prints -rw-r--r--\r\n    }\r\n\r\n    @Test\r\n    fun `Files check default file permissions`() {\r\n        val file = Files.createTempFile(\"random-file\", \".txt\")\r\n        runLS(file.toFile().parentFile, file.toFile()) // Prints -rw-------\r\n    }\r\n\r\n    private fun runLS(file: File, lookingFor: File) {\r\n        val processBuilder = ProcessBuilder()\r\n        processBuilder.command(\"ls\", \"-l\", file.absolutePath)\r\n        try {\r\n            val process = processBuilder.start()\r\n            val output = StringBuilder()\r\n            val reader = BufferedReader(\r\n                InputStreamReader(process.inputStream)\r\n            )\r\n            reader.lines().forEach { line ->\r\n                if (line.contains(\"total\")) {\r\n                    output.append(line).append('\\n')\r\n                }\r\n                if (line.contains(lookingFor.name)) {\r\n                    output.append(line).append('\\n')\r\n                }\r\n            }\r\n            val exitVal = process.waitFor()\r\n            if (exitVal == 0) {\r\n                println(\"Success!\")\r\n                println(output)\r\n            } else {\r\n                //abnormal...\r\n            }\r\n        } catch (e: IOException) {\r\n            e.printStackTrace()\r\n        } catch (e: InterruptedException) {\r\n            e.printStackTrace()\r\n        }\r\n    }\r\n}\r\n```\n## Remediation\nUpgrade `org.jetbrains.kotlin:kotlin-stdlib` to version 2.1.0 or higher.\n## References\n- [Documentation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/create-temp-dir.html)\n- [GitHub Commit](https://github.com/JetBrains/kotlin/commit/66f5c985057031117e173572dc339ba2acd4128d)\n- [Issue](https://youtrack.jetbrains.com/issue/KT-43306/Deprecate-createTempFile-and-createTempDir-functions-in-kotlin.io)\n- [Vulnerable Code #1](https://github.com/JetBrains/kotlin/blob/9b157fd291d581a30a3194940b0ebbb95a2fd247/libraries/stdlib/jvm/src/kotlin/io/files/Utils.kt#L14-L39)\n- [Vulnerable Code #2](https://github.com/JetBrains/kotlin/blob/9b157fd291d581a30a3194940b0ebbb95a2fd247/libraries/stdlib/jvm/src/kotlin/io/files/Utils.kt#L41-L60)\n",
+        "epssDetails": {
+          "percentile": "0.00129",
+          "probability": "0.00003",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2020-29582"
+          ],
+          "CWE": [
+            "CWE-378"
+          ]
+        },
+        "packageName": "org.jetbrains.kotlin:kotlin-stdlib",
+        "proprietary": false,
+        "creationTime": "2022-02-04T09:36:58.345703Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2022-02-03T20:43:35Z",
+        "exploitDetails": {
+          "sources": [
+            "Snyk"
+          ],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Proof of Concept",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Proof of Concept",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.jetbrains.kotlin",
+          "artifactId": "kotlin-stdlib"
+        },
+        "publicationTime": "2022-02-04T14:31:42Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-04-29T04:33:17.798099Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "low",
+        "from": [
+          "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+          "com.squareup.okhttp3:okhttp@4.9.3",
+          "org.jetbrains.kotlin:kotlin-stdlib@1.9.25"
+        ],
+        "upgradePath": [
+          false,
+          "com.squareup.okhttp3:okhttp@4.12.0"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "org.jetbrains.kotlin:kotlin-stdlib",
+        "version": "1.9.25"
+      },
+      {
+        "id": "SNYK-JAVA-ORGSPRINGFRAMEWORK-10176071",
+        "title": "Improper Handling of Case Sensitivity",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+        "credit": [
+          "TERASOLUNA Framework Development Team"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[6.1.0,6.1.20)",
+            "[6.2.0,6.2.7)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.1.20",
+          "6.2.7"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "low",
+        "cvssScore": 2.3,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.springframework:spring-context",
+        "references": [
+          {
+            "url": "https://github.com/spring-projects/spring-framework/commit/ee62701f5634e904e42e218baad142cea2bcd332",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/spring-projects/spring-framework/issues/34801",
+            "title": "GitHub Issue"
+          },
+          {
+            "url": "https://spring.io/security/cve-2025-22233",
+            "title": "Spring Security Advisory"
+          }
+        ],
+        "cvssDetails": [],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "low",
+            "baseScore": 2.3,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-05-16T08:58:53.942627Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+            "assigner": "Snyk",
+            "severity": "low",
+            "baseScore": 3.1,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-05-16T08:58:53.942627Z"
+          }
+        ],
+        "description": "## Overview\n\nAffected versions of this package are vulnerable to Improper Handling of Case Sensitivity due to an incomplete fix for [CVE-2024-38820](https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-8230364), where it is still possible to bypass the `disallowedFields` checks.\n\n**Note:**\n\nThis vulnerability was also fixed in commercial versions 6.0.28 and 5.3.43.\n## Remediation\nUpgrade `org.springframework:spring-context` to version 6.1.20, 6.2.7 or higher.\n## References\n- [GitHub Commit](https://github.com/spring-projects/spring-framework/commit/ee62701f5634e904e42e218baad142cea2bcd332)\n- [GitHub Issue](https://github.com/spring-projects/spring-framework/issues/34801)\n- [Spring Security Advisory](https://spring.io/security/cve-2025-22233)\n",
+        "epssDetails": {
+          "percentile": "0.23932",
+          "probability": "0.00077",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-22233"
+          ],
+          "CWE": [
+            "CWE-178"
+          ]
+        },
+        "packageName": "org.springframework:spring-context",
+        "proprietary": false,
+        "creationTime": "2025-05-16T08:58:53.695842Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-05-15T00:00:00Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.springframework",
+          "artifactId": "spring-context"
+        },
+        "publicationTime": "2025-05-16T08:58:53.916559Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-05-16T08:58:53.942627Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "low",
+        "from": [
+          "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+          "org.springframework.kafka:spring-kafka@3.3.4",
+          "org.springframework:spring-context@6.2.2"
+        ],
+        "upgradePath": [
+          false,
+          "org.springframework.kafka:spring-kafka@3.3.6",
+          "org.springframework:spring-context@6.2.7"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "org.springframework:spring-context",
+        "version": "6.2.2"
+      },
+      {
+        "id": "SNYK-JAVA-ORGSPRINGFRAMEWORK-12008931",
+        "title": "Relative Path Traversal",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "1ue",
+          "iSafeBlue",
+          "Joakim Erdfelt"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,6.2.10)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.2.10"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.springframework:spring-beans",
+        "references": [
+          {
+            "url": "https://github.com/spring-projects/spring-framework/commit/3781ba223ed76823b99e9c699e0957b391e22bf9",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/spring-projects/spring-framework/releases/tag/v6.2.10",
+            "title": "GitHub Release"
+          },
+          {
+            "url": "https://spring.io/blog/2025/08/14/spring-framework-6-2-10-release-fixes-cve-2025-41242",
+            "title": "Spring Release"
+          },
+          {
+            "url": "https://spring.io/security/cve-2025-41242",
+            "title": "Vendor Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.9,
+            "modificationTime": "2025-08-19T17:29:27.431619Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-08-19T08:15:12.258842Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-08-19T08:15:12.258842Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-08-19T17:29:27.431619Z"
+          }
+        ],
+        "description": "## Overview\n[org.springframework:spring-beans](https://www.baeldung.com/spring-bean) is a package that is the basis for Spring Framework's IoC container. The BeanFactory interface provides an advanced configuration mechanism capable of managing any type of object.\n\nAffected versions of this package are vulnerable to Relative Path Traversal when deployed on non-compliant Servlet containers. An unauthenticated attacker could gain access to files and directories outside the intended web root.\r\n\r\n**Notes:**\r\n\r\n1) This is only exploitable if the application is deployed as a WAR or with an embedded Servlet container, the Servlet container does not reject suspicious sequences and the application serves static resources with Spring resource handling.\r\n\r\n2) Applications deployed on Apache Tomcat or Eclipse Jetty are not vulnerable, as long as default security features are not disabled in the configuration.\r\n\r\n3) This vulnerability was also fixed in the commercial versions 6.1.22 and 5.3.44.\n## Remediation\nUpgrade `org.springframework:spring-beans` to version 6.2.10 or higher.\n## References\n- [GitHub Commit](https://github.com/spring-projects/spring-framework/commit/3781ba223ed76823b99e9c699e0957b391e22bf9)\n- [GitHub Release](https://github.com/spring-projects/spring-framework/releases/tag/v6.2.10)\n- [Spring Release](https://spring.io/blog/2025/08/14/spring-framework-6-2-10-release-fixes-cve-2025-41242)\n- [Vendor Advisory](https://spring.io/security/cve-2025-41242)\n",
+        "epssDetails": {
+          "percentile": "0.26838",
+          "probability": "0.00091",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-41242"
+          ],
+          "CWE": [
+            "CWE-23"
+          ]
+        },
+        "packageName": "org.springframework:spring-beans",
+        "proprietary": false,
+        "creationTime": "2025-08-19T08:14:28.809726Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-08-14T00:00:00Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.springframework",
+          "artifactId": "spring-beans"
+        },
+        "publicationTime": "2025-08-19T08:14:29.077518Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-08-19T17:29:27.431619Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+          "org.springframework.kafka:spring-kafka@3.3.4",
+          "org.springframework:spring-context@6.2.2",
+          "org.springframework:spring-beans@6.2.2"
+        ],
+        "upgradePath": [
+          false,
+          "org.springframework.kafka:spring-kafka@3.3.9",
+          "org.springframework:spring-context@6.2.10",
+          "org.springframework:spring-beans@6.2.10"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "org.springframework:spring-beans",
+        "version": "6.2.2"
+      },
+      {
+        "id": "SNYK-JAVA-ORGSPRINGFRAMEWORK-12817817",
+        "title": "Incorrect Authorization",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Sam Brannen"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,6.2.11)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.2.11"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "high",
+        "cvssScore": 8.7,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.springframework:spring-core",
+        "references": [
+          {
+            "url": "https://github.com/spring-projects/spring-framework/commit/6d710d482a6785b069e35022e81758953afc21ff",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/spring-projects/spring-framework/issues/35342",
+            "title": "GitHub Issue"
+          },
+          {
+            "url": "https://github.com/spring-projects/spring-framework/releases/tag/v6.2.11",
+            "title": "GitHub Release"
+          },
+          {
+            "url": "https://spring.io/security/cve-2025-41249",
+            "title": "Vendor Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2025-09-18T13:36:04.157972Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.7,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-09-17T21:24:40.484340Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-09-17T21:24:40.484340Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-09-18T13:36:04.157972Z"
+          }
+        ],
+        "description": "## Overview\n[org.springframework:spring-core](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22spring-core%22) is a core package within the spring-framework that contains multiple classes and utilities.\n\nAffected versions of this package are vulnerable to Incorrect Authorization via the `AnnotationsScanner` and `AnnotatedMethod` class. An attacker can gain unauthorized access to sensitive information by exploiting improper resolution of annotations on methods within type hierarchies that use parameterized supertypes with unbounded generics.\r\n\r\n**Note:**\r\nThis is only exploitable if security annotations are used on methods in generic superclasses or generic interfaces and the `@EnableMethodSecurity` feature is enabled.\n## Remediation\nUpgrade `org.springframework:spring-core` to version 6.2.11 or higher.\n## References\n- [GitHub Commit](https://github.com/spring-projects/spring-framework/commit/6d710d482a6785b069e35022e81758953afc21ff)\n- [GitHub Issue](https://github.com/spring-projects/spring-framework/issues/35342)\n- [GitHub Release](https://github.com/spring-projects/spring-framework/releases/tag/v6.2.11)\n- [Vendor Advisory](https://spring.io/security/cve-2025-41249)\n",
+        "epssDetails": {
+          "percentile": "0.14588",
+          "probability": "0.00048",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-41249"
+          ],
+          "CWE": [
+            "CWE-863"
+          ],
+          "GHSA": [
+            "GHSA-jmp9-x22r-554x"
+          ]
+        },
+        "packageName": "org.springframework:spring-core",
+        "proprietary": false,
+        "creationTime": "2025-09-17T08:55:00.300239Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-09-16T15:32:34Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.springframework",
+          "artifactId": "spring-core"
+        },
+        "publicationTime": "2025-09-17T21:24:40.464102Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-09-18T13:36:04.157972Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+          "org.springframework.boot:spring-boot-starter@3.4.2",
+          "org.springframework:spring-core@6.2.2"
+        ],
+        "upgradePath": [
+          false,
+          "org.springframework.boot:spring-boot-starter@3.4.10",
+          "org.springframework:spring-core@6.2.11"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "org.springframework:spring-core",
+        "version": "6.2.2"
+      }
+    ],
+    "ok": false,
+    "dependencyCount": 40,
+    "org": "mdimado",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "maven",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "7 vulnerable dependency paths",
+    "remediation": {
+      "unresolved": [
+        {
+          "id": "SNYK-JAVA-ORGAPACHEKAFKA-10336719",
+          "title": "Server-side Request Forgery (SSRF)",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N/E:P",
+          "credit": [
+            "4ra1n",
+            "luelueking",
+            "enokiy"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[3.1.0,3.9.1)"
+            ]
+          },
+          "exploit": "Proof of Concept",
+          "fixedIn": [
+            "3.9.1"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "java",
+          "severity": "high",
+          "cvssScore": 8.7,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "org.apache.kafka:kafka-clients",
+          "references": [
+            {
+              "url": "https://kafka.apache.org/cve-list",
+              "title": "Apache Kafka"
+            },
+            {
+              "url": "https://github.com/apache/kafka/commit/35829fddcbcf375eb0462d07a51bf8becb1b8757",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "http://www.openwall.com/lists/oss-security/2025/06/09/1",
+              "title": "OSS Security Advisory"
+            },
+            {
+              "url": "https://github.com/kk12-30/CVE-2025-27817",
+              "title": "PoC in GitHub"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "Red Hat",
+              "severity": "high",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "cvssV3BaseScore": 8.1,
+              "modificationTime": "2025-06-10T13:37:20.095600Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:P",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.7,
+              "cvssVersion": "4.0",
+              "modificationTime": "2025-06-11T07:58:31.976256Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N/E:P",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 7.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-06-11T07:58:31.976256Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N",
+              "assigner": "Red Hat",
+              "severity": "high",
+              "baseScore": 8.1,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-06-10T13:37:20.095600Z"
+            }
+          ],
+          "description": "## Overview\n[org.apache.kafka:kafka-clients](http://kafka.apache.org/) is a streaming platform that can publish and subscribe to streams of records, store streams of records in a fault-tolerant durable way, and process streams of records as they occur.\n\nAffected versions of this package are vulnerable to Server-side Request Forgery (SSRF) due to the improper handling of `sasl.oauthbearer.token.endpoint.url` and `sasl.oauthbearer.jwks.endpoint.url` configurations. An attacker can read arbitrary contents of the disk and environment variables or make requests to an unintended location by manipulating these configurations.\r\n\r\n**Note:**\r\nThis is only exploitable if configurations can be specified by an untrusted party.\n## Remediation\nUpgrade `org.apache.kafka:kafka-clients` to version 3.9.1 or higher.\n## References\n- [Apache Kafka](https://kafka.apache.org/cve-list)\n- [GitHub Commit](https://github.com/apache/kafka/commit/35829fddcbcf375eb0462d07a51bf8becb1b8757)\n- [OSS Security Advisory](http://www.openwall.com/lists/oss-security/2025/06/09/1)\n- [PoC in GitHub](https://github.com/kk12-30/CVE-2025-27817)\n",
+          "epssDetails": {
+            "percentile": "0.07618",
+            "probability": "0.00031",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2025-27817"
+            ],
+            "CWE": [
+              "CWE-918"
+            ],
+            "GHSA": [
+              "GHSA-vgq5-3255-v292"
+            ]
+          },
+          "packageName": "org.apache.kafka:kafka-clients",
+          "proprietary": false,
+          "creationTime": "2025-06-11T07:25:30.049183Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2025-06-10T09:30:31Z",
+          "exploitDetails": {
+            "sources": [
+              "PoC in GitHub"
+            ],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Proof of Concept",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Proof of Concept",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "maven",
+          "mavenModuleName": {
+            "groupId": "org.apache.kafka",
+            "artifactId": "kafka-clients"
+          },
+          "publicationTime": "2025-06-11T07:58:31.967596Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2025-06-18T05:20:04.361113Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+            "io.cloudevents:cloudevents-kafka@3.0.0",
+            "org.apache.kafka:kafka-clients@3.8.1"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": false,
+          "isRuntime": false,
+          "name": "org.apache.kafka:kafka-clients",
+          "version": "3.8.1",
+          "severityWithCritical": "high"
+        },
+        {
+          "id": "SNYK-JAVA-ORGAPACHEKAFKA-10350513",
+          "title": "Deserialization of Untrusted Data",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "credit": [
+            "Ziyang Li",
+            "Ji'an Zhou",
+            "Ying Zhu"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[2.0.0,3.9.1)"
+            ]
+          },
+          "exploit": "Not Defined",
+          "fixedIn": [
+            "3.9.1"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "java",
+          "severity": "high",
+          "cvssScore": 8.6,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "org.apache.kafka:kafka-clients",
+          "references": [
+            {
+              "url": "https://github.com/apache/kafka/commit/4038edfafe43f01f262c47d81786442ad7ab0b03",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "https://kafka.apache.org/cve-list",
+              "title": "Kafka Security Advisories"
+            },
+            {
+              "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2371365",
+              "title": "Red Hat Bugzilla Bug"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "Red Hat",
+              "severity": "high",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "cvssV3BaseScore": 8.8,
+              "modificationTime": "2025-06-11T14:42:45.380583Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.6,
+              "cvssVersion": "4.0",
+              "modificationTime": "2025-06-13T16:13:45.186656Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.8,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-06-13T16:13:45.186656Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "assigner": "Red Hat",
+              "severity": "high",
+              "baseScore": 8.8,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-06-11T14:42:45.380583Z"
+            }
+          ],
+          "description": "## Overview\n[org.apache.kafka:kafka-clients](http://kafka.apache.org/) is a streaming platform that can publish and subscribe to streams of records, store streams of records in a fault-tolerant durable way, and process streams of records as they occur.\n\nAffected versions of this package are vulnerable to Deserialization of Untrusted Data via the `JndiLoginModule` process in the SASL authentication mechanism. An attacker can execute arbitrary code or cause a denial of service by supplying a malicious JNDI URI in the broker's configuration.\r\n\r\n**Note:**\r\n\r\nThis is only exploitable if the attacker can connect to the Kafka cluster and has the AlterConfigs permission on the cluster resource.\n\n## Details\n\nSerialization is a process of converting an object into a sequence of bytes which can be persisted to a disk or database or can be sent through streams. The reverse process of creating object from sequence of bytes is called deserialization. Serialization is commonly used for communication (sharing objects between multiple hosts) and persistence (store the object state in a file or a database). It is an integral part of popular protocols like _Remote Method Invocation (RMI)_, _Java Management Extension (JMX)_, _Java Messaging System (JMS)_, _Action Message Format (AMF)_, _Java Server Faces (JSF) ViewState_, etc.\n\n_Deserialization of untrusted data_ ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)) is when the application deserializes untrusted data without sufficiently verifying that the resulting data will be valid, thus allowing the attacker to control the state or the flow of the execution.\n  \n## Remediation\nUpgrade `org.apache.kafka:kafka-clients` to version 3.9.1 or higher.\n## References\n- [GitHub Commit](https://github.com/apache/kafka/commit/4038edfafe43f01f262c47d81786442ad7ab0b03)\n- [Kafka Security Advisories](https://kafka.apache.org/cve-list)\n- [Red Hat Bugzilla Bug](https://bugzilla.redhat.com/show_bug.cgi?id=2371365)\n",
+          "epssDetails": {
+            "percentile": "0.64733",
+            "probability": "0.00492",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2025-27819"
+            ],
+            "CWE": [
+              "CWE-502"
+            ]
+          },
+          "packageName": "org.apache.kafka:kafka-clients",
+          "proprietary": false,
+          "creationTime": "2025-06-13T15:53:34.215532Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2025-06-10T07:54:41Z",
+          "exploitDetails": {
+            "sources": [],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Not Defined",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Not Defined",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "maven",
+          "mavenModuleName": {
+            "groupId": "org.apache.kafka",
+            "artifactId": "kafka-clients"
+          },
+          "publicationTime": "2025-06-13T15:53:34.489818Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2025-06-13T16:13:45.186656Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+            "io.cloudevents:cloudevents-kafka@3.0.0",
+            "org.apache.kafka:kafka-clients@3.8.1"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": false,
+          "isRuntime": false,
+          "name": "org.apache.kafka:kafka-clients",
+          "version": "3.8.1",
+          "severityWithCritical": "high"
+        },
+        {
+          "id": "SNYK-JAVA-ORGAPACHEKAFKA-10350567",
+          "title": "Deserialization of Untrusted Data",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "credit": [
+            "罗鑫",
+            "ra1lgun"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[2.3.0,3.9.1)"
+            ]
+          },
+          "exploit": "Not Defined",
+          "fixedIn": [
+            "3.9.1"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "java",
+          "severity": "high",
+          "cvssScore": 8.5,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "org.apache.kafka:kafka-clients",
+          "references": [
+            {
+              "url": "https://github.com/apache/kafka/commit/4038edfafe43f01f262c47d81786442ad7ab0b03",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "https://kafka.apache.org/cve-list",
+              "title": "Kafka Security Advisories"
+            },
+            {
+              "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2371368",
+              "title": "Red Hat Bugzilla Bug"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "Red Hat",
+              "severity": "high",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+              "cvssV3BaseScore": 8,
+              "modificationTime": "2025-06-10T13:37:20.755942Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:L/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.5,
+              "cvssVersion": "4.0",
+              "modificationTime": "2025-06-13T16:12:04.925257Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-06-13T16:12:04.925257Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+              "assigner": "Red Hat",
+              "severity": "high",
+              "baseScore": 8,
+              "cvssVersion": "3.1",
+              "modificationTime": "2025-06-10T13:37:20.755942Z"
+            }
+          ],
+          "description": "## Overview\n[org.apache.kafka:kafka-clients](http://kafka.apache.org/) is a streaming platform that can publish and subscribe to streams of records, store streams of records in a fault-tolerant durable way, and process streams of records as they occur.\n\nAffected versions of this package are vulnerable to Deserialization of Untrusted Data due to improper handling of configuration data in the `sasl.jaas.config` property. An attacker can achieve arbitrary code execution by injecting a malicious configuration that causes the server to connect to an attacker-controlled LDAP server and deserialize untrusted data, leading to execution of deserialization gadget chains.\r\n\r\n**Note:**\r\n\r\nThis is only exploitable if the attacker has access to alterConfig for a cluster resource or Kafka Connect worker and can create or modify connectors with arbitrary Kafka client SASL JAAS configuration.\n\n## Details\n\nSerialization is a process of converting an object into a sequence of bytes which can be persisted to a disk or database or can be sent through streams. The reverse process of creating object from sequence of bytes is called deserialization. Serialization is commonly used for communication (sharing objects between multiple hosts) and persistence (store the object state in a file or a database). It is an integral part of popular protocols like _Remote Method Invocation (RMI)_, _Java Management Extension (JMX)_, _Java Messaging System (JMS)_, _Action Message Format (AMF)_, _Java Server Faces (JSF) ViewState_, etc.\n\n_Deserialization of untrusted data_ ([CWE-502](https://cwe.mitre.org/data/definitions/502.html)) is when the application deserializes untrusted data without sufficiently verifying that the resulting data will be valid, thus allowing the attacker to control the state or the flow of the execution.\n  \n## Remediation\nUpgrade `org.apache.kafka:kafka-clients` to version 3.9.1 or higher.\n## References\n- [GitHub Commit](https://github.com/apache/kafka/commit/4038edfafe43f01f262c47d81786442ad7ab0b03)\n- [Kafka Security Advisories](https://kafka.apache.org/cve-list)\n- [Red Hat Bugzilla Bug](https://bugzilla.redhat.com/show_bug.cgi?id=2371368)\n",
+          "epssDetails": {
+            "percentile": "0.45327",
+            "probability": "0.00226",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2025-27818"
+            ],
+            "CWE": [
+              "CWE-502"
+            ]
+          },
+          "packageName": "org.apache.kafka:kafka-clients",
+          "proprietary": false,
+          "creationTime": "2025-06-13T16:10:51.814621Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2025-06-10T07:52:31Z",
+          "exploitDetails": {
+            "sources": [],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Not Defined",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Not Defined",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "maven",
+          "mavenModuleName": {
+            "groupId": "org.apache.kafka",
+            "artifactId": "kafka-clients"
+          },
+          "publicationTime": "2025-06-13T16:10:52.119702Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2025-06-13T16:12:04.925257Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "org.oran.smo:ncmp-to-teiv-adapter@0.0.2-SNAPSHOT",
+            "io.cloudevents:cloudevents-kafka@3.0.0",
+            "org.apache.kafka:kafka-clients@3.8.1"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": false,
+          "isRuntime": false,
+          "name": "org.apache.kafka:kafka-clients",
+          "version": "3.8.1",
+          "severityWithCritical": "high"
+        }
+      ],
+      "upgrade": {
+        "com.squareup.okhttp3:okhttp@4.9.3": {
+          "upgradeTo": "com.squareup.okhttp3:okhttp@4.12.0",
+          "upgrades": [
+            "org.jetbrains.kotlin:kotlin-stdlib@1.9.25"
+          ],
+          "vulns": [
+            "SNYK-JAVA-ORGJETBRAINSKOTLIN-2393744"
+          ]
+        },
+        "org.springframework.boot:spring-boot-starter@3.4.2": {
+          "upgradeTo": "org.springframework.boot:spring-boot-starter@3.4.10",
+          "upgrades": [
+            "org.springframework:spring-core@6.2.2"
+          ],
+          "vulns": [
+            "SNYK-JAVA-ORGSPRINGFRAMEWORK-12817817"
+          ]
+        },
+        "org.springframework.kafka:spring-kafka@3.3.4": {
+          "upgradeTo": "org.springframework.kafka:spring-kafka@3.3.9",
+          "upgrades": [
+            "org.springframework:spring-beans@6.2.2",
+            "org.springframework:spring-context@6.2.2"
+          ],
+          "vulns": [
+            "SNYK-JAVA-ORGSPRINGFRAMEWORK-12008931",
+            "SNYK-JAVA-ORGSPRINGFRAMEWORK-10176071"
+          ]
+        }
+      },
+      "patch": {},
+      "ignore": {},
+      "pin": {}
+    },
+    "filesystemPolicy": false,
+    "filtered": {
+      "ignore": [],
+      "patch": []
+    },
+    "uniqueCount": 7,
+    "projectName": "org.oran.smo:ncmp-to-teiv-adapter",
+    "foundProjectCount": 7,
+    "displayTargetFile": "adapters/ncmp-to-teiv-adapter/pom.xml",
+    "hasUnknownVersions": false,
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_teiv"
+  },
+  {
+    "vulnerabilities": [
+      {
+        "id": "SNYK-JAVA-ORGAPACHECOMMONS-10734078",
+        "title": "Uncontrolled Recursion",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+        "credit": [
+          "Unknown"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[3.0, 3.18.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "3.18.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "high",
+        "cvssScore": 8.8,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.apache.commons:commons-lang3",
+        "references": [
+          {
+            "url": "https://lists.apache.org/thread/bgv0lpswokgol11tloxnjfzdl7yrc1g1",
+            "title": "Apache Pony Mail"
+          },
+          {
+            "url": "https://github.com/apache/commons-lang/commit/b424803abdb2bec818e4fbcb251ce031c22aca53",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "low",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "cvssV3BaseScore": 3.7,
+            "modificationTime": "2025-07-12T06:33:52.830274Z"
+          },
+          {
+            "assigner": "SUSE",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 4.7,
+            "modificationTime": "2025-08-14T11:02:13.905724Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.8,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-07-13T09:08:38.850906Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-07-13T09:08:38.850906Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "assigner": "Red Hat",
+            "severity": "low",
+            "baseScore": 3.7,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-07-12T06:33:52.830274Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "assigner": "SUSE",
+            "severity": "medium",
+            "baseScore": 4.7,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-08-14T11:02:13.905724Z"
+          }
+        ],
+        "description": "## Overview\n\nAffected versions of this package are vulnerable to Uncontrolled Recursion via the `ClassUtils.getClass` function. An attacker can cause the application to terminate unexpectedly by providing excessively long input values.\n## Remediation\nUpgrade `org.apache.commons:commons-lang3` to version 3.18.0 or higher.\n## References\n- [Apache Pony Mail](https://lists.apache.org/thread/bgv0lpswokgol11tloxnjfzdl7yrc1g1)\n- [GitHub Commit](https://github.com/apache/commons-lang/commit/b424803abdb2bec818e4fbcb251ce031c22aca53)\n",
+        "epssDetails": {
+          "percentile": "0.21106",
+          "probability": "0.00066",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-48924"
+          ],
+          "CWE": [
+            "CWE-674"
+          ],
+          "GHSA": [
+            "GHSA-j288-q9x7-2f5v"
+          ]
+        },
+        "packageName": "org.apache.commons:commons-lang3",
+        "proprietary": false,
+        "creationTime": "2025-07-13T07:58:53.086065Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-07-11T15:31:37Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.apache.commons",
+          "artifactId": "commons-lang3"
+        },
+        "publicationTime": "2025-07-13T09:08:38.832136Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-08-14T11:02:13.905724Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "org.oran.smo.teiv.pgsqlgenerator:pgsql-schema-generator@1.2.1",
+          "org.apache.commons:commons-lang3@3.14.0"
+        ],
+        "upgradePath": [
+          false,
+          "org.apache.commons:commons-lang3@3.18.0"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "org.apache.commons:commons-lang3",
+        "version": "3.14.0"
+      },
+      {
+        "id": "SNYK-JAVA-ORGSPRINGFRAMEWORK-10176071",
+        "title": "Improper Handling of Case Sensitivity",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+        "credit": [
+          "TERASOLUNA Framework Development Team"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[6.1.0,6.1.20)",
+            "[6.2.0,6.2.7)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.1.20",
+          "6.2.7"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "low",
+        "cvssScore": 2.3,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.springframework:spring-context",
+        "references": [
+          {
+            "url": "https://github.com/spring-projects/spring-framework/commit/ee62701f5634e904e42e218baad142cea2bcd332",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/spring-projects/spring-framework/issues/34801",
+            "title": "GitHub Issue"
+          },
+          {
+            "url": "https://spring.io/security/cve-2025-22233",
+            "title": "Spring Security Advisory"
+          }
+        ],
+        "cvssDetails": [],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "low",
+            "baseScore": 2.3,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-05-16T08:58:53.942627Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N",
+            "assigner": "Snyk",
+            "severity": "low",
+            "baseScore": 3.1,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-05-16T08:58:53.942627Z"
+          }
+        ],
+        "description": "## Overview\n\nAffected versions of this package are vulnerable to Improper Handling of Case Sensitivity due to an incomplete fix for [CVE-2024-38820](https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-8230364), where it is still possible to bypass the `disallowedFields` checks.\n\n**Note:**\n\nThis vulnerability was also fixed in commercial versions 6.0.28 and 5.3.43.\n## Remediation\nUpgrade `org.springframework:spring-context` to version 6.1.20, 6.2.7 or higher.\n## References\n- [GitHub Commit](https://github.com/spring-projects/spring-framework/commit/ee62701f5634e904e42e218baad142cea2bcd332)\n- [GitHub Issue](https://github.com/spring-projects/spring-framework/issues/34801)\n- [Spring Security Advisory](https://spring.io/security/cve-2025-22233)\n",
+        "epssDetails": {
+          "percentile": "0.23932",
+          "probability": "0.00077",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-22233"
+          ],
+          "CWE": [
+            "CWE-178"
+          ]
+        },
+        "packageName": "org.springframework:spring-context",
+        "proprietary": false,
+        "creationTime": "2025-05-16T08:58:53.695842Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-05-15T00:00:00Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.springframework",
+          "artifactId": "spring-context"
+        },
+        "publicationTime": "2025-05-16T08:58:53.916559Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-05-16T08:58:53.942627Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "low",
+        "from": [
+          "org.oran.smo.teiv.pgsqlgenerator:pgsql-schema-generator@1.2.1",
+          "org.springframework.boot:spring-boot-starter@3.4.2",
+          "org.springframework.boot:spring-boot@3.4.2",
+          "org.springframework:spring-context@6.2.2"
+        ],
+        "upgradePath": [
+          false,
+          "org.springframework.boot:spring-boot-starter@3.4.6",
+          "org.springframework.boot:spring-boot@3.4.6",
+          "org.springframework:spring-context@6.2.7"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "org.springframework:spring-context",
+        "version": "6.2.2"
+      },
+      {
+        "id": "SNYK-JAVA-ORGSPRINGFRAMEWORK-12008931",
+        "title": "Relative Path Traversal",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "1ue",
+          "iSafeBlue",
+          "Joakim Erdfelt"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,6.2.10)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.2.10"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.springframework:spring-beans",
+        "references": [
+          {
+            "url": "https://github.com/spring-projects/spring-framework/commit/3781ba223ed76823b99e9c699e0957b391e22bf9",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/spring-projects/spring-framework/releases/tag/v6.2.10",
+            "title": "GitHub Release"
+          },
+          {
+            "url": "https://spring.io/blog/2025/08/14/spring-framework-6-2-10-release-fixes-cve-2025-41242",
+            "title": "Spring Release"
+          },
+          {
+            "url": "https://spring.io/security/cve-2025-41242",
+            "title": "Vendor Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.9,
+            "modificationTime": "2025-08-19T17:29:27.431619Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-08-19T08:15:12.258842Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-08-19T08:15:12.258842Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-08-19T17:29:27.431619Z"
+          }
+        ],
+        "description": "## Overview\n[org.springframework:spring-beans](https://www.baeldung.com/spring-bean) is a package that is the basis for Spring Framework's IoC container. The BeanFactory interface provides an advanced configuration mechanism capable of managing any type of object.\n\nAffected versions of this package are vulnerable to Relative Path Traversal when deployed on non-compliant Servlet containers. An unauthenticated attacker could gain access to files and directories outside the intended web root.\r\n\r\n**Notes:**\r\n\r\n1) This is only exploitable if the application is deployed as a WAR or with an embedded Servlet container, the Servlet container does not reject suspicious sequences and the application serves static resources with Spring resource handling.\r\n\r\n2) Applications deployed on Apache Tomcat or Eclipse Jetty are not vulnerable, as long as default security features are not disabled in the configuration.\r\n\r\n3) This vulnerability was also fixed in the commercial versions 6.1.22 and 5.3.44.\n## Remediation\nUpgrade `org.springframework:spring-beans` to version 6.2.10 or higher.\n## References\n- [GitHub Commit](https://github.com/spring-projects/spring-framework/commit/3781ba223ed76823b99e9c699e0957b391e22bf9)\n- [GitHub Release](https://github.com/spring-projects/spring-framework/releases/tag/v6.2.10)\n- [Spring Release](https://spring.io/blog/2025/08/14/spring-framework-6-2-10-release-fixes-cve-2025-41242)\n- [Vendor Advisory](https://spring.io/security/cve-2025-41242)\n",
+        "epssDetails": {
+          "percentile": "0.26838",
+          "probability": "0.00091",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-41242"
+          ],
+          "CWE": [
+            "CWE-23"
+          ]
+        },
+        "packageName": "org.springframework:spring-beans",
+        "proprietary": false,
+        "creationTime": "2025-08-19T08:14:28.809726Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-08-14T00:00:00Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.springframework",
+          "artifactId": "spring-beans"
+        },
+        "publicationTime": "2025-08-19T08:14:29.077518Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-08-19T17:29:27.431619Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "org.oran.smo.teiv.pgsqlgenerator:pgsql-schema-generator@1.2.1",
+          "org.springframework.boot:spring-boot-starter@3.4.2",
+          "org.springframework.boot:spring-boot@3.4.2",
+          "org.springframework:spring-context@6.2.2",
+          "org.springframework:spring-beans@6.2.2"
+        ],
+        "upgradePath": [
+          false,
+          "org.springframework.boot:spring-boot-starter@3.4.9",
+          "org.springframework.boot:spring-boot@3.4.9",
+          "org.springframework:spring-context@6.2.10",
+          "org.springframework:spring-beans@6.2.10"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "org.springframework:spring-beans",
+        "version": "6.2.2"
+      },
+      {
+        "id": "SNYK-JAVA-ORGSPRINGFRAMEWORK-12817817",
+        "title": "Incorrect Authorization",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Sam Brannen"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,6.2.11)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.2.11"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "java",
+        "severity": "high",
+        "cvssScore": 8.7,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "org.springframework:spring-core",
+        "references": [
+          {
+            "url": "https://github.com/spring-projects/spring-framework/commit/6d710d482a6785b069e35022e81758953afc21ff",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/spring-projects/spring-framework/issues/35342",
+            "title": "GitHub Issue"
+          },
+          {
+            "url": "https://github.com/spring-projects/spring-framework/releases/tag/v6.2.11",
+            "title": "GitHub Release"
+          },
+          {
+            "url": "https://spring.io/security/cve-2025-41249",
+            "title": "Vendor Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2025-09-18T13:36:04.157972Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.7,
+            "cvssVersion": "4.0",
+            "modificationTime": "2025-09-17T21:24:40.484340Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-09-17T21:24:40.484340Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2025-09-18T13:36:04.157972Z"
+          }
+        ],
+        "description": "## Overview\n[org.springframework:spring-core](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22spring-core%22) is a core package within the spring-framework that contains multiple classes and utilities.\n\nAffected versions of this package are vulnerable to Incorrect Authorization via the `AnnotationsScanner` and `AnnotatedMethod` class. An attacker can gain unauthorized access to sensitive information by exploiting improper resolution of annotations on methods within type hierarchies that use parameterized supertypes with unbounded generics.\r\n\r\n**Note:**\r\nThis is only exploitable if security annotations are used on methods in generic superclasses or generic interfaces and the `@EnableMethodSecurity` feature is enabled.\n## Remediation\nUpgrade `org.springframework:spring-core` to version 6.2.11 or higher.\n## References\n- [GitHub Commit](https://github.com/spring-projects/spring-framework/commit/6d710d482a6785b069e35022e81758953afc21ff)\n- [GitHub Issue](https://github.com/spring-projects/spring-framework/issues/35342)\n- [GitHub Release](https://github.com/spring-projects/spring-framework/releases/tag/v6.2.11)\n- [Vendor Advisory](https://spring.io/security/cve-2025-41249)\n",
+        "epssDetails": {
+          "percentile": "0.14588",
+          "probability": "0.00048",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2025-41249"
+          ],
+          "CWE": [
+            "CWE-863"
+          ],
+          "GHSA": [
+            "GHSA-jmp9-x22r-554x"
+          ]
+        },
+        "packageName": "org.springframework:spring-core",
+        "proprietary": false,
+        "creationTime": "2025-09-17T08:55:00.300239Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2025-09-16T15:32:34Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "maven",
+        "mavenModuleName": {
+          "groupId": "org.springframework",
+          "artifactId": "spring-core"
+        },
+        "publicationTime": "2025-09-17T21:24:40.464102Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2025-09-18T13:36:04.157972Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "org.oran.smo.teiv.pgsqlgenerator:pgsql-schema-generator@1.2.1",
+          "org.springframework.boot:spring-boot-starter@3.4.2",
+          "org.springframework:spring-core@6.2.2"
+        ],
+        "upgradePath": [
+          false,
+          "org.springframework.boot:spring-boot-starter@3.4.10",
+          "org.springframework:spring-core@6.2.11"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "org.springframework:spring-core",
+        "version": "6.2.2"
+      }
+    ],
+    "ok": false,
+    "dependencyCount": 35,
+    "org": "mdimado",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "maven",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "4 vulnerable dependency paths",
+    "remediation": {
+      "unresolved": [],
+      "upgrade": {
+        "org.apache.commons:commons-lang3@3.14.0": {
+          "upgradeTo": "org.apache.commons:commons-lang3@3.18.0",
+          "upgrades": [
+            "org.apache.commons:commons-lang3@3.14.0"
+          ],
+          "vulns": [
+            "SNYK-JAVA-ORGAPACHECOMMONS-10734078"
+          ]
+        },
+        "org.springframework.boot:spring-boot-starter@3.4.2": {
+          "upgradeTo": "org.springframework.boot:spring-boot-starter@3.4.10",
+          "upgrades": [
+            "org.springframework:spring-core@6.2.2",
+            "org.springframework:spring-beans@6.2.2",
+            "org.springframework:spring-context@6.2.2"
+          ],
+          "vulns": [
+            "SNYK-JAVA-ORGSPRINGFRAMEWORK-12817817",
+            "SNYK-JAVA-ORGSPRINGFRAMEWORK-12008931",
+            "SNYK-JAVA-ORGSPRINGFRAMEWORK-10176071"
+          ]
+        }
+      },
+      "patch": {},
+      "ignore": {},
+      "pin": {}
+    },
+    "filesystemPolicy": false,
+    "filtered": {
+      "ignore": [],
+      "patch": []
+    },
+    "uniqueCount": 4,
+    "projectName": "org.oran.smo.teiv.pgsqlgenerator:pgsql-schema-generator",
+    "foundProjectCount": 7,
+    "displayTargetFile": "pgsql-schema-generator/pom.xml",
+    "hasUnknownVersions": false,
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_teiv"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mdimado",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "maven",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No known vulnerabilities",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "org.oran.smo:yang-parser",
+    "foundProjectCount": 7,
+    "displayTargetFile": "yang-parser/pom.xml",
+    "hasUnknownVersions": false,
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_teiv"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 1,
+    "org": "mdimado",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "maven",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No known vulnerabilities",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "org.oran.smo.yangtools.parser.simple.example:parser-example",
+    "foundProjectCount": 7,
+    "displayTargetFile": "yang-parser/parser-example/pom.xml",
+    "hasUnknownVersions": false,
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_teiv"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mdimado",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "maven",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No known vulnerabilities",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "org.oran.smo.yangtools.parser:yang-parser-jar",
+    "foundProjectCount": 7,
+    "displayTargetFile": "yang-parser/yang-parser-jar/pom.xml",
+    "hasUnknownVersions": false,
+    "path": "/Users/mohammedimaduddin/Desktop/oran/oransc-sanity/imad/scripts/snyk-scan-workspace/smo_teiv"
+  }
+]

@@ -1,0 +1,1580 @@
+{
+  ":-------------------------------------------_:-----------_grype": [
+    {
+      "severity": ":-----------",
+      "package": ":------------------------------------",
+      "cve": ":--------------------",
+      "description": "-",
+      "installedVersion": ":-----------------------------------------------------------",
+      "fixedVersion": "----------------:"
+    }
+  ],
+  "nonrtric_plt_sme_high_grype": [
+    {
+      "severity": "High",
+      "package": "github.com/docker/docker",
+      "cve": "GHSA-232p-vwff-86mp",
+      "description": "-",
+      "installedVersion": "v20.10.17+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/docker/docker",
+      "cve": "GHSA-232p-vwff-86mp",
+      "description": "-",
+      "installedVersion": "v20.10.17+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "helm.sh/helm/v3",
+      "cve": "GHSA-r53h-jv2g-vpx6",
+      "description": "-",
+      "installedVersion": "v3.9.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "helm.sh/helm/v3",
+      "cve": "GHSA-r53h-jv2g-vpx6",
+      "description": "-",
+      "installedVersion": "v3.9.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-hcg3-q754-cr77",
+      "description": "-",
+      "installedVersion": "v0.14.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-hcg3-q754-cr77",
+      "description": "-",
+      "installedVersion": "v0.6.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-hcg3-q754-cr77",
+      "description": "-",
+      "installedVersion": "v0.6.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-hcg3-q754-cr77",
+      "description": "-",
+      "installedVersion": "v0.8.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.7.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.7.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.9.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/getkin/kin-openapi",
+      "cve": "GHSA-wq9g-9vfc-cfq9",
+      "description": "-",
+      "installedVersion": "v0.106.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/getkin/kin-openapi",
+      "cve": "GHSA-wq9g-9vfc-cfq9",
+      "description": "-",
+      "installedVersion": "v0.106.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/getkin/kin-openapi",
+      "cve": "GHSA-wq9g-9vfc-cfq9",
+      "description": "-",
+      "installedVersion": "v0.116.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/getkin/kin-openapi",
+      "cve": "GHSA-wq9g-9vfc-cfq9",
+      "description": "-",
+      "installedVersion": "v0.117.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/docker/distribution",
+      "cve": "GHSA-hqxw-f8mx-cpmw",
+      "description": "-",
+      "installedVersion": "v2.8.1+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/docker/distribution",
+      "cve": "GHSA-hqxw-f8mx-cpmw",
+      "description": "-",
+      "installedVersion": "v2.8.1+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/oauth2",
+      "cve": "GHSA-6v2p-p543-phr9",
+      "description": "-",
+      "installedVersion": "v0.0.0-20211104180415-d3ed0bb246c8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/oauth2",
+      "cve": "GHSA-6v2p-p543-phr9",
+      "description": "-",
+      "installedVersion": "v0.0.0-20211104180415-d3ed0bb246c8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/golang-jwt/jwt",
+      "cve": "GHSA-mh63-6h87-95cp",
+      "description": "-",
+      "installedVersion": "v3.2.2+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/golang-jwt/jwt",
+      "cve": "GHSA-mh63-6h87-95cp",
+      "description": "-",
+      "installedVersion": "v3.2.2+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "pillow",
+      "cve": "GHSA-xg8h-j46f-w952",
+      "description": "-",
+      "installedVersion": "11.2.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "helm.sh/helm/v3",
+      "cve": "GHSA-557j-xg8c-q2mm",
+      "description": "-",
+      "installedVersion": "v3.9.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "helm.sh/helm/v3",
+      "cve": "GHSA-557j-xg8c-q2mm",
+      "description": "-",
+      "installedVersion": "v3.9.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "google.golang.org/grpc",
+      "cve": "GHSA-m425-mq94-257g",
+      "description": "-",
+      "installedVersion": "v1.47.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "google.golang.org/grpc",
+      "cve": "GHSA-m425-mq94-257g",
+      "description": "-",
+      "installedVersion": "v1.47.0",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_plt_a1policymanagementservice_high_grype": [
+    {
+      "severity": "High",
+      "package": "pillow",
+      "cve": "GHSA-xg8h-j46f-w952",
+      "description": "-",
+      "installedVersion": "11.2.1",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_high_grype": [
+    {
+      "severity": "High",
+      "package": "github.com/containerd/containerd",
+      "cve": "GHSA-crp2-qrr5-8pq7",
+      "description": "-",
+      "installedVersion": "v1.5.9",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "gopkg.in/yaml.v3",
+      "cve": "GHSA-hp87-p4gw-j4gq",
+      "description": "-",
+      "installedVersion": "v3.0.0-20200313102051-9f266ea9e77c",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "gopkg.in/yaml.v3",
+      "cve": "GHSA-hp87-p4gw-j4gq",
+      "description": "-",
+      "installedVersion": "v3.0.0-20210107192922-496545a6307b",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/docker/docker",
+      "cve": "GHSA-232p-vwff-86mp",
+      "description": "-",
+      "installedVersion": "v20.10.12+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-vvpx-j8f3-3w6h",
+      "description": "-",
+      "installedVersion": "v0.0.0-20220107192237-5cfca573fb4d",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "helm.sh/helm/v3",
+      "cve": "GHSA-r53h-jv2g-vpx6",
+      "description": "-",
+      "installedVersion": "v3.8.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-hcg3-q754-cr77",
+      "description": "-",
+      "installedVersion": "v0.0.0-20211117183948-ae814b36b871",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "flask",
+      "cve": "GHSA-m2qf-hxjv-5gpq",
+      "description": "-",
+      "installedVersion": "2.0.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "pip",
+      "cve": "GHSA-5xp3-jfq3-5q8x",
+      "description": "-",
+      "installedVersion": "20.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.0.0-20220107192237-5cfca573fb4d",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-69cg-p879-7622",
+      "description": "-",
+      "installedVersion": "v0.0.0-20220107192237-5cfca573fb4d",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/docker/distribution",
+      "cve": "GHSA-hqxw-f8mx-cpmw",
+      "description": "-",
+      "installedVersion": "v2.7.1+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/text",
+      "cve": "GHSA-ppp9-7jff-5vj2",
+      "description": "-",
+      "installedVersion": "v0.3.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/oauth2",
+      "cve": "GHSA-6v2p-p543-phr9",
+      "description": "-",
+      "installedVersion": "v0.0.0-20211104180415-d3ed0bb246c8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-8c26-wmh5-6g9v",
+      "description": "-",
+      "installedVersion": "v0.0.0-20211117183948-ae814b36b871",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/dgrijalva/jwt-go",
+      "cve": "GHSA-w73w-5m7g-f7qc",
+      "description": "-",
+      "installedVersion": "v3.2.0+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/text",
+      "cve": "GHSA-69ch-w2m2-3vjp",
+      "description": "-",
+      "installedVersion": "v0.3.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/text",
+      "cve": "GHSA-69ch-w2m2-3vjp",
+      "description": "-",
+      "installedVersion": "v0.3.7",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/golang-jwt/jwt/v4",
+      "cve": "GHSA-mh63-6h87-95cp",
+      "description": "-",
+      "installedVersion": "v4.1.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-gwc9-m7rh-j2ww",
+      "description": "-",
+      "installedVersion": "v0.0.0-20211117183948-ae814b36b871",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "helm.sh/helm/v3",
+      "cve": "GHSA-557j-xg8c-q2mm",
+      "description": "-",
+      "installedVersion": "v3.8.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "google.golang.org/grpc",
+      "cve": "GHSA-m425-mq94-257g",
+      "description": "-",
+      "installedVersion": "v1.43.0",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_rapp_ransliceassurance_high_grype": [
+    {
+      "severity": "High",
+      "package": "gopkg.in/yaml.v3",
+      "cve": "GHSA-hp87-p4gw-j4gq",
+      "description": "-",
+      "installedVersion": "v3.0.0-20200313102051-9f266ea9e77c",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/text",
+      "cve": "GHSA-ppp9-7jff-5vj2",
+      "description": "-",
+      "installedVersion": "v0.3.6",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/text",
+      "cve": "GHSA-69ch-w2m2-3vjp",
+      "description": "-",
+      "installedVersion": "v0.3.6",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_plt_dmaapmediatorproducer_high_grype": [
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-vvpx-j8f3-3w6h",
+      "description": "-",
+      "installedVersion": "v0.3.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.3.0",
+      "fixedVersion": "nan"
+    }
+  ],
+  "aiml-fw_apm_monitoring-server_high_grype": [
+    {
+      "severity": "High",
+      "package": "gopkg.in/yaml.v3",
+      "cve": "GHSA-hp87-p4gw-j4gq",
+      "description": "-",
+      "installedVersion": "v3.0.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-vvpx-j8f3-3w6h",
+      "description": "-",
+      "installedVersion": "v0.0.0-20220531201128-c960675eff93",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-hcg3-q754-cr77",
+      "description": "-",
+      "installedVersion": "v0.0.0-20220525230936-793ad666bf5e",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.0.0-20220531201128-c960675eff93",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-69cg-p879-7622",
+      "description": "-",
+      "installedVersion": "v0.0.0-20220531201128-c960675eff93",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-fxg5-wq6x-vr4w",
+      "description": "-",
+      "installedVersion": "v0.0.0-20220531201128-c960675eff93",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/text",
+      "cve": "GHSA-69ch-w2m2-3vjp",
+      "description": "-",
+      "installedVersion": "v0.3.7",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_plt_dmaapadapter_high_grype": [
+    {
+      "severity": "High",
+      "package": "protobuf-java",
+      "cve": "GHSA-735f-pc8j-v9w8",
+      "description": "-",
+      "installedVersion": "4.0.0-rc-2",
+      "fixedVersion": "nan"
+    }
+  ],
+  "ric-plt_conflictmgr_high_grype": [
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.10.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "google.golang.org/grpc",
+      "cve": "GHSA-m425-mq94-257g",
+      "description": "-",
+      "installedVersion": "v1.52.0",
+      "fixedVersion": "nan"
+    }
+  ],
+  "oam_oam-controller_high_grype": [
+    {
+      "severity": "High",
+      "package": "spring-web",
+      "cve": "GHSA-ccgv-vj62-xf9h",
+      "description": "-",
+      "installedVersion": "4.3.7.RELEASE",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "json5",
+      "cve": "GHSA-9c47-m6qq-7p4h",
+      "description": "-",
+      "installedVersion": "0.5.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "spring-web",
+      "cve": "GHSA-hgjh-9rj2-g67j",
+      "description": "-",
+      "installedVersion": "4.3.7.RELEASE",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "spring-web",
+      "cve": "GHSA-2wrp-6fg6-hmc5",
+      "description": "-",
+      "installedVersion": "4.3.7.RELEASE",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ip",
+      "cve": "GHSA-2p57-rm9w-gvfp",
+      "description": "-",
+      "installedVersion": "1.1.5",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ip",
+      "cve": "GHSA-2p57-rm9w-gvfp",
+      "description": "-",
+      "installedVersion": "1.1.8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "terser",
+      "cve": "GHSA-4wf5-vphf-c2xc",
+      "description": "-",
+      "installedVersion": "3.17.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ssri",
+      "cve": "GHSA-vx3p-948g-6vhq",
+      "description": "-",
+      "installedVersion": "5.3.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "serialize-javascript",
+      "cve": "GHSA-hxcc-f52p-wc94",
+      "description": "-",
+      "installedVersion": "1.9.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "lodash.set",
+      "cve": "GHSA-p6mc-m468-83gw",
+      "description": "-",
+      "installedVersion": "4.3.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "trim-newlines",
+      "cve": "GHSA-7p7h-4mm5-852v",
+      "description": "-",
+      "installedVersion": "1.0.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "trim-newlines",
+      "cve": "GHSA-7p7h-4mm5-852v",
+      "description": "-",
+      "installedVersion": "2.0.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "lodash.template",
+      "cve": "GHSA-35jh-r3h4-6jhm",
+      "description": "-",
+      "installedVersion": "4.5.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "json",
+      "cve": "GHSA-3vqj-43w4-2q58",
+      "description": "-",
+      "installedVersion": "20170516",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "json",
+      "cve": "GHSA-3vqj-43w4-2q58",
+      "description": "-",
+      "installedVersion": "20201115",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ws",
+      "cve": "GHSA-3h5v-q93c-6h6q",
+      "description": "-",
+      "installedVersion": "5.2.3",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "json",
+      "cve": "GHSA-4jq9-2xhw-jpx7",
+      "description": "-",
+      "installedVersion": "20170516",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "json",
+      "cve": "GHSA-4jq9-2xhw-jpx7",
+      "description": "-",
+      "installedVersion": "20201115",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "merge",
+      "cve": "GHSA-7wpw-2hjm-89gp",
+      "description": "-",
+      "installedVersion": "1.2.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "body-parser",
+      "cve": "GHSA-qwcr-r2fm-qrc7",
+      "description": "-",
+      "installedVersion": "1.20.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "jackson-databind",
+      "cve": "GHSA-57j2-w4cx-62h2",
+      "description": "-",
+      "installedVersion": "2.11.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "marked",
+      "cve": "GHSA-rrrm-qjm4-v8hf",
+      "description": "-",
+      "installedVersion": "0.6.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "marked",
+      "cve": "GHSA-5v2h-r2cx-5xgj",
+      "description": "-",
+      "installedVersion": "0.6.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "semver",
+      "cve": "GHSA-c2qf-rxjj-qqgw",
+      "description": "-",
+      "installedVersion": "5.7.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "semver",
+      "cve": "GHSA-c2qf-rxjj-qqgw",
+      "description": "-",
+      "installedVersion": "6.3.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "semver",
+      "cve": "GHSA-c2qf-rxjj-qqgw",
+      "description": "-",
+      "installedVersion": "7.5.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "browserify-sign",
+      "cve": "GHSA-x9w5-v3q2-3rhw",
+      "description": "-",
+      "installedVersion": "4.2.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "requirejs",
+      "cve": "GHSA-x3m3-4wpv-5vgc",
+      "description": "-",
+      "installedVersion": "2.3.6",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "jackson-databind",
+      "cve": "GHSA-jjjh-jjxp-wpff",
+      "description": "-",
+      "installedVersion": "2.11.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "braces",
+      "cve": "GHSA-grv7-fg5c-xmjg",
+      "description": "-",
+      "installedVersion": "1.8.5",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "braces",
+      "cve": "GHSA-grv7-fg5c-xmjg",
+      "description": "-",
+      "installedVersion": "2.3.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "braces",
+      "cve": "GHSA-grv7-fg5c-xmjg",
+      "description": "-",
+      "installedVersion": "3.0.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "webpack-dev-middleware",
+      "cve": "GHSA-wr3j-pwj9-hqq6",
+      "description": "-",
+      "installedVersion": "3.4.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ansi-html",
+      "cve": "GHSA-whgm-jr23-g3j9",
+      "description": "-",
+      "installedVersion": "0.0.7",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "jackson-databind",
+      "cve": "GHSA-rgv9-q543-rqg4",
+      "description": "-",
+      "installedVersion": "2.11.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "path-to-regexp",
+      "cve": "GHSA-9wv6-86v2-598j",
+      "description": "-",
+      "installedVersion": "0.1.7",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "path-to-regexp",
+      "cve": "GHSA-9wv6-86v2-598j",
+      "description": "-",
+      "installedVersion": "1.8.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "http-cache-semantics",
+      "cve": "GHSA-rc47-6667-2j5j",
+      "description": "-",
+      "installedVersion": "3.8.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "chart.js",
+      "cve": "GHSA-h68q-55jf-x68w",
+      "description": "-",
+      "installedVersion": "2.8.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "http-proxy-middleware",
+      "cve": "GHSA-c7qv-q95q-8v27",
+      "description": "-",
+      "installedVersion": "0.18.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "jackson-databind",
+      "cve": "GHSA-3x8x-79m2-3w2w",
+      "description": "-",
+      "installedVersion": "2.11.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "cross-spawn",
+      "cve": "GHSA-3xgq-45jj-v275",
+      "description": "-",
+      "installedVersion": "6.0.5",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "cross-spawn",
+      "cve": "GHSA-3xgq-45jj-v275",
+      "description": "-",
+      "installedVersion": "7.0.3",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "parse-path",
+      "cve": "GHSA-3j8f-xvm3-ffx4",
+      "description": "-",
+      "installedVersion": "4.0.4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "node-forge",
+      "cve": "GHSA-x4jg-mjrx-434g",
+      "description": "-",
+      "installedVersion": "0.10.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "html-minifier",
+      "cve": "GHSA-pfq8-rq6v-vf5m",
+      "description": "-",
+      "installedVersion": "3.5.21",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "node-forge",
+      "cve": "GHSA-cfm4-qjh2-4765",
+      "description": "-",
+      "installedVersion": "0.10.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "path-to-regexp",
+      "cve": "GHSA-rhx6-c78j-4q9w",
+      "description": "-",
+      "installedVersion": "0.1.7",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "jsonwebtoken",
+      "cve": "GHSA-8cf7-32gw-wr33",
+      "description": "-",
+      "installedVersion": "8.3.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "jetty-server",
+      "cve": "GHSA-q4rv-gq96-w7c5",
+      "description": "-",
+      "installedVersion": "9.4.54.v20240208",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "jackson-core",
+      "cve": "GHSA-h46c-h94j-95f3",
+      "description": "-",
+      "installedVersion": "2.11.0",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_rapp_healthcheck_high_grype": [
+    {
+      "severity": "High",
+      "package": "pygments",
+      "cve": "GHSA-pq64-v7f5-gqh8",
+      "description": "-",
+      "installedVersion": "2.3.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "flask",
+      "cve": "GHSA-m2qf-hxjv-5gpq",
+      "description": "-",
+      "installedVersion": "2.1.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "pygments",
+      "cve": "GHSA-9w8r-397f-prfh",
+      "description": "-",
+      "installedVersion": "2.3.1",
+      "fixedVersion": "nan"
+    }
+  ],
+  "aiml-fw_aihp_ips_kserve-adapter_high_grype": [
+    {
+      "severity": "High",
+      "package": "github.com/prometheus/client_golang",
+      "cve": "GHSA-cg3q-j54f-5p7p",
+      "description": "-",
+      "installedVersion": "v1.7.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/docker/distribution",
+      "cve": "GHSA-h62f-wm92-2cmw",
+      "description": "-",
+      "installedVersion": "v0.0.0-20191216044856-a8371794149d",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-vvpx-j8f3-3w6h",
+      "description": "-",
+      "installedVersion": "v0.4.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/moby/moby",
+      "cve": "GHSA-gh5c-3h97-2f3q",
+      "description": "-",
+      "installedVersion": "v17.12.0-ce-rc1.0.20200618181300-9dc6525e6118+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-hcg3-q754-cr77",
+      "description": "-",
+      "installedVersion": "v0.0.0-20211215153901-e495a2d5b3d3",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/gogo/protobuf",
+      "cve": "GHSA-c3h9-896r-86jm",
+      "description": "-",
+      "installedVersion": "v1.3.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/moby/moby",
+      "cve": "GHSA-2mj3-vfvx-fc43",
+      "description": "-",
+      "installedVersion": "v17.12.0-ce-rc1.0.20200618181300-9dc6525e6118+incompatible",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.4.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "github.com/docker/distribution",
+      "cve": "GHSA-hqxw-f8mx-cpmw",
+      "description": "-",
+      "installedVersion": "v0.0.0-20191216044856-a8371794149d",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/oauth2",
+      "cve": "GHSA-6v2p-p543-phr9",
+      "description": "-",
+      "installedVersion": "v0.0.0-20210323180902-22b0adad7558",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-8c26-wmh5-6g9v",
+      "description": "-",
+      "installedVersion": "v0.0.0-20211215153901-e495a2d5b3d3",
+      "fixedVersion": "nan"
+    }
+  ],
+  "smo_teiv_high_grype": [
+    {
+      "severity": "High",
+      "package": "httpclient5",
+      "cve": "GHSA-73m2-qfq3-56cx",
+      "description": "-",
+      "installedVersion": "5.4.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "pillow",
+      "cve": "GHSA-xg8h-j46f-w952",
+      "description": "-",
+      "installedVersion": "11.2.1",
+      "fixedVersion": "nan"
+    }
+  ],
+  "it_test_high_grype": [
+    {
+      "severity": "High",
+      "package": "cryptography",
+      "cve": "GHSA-x4qr-2fvf-3mr5",
+      "description": "-",
+      "installedVersion": "3.4.8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "cryptography",
+      "cve": "GHSA-x4qr-2fvf-3mr5",
+      "description": "-",
+      "installedVersion": "3.4.8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "cryptography",
+      "cve": "GHSA-x4qr-2fvf-3mr5",
+      "description": "-",
+      "installedVersion": "3.4.8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "cryptography",
+      "cve": "GHSA-x4qr-2fvf-3mr5",
+      "description": "-",
+      "installedVersion": "3.4.8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "cryptography",
+      "cve": "GHSA-3ww4-gg4f-jr7f",
+      "description": "-",
+      "installedVersion": "3.4.8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "cryptography",
+      "cve": "GHSA-3ww4-gg4f-jr7f",
+      "description": "-",
+      "installedVersion": "3.4.8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "cryptography",
+      "cve": "GHSA-3ww4-gg4f-jr7f",
+      "description": "-",
+      "installedVersion": "3.4.8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "cryptography",
+      "cve": "GHSA-3ww4-gg4f-jr7f",
+      "description": "-",
+      "installedVersion": "3.4.8",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ansible",
+      "cve": "GHSA-cpx3-93w7-457x",
+      "description": "-",
+      "installedVersion": "4.10.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ansible",
+      "cve": "GHSA-cpx3-93w7-457x",
+      "description": "-",
+      "installedVersion": "5.7.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ansible",
+      "cve": "GHSA-cpx3-93w7-457x",
+      "description": "-",
+      "installedVersion": "5.7.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ansible",
+      "cve": "GHSA-cpx3-93w7-457x",
+      "description": "-",
+      "installedVersion": "5.7.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ansible-core",
+      "cve": "GHSA-jpxc-vmjf-9fcj",
+      "description": "-",
+      "installedVersion": "2.11.11",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ansible-core",
+      "cve": "GHSA-jpxc-vmjf-9fcj",
+      "description": "-",
+      "installedVersion": "2.12.5",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ansible-core",
+      "cve": "GHSA-jpxc-vmjf-9fcj",
+      "description": "-",
+      "installedVersion": "2.12.5",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "ansible-core",
+      "cve": "GHSA-jpxc-vmjf-9fcj",
+      "description": "-",
+      "installedVersion": "2.12.5",
+      "fixedVersion": "nan"
+    }
+  ],
+  "ric-plt_ric-dep_high_grype": [
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.10.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/oauth2",
+      "cve": "GHSA-6v2p-p543-phr9",
+      "description": "-",
+      "installedVersion": "v0.5.0",
+      "fixedVersion": "nan"
+    }
+  ],
+  "aiml-fw_athp_data-extraction_high_grype": [
+    {
+      "severity": "High",
+      "package": "werkzeug",
+      "cve": "GHSA-xg9f-g7g7-2323",
+      "description": "-",
+      "installedVersion": "2.2.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "flask",
+      "cve": "GHSA-m2qf-hxjv-5gpq",
+      "description": "-",
+      "installedVersion": "2.0.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "flask",
+      "cve": "GHSA-m2qf-hxjv-5gpq",
+      "description": "-",
+      "installedVersion": "2.0.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "werkzeug",
+      "cve": "GHSA-2g68-c3qc-8985",
+      "description": "-",
+      "installedVersion": "2.2.2",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_plt_informationcoordinatorservice_high_grype": [
+    {
+      "severity": "High",
+      "package": "json",
+      "cve": "GHSA-4jq9-2xhw-jpx7",
+      "description": "-",
+      "installedVersion": "20230227",
+      "fixedVersion": "nan"
+    }
+  ],
+  "oam_high_grype": [
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-vvpx-j8f3-3w6h",
+      "description": "-",
+      "installedVersion": "v0.0.0-20210405180319-a5a99cb37ef4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.0.0-20210405180319-a5a99cb37ef4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-69cg-p879-7622",
+      "description": "-",
+      "installedVersion": "v0.0.0-20210405180319-a5a99cb37ef4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/oauth2",
+      "cve": "GHSA-6v2p-p543-phr9",
+      "description": "-",
+      "installedVersion": "v0.0.0-20200107190931-bf48bf16ab8d",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-83g2-8m93-v3w7",
+      "description": "-",
+      "installedVersion": "v0.0.0-20210405180319-a5a99cb37ef4",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_rapp_orufhrecovery_high_grype": [
+    {
+      "severity": "High",
+      "package": "gopkg.in/yaml.v3",
+      "cve": "GHSA-hp87-p4gw-j4gq",
+      "description": "-",
+      "installedVersion": "v3.0.0-20200313102051-9f266ea9e77c",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "urllib3",
+      "cve": "GHSA-q2q7-5pp4-w6pg",
+      "description": "-",
+      "installedVersion": "1.26.4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "urllib3",
+      "cve": "GHSA-q2q7-5pp4-w6pg",
+      "description": "-",
+      "installedVersion": "1.26.4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "urllib3",
+      "cve": "GHSA-v845-jxx5-vc9f",
+      "description": "-",
+      "installedVersion": "1.26.4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "urllib3",
+      "cve": "GHSA-v845-jxx5-vc9f",
+      "description": "-",
+      "installedVersion": "1.26.4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "werkzeug",
+      "cve": "GHSA-xg9f-g7g7-2323",
+      "description": "-",
+      "installedVersion": "1.0.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "flask",
+      "cve": "GHSA-m2qf-hxjv-5gpq",
+      "description": "-",
+      "installedVersion": "1.1.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "werkzeug",
+      "cve": "GHSA-2g68-c3qc-8985",
+      "description": "-",
+      "installedVersion": "1.0.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "certifi",
+      "cve": "GHSA-xqr8-7jwr-rhp7",
+      "description": "-",
+      "installedVersion": "2020.12.5",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "certifi",
+      "cve": "GHSA-xqr8-7jwr-rhp7",
+      "description": "-",
+      "installedVersion": "2020.12.5",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/text",
+      "cve": "GHSA-ppp9-7jff-5vj2",
+      "description": "-",
+      "installedVersion": "v0.3.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/text",
+      "cve": "GHSA-69ch-w2m2-3vjp",
+      "description": "-",
+      "installedVersion": "v0.3.2",
+      "fixedVersion": "nan"
+    }
+  ],
+  "aiml-fw_athp_tps_kubeflow-adapter_high_grype": [
+    {
+      "severity": "High",
+      "package": "werkzeug",
+      "cve": "GHSA-xg9f-g7g7-2323",
+      "description": "-",
+      "installedVersion": "1.0.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "flask",
+      "cve": "GHSA-m2qf-hxjv-5gpq",
+      "description": "-",
+      "installedVersion": "1.1.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "werkzeug",
+      "cve": "GHSA-2g68-c3qc-8985",
+      "description": "-",
+      "installedVersion": "1.0.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "flask-cors",
+      "cve": "GHSA-hxwh-jpp2-84pm",
+      "description": "-",
+      "installedVersion": "4.0.1",
+      "fixedVersion": "nan"
+    }
+  ],
+  "smo_o2_high_grype": [
+    {
+      "severity": "High",
+      "package": "pillow",
+      "cve": "GHSA-xg8h-j46f-w952",
+      "description": "-",
+      "installedVersion": "11.2.1",
+      "fixedVersion": "nan"
+    }
+  ],
+  "sim_a1-interface_high_grype": [
+    {
+      "severity": "High",
+      "package": "pillow",
+      "cve": "GHSA-xg8h-j46f-w952",
+      "description": "-",
+      "installedVersion": "11.2.1",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_plt_ranpm_high_grype": [
+    {
+      "severity": "High",
+      "package": "gopkg.in/yaml.v3",
+      "cve": "GHSA-hp87-p4gw-j4gq",
+      "description": "-",
+      "installedVersion": "v3.0.0-20210107192922-496545a6307b",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-vvpx-j8f3-3w6h",
+      "description": "-",
+      "installedVersion": "v0.0.0-20210405180319-a5a99cb37ef4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/crypto",
+      "cve": "GHSA-hcg3-q754-cr77",
+      "description": "-",
+      "installedVersion": "v0.13.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.0.0-20210405180319-a5a99cb37ef4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-4374-p667-p6c8",
+      "description": "-",
+      "installedVersion": "v0.15.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-69cg-p879-7622",
+      "description": "-",
+      "installedVersion": "v0.0.0-20210405180319-a5a99cb37ef4",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/oauth2",
+      "cve": "GHSA-6v2p-p543-phr9",
+      "description": "-",
+      "installedVersion": "v0.0.0-20200107190931-bf48bf16ab8d",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/oauth2",
+      "cve": "GHSA-6v2p-p543-phr9",
+      "description": "-",
+      "installedVersion": "v0.12.0",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "golang.org/x/net",
+      "cve": "GHSA-83g2-8m93-v3w7",
+      "description": "-",
+      "installedVersion": "v0.0.0-20210405180319-a5a99cb37ef4",
+      "fixedVersion": "nan"
+    }
+  ],
+  "aiml-fw_awmf_tm_high_grype": [
+    {
+      "severity": "High",
+      "package": "werkzeug",
+      "cve": "GHSA-xg9f-g7g7-2323",
+      "description": "-",
+      "installedVersion": "2.2.2",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "werkzeug",
+      "cve": "GHSA-2g68-c3qc-8985",
+      "description": "-",
+      "installedVersion": "2.2.2",
+      "fixedVersion": "nan"
+    }
+  ],
+  "nonrtric_plt_rappmanager_high_grype": [
+    {
+      "severity": "High",
+      "package": "pillow",
+      "cve": "GHSA-xg8h-j46f-w952",
+      "description": "-",
+      "installedVersion": "11.2.1",
+      "fixedVersion": "nan"
+    },
+    {
+      "severity": "High",
+      "package": "pillow",
+      "cve": "GHSA-xg8h-j46f-w952",
+      "description": "-",
+      "installedVersion": "11.2.1",
+      "fixedVersion": "nan"
+    }
+  ]
+}
