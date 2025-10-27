@@ -1,0 +1,109 @@
+##this is the working manifest
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hpe16-bmc-credentials
+  namespace: default
+type: Opaque
+stringData:
+  username: dummy
+  password: dummy
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hpe16-cluster-ssh-key
+  namespace: default
+type: Opaque
+data:
+  value: LS0tLS1CRUdJTiBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLS0KYjNCbGJuTnphQzFyWlhrdGRqRUFBQUFBQkc1dmJtVUFBQUFFYm05dVpRQUFBQUFBQUFBQkFBQUNGd0FBQUFkemMyZ3RjbgpOaEFBQUFBd0VBQVFBQUFnRUF2cUVuTm04NzNFUzR1LzQwS3c2ZVFhYjhXWC9NcmVlcG9VVFRHQkRIZVpJU0E2dVRUd3RnCng2eUhUaTRUc1ZLV2hFWUprTUJDSDVGL2xqSGtaVUpiZDlNV0kzZnFKRlh1aVZlTVExUEFva3RCRVQ0YUVYZFMzbnRQRTIKMFlEcFc4dFc5WG9uTVNSdzhjRG16SllFU1F6ck5GUFpwUFc0eWF1Z1FpbGF6R3lPU3Y2MUp4a3prQjhramc1NVluNVlrVAorKzBTbFV3Y0c2R09jSWE2Y1ljY05nRUdxWEowRzdGSlNuTTlIT2sxckdCQTRaREJkMVZFdjlXbms5RlJpbXZsdWR4d0hEClBVVjYrQUZHOERtVUxHbUF1REFTMSt3WnNkWllGUFFpeVgwUWc3RWg2NitjeEkzTXExS3Q0RWJoU1paYkpZc2IweWdHMjgKdnRCalQzanB4d1ByUTVua1ZSRmNuVmdHdzZIWjdtaTNINjA0c2VpSkVzNi9sd2tybThNZktKWXRIWjlZMTR4Z1VnakZCRgpRbm5TeXBSK2taNmt6SGpLT1FON0tuVURua1lMQjVKVloyUWcya0JKd3hUS0hZZktyMXhsN3lQV2ZoQWh6ekRRY2ZxMjhyCmZkUGZCWTJJZmdMaVJxNjlLd0JpMUpiS0JGNjZDNE5pbDJMQUQvSFZqaFRiMWYranBTNUowdjVZMHNlV05VR2QvZ3JrNkUKMjJGeHQ4VlY3ejFYT3pyblJOSWdzQnBhTFdRdGFnNm50MGFEc2xoUkREazVkZkFFVUJ5Y2NZa2JyQnpNbUlzajlOM05xRwprYmFiSnY2cE9aakFMaXIxbWNXb3ZLQWxyV1JWSWd1bHYwR3BIeVZwTlZSRjVONVdtd0pOTDBOWmIzTVBxZVNsVGxiODNOCjBBQUFkSWdDcTU3WUFxdWUwQUFBQUhjM05vTFhKellRQUFBZ0VBdnFFbk5tODczRVM0dS80MEt3NmVRYWI4V1gvTXJlZXAKb1VUVEdCREhlWklTQTZ1VFR3dGd4NnlIVGk0VHNWS1doRVlKa01CQ0g1Ri9sakhrWlVKYmQ5TVdJM2ZxSkZYdWlWZU1RMQpQQW9rdEJFVDRhRVhkUzNudFBFMjBZRHBXOHRXOVhvbk1TUnc4Y0RtekpZRVNRenJORlBacFBXNHlhdWdRaWxhekd5T1N2CjYxSnhremtCOGtqZzU1WW41WWtUKyswU2xVd2NHNkdPY0lhNmNZY2NOZ0VHcVhKMEc3RkpTbk05SE9rMXJHQkE0WkRCZDEKVkV2OVduazlGUmltdmx1ZHh3SERQVVY2K0FGRzhEbVVMR21BdURBUzErd1pzZFpZRlBRaXlYMFFnN0VoNjYrY3hJM01xMQpLdDRFYmhTWlpiSllzYjB5Z0cyOHZ0QmpUM2pweHdQclE1bmtWUkZjblZnR3c2SFo3bWkzSDYwNHNlaUpFczYvbHdrcm04Ck1mS0pZdEhaOVkxNHhnVWdqRkJGUW5uU3lwUitrWjZrekhqS09RTjdLblVEbmtZTEI1SlZaMlFnMmtCSnd4VEtIWWZLcjEKeGw3eVBXZmhBaHp6RFFjZnEyOHJmZFBmQlkySWZnTGlScTY5S3dCaTFKYktCRjY2QzROaWwyTEFEL0hWamhUYjFmK2pwUwo1SjB2NVkwc2VXTlVHZC9ncms2RTIyRnh0OFZWN3oxWE96cm5STklnc0JwYUxXUXRhZzZudDBhRHNsaFJERGs1ZGZBRVVCCnljY1lrYnJCek1tSXNqOU4zTnFHa2JhYkp2NnBPWmpBTGlyMW1jV292S0FscldSVklndWx2MEdwSHlWcE5WUkY1TjVXbXcKSk5MME5aYjNNUHFlU2xUbGI4M04wQUFBQURBUUFCQUFBQ0FDOHc5ZVFqNVUzQ05YbFVsTldUNk5tWDNTREs0b0NxdVBPVApkaTZlK01LL3huWGlJN1dOdTRleXprd3NXL09wM2xrZ2ZYMjRHcVoxL24vUUdocDNNdTJXOUFRVHk0THpRdm45RWx3WWY3CmV0cVkzN01iamhNVUtpaEJEckVPbUxhQXdDWkU5eTdUTnFLaWZvQm5JdWh5cWtkcCtwYzd2V012ZVp6blgvTDdiTDVrRDcKUitLS1dsRUBlYXpiSDBWVGlmN3owWVhrTVpFbGpYMk4zTm45K0ozbDR5QlBsUzdGMUw3NWlFZC85Q21ZS25lc3ZqZ3NnNwpoNXkrSnNEeU9WVW1tUWlMQnlwRDZRMDhRN04walpueEJFeVVtaFdaL1VKcExhVUNTeHBXTzZCZVdXZGZNZy8yaXBSZkEyCnhpSDZOMzlWaDE5NDF1ZTBRdVY1OFJ2YmN3UERjNUhuYzNBYlRMQWFHZmtkZkRkNlJ0Sk1FK1hOS0J1ZjZLOFBnNk1OaW8KWExEaWJ4UkViQmIrMlNwT2dJSkdseDRROEE5cGxseU5BMjBiRjE5UUN5SUw4blhjczFtNWxRQURIWmdXTE50bk13UXRuSApkeFVyaVEyNmwwSTJOTUlaUDRKMlBmMGtOb0hQZVVLb21EY2kwR2pnYU03QmluNVFtcnU2RlNSL0ZJQ3hIZjdBV2ZaOTExCkphOW5EMjR1K0gxbGF1d0tETXpXZnlBenMreGFMZzNDWVpYZVRhUUFURDlKYzlYaEtlayt2amhWM0FkZTN6VnZLRm96YWcKMm1OanNnMTloNHZ5NEZCL3JlMnI0V1V5eGZaWndQL0NyQjY4UlhXUk5UcUZwcjJwa2JUV2pnb1NrNGYwUUFSMVowWjhobwpjWVJNOU1GTHYwRUI5T1NYNkJBQUFCQUZNQlM5MWczSFRmcWxlY2RzbFlEd201amJjVDhoY3AvWUNsbnBZem00dzBEWDR2CngzQWhLTEExaVR1QTN2MHB6MnhNTzQ4VU96clZXa1M4dmRsaktHUCs4cC9QWGhySnlGWC93QVZSSUNESVJkZWtlaVMxUVgKUDJlSjg0RktmYmFBazUvTDJ6RTFkaFhzUUw3K3BxRkxPOVRqbzFaU0dMVTFLdnJoQTQ2dEQ3T1pXMkxBSmp4Wmo2RzgyQgpQdWV6WldsaEhGSUFwVzFHQ1R3VE9PRm1tbFlYTU1YVE5aV1NXazBWR01LR1NqZUJIMTg5RFhXMTRlbmY5RmE2alpPSWs3CjZ6NndpMUNyOUNnVkpsWDZVTnVRNzRydVdtWVVCbWxUU1M5VkxoWUwvZ3RhRFF4Y1NWOHN4Z2Q1OVNXQWNJNVJGaVQvRVYKejFOYng4K1E3Z0N1dHlRQUFBRUJBUGhrbFFzSlFOTTZnSEh4SUJrK2xWbTY4R2FKQzdzWUlWYm5zV2IrNnhCckRNQ0VKdwp6WEdFQVhISmFvd2hxRlVva3UzVkl4RTU1Qk5vTTlscUpjOGZxQnFsOEpBQmpyUG00UGNrdDZiL3ZQb3U3Mml3SGNDTzBZCnZqOHFzL3I3L2pmSWdzUm91czdodDIyZy9mOFkvV1dDczBTRjVsMXozQmwyM3VGWkoyWmtRTlNxNDA5czhuYStxTU5Gb04Ka1NJSW03dUZFWU0yTlVnMTkzZThkcjExYmRWaFk0Y2RxUzRwR1llYWpMOHVQdUFTaE45ZEVoOWlhRHFvZXFBVlZUSlNVSQpMUjQrRzRpR3lqaktUb1dMWTV3VzhlZ3ZzQVJkTmEvWUxrTmFSMVZvSXRqb2pFZDdWSlFweW9RcXRKdGcxT0o4c09ENVFoCmFBMVdZY0Zjd1FCeXNBQUFFQkFNUjNzNitYalRHUGdNU1pvS09KV0RMY3JqaHpSNzBnaFVsU1cra1RKcFN5eXpYSmYrdzEKSDZaUGlUbEVPM1NEdDl0Y0cwaU9pNEVMeThmdUJHb1E5QmwrTmZBSTJMQ1BVcmJvM2FZL3dhWWtHa0ozUHoyRDAvOGFLNQpKNEhVRExiMlRPR0FEUDNTUFZJbUxXOWxwampSMklsN2I1SmV1ckxIWW1HUit2SXN3dktNNmFPbW9rcWtNeENCeWo3QXA2Cll0QUhKOXJCMjVWVUh4ckZCUHYvb3A0ZGJqNjJTMU96Y3JoNmRCRTRMN0VzWEJtamlCWnIzV3U2N1VYV0V4d3JXbkFGbU4KdndEbmg2UlIvK01xQnA0RnBRLy81MTFYSWx2OW1wWlJyN3I5dm9abk9oOVQ3TjJERFgvaUZHT1FNblVtOWpYeGo1RFVqTgpVSkdJYVFxSXFCY0FBQUFSY21Wb1lXNW1ZWHBoYkVCdVpYQm9hVzhCQWc9PQotLS0tLUVORCBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLS0K
+---
+apiVersion: infra.nephio.org/v1alpha1
+kind: ClusterContext
+metadata:
+  name: hpe16-cluster
+  namespace: default
+spec:
+  cniConfig:
+    cniType: calico
+    masterInterface: "ens4f0"
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: hpe16-bmh
+  namespace: default
+  labels:
+    cluster.x-k8s.io/cluster-name: hpe16-cluster
+spec:
+  online: true
+  externallyProvisioned: true
+  bootMACAddress: "3c:fd:fe:ef:10:4c"
+  bmc:
+    address: "ipmi://0.0.0.0"
+    credentialsName: "hpe16-bmc-credentials"
+---
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: hpe16-cluster
+  namespace: default
+  annotations:
+    cluster.x-k8s.io/kubeconfig-insecure: "true"
+spec:
+  controlPlaneRef:
+    apiVersion: controlplane.cluster.x-k8s.io/v1beta1
+    kind: KubeadmControlPlane
+    name: hpe16-control-plane
+  infrastructureRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+    kind: Metal3Cluster
+    name: hpe16-cluster
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+kind: Metal3Cluster
+metadata:
+  name: hpe16-cluster
+  namespace: default
+spec:
+  controlPlaneEndpoint:
+    host: "10.200.105.57"
+    port: 6443
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+kind: Metal3MachineTemplate
+metadata:
+  name: hpe16-control-plane-template
+  namespace: default
+spec:
+  template:
+    spec:
+      image:
+        url: "http://localhost/dummy.img"
+        checksum: "http://localhost/dummy.img.sha256"
+      hostSelector:
+        matchLabels:
+          cluster.x-k8s.io/cluster-name: hpe16-cluster
+---
+apiVersion: controlplane.cluster.x-k8s.io/v1beta1
+kind: KubeadmControlPlane
+metadata:
+  name: hpe16-control-plane
+  namespace: default
+  annotations:
+    
+    cluster.x-k8s.io/kubeconfig-insecure: "true"
+spec:
+  replicas: 1
+  version: "v1.29.0"
+  machineTemplate:
+    infrastructureRef:
+      apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+      kind: Metal3MachineTemplate
+      name: hpe16-control-plane-template
+  kubeadmConfigSpec:
+    initConfiguration:
+      nodeRegistration:
+        kubeletExtraArgs:
+          provider-id: metal3://{{ ds.meta_data.uuid }}

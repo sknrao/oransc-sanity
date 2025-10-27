@@ -1,0 +1,69 @@
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: hpe26-cluster
+  namespace: default
+  annotations:
+    cluster.x-k8s.io/kubeconfig-insecure: "true" 
+spec:
+  controlPlaneRef:
+    apiVersion: controlplane.cluster.x-k8s.io/v1beta1
+    kind: KubeadmControlPlane
+    name: hpe26-control-plane
+  infrastructureRef:
+    apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+    kind: Metal3Cluster
+    name: hpe26-cluster
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+kind: Metal3Cluster
+metadata:
+  name: hpe26-cluster
+  namespace: default
+spec:
+  controlPlaneEndpoint:
+    host: "10.200.105.XX" # <-- REPLACE with hpe26's IP
+    port: 6443
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+kind: Metal3MachineTemplate
+metadata:
+  name: hpe26-control-plane-template
+  namespace: default
+spec:
+  template:
+    spec:
+      image: # Dummy values 
+        url: "http://localhost/dummy.img"
+        checksum: "http://localhost/dummy.img.sha256"
+      hostSelector:
+        matchLabels:
+          cluster.x-k8s.io/cluster-name: hpe26-cluster # Matches label on BMH
+---
+apiVersion: controlplane.cluster.x-k8s.io/v1beta1
+kind: KubeadmControlPlane
+metadata:
+  name: hpe26-control-plane
+  namespace: default
+spec:
+  replicas: 1
+  version: "v1.29.0" # <-- SET YOUR TARGET K8S VERSION
+  machineTemplate:
+    infrastructureRef:
+      kind: Metal3MachineTemplate
+      apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+      name: hpe26-control-plane-template
+  kubeadmConfigSpec:
+    # --- this part is not supported in this version ---
+    users:
+    - name: "rehanfazal" # <-- SET USERNAME ON hpe26
+      sshAuthorizedKeys:
+      - "ssh-rsa AAAA..." # <-- REPLACE with your FULL public key
+      sudo: "ALL=(ALL) NOPASSWD:ALL"
+    ssh:           
+      allowUnsafeCommands: true
+      secretName: hpe26-ssh-key # The secret you created in Prereq 2
+    
+    # --- CRITICAL FIX 3: This installs the CNI for you ---
+    postKubeadmCommands:
+      - "kubectl --kubeconfig /etc/kubernetes/admin.conf apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml"
