@@ -62,10 +62,6 @@
 
 ---
 
-## 📋 **DEMO TRANSCRIPT WITH REAL OUTPUTS**
-
----
-
 ### **STEP 1: Show automation scripts created for near-rt-ric deployment**
 
 **What we're doing:** Showing the smart scripts that automatically set up our Near-RT RIC system
