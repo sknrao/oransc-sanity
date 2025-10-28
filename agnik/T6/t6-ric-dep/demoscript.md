@@ -216,7 +216,7 @@ deployment-ricplt-e2mgr-59c9644b4d-fvxrs                    1/1     Running   0 
 
 **What we're doing:** Testing the Policy Management Service to make sure it's working properly
 
-**Command 15:** `curl -s http://192.168.49.2:30094/status`
+**Command 15:** `sshpass -p '1234' ssh -o StrictHostKeyChecking=no agnikmisra@hpe15.anuket.iol.unh.edu 'curl -s http://192.168.49.2:30094/status'`
 
 **ACTUAL OUTPUT:**
 ```
