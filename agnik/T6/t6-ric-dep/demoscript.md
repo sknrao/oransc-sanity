@@ -96,8 +96,7 @@
 ### **STEP 2: Show the running near-rt-ric**
 
 **What we're doing:** Checking if all our Near-RT RIC components are working perfectly
-
-**Command 16:** `kubectl get pods -n ricplt`
+**Command 16:** `sshpass -p '1234' ssh -o StrictHostKeyChecking=no agnikmisra@hpe16.anuket.iol.unh.edu 'kubectl get pods -n ricplt'`
 
 **ACTUAL OUTPUT:**
 ```
@@ -166,7 +165,7 @@ statefulset-ricplt-dbaas-server-0                           1/1     Running   0 
 
 **What we're doing:** Demonstrating that the E2 interface is actively communicating and working with the Near-RT RIC system, showing both E2 Terminator and E2 Manager status
 
-**Command 16:** `echo "=== E2 SIMULATOR CONNECTION STATUS ===" && echo "" && echo "1. E2 Terminator Status:" && kubectl get pods -n ricplt | grep e2term && echo "" && echo "2. E2 Manager Status:" && kubectl get pods -n ricplt | grep e2mgr && echo "" && echo "3. E2 Manager Active Communication:" && kubectl logs deployment-ricplt-e2mgr-59c9644b4d-fvxrs -n ricplt --tail=3`
+**Command 16:** `sshpass -p '1234' ssh -o StrictHostKeyChecking=no agnikmisra@hpe16.anuket.iol.unh.edu 'echo "=== E2 SIMULATOR CONNECTION STATUS ===" && echo "" && echo "1. E2 Terminator Status:" && kubectl get pods -n ricplt | grep e2term && echo "" && echo "2. E2 Manager Status:" && kubectl get pods -n ricplt | grep e2mgr && echo "" && echo "3. E2 Manager Active Communication:" && kubectl logs deployment-ricplt-e2mgr-59c9644b4d-fvxrs -n ricplt --tail=3'`
 
 **ACTUAL OUTPUT:**
 ```
