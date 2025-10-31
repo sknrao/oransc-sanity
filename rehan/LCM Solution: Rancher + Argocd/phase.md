@@ -12,9 +12,9 @@
 
 ## 🚀 Phase 2: Deploying the  Applications (The "Things")
 
-    Find/Configure O-RAN Apps: 
+    Find/Configure O-RAN Apps
 
-    Get Apps into Git: Structuring your oran-app-configs Git repo.
+    Get Apps into Git
 
     Deploy & Debug (T11)
 
