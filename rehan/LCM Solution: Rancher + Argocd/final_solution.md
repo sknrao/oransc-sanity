@@ -37,7 +37,7 @@ Each zone plays a critical role in automating, observing, and orchestrating the 
 - Cluster provisioning and registration  
 - Role-Based Access Control (RBAC) and authentication  
 - Centralized monitoring for all clusters  
-- Interface for Day-1/Day-2 cluster operations  
+- Interface for cluster operations  
 
 Rancher integrates directly with **O2IMS** to provide cluster inventory and lifecycle state data.
 
