@@ -4,7 +4,7 @@
 
     Install Management K8s & Rancher Server
 
-    Provision 5 Workload Clusters
+    Provision  Workload Clusters
 
     Install & Configure ArgoCD
 
