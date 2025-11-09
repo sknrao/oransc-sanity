@@ -2,7 +2,9 @@
 
 This document outlines the end-to-end process for deploying a Cluster API (CAPI) management cluster and provisioning a new workload cluster using the BYOH (Bring Your Own Host) infrastructure provider, all managed via GitOps.
 
-Phase 1: Management Cluster (BMC) Setup
+Phase 1: Management Cluster (BMC) Setup.
+Phase 2: Resgister the target server.
+Phase 3: Create the workload cluster.
 
 The first phase involves preparing our central management cluster.
 
