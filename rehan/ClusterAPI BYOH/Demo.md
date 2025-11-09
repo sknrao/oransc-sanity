@@ -1,4 +1,4 @@
-Demo Script: Management & Workload Cluster Creation (BYOH)
+Demo Script: Management & Workload Cluster Creation (BYOH)this is going to be cool
 
 This document outlines the end-to-end process for deploying a Cluster API (CAPI) management cluster and provisioning a new workload cluster using the BYOH (Bring Your Own Host) infrastructure provider, all managed via GitOps.
 
