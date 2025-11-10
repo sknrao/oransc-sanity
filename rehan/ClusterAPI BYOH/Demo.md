@@ -19,7 +19,7 @@ This script automates the following setup:
 * Installs Kubernetes: A single-node k8s cluster.
 * Installs Tooling: Helm, ArgoCD, ArgoCD CLI, and clusterctl.  
 * Initializes CAPI: Runs clusterctl init --infrastructure byoh.  
-* Patches Controller: Updates the BYOH controller image to rehanfazal47/cluster-api-byoh-controller:v0.5.0 to include necessary fixes.
+* Patches Controller: Updates the BYOH controller image to rehanfazal47/cluster-api-byoh-controller:v0.5.0 to include necessary fixes.<bar>
 **Add git repo in your argocd and create the argocd app**
 
 # Phase 2: Resgister the target server
