@@ -1,4 +1,4 @@
-# Demo: Management & Workload Cluster Creation using ClusterAPI BYOH
+# Management & Workload Cluster Creation using ClusterAPI BYOH
 
 This document outlines the end-to-end process for deploying a Cluster API (CAPI) management cluster and provisioning a new workload cluster using the BYOH (Bring Your Own Host) infrastructure provider.
 
@@ -20,7 +20,7 @@ This script automates the following setup:
 * Installs Tooling: Helm, ArgoCD, ArgoCD CLI, and clusterctl.  
 * Initializes CAPI: Runs clusterctl init --infrastructure byoh.  
 * Patches Controller: Updates the BYOH controller image to rehanfazal47/cluster-api-byoh-controller:v0.5.0 to include necessary fixes.
-
+**Add git repo in your argocd and create the argocd app**
 
 # Phase 2: Resgister the target server
 * **Get the APIServer and Certificate Authority Data info**
