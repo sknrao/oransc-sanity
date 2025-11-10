@@ -21,7 +21,8 @@ This script automates the following setup:
 * Initializes CAPI: Runs clusterctl init --infrastructure byoh.  
 * Patches Controller: Updates the BYOH controller image to rehanfazal47/cluster-api-byoh-controller:v0.5.0 to include necessary fixes.
 
-<br>
+
+**Note**<br>
 **Add git repo in your argocd and create the argocd app**
 
 # Phase 2: Resgister the target server
