@@ -33,3 +33,13 @@ Each table lists the CVE number, affected files (clickable), fix details, and a 
 | 1 | **CVE-2024-34043** | [`wrapper.c`](./near-rt-ric/ric-app-kpimon-go/wrapper.c) | Added NULL pointer checks for choice union members: `initiatingMessage`, `successfulOutcome`, `unsuccessfulOutcome` | Prevents segmentation faults when processing malformed or partially decoded E2AP-PDU messages. |
 
 ---
+
+
+
+## 4. RIC Subscription Manager (submgr)
+
+| No. | CVE ID             | Affected File                                                                              | Fix Applied                                                                                                                          | Explanation                                                                                                                                                                |
+| :-: | :----------------- | :----------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  1  | **CVE-2024-34036** | [`ratelimiter.go`](./near-rt-ric/submgr/ratelimiter.go), [`control.go`](./near-rt-ric/submgr/control.go) | Added a per-xApp, per-route token-bucket rate limiting system; wrapped all REST and subscription handlers using a RateLimiterWrapper | Prevents malicious xApps from overwhelming submgr with excessive subscription requests, blocking the denial-of-service pathway used to disrupt gNB ↔ RIC connection setup. |
+
+---
