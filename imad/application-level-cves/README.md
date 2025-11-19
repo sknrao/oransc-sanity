@@ -43,3 +43,14 @@ Each table lists the CVE number, affected files (clickable), fix details, and a 
 |  1  | **CVE-2024-34036** | [`ratelimiter.go`](./near-rt-ric/submgr/ratelimiter.go), [`control.go`](./near-rt-ric/submgr/control.go) | Added a per-xApp, per-route token-bucket rate limiting system; wrapped all REST and subscription handlers using a RateLimiterWrapper | Prevents malicious xApps from overwhelming submgr with excessive subscription requests, blocking the denial-of-service pathway used to disrupt gNB ↔ RIC connection setup. |
 
 ---
+
+
+
+
+## 5. RIC App Manager (appmgr)
+
+| No. | CVE ID                              | Affected File                | Fix Applied                                                                                                            | Explanation                                                                                                                                 |
+| :-: | :---------------------------------- | :--------------------------- | :--------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+|  1  | **CVE-2024-34036 (AppMgr variant)** | `restful.go` (`parseConfig`) | Added whitelist validation for RMR message types; registration fails if xApp provides unauthorized tx/rx message types | Prevents attackers from registering fake or malicious RMR message types that could disrupt message routing and impact other RIC components. |
+
+---
