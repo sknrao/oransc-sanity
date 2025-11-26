@@ -29,21 +29,63 @@ Clone the ric-plt/dep git repository that has deployment scripts and support fil
 Deploying the Infrastructure and Platform Groups
 ------------------------------------------------
 
-Use the scripts below to install Kubernetes, the Kubernetes CNI binaries, containerd and Helm on a fresh
-Ubuntu 20.04 installation. These scripts live under ``bin/`` and are the default, supported installation
-mechanism after the repository cleanup (``ci/`` and ``new-installer/`` were removed).
+The legacy ``ci/`` and ``new-installer/`` trees were removed. A clean installation on Ubuntu 22.04 now
+uses ``kubeadm`` directly, followed by the existing Helm helper scripts. The exact sequence used for the
+latest validation run is shown below.
 
-.. code:: bash
+1. **Install prerequisites (containerd, kubeadm, kubelet, kubectl, CNI)**
 
-  # install Kubernetes, CNI plugins, containerd and Helm
-  cd ric-dep/bin
-  ./install_k8s_and_helm.sh
+   .. code:: bash
 
-  # install chartmuseum into Helm and add ric-common templates
-  ./install_common_templates_to_helm.sh
+      export DEBIAN_FRONTEND=noninteractive
+      sudo apt-get update
+      sudo apt-get install -y apt-transport-https ca-certificates curl gpg lsb-release containerd
+      sudo mkdir -p /etc/apt/keyrings
+      curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | \
+        sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+      printf "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] \
+https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /\n" | \
+        sudo tee /etc/apt/sources.list.d/kubernetes.list >/dev/null
+      sudo apt-get update
+      sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
+      sudo apt-mark hold kubelet kubeadm kubectl
 
-After the recipes are edited and Helm is ready, the Near Realtime RIC platform is ready to be deployed,
-but first update the deployment recipe as per instructions in the next section.
+2. **Configure containerd to use systemd cgroups and enable services**
+
+   .. code:: bash
+
+      sudo mkdir -p /etc/containerd
+      containerd config default | sudo tee /etc/containerd/config.toml >/dev/null
+      sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
+      sudo systemctl restart containerd
+      sudo systemctl enable containerd kubelet
+
+3. **Initialize the control plane and configure kubectl**
+
+   .. code:: bash
+
+      sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+      mkdir -p $HOME/.kube
+      sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
+      sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+4. **Install Flannel CNI and allow workloads on the control-plane node (single-node labs)**
+
+   .. code:: bash
+
+      KUBECONFIG=$HOME/.kube/config kubectl apply --validate=false \
+        -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+      KUBECONFIG=$HOME/.kube/config kubectl taint nodes --all node-role.kubernetes.io/control-plane:NoSchedule-
+
+5. **Install Helm helper and ric-common templates**
+
+   .. code:: bash
+
+      cd ric-dep/bin
+      ./install_common_templates_to_helm.sh
+
+After these steps ``kubectl get nodes`` should show the control-plane node in ``Ready`` state and you can
+proceed to recipe customization.
 
 
 Modify the deployment recipe
@@ -98,45 +140,35 @@ or select the release-specific file you edited earlier.
 Checking the Deployment Status
 ------------------------------
 
-Now check the deployment status after a short wait. Results similar to the
-output shown below indicate a complete and successful deployment. Check the
-STATUS column from both kubectl outputs to ensure that all are either
-"Completed" or "Running", and that none are "Error" or "ImagePullBackOff".
+After running ``./install -f <recipe>`` and waiting a few minutes, a healthy system looks like:
 
 .. code::
 
-  # helm list
-  NAME                  REVISION        UPDATED                         STATUS          CHART                   APP VERSION     NAMESPACE
-  r3-a1mediator         1               Thu Jan 23 14:29:12 2020        DEPLOYED        a1mediator-3.0.0        1.0             ricplt
-  r3-appmgr             1               Thu Jan 23 14:28:14 2020        DEPLOYED        appmgr-3.0.0            1.0             ricplt
-  r3-dbaas1             1               Thu Jan 23 14:28:40 2020        DEPLOYED        dbaas1-3.0.0            1.0             ricplt
-  r3-e2mgr              1               Thu Jan 23 14:28:52 2020        DEPLOYED        e2mgr-3.0.0             1.0             ricplt
-  r3-e2term             1               Thu Jan 23 14:29:04 2020        DEPLOYED        e2term-3.0.0            1.0             ricplt
-  r3-infrastructure     1               Thu Jan 23 14:28:02 2020        DEPLOYED        infrastructure-3.0.0    1.0             ricplt
-  r3-jaegeradapter      1               Thu Jan 23 14:29:47 2020        DEPLOYED        jaegeradapter-3.0.0     1.0             ricplt
-  r3-rsm                1               Thu Jan 23 14:29:39 2020        DEPLOYED        rsm-3.0.0               1.0             ricplt
-  r3-rtmgr              1               Thu Jan 23 14:28:27 2020        DEPLOYED        rtmgr-3.0.0             1.0             ricplt
-  r3-submgr             1               Thu Jan 23 14:29:23 2020        DEPLOYED        submgr-3.0.0            1.0             ricplt
-  r3-vespamgr           1               Thu Jan 23 14:29:31 2020        DEPLOYED        vespamgr-3.0.0          1.0             ricplt
+  $ helm list -n ricplt
+  NAME                 	REVISION	UPDATED                        	STATUS  	CHART            	APP VERSION	NAMESPACE
+  r4-infrastructure    	1       	Wed Nov 26 08:50:49 2025       	deployed	infrastructure-4.0	latest     	ricplt
+  r4-dbaas             	1       	Wed Nov 26 08:51:03 2025       	deployed	dbaas-4.0       	latest     	ricplt
+  r4-appmgr            	1       	Wed Nov 26 08:51:11 2025       	deployed	appmgr-4.0      	latest     	ricplt
+  ... (remaining components omitted for brevity)
 
-  # kubectl get pods -n ricplt
-  NAME                                               READY   STATUS             RESTARTS   AGE
-  deployment-ricplt-a1mediator-69f6d68fb4-7trcl      1/1     Running            0          159m
-  deployment-ricplt-appmgr-845d85c989-qxd98          2/2     Running            0          160m
-  deployment-ricplt-dbaas-7c44fb4697-flplq           1/1     Running            0          159m
-  deployment-ricplt-e2mgr-569fb7588b-wrxrd           1/1     Running            0          159m
-  deployment-ricplt-e2term-alpha-db949d978-rnd2r     1/1     Running            0          159m
-  deployment-ricplt-jaegeradapter-585b4f8d69-tmx7c   1/1     Running            0          158m
-  deployment-ricplt-rsm-755f7c5c85-j7fgf             1/1     Running            0          158m
-  deployment-ricplt-rtmgr-c7cdb5b58-2tk4z            1/1     Running            0          160m
-  deployment-ricplt-submgr-5b4864dcd7-zwknw          1/1     Running            0          159m
-  deployment-ricplt-vespamgr-864f95c9c9-5wth4        1/1     Running            0          158m
-  r3-infrastructure-kong-68f5fd46dd-lpwvd            2/2     Running            3          160m
+  $ kubectl get pods -n ricplt
+  deployment-ricplt-a1mediator-64fd4bf64-5c2cf                 1/1   Running
+  deployment-ricplt-alarmmanager-7d47d8f4d4-zbgj6              1/1   Running
+  deployment-ricplt-appmgr-79848f94c-bccmw                     1/1   Running
+  deployment-ricplt-e2mgr-856f655b4-bksfx                      1/1   Running
+  deployment-ricplt-e2term-alpha-d5fd5d9c6-4k28s               1/1   Running
+  deployment-ricplt-o1mediator-76c4646878-wk9dw                1/1   Running
+  deployment-ricplt-rtmgr-6556c5bc7b-9wx78                     1/1   Running
+  deployment-ricplt-submgr-66485ccc6c-cst45                    1/1   Running
+  deployment-ricplt-vespamgr-786666549b-cdj8z                  1/1   Running
+  r4-infrastructure-kong-5986fc7965-v2qkw                      2/2   Running
+  r4-infrastructure-prometheus-alertmanager-64f9876d6d-29s2w   2/2   Running
+  r4-infrastructure-prometheus-server-bcc8cc897-l2sfv          1/1   Running
+  statefulset-ricplt-dbaas-server-0                            1/1   Running
 
-  # kubectl get pods -n ricinfra
-  NAME                                        READY   STATUS      RESTARTS   AGE
-  deployment-tiller-ricxapp-d4f98ff65-9q6nb   1/1     Running     0          163m
-  tiller-secret-generator-plpbf               0/1     Completed   0          163m
+  $ kubectl get pods -n ricinfra
+  deployment-tiller-ricxapp-676dfd8664-9fbkj   1/1   Running
+  tiller-secret-generator-jns95                0/1   Completed
 
 Checking Container Health
 -------------------------
