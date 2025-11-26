@@ -7,7 +7,7 @@
 RECIPE ?= RECIPE_EXAMPLE/example_recipe_latest_stable.yaml
 
 # Installation directories
-INSTALLER_DIR := installation-scripts
+INSTALLER_DIR := installer
 PLATFORM_DIR := $(INSTALLER_DIR)/platform-setup
 K8S_DIR := $(INSTALLER_DIR)/k8s-setup
 APPS_DIR := $(INSTALLER_DIR)/app-deploy

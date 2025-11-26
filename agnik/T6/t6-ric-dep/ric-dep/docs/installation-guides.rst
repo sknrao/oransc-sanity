@@ -33,8 +33,8 @@ Version history
 | **Date**           | **Ver.**           | **Author**         | **Comment**        |
 |                    |                    |                    |                    |
 +--------------------+--------------------+--------------------+--------------------+
-| 2020-02-29         | 0.1.0              |Abdulwahid W        |                    |
-|                    |                    |                    |                    |
+| 2020-02-29         | 0.1.0              | Abdulwahid W       |                    |
+| 2025-12-15         | 0.2.0              | Agnik Misra        |                    |
 +--------------------+--------------------+--------------------+--------------------+
 
 
@@ -53,4 +53,30 @@ Installing Near Realtime RIC in RIC Cluster
 
 After the Kubernetes cluster is installed, the next step is to install the (Near Realtime) RIC Platform.
 
-.. include:: ./installation-ric.rst
+.. include:: ./deployment_guide.rst
+
+Installing RIC-APPs
+===================
+
+RIC Applications
+----------------
+
+.. include:: installation-xapps.rst
+
+Optional Installations
+======================
+
+OPTIONALLY use Redis Cluster (instead of Redis standalone)
+----------------------------------------------------------
+
+.. include:: installation-rediscluster.rst
+
+
+Appendix
+========
+
+.. include:: ./platform_requirements.rst
+
+.. include:: ./recipe_selection.rst
+
+.. include:: ./image_overrides.rst
