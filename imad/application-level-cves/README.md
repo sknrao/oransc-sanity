@@ -5,7 +5,7 @@ Each table lists the CVE number, affected files (clickable), fix details, and a 
 
 ---
 
-## 1. E2
+## 1. e2
 
 | No. | CVE ID | Affected File | Fix Applied | Explanation |
 |:---:|:--------|:---------------|:-------------|:-------------|
@@ -15,7 +15,7 @@ Each table lists the CVE number, affected files (clickable), fix details, and a 
 
 ---
 
-## 2. E2 Manager (e2mgr)
+## 2. e2mgr
 
 | No. | CVE ID | Affected File(s) | Fix Applied | Explanation |
 |:---:|:--------|:------------------|:-------------|:-------------|
@@ -26,7 +26,7 @@ Each table lists the CVE number, affected files (clickable), fix details, and a 
 
 ---
 
-## 3. RIC App KPIMON (Go)
+## 3. ric-app-kpimon-go
 
 | No. | CVE ID | Affected File | Fix Applied | Explanation |
 |:---:|:--------|:---------------|:-------------|:-------------|
@@ -36,7 +36,7 @@ Each table lists the CVE number, affected files (clickable), fix details, and a 
 
 
 
-## 4. RIC Subscription Manager (submgr)
+## 4. submgr
 
 | No. | CVE ID             | Affected File                                                                              | Fix Applied                                                                                                                          | Explanation                                                                                                                                                                |
 | :-: | :----------------- | :----------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -47,10 +47,10 @@ Each table lists the CVE number, affected files (clickable), fix details, and a 
 
 
 
-## 5. RIC App Manager (appmgr)
+## 5. appmgr
 
 | No. | CVE ID                              | Affected File                | Fix Applied                                                                                                            | Explanation                                                                                                                                 |
 | :-: | :---------------------------------- | :--------------------------- | :--------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-|  1  | **CVE-2024-34036 (AppMgr variant)** | `restful.go` (`parseConfig`) | Added whitelist validation for RMR message types; registration fails if xApp provides unauthorized tx/rx message types | Prevents attackers from registering fake or malicious RMR message types that could disrupt message routing and impact other RIC components. |
+|  1  | **CVE-2024-34073 (AppMgr variant)** | [`restful.go`](./near-rt-ric/appmgr/restful.go) (`parseConfig`) | Added whitelist validation for RMR message types; registration fails if xApp provides unauthorized tx/rx message types | Prevents attackers from registering fake or malicious RMR message types that could disrupt message routing and impact other RIC components. |
 
 ---
