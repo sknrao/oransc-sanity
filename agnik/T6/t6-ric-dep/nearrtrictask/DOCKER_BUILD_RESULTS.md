@@ -102,10 +102,5 @@ All Dockerfiles were tested and verified to build correctly:
 
 ---
 
-## References
-
-- Build Verification: `DOCKER_BUILD_VERIFICATION.md`
-- AD Model Training: `AD_TRAINING_COMPLETE_SUMMARY.md`
-- Task Progress: `NEXT_TASKS_PROGRESS.md`
 
 
