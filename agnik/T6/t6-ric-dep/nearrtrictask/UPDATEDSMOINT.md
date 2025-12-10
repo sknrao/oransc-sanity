@@ -19,7 +19,7 @@
 
 ### Step 1: Understanding A1PMS Configuration
 
-**A1PMS (Policy Management Service)** runs on hpe15 and manages Near-RT-RICs. RICs are configured in A1PMS, and the configuration can be:
+**A1PMS (Policy Management Service)** 
 - **Pre-configured:** Before starting Non-RT-RIC (via values.yaml)
 - **Runtime configured:** Using Configuration API (for our case)
 
