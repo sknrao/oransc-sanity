@@ -396,9 +396,10 @@ deploy_o2ims_operator() {
     
     local O2IMS_DIR="$REPO_DIR/o2ims-operator"
     
-    # Apply CRD
+    # Apply CRDs
     echo "Applying O2IMS CRDs..."
     kubectl apply -f "$O2IMS_DIR/crds/provisioningrequest.yaml"
+    kubectl apply -f "$O2IMS_DIR/crds/clustertemplate.yaml"
     
     # Deploy operator
     echo "Deploying O2IMS operator..."
@@ -408,7 +409,15 @@ deploy_o2ims_operator() {
     echo "Waiting for O2IMS operator to be ready..."
     kubectl -n o2ims-system rollout status deployment/o2ims-controller --timeout=120s || true
     
+    # Apply default ClusterTemplates
+    echo "Applying default ClusterTemplates..."
+    kubectl apply -f "$REPO_DIR/examples/cluster-template-single-node.yaml"
+    kubectl apply -f "$REPO_DIR/examples/cluster-template-ha.yaml"
+    kubectl apply -f "$REPO_DIR/examples/cluster-template-edge.yaml"
+    
     echo "O2IMS operator deployed successfully"
+    echo "Available ClusterTemplates:"
+    kubectl get clustertemplates
 }
 
 build_focom_operator() {
@@ -441,12 +450,25 @@ deploy_focom_operator() {
     echo "=== [14/14] Deploying FOCOM Operator ==="
     
     local FOCOM_DIR="$REPO_DIR/focom-operator"
+    local FOCOM_IMAGE="focom-controller:local"
+    
+    # Build FOCOM controller image
+    echo "Building FOCOM controller image..."
+    pushd "$FOCOM_DIR" > /dev/null
+    sudo docker build -t "$FOCOM_IMAGE" .
+    
+    # Import into containerd
+    echo "Importing FOCOM controller image into Kubernetes..."
+    sudo docker save "$FOCOM_IMAGE" -o /tmp/focom-controller.tar
+    sudo ctr -n k8s.io images import /tmp/focom-controller.tar
+    sudo rm -f /tmp/focom-controller.tar
+    popd > /dev/null
     
     # Apply CRD
     echo "Applying FOCOM CRDs..."
     kubectl apply -f "$FOCOM_DIR/focomprovisioningrequest-crd.yaml"
     
-    # Deploy operator
+    # Deploy operator (uses hostPath to read input.json directly - no ConfigMap needed!)
     echo "Deploying FOCOM operator..."
     kubectl apply -f "$FOCOM_DIR/deployment.yaml"
     
@@ -455,6 +477,7 @@ deploy_focom_operator() {
     kubectl -n focom-system rollout status deployment/focom-controller --timeout=120s || true
     
     echo "FOCOM operator deployed successfully"
+    echo "NOTE: input.json is mounted directly via hostPath - changes are picked up instantly!"
 }
 
 build_ansible_runner() {

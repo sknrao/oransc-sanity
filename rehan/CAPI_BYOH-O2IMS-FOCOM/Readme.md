@@ -75,15 +75,15 @@ This project implements automated provisioning of Kubernetes clusters on Linux s
 │                        AUTOMATED PROVISIONING FLOW                          │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
-│  1. Clone Repo          2. Run mgmt.sh         3. Edit Configs             │
-│  ─────────────          ─────────────          ─────────────               │
-│  git clone ...    ──▶   ./mgmt.sh        ──▶   vi input.json               │
-│                         (~30 mins)              vi examples/focom-...yaml  │
+│  1. Clone Repo          2. Run mgmt.sh         3. Edit Configs              │
+│  ─────────────          ─────────────          ─────────────                │
+│  git clone ...    ──▶   ./mgmt.sh        ──▶   vi input.json                │
+│                         (~30 mins)              vi examples/focom-...yaml   │
 │                                                                             │
-│  4. Apply Request       5. Watch Magic         6. Cluster Ready!           │
-│  ───────────────        ─────────────          ──────────────              │
-│  kubectl apply    ──▶   Auto-Ansible     ──▶   kubectl get clusters       │
-│  -f focom-...yaml       Auto-CAPI              ✅ edge: Ready              │
+│  4. Apply Request       5. Watch Magic         6. Cluster Ready!            │
+│  ───────────────        ─────────────          ──────────────               │
+│  kubectl apply    ──▶   Auto-Ansible     ──▶   kubectl get clusters         │
+│  -f focom-...yaml       Auto-CAPI              ✅ edge: Ready               |
 │                         (~5-10 mins)                                        │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
