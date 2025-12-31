@@ -1,0 +1,291 @@
+================================================================================
+VARIATION 4: ONAP (NO CPS/TEIV) + NON-RT-RIC (NO A1 CONTROLLER) - COMPLETE LOG
+================================================================================
+
+================================================================================
+STABILITY RESULT: ✅ STABLE
+================================================================================
+- ONAP: ✅ STABLE (21/22 Running, 0 errors)
+- Non-RT-RIC: ✅ STABLE (14/15 Running, 0 errors)
+- Policy Components: ✅ ALL 11/11 RUNNING (unlike Variation 3)
+- SDNC Components: ✅ ALL RUNNING (fully initialized)
+- A1 Controller: ✅ Correctly disabled (no A1 Controller pods)
+- Kong: ✅ STABLE (2/2 Running, 7 restarts but currently stable)
+- Key Finding: Removing A1 Controller does NOT cause Policy failures
+
+================================================================================
+CLEANUP OF VARIATION 3
+================================================================================
+Time: Before Variation 4 installation
+
+Cleanup Actions:
+- Uninstalled ONAP Helm releases
+- Uninstalled Non-RT-RIC Helm release
+- Deleted Kafka topics (11 topics removed)
+- Deleted namespaces: onap, strimzi-system, mariadb-operator, openebs, nonrtric
+- Cleanup completed successfully
+
+================================================================================
+PHASE 1: PRE-CONFIGURATION
+================================================================================
+Time: Tue Dec 30 13:25:49 UTC 2025
+
+Release "openebs" does not exist. Installing it now.
+storageclass.storage.k8s.io/smo-storage unchanged
+Installing MariaDB operator...
+namespace/mariadb-operator created
+
+OpenEBS Installation:
+NAME: openebs
+LAST DEPLOYED: Tue Dec 30 13:25:54 2025
+NAMESPACE: openebs
+STATUS: deployed
+REVISION: 1
+
+MariaDB Operator Installation:
+NAME: mariadb-operator
+LAST DEPLOYED: Tue Dec 30 13:25:55 2025
+NAMESPACE: mariadb-operator
+STATUS: deployed
+REVISION: 1
+
+NAME: mariadb-operator-crds
+LAST DEPLOYED: Tue Dec 30 13:25:55 2025
+NAMESPACE: mariadb-operator
+STATUS: deployed
+REVISION: 1
+
+Pre-configuration Status: ✅ COMPLETE
+
+================================================================================
+PHASE 2: ONAP INSTALLATION (WITHOUT CPS)
+================================================================================
+Time: Tue Dec 30 13:26:04 UTC 2025
+
+### Installing Strimzi Kafka Operator (From Helm repo strimzi) ###
+namespace/onap created
+### Installing ONAP part (From Helm repo oran-snapshot) ###
+
+Strimzi Kafka Operator:
+NAME: strimzi-kafka-operator
+LAST DEPLOYED: Tue Dec 30 13:26:04 2025
+NAMESPACE: strimzi-system
+STATUS: deployed
+REVISION: 1
+
+ONAP Chart Deployment:
+release "onap" deployed
+release "onap-roles-wrapper" deployed
+release "onap-repository-wrapper" deployed
+release "onap-strimzi" deployed
+
+Entity Operator Wait:
+waiting for onap-strimzi-entity-operator to be deployed
+onap-strimzi-entity-operator not found. Retry 1/60
+onap-strimzi-entity-operator not found. Retry 2/60
+onap-strimzi-entity-operator not found. Retry 3/60
+onap-strimzi-entity-operator not found. Retry 4/60
+onap-strimzi-entity-operator not found. Retry 5/60
+onap-strimzi-entity-operator not found. Retry 6/60
+onap-strimzi-entity-operator found. Waiting for pod intialisation
+release "onap-strimzi" deployed
+
+Sub-chart Deployments (NOTE: onap-cps NOT deployed):
+release "onap-mariadb-galera" deployed
+release "onap-postgres" deployed
+release "onap-dcaegen2-services" deployed
+release "onap-policy" deployed
+release "onap-repository-wrapper" deployed
+release "onap-roles-wrapper" deployed
+release "onap-sdnc" deployed
+
+IMPORTANT: onap-policy release shows STATUS: deployed (unlike Variation 3 which showed failed)
+
+ONAP Installation Status: ✅ COMPLETE
+
+================================================================================
+PHASE 3: STATUS CAPTURE (After ONAP, Before Non-RT-RIC)
+================================================================================
+Time: Tue Dec 30 13:29:12 UTC 2025
+
+ONAP Pod Status (3 minutes after ONAP installation):
+      2 Init:0/1
+      2 Init:0/2
+      1 Init:1/2
+      1 Init:1/3
+     16 Running
+
+
+================================================================================
+PHASE 4: NON-RT-RIC INSTALLATION (WITHOUT A1 CONTROLLER)
+================================================================================
+Time: Tue Dec 30 13:29:22 UTC 2025
+
+### Installing ORAN NONRTRIC part ###
+Installing NONRTRIC from HELM Repo : oran-snapshot
+
+Non-RT-RIC Installation:
+NAME: oran-nonrtric
+LAST DEPLOYED: Tue Dec 30 13:29:22 2025
+NAMESPACE: nonrtric
+STATUS: deployed
+REVISION: 1
+
+Secret Copying:
+Copying dmeparticipant-ku from onap namespace...
+dmeparticipant-ku found
+secret/dmeparticipant-ku created
+
+Kong Wait:
+Waiting for the Kong deployment to be ready...
+deployment.apps/oran-nonrtric-kong condition met
+
+Non-RT-RIC Installation Status: ✅ COMPLETE
+
+IMPORTANT: A1 Controller is disabled in this variation (installA1controller: false)
+
+================================================================================
+PHASE 5: STATUS CAPTURE (After Non-RT-RIC)
+================================================================================
+Time: Tue Dec 30 13:32:26 UTC 2025
+
+ONAP Namespace Pods:
+NAME                                               READY   STATUS      RESTARTS   AGE
+mariadb-galera-0                                   1/1     Running     0          4m48s
+onap-dcae-ves-collector-66f4dcb7d6-tc86g           1/1     Running     0          4m43s
+onap-policy-apex-pdp-75498445cb-5gwl6              1/1     Running     0          4m32s
+onap-policy-api-6d9d46f84b-nh789                   1/1     Running     0          4m32s
+onap-policy-clamp-ac-a1pms-ppnt-664757fb94-mj2x4   1/1     Running     0          4m32s
+onap-policy-clamp-ac-http-ppnt-f65c6fc7c-g9p4b     1/1     Running     0          4m32s
+onap-policy-clamp-ac-k8s-ppnt-78fb99b7db-vgksc     1/1     Running     0          4m32s
+onap-policy-clamp-ac-kserve-ppnt-96bd46764-pr679   1/1     Running     0          4m32s
+onap-policy-clamp-ac-pf-ppnt-d69dcc66d-6b98m       1/1     Running     0          4m32s
+onap-policy-clamp-runtime-acm-6b79d6cd59-kgcb6     1/1     Running     0          4m31s
+onap-policy-pap-67fcd9874d-r44jk                   1/1     Running     0          4m31s
+onap-policy-postgres-primary-5fcc987884-wgs7b      1/1     Running     0          4m31s
+onap-policy-postgres-replica-55566db74b-4zs2s      1/1     Running     0          4m31s
+onap-postgres-primary-757f57c74-d9c9k              1/1     Running     0          4m46s
+onap-postgres-replica-66b479ddc6-7djzq             1/1     Running     0          4m46s
+onap-sdnc-0                                        0/1     Running     0          4m23s
+onap-sdnc-ansible-server-6f6cbf88fd-djcsd          0/1     Init:1/2    0          4m24s
+onap-sdnc-sdnrdb-init-job-mszwp                    0/1     Completed   0          4m23s
+onap-sdnc-web-5f896b94f-x54hz                      0/1     Init:0/1    0          4m24s
+onap-strimzi-entity-operator-77c9576f78-krr8p      2/2     Running     0          5m16s
+onap-strimzi-onap-strimzi-broker-0                 1/1     Running     0          5m56s
+onap-strimzi-onap-strimzi-controller-1             1/1     Running     0          5m56s
+
+Non-RT-RIC Namespace Pods:
+NAME                                       READY   STATUS      RESTARTS      AGE
+a1-sim-osc-0-7756867694-w7g9r              1/1     Running     0             2m58s
+a1-sim-osc-1-775ff747-sf8w2                1/1     Running     0             2m58s
+capifcore-ccbfbff56-8cljg                  1/1     Running     0             2m58s
+controlpanel-56cf48cb74-5qglx              1/1     Running     0             2m58s
+dmaapadapterservice-0                      1/1     Running     0             2m58s
+dmeparticipant-587677f696-kcjhl            1/1     Running     0             2m58s
+informationservice-0                       1/1     Running     0             2m58s
+nonrtricgateway-86d47b667c-8xhxt           1/1     Running     0             2m58s
+oran-nonrtric-kong-7bfdd99dd-rfdvx         2/2     Running     1 (40s ago)   2m57s
+oran-nonrtric-kong-init-migrations-4x6c2   0/1     Completed   0             2m58s
+oran-nonrtric-postgresql-0                 1/1     Running     0             2m58s
+policymanagementservice-0                  1/1     Running     0             2m58s
+rappmanager-0                              1/1     Running     0             2m58s
+servicemanager-6d68c57877-f5q4f            1/1     Running     0             2m58s
+topology-7d86cfb845-6rprt                  1/1     Running     0             2m58s
+
+Pod Status Summary (After Non-RT-RIC):
+ONAP Namespace:
+      1 Completed
+      1 Init:0/1
+      1 Init:1/2
+     19 Running
+
+Non-RT-RIC Namespace:
+      1 Completed
+     14 Running
+
+Helm Releases:
+NAME                   	NAMESPACE       	REVISION	UPDATED                                	STATUS  	CHART                        	APP VERSION
+mariadb-operator       	mariadb-operator	1       	2025-12-30 13:25:55.781446936 +0000 UTC	deployed	mariadb-operator-25.10.3     	25.10.3    
+mariadb-operator-crds  	mariadb-operator	1       	2025-12-30 13:25:55.782541223 +0000 UTC	deployed	mariadb-operator-crds-25.10.3	0.0.0      
+onap                   	onap            	1       	2025-12-30 13:26:16.930878484 +0000 UTC	deployed	onap-16.0.0                  	Paris      
+onap-dcaegen2-services 	onap            	1       	2025-12-30 13:27:41.505164403 +0000 UTC	deployed	dcaegen2-services-15.0.1     	Oslo       
+onap-mariadb-galera    	onap            	1       	2025-12-30 13:27:36.89126723 +0000 UTC 	deployed	mariadb-galera-16.0.0        	           
+onap-policy            	onap            	1       	2025-12-30 13:27:45.484961587 +0000 UTC	deployed	policy-16.0.10               	           
+onap-postgres          	onap            	1       	2025-12-30 13:27:38.76799579 +0000 UTC 	deployed	postgres-13.1.0              	           
+onap-repository-wrapper	onap            	2       	2025-12-30 13:27:55.730684879 +0000 UTC	deployed	repository-wrapper-13.0.0    	           
+onap-roles-wrapper     	onap            	2       	2025-12-30 13:27:56.732555047 +0000 UTC	deployed	roles-wrapper-13.0.0         	           
+onap-sdnc              	onap            	1       	2025-12-30 13:27:57.890924046 +0000 UTC	deployed	sdnc-16.0.0                  	           
+onap-strimzi           	onap            	2       	2025-12-30 13:27:35.34598143 +0000 UTC 	deployed	strimzi-16.0.0               	           
+openebs                	openebs         	1       	2025-12-30 13:25:54.856481413 +0000 UTC	deployed	openebs-4.3.0                	4.3.0      
+oran-nonrtric          	nonrtric        	1       	2025-12-30 13:29:22.596609093 +0000 UTC	deployed	nonrtric-1.0.0               	test       
+strimzi-kafka-operator 	strimzi-system  	1       	2025-12-30 13:26:04.477907322 +0000 UTC	deployed	strimzi-kafka-operator-0.45.0	0.45.0     
+
+Total Releases: 14
+- All 14 deployed successfully (including onap-policy which was failed in Variation 3)
+
+================================================================================
+PHASE 6: LATEST STATUS CHECK (47 Minutes After Installation)
+================================================================================
+Time: Tue Dec 30 14:15:09 UTC 2025
+Age: ~47 minutes after installation
+
+ONAP Namespace Pods (Latest):
+NAME                                               READY   STATUS      RESTARTS   AGE
+mariadb-galera-0                                   1/1     Running     0          47m
+onap-dcae-ves-collector-66f4dcb7d6-tc86g           1/1     Running     0          47m
+onap-policy-apex-pdp-75498445cb-5gwl6              1/1     Running     0          47m
+onap-policy-api-6d9d46f84b-nh789                   1/1     Running     0          47m
+onap-policy-clamp-ac-a1pms-ppnt-664757fb94-mj2x4   1/1     Running     0          47m
+onap-policy-clamp-ac-http-ppnt-f65c6fc7c-g9p4b     1/1     Running     0          47m
+onap-policy-clamp-ac-k8s-ppnt-78fb99b7db-vgksc     1/1     Running     0          47m
+onap-policy-clamp-ac-kserve-ppnt-96bd46764-pr679   1/1     Running     0          47m
+onap-policy-clamp-ac-pf-ppnt-d69dcc66d-6b98m       1/1     Running     0          47m
+onap-policy-clamp-runtime-acm-6b79d6cd59-kgcb6     1/1     Running     0          47m
+onap-policy-pap-67fcd9874d-r44jk                   1/1     Running     0          47m
+onap-policy-postgres-primary-5fcc987884-wgs7b      1/1     Running     0          47m
+onap-policy-postgres-replica-55566db74b-4zs2s      1/1     Running     0          47m
+onap-postgres-primary-757f57c74-d9c9k              1/1     Running     0          47m
+onap-postgres-replica-66b479ddc6-7djzq             1/1     Running     0          47m
+onap-sdnc-0                                        1/1     Running     0          47m
+onap-sdnc-ansible-server-6f6cbf88fd-djcsd          1/1     Running     0          47m
+onap-sdnc-sdnrdb-init-job-mszwp                    0/1     Completed   0          47m
+onap-sdnc-web-5f896b94f-x54hz                      1/1     Running     0          47m
+onap-strimzi-entity-operator-77c9576f78-krr8p      2/2     Running     0          48m
+onap-strimzi-onap-strimzi-broker-0                 1/1     Running     0          48m
+onap-strimzi-onap-strimzi-controller-1             1/1     Running     0          48m
+
+Non-RT-RIC Namespace Pods (Latest):
+NAME                                       READY   STATUS      RESTARTS       AGE
+a1-sim-osc-0-7756867694-w7g9r              1/1     Running     0              45m
+a1-sim-osc-1-775ff747-sf8w2                1/1     Running     0              45m
+capifcore-ccbfbff56-8cljg                  1/1     Running     0              45m
+controlpanel-56cf48cb74-5qglx              1/1     Running     0              45m
+dmaapadapterservice-0                      1/1     Running     0              45m
+dmeparticipant-587677f696-kcjhl            1/1     Running     0              45m
+informationservice-0                       1/1     Running     0              45m
+nonrtricgateway-86d47b667c-8xhxt           1/1     Running     0              45m
+oran-nonrtric-kong-7bfdd99dd-rfdvx         2/2     Running     7 (6m4s ago)   45m
+oran-nonrtric-kong-init-migrations-4x6c2   0/1     Completed   0              45m
+oran-nonrtric-postgresql-0                 1/1     Running     0              45m
+policymanagementservice-0                  1/1     Running     0              45m
+rappmanager-0                              1/1     Running     0              45m
+servicemanager-6d68c57877-f5q4f            1/1     Running     0              45m
+topology-7d86cfb845-6rprt                  1/1     Running     0              45m
+
+Pod Status Summary (Latest - 47 minutes):
+ONAP Namespace:
+      1 Completed
+     21 Running
+
+Non-RT-RIC Namespace:
+      1 Completed
+     14 Running
+
+Key Improvements from Initial Status:
+- SDNC Components: ✅ ALL Running (improved from Init states)
+  - onap-sdnc-0: ✅ 1/1 Running (was 0/1 Running)
+  - onap-sdnc-ansible-server: ✅ 1/1 Running (was 0/1 Init:1/2)
+  - onap-sdnc-web: ✅ 1/1 Running (was 0/1 Init:0/1)
+- Policy Components: ✅ ALL 11/11 Running (stable throughout)
+- Kong: ✅ 2/2 Running (7 restarts total, but currently stable)
+- All other components: ✅ Running and stable
