@@ -4,22 +4,7 @@ VARIATION 3 INSTALLATION - COMPLETE LOG (Single Override File)
 Server: hpe15.anuket.iol.unh.edu
 Override Files: stability-test-overrides-single/variation3-onap-nonrtric.yaml
 
-================================================================================
-INSTALLATION LOG
-================================================================================
 
-Using helm override flavour: variation3
-Generating onap-override.yaml for flavour variation3
-Generating oran-override.yaml for flavour variation3
-
-Installation Steps:
-1. Pre-configuring SMO (OpenEBS, MariaDB operator, Strimzi Kafka operator)
-2. Installing ONAP components
-3. Installing Non-RT-RIC components
-4. Installing SMO components (without TEIV)
-5. Post-configuration
-
-Installation completed successfully.
 
 ================================================================================
 FINAL STATUS CHECK
