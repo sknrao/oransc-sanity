@@ -1,9 +1,8 @@
 ================================================================================
-VARIATION 3 INSTALLATION - COMPLETE LOG
+VARIATION 3 INSTALLATION - COMPLETE LOG (Single Override File)
 ================================================================================
-Purpose: ONAP (without CPS and TEIV) and O-RAN
-Override Files: stability-test-override-mentor/variation3.yaml
-
+Server: hpe15.anuket.iol.unh.edu
+Override Files: stability-test-overrides-single/variation3-onap-nonrtric.yaml
 
 ================================================================================
 INSTALLATION LOG
@@ -26,104 +25,104 @@ Installation completed successfully.
 FINAL STATUS CHECK
 ================================================================================
 
-Date: January 1, 2026, 15:14:05 UTC
-Installation Age: 40 minutes
+Date: January 1, 2026, 17:29:20 UTC
+Installation Age: 37 minutes
 
 === ONAP Pods (21 Running, 1 Completed) ===
 NAME                                                READY   STATUS      RESTARTS   AGE
-mariadb-galera-0                                    1/1     Running     0          40m
-onap-dcae-ves-collector-65fb8fb979-n8wn9            1/1     Running     0          38m
-onap-policy-apex-pdp-56f458c868-j8495               1/1     Running     0          39m
-onap-policy-api-84cc6cccbc-kzz6q                    1/1     Running     0          39m
-onap-policy-clamp-ac-a1pms-ppnt-6bc6fdb448-wwqm4    1/1     Running     0          39m
-onap-policy-clamp-ac-http-ppnt-59459d769-2bngj      1/1     Running     0          39m
-onap-policy-clamp-ac-k8s-ppnt-65699cdbc8-c6fkq      1/1     Running     0          39m
-onap-policy-clamp-ac-kserve-ppnt-54c4f9f4fd-xtnl2   1/1     Running     0          39m
-onap-policy-clamp-ac-pf-ppnt-58c4fb54b-m69xt        1/1     Running     0          39m
-onap-policy-clamp-runtime-acm-5ddd9c6f84-jjmwg      1/1     Running     0          39m
-onap-policy-pap-7966fb54cf-plpr4                    1/1     Running     0          39m
-onap-policy-postgres-primary-68644745f8-lhbjl       1/1     Running     0          39m
-onap-policy-postgres-replica-5948d878c6-6pvw5       1/1     Running     0          39m
-onap-postgres-primary-84d79d7b6d-mxjl7              1/1     Running     0          40m
-onap-postgres-replica-7b77446778-b5gjm              1/1     Running     0          40m
-onap-sdnc-0                                         1/1     Running     0          39m
-onap-sdnc-ansible-server-857678f766-wjpn5           1/1     Running     0          39m
-onap-sdnc-sdnrdb-init-job-rljfs                     0/1     Completed   0          39m
-onap-sdnc-web-84ff46bc7f-vlqjs                      1/1     Running     0          39m
-onap-strimzi-entity-operator-77c7d78b9f-c8gbl       2/2     Running     0          40m
-onap-strimzi-onap-strimzi-broker-0                  1/1     Running     0          37m
-onap-strimzi-onap-strimzi-controller-1              1/1     Running     0          38m
+mariadb-galera-0                                    1/1     Running     0          37m
+onap-dcae-ves-collector-65fb8fb979-ktmnt            1/1     Running     0          35m
+onap-policy-apex-pdp-56f458c868-5dntv               1/1     Running     0          36m
+onap-policy-api-84cc6cccbc-cfkd2                    1/1     Running     0          36m
+onap-policy-clamp-ac-a1pms-ppnt-6bc6fdb448-gxg7g    1/1     Running     0          36m
+onap-policy-clamp-ac-http-ppnt-59459d769-jpq65      1/1     Running     0          36m
+onap-policy-clamp-ac-k8s-ppnt-65699cdbc8-7h5vp      1/1     Running     0          36m
+onap-policy-clamp-ac-kserve-ppnt-54c4f9f4fd-vbhn4   1/1     Running     0          36m
+onap-policy-clamp-ac-pf-ppnt-58c4fb54b-xb4s9        1/1     Running     0          36m
+onap-policy-clamp-runtime-acm-5ddd9c6f84-bhz97      1/1     Running     0          36m
+onap-policy-pap-7966fb54cf-5zgvz                    1/1     Running     0          36m
+onap-policy-postgres-primary-68644745f8-k8km9       1/1     Running     0          36m
+onap-policy-postgres-replica-5948d878c6-ft9pn       1/1     Running     0          36m
+onap-postgres-primary-84d79d7b6d-r642t              1/1     Running     0          36m
+onap-postgres-replica-7b77446778-zdhp6              1/1     Running     0          36m
+onap-sdnc-0                                         1/1     Running     0          36m
+onap-sdnc-ansible-server-857678f766-fhbl9           1/1     Running     0          36m
+onap-sdnc-sdnrdb-init-job-v7vsx                     0/1     Completed   0          36m
+onap-sdnc-web-84ff46bc7f-nk4m8                      1/1     Running     0          36m
+onap-strimzi-entity-operator-76bcdf7c4b-qr82z       2/2     Running     0          37m
+onap-strimzi-onap-strimzi-broker-0                  1/1     Running     0          34m
+onap-strimzi-onap-strimzi-controller-1              1/1     Running     0          35m
 
 === Non-RT-RIC Pods (15 Running, 1 CreateContainerConfigError, 1 Init, 3 Pending) ===
 NAME                                       READY   STATUS                       RESTARTS        AGE
-a1-sim-osc-0-5fdfc46c6d-8b5rm              1/1     Running                      0               39m
-a1-sim-osc-1-5947fb4cc7-h957q              1/1     Running                      0               39m
-a1-sim-std-0-77cc859957-p5fl9              1/1     Running                      0               39m
-a1-sim-std-1-6b9486789d-7ngd4              1/1     Running                      0               39m
-a1-sim-std2-0-8455bf98bd-wsdnt             1/1     Running                      0               39m
-a1-sim-std2-1-5d8598d5-z4j25               1/1     Running                      0               39m
-a1controller-db-895d945b6-rhltn            1/1     Running                      0               39m
-a1controller-f654f84d9-6sbt2               0/1     Running                      6 (4m31s ago)   39m
-capifcore-5545f98d7d-spt44                 1/1     Running                      0               39m
-controlpanel-865d557fb8-wjhdp              1/1     Running                      0               39m
-dmaapadapterservice-0                      1/1     Running                      0               39m
-dmeparticipant-d4b5bcd8-hhsnf              0/1     CreateContainerConfigError   0               39m
-informationservice-0                       0/1     Pending                      0               39m
-nonrtricgateway-6bc48f4475-mjjlt           1/1     Running                      0               39m
-oran-nonrtric-kong-7d577698c4-h594m        0/2     Init:1/2                     0               39m
-oran-nonrtric-kong-init-migrations-7tpsr   0/1     Init:0/1                     0               39m
-oran-nonrtric-postgresql-0                 0/1     Pending                      0               39m
-policymanagementservice-0                  0/1     Pending                      0               39m
-rappmanager-0                              1/1     Running                      0               39m
-servicemanager-7b447686bf-9m5b9            1/1     Running                      0               39m
-topology-5f4f5b9f7b-kv4rm                  1/1     Running                      0               39m
+a1-sim-osc-0-5fdfc46c6d-gb55t              1/1     Running                      0               36m
+a1-sim-osc-1-5947fb4cc7-4jxhq              1/1     Running                      0               36m
+a1-sim-std-0-77cc859957-7rj7b              1/1     Running                      0               36m
+a1-sim-std-1-6b9486789d-z9fds              1/1     Running                      0               36m
+a1-sim-std2-0-8455bf98bd-fqgbk             1/1     Running                      0               36m
+a1-sim-std2-1-5d8598d5-9s2l4               1/1     Running                      0               36m
+a1controller-db-895d945b6-2njzs            1/1     Running                      0               36m
+a1controller-f654f84d9-ttt46               0/1     Running                      6 (68s ago)     36m
+capifcore-5545f98d7d-nffd7                 1/1     Running                      0               36m
+controlpanel-865d557fb8-mbck6              1/1     Running                      0               36m
+dmaapadapterservice-0                      1/1     Running                      0               36m
+dmeparticipant-d4b5bcd8-sdbkv              0/1     CreateContainerConfigError   0               36m
+informationservice-0                       0/1     Pending                      0               36m
+nonrtricgateway-6bc48f4475-8cf82           1/1     Running                      0               36m
+oran-nonrtric-kong-7d577698c4-95h58        0/2     Init:1/2                     0               36m
+oran-nonrtric-kong-init-migrations-4r45d   0/1     Init:0/1                     0               36m
+oran-nonrtric-postgresql-0                 0/1     Pending                      0               36m
+policymanagementservice-0                  0/1     Pending                      0               36m
+rappmanager-0                              1/1     Running                      0               36m
+servicemanager-7b447686bf-87q99            1/1     Running                      0               36m
+topology-5f4f5b9f7b-hk8rk                  1/1     Running                      0               36m
 
 
 === Policy Pods (11 Running, 0 Errors) ✅ ===
-onap-policy-apex-pdp-56f458c868-j8495               1/1     Running     0          39m
-onap-policy-api-84cc6cccbc-kzz6q                    1/1     Running     0          39m
-onap-policy-clamp-ac-a1pms-ppnt-6bc6fdb448-wwqm4    1/1     Running     0          39m
-onap-policy-clamp-ac-http-ppnt-59459d769-2bngj      1/1     Running     0          39m
-onap-policy-clamp-ac-k8s-ppnt-65699cdbc8-c6fkq      1/1     Running     0          39m
-onap-policy-clamp-ac-kserve-ppnt-54c4f9f4fd-xtnl2   1/1     Running     0          39m
-onap-policy-clamp-ac-pf-ppnt-58c4fb54b-m69xt        1/1     Running     0          39m
-onap-policy-clamp-runtime-acm-5ddd9c6f84-jjmwg      1/1     Running     0          39m
-onap-policy-pap-7966fb54cf-plpr4                    1/1     Running     0          39m
-onap-policy-postgres-primary-68644745f8-lhbjl       1/1     Running     0          39m
-onap-policy-postgres-replica-5948d878c6-6pvw5       1/1     Running     0          39m
+onap-policy-apex-pdp-56f458c868-5dntv               1/1     Running     0          36m
+onap-policy-api-84cc6cccbc-cfkd2                    1/1     Running     0          36m
+onap-policy-clamp-ac-a1pms-ppnt-6bc6fdb448-gxg7g    1/1     Running     0          36m
+onap-policy-clamp-ac-http-ppnt-59459d769-jpq65      1/1     Running     0          36m
+onap-policy-clamp-ac-k8s-ppnt-65699cdbc8-7h5vp      1/1     Running     0          36m
+onap-policy-clamp-ac-kserve-ppnt-54c4f9f4fd-vbhn4   1/1     Running     0          36m
+onap-policy-clamp-ac-pf-ppnt-58c4fb54b-xb4s9        1/1     Running     0          36m
+onap-policy-clamp-runtime-acm-5ddd9c6f84-bhz97      1/1     Running     0          36m
+onap-policy-pap-7966fb54cf-5zgvz                    1/1     Running     0          36m
+onap-policy-postgres-primary-68644745f8-k8km9       1/1     Running     0          36m
+onap-policy-postgres-replica-5948d878c6-ft9pn       1/1     Running     0          36m
 
 === All Helm Releases (15 total, all deployed) ===
 NAME                   	NAMESPACE       	REVISION	UPDATED                                	STATUS  	CHART                        	APP VERSION
-mariadb-operator       	mariadb-operator	1       	2026-01-01 14:32:35.607471485 +0000 UTC	deployed	mariadb-operator-25.10.3     	25.10.3    
-mariadb-operator-crds  	mariadb-operator	1       	2026-01-01 14:32:35.610688064 +0000 UTC	deployed	mariadb-operator-crds-25.10.3	0.0.0      
-onap                   	onap            	1       	2026-01-01 14:32:49.042484378 +0000 UTC	deployed	onap-16.0.0                  	Paris      
-onap-dcaegen2-services 	onap            	1       	2026-01-01 14:34:03.890075044 +0000 UTC	deployed	dcaegen2-services-15.0.1     	Oslo       
-onap-mariadb-galera    	onap            	1       	2026-01-01 14:33:59.337971104 +0000 UTC	deployed	mariadb-galera-16.0.0        	           
-onap-policy            	onap            	1       	2026-01-01 14:34:07.588667219 +0000 UTC	deployed	policy-16.0.10               	           
-onap-postgres          	onap            	1       	2026-01-01 14:34:01.209942613 +0000 UTC	deployed	postgres-13.1.0              	           
-onap-repository-wrapper	onap            	2       	2026-01-01 14:34:17.351176978 +0000 UTC	deployed	repository-wrapper-13.0.0    	           
-onap-roles-wrapper     	onap            	2       	2026-01-01 14:34:17.782431927 +0000 UTC	deployed	roles-wrapper-13.0.0         	           
-onap-sdnc              	onap            	1       	2026-01-01 14:34:18.624543373 +0000 UTC	deployed	sdnc-16.0.0                  	           
-onap-strimzi           	onap            	2       	2026-01-01 14:33:57.809267142 +0000 UTC	deployed	strimzi-16.0.0               	           
-openebs                	openebs         	1       	2026-01-01 14:32:34.626745156 +0000 UTC	deployed	openebs-4.3.0                	4.3.0      
-oran-nonrtric          	nonrtric        	1       	2026-01-01 14:34:25.931963297 +0000 UTC	deployed	nonrtric-1.0.0               	test       
-oran-smo               	smo             	1       	2026-01-01 14:34:36.790102879 +0000 UTC	deployed	smo-1.0.0                    	test       
-strimzi-kafka-operator 	strimzi-system  	1       	2026-01-01 14:32:35.770167283 +0000 UTC	deployed	strimzi-kafka-operator-0.45.0	0.45.0     
+mariadb-operator       	mariadb-operator	1       	2026-01-01 16:50:52.381373789 +0000 UTC	deployed	mariadb-operator-25.10.3     	25.10.3    
+mariadb-operator-crds  	mariadb-operator	1       	2026-01-01 16:50:52.374313488 +0000 UTC	deployed	mariadb-operator-crds-25.10.3	0.0.0      
+onap                   	onap            	1       	2026-01-01 16:50:57.294186508 +0000 UTC	deployed	onap-16.0.0                  	Paris      
+onap-dcaegen2-services 	onap            	1       	2026-01-01 16:52:22.230689605 +0000 UTC	deployed	dcaegen2-services-15.0.1     	Oslo       
+onap-mariadb-galera    	onap            	1       	2026-01-01 16:52:17.617415047 +0000 UTC	deployed	mariadb-galera-16.0.0        	           
+onap-policy            	onap            	1       	2026-01-01 16:52:25.929132793 +0000 UTC	deployed	policy-16.0.10               	           
+onap-postgres          	onap            	1       	2026-01-01 16:52:19.528398118 +0000 UTC	deployed	postgres-13.1.0              	           
+onap-repository-wrapper	onap            	2       	2026-01-01 16:52:35.877997533 +0000 UTC	deployed	repository-wrapper-13.0.0    	           
+onap-roles-wrapper     	onap            	2       	2026-01-01 16:52:36.397607096 +0000 UTC	deployed	roles-wrapper-13.0.0         	           
+onap-sdnc              	onap            	1       	2026-01-01 16:52:37.279323264 +0000 UTC	deployed	sdnc-16.0.0                  	           
+onap-strimzi           	onap            	2       	2026-01-01 16:52:16.07992615 +0000 UTC 	deployed	strimzi-16.0.0               	           
+openebs                	openebs         	1       	2026-01-01 16:50:50.057166091 +0000 UTC	deployed	openebs-4.3.0                	4.3.0      
+oran-nonrtric          	nonrtric        	1       	2026-01-01 16:52:44.126015378 +0000 UTC	deployed	nonrtric-1.0.0               	test       
+oran-smo               	smo             	1       	2026-01-01 16:52:54.669986865 +0000 UTC	deployed	smo-1.0.0                    	test       
+strimzi-kafka-operator 	strimzi-system  	1       	2026-01-01 16:50:53.71364202 +0000 UTC 	deployed	strimzi-kafka-operator-0.45.0	0.45.0     
 
 === Policy Kafka Secrets (8 secrets, all present) ✅ ===
-policy-apex-pdp-ku                                   Opaque                    2      39m
-policy-clamp-ac-a1pms-ppnt-ku                        Opaque                    2      39m
-policy-clamp-ac-http-ppnt-ku                         Opaque                    2      39m
-policy-clamp-ac-k8s-ppnt-ku                          Opaque                    2      39m
-policy-clamp-ac-kserve-ppnt-ku                       Opaque                    2      39m
-policy-clamp-ac-pf-ppnt-ku                           Opaque                    2      39m
-policy-clamp-runtime-acm-ku                          Opaque                    2      39m
-policy-pap-ku                                        Opaque                    2      39m
+policy-apex-pdp-ku                                   Opaque                    2      36m
+policy-clamp-ac-a1pms-ppnt-ku                        Opaque                    2      36m
+policy-clamp-ac-http-ppnt-ku                         Opaque                    2      36m
+policy-clamp-ac-k8s-ppnt-ku                          Opaque                    2      36m
+policy-clamp-ac-kserve-ppnt-ku                       Opaque                    2      36m
+policy-clamp-ac-pf-ppnt-ku                           Opaque                    2      36m
+policy-clamp-runtime-acm-ku                          Opaque                    2      36m
+policy-pap-ku                                        Opaque                    2      36m
 
 === Namespaces ===
-mariadb-operator   Active   41m
-nonrtric           Active   39m
-onap               Active   41m
-openebs            Active   41m
-smo                Active   38m
-strimzi-system     Active   41m
+mariadb-operator   Active   38m
+nonrtric           Active   36m
+onap               Active   38m
+openebs            Active   38m
+smo                Active   36m
+strimzi-system     Active   38m
