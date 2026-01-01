@@ -240,6 +240,7 @@ policymanagementservice:
     storageClassName: *smo-sc
   ingress:
     enabled: true
+  rics: []  # Empty RIC list - A1PMS will have no default controller
   
 
 kong:
