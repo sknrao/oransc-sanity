@@ -1,0 +1,9 @@
+--- install-onap.sh
++++ install-onap.sh
+@@ -49,4 +49,4 @@ fi
+ 
+ kubectl create namespace onap
+ echo "### Installing ONAP part (From Helm repo $HELM_REPO) ###"
+-helm deploy --debug onap "$HELM_REPO"/onap --namespace onap -f $1 --create-namespace
+\ No newline at end of file
++helm deploy --debug onap "$HELM_REPO"/onap --namespace onap -f $1 --create-namespace ${HELM_POST_RENDERER}
