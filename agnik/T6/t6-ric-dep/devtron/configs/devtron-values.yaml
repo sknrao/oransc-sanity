@@ -1,0 +1,38 @@
+# Devtron Helm Values Configuration
+# Used for: helm install devtron devtron/devtron-operator -f devtron-values.yaml
+
+installer:
+  modules:
+    - cicd  # CI/CD module
+
+# PostgreSQL Configuration
+postgresql:
+  auth:
+    postgresPassword: "devtron"
+    password: "devtron"
+  persistence:
+    enabled: true
+    size: 20Gi
+
+# Devtron Service Configuration
+service:
+  type: NodePort
+  nodePort: 32080  # Access via NodePort
+
+# Resource Limits
+resources:
+  limits:
+    cpu: 2000m
+    memory: 4Gi
+  requests:
+    cpu: 1000m
+    memory: 2Gi
+
+# Enable Ingress (optional)
+ingress:
+  enabled: false
+  # host: devtron.example.com
+  # annotations:
+  #   kubernetes.io/ingress.class: nginx
+
+

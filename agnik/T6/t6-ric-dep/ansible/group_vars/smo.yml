@@ -1,0 +1,10 @@
+---
+# SMO Deployment Variables
+smo_repo_url: "https://github.com/o-ran-sc/it-dep.git"
+smo_branch: "m-release"
+smo_install_dir: "~/it-dep"
+smo_install_script: "smo-install/scripts/layer-2/2-install-oran.sh"
+smo_install_params: "default release"
+helm_post_renderer_enabled: false
+helm_post_renderer_path: ""
+

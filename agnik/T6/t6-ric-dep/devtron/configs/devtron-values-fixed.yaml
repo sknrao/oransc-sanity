@@ -1,0 +1,45 @@
+# Devtron Helm Values Configuration (Fixed for Storage)
+# Used for: helm install devtron devtron/devtron-operator -f devtron-values-fixed.yaml
+
+installer:
+  modules:
+    - cicd  # CI/CD module
+
+# PostgreSQL Configuration with Storage
+postgresql:
+  auth:
+    postgresPassword: "devtron"
+    password: "devtron"
+  primary:
+    persistence:
+      enabled: true
+      size: 20Gi
+      storageClass: ""  # Use default storage class
+  persistence:
+    enabled: true
+    size: 20Gi
+    storageClass: ""  # Use default storage class
+
+# Devtron Service Configuration
+service:
+  type: NodePort
+  nodePort: 32171  # Use NodePort instead of LoadBalancer
+
+# Resource Limits (adjusted for single node)
+resources:
+  limits:
+    cpu: 2000m
+    memory: 4Gi
+  requests:
+    cpu: 1000m
+    memory: 2Gi
+
+# Disable Ingress (not needed for single node)
+ingress:
+  enabled: false
+
+# Use hostPath for storage (if no default storage class)
+global:
+  storageClass: ""  # Empty means use default or hostPath
+
+

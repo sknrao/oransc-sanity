@@ -1,0 +1,98 @@
+---
+- name: Setup Devtron and Deploy SMO via GUI
+  hosts: localhost
+  become: yes
+  gather_facts: yes
+  
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    devtron_namespace: devtroncd
+  
+  tasks:
+    - name: Check Kubernetes cluster
+      command: kubectl get nodes
+      register: k8s_check
+      failed_when: false
+      changed_when: false
+      environment:
+        KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    
+    - name: Display Kubernetes status
+      debug:
+        msg: "Kubernetes cluster: {{ 'Running' if k8s_check.rc == 0 else 'Not accessible' }}"
+    
+    - name: Check if Helm is installed
+      command: helm version --short
+      register: helm_check
+      failed_when: false
+      changed_when: false
+    
+    - name: Fail if Helm not installed
+      fail:
+        msg: "Helm is required but not installed"
+      when: helm_check.rc != 0
+    
+    - name: Add Devtron Helm repository
+      command: helm repo add devtron https://helm.devtron.ai
+      register: repo_add
+      failed_when: false
+      changed_when: "'already exists' not in repo_add.stderr"
+    
+    - name: Update Helm repositories
+      command: helm repo update
+    
+    - name: Create devtroncd namespace
+      k8s:
+        name: devtroncd
+        api_version: v1
+        kind: Namespace
+        state: present
+    
+    - name: Check if Devtron is already installed
+      command: helm list -n devtroncd
+      register: devtron_check
+      failed_when: false
+      changed_when: false
+    
+    - name: Install Devtron
+      command: |
+        helm install devtron devtron/devtron-operator \
+          --namespace devtroncd \
+          --set installer.modules={cicd} \
+          --set postgresql.auth.postgresPassword=devtron \
+          --set postgresql.auth.password=devtron \
+          --wait --timeout=10m
+      when: "'devtron' not in devtron_check.stdout"
+      register: devtron_install
+      async: 600
+      poll: 30
+    
+    - name: Wait for Devtron pods to be ready
+      k8s_info:
+        api_version: v1
+        kind: Pod
+        namespace: devtroncd
+        label_selectors:
+          - app=devtron
+      register: devtron_pods
+      until: devtron_pods.resources | selectattr('status.phase', 'equalto', 'Running') | list | length > 0
+      retries: 30
+      delay: 30
+      when: "'devtron' not in devtron_check.stdout"
+    
+    - name: Get Devtron service details
+      command: kubectl get svc -n devtroncd devtron-service -o jsonpath='{.spec.type}:{.spec.ports[0].port}'
+      register: devtron_svc
+      failed_when: false
+      changed_when: false
+    
+    - name: Display Devtron access information
+      debug:
+        msg:
+          - "Devtron installed successfully!"
+          - "To access Devtron:"
+          - "1. Get service: kubectl get svc -n devtroncd devtron-service"
+          - "2. Port forward: kubectl port-forward -n devtroncd svc/devtron-service 8080:80"
+          - "3. Access: http://localhost:8080"
+          - "4. Get password: kubectl get secret devtron-secret -n devtroncd -o jsonpath='{.data.ACD_PASSWORD}' | base64 -d"
+

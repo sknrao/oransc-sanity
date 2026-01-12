@@ -1,0 +1,35 @@
+# Helm Repositories Configuration for SMO Deployment
+# Add these repositories in Devtron GUI: Global Configurations → Helm Repositories
+
+repositories:
+  - name: oran-snapshot
+    url: https://nexus3.o-ran-sc.org/repository/helm.snapshot/
+    description: O-RAN SC Snapshot Helm Repository
+    
+  - name: oran-release
+    url: https://nexus3.o-ran-sc.org/repository/helm.release/
+    description: O-RAN SC Release Helm Repository
+    
+  - name: strimzi
+    url: https://strimzi.io/charts/
+    description: Strimzi Kafka Operator
+    
+  - name: openebs
+    url: https://openebs.github.io/openebs
+    description: OpenEBS Storage
+    
+  - name: mariadb-operator
+    url: https://helm.mariadb.com/mariadb-operator
+    description: MariaDB Operator
+
+# Instructions:
+# 1. Login to Devtron GUI
+# 2. Go to: Global Configurations → Helm Repositories
+# 3. Click "Add Repository"
+# 4. For each repository above:
+#    - Name: Use the name from above
+#    - URL: Use the URL from above
+#    - Click "Save"
+# 5. Verify: Go to Charts → Browse Charts, you should see charts from these repos
+
+
