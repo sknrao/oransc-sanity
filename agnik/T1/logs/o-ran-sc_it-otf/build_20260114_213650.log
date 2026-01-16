@@ -1,0 +1,81 @@
+2026-01-14 21:36:50,483 - INFO - Cloning repository: o-ran-sc/it-otf
+2026-01-14 21:36:51,497 - INFO - Found 7 Dockerfile(s)
+2026-01-14 21:36:51,497 - INFO - Building Dockerfile...
+2026-01-14 21:37:49,456 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:37:49,456 - INFO - Building Dockerfile...
+2026-01-14 21:38:26,400 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:38:26,400 - INFO - Building Dockerfile...
+2026-01-14 21:42:06,364 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:42:06,364 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.03kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:8.16-alpine
+#2 DONE 1.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/node:8.16-alpine@sha256:c4a9d1e4aac726bb2fac4a4e810d010a548d5cd62ec4f830b42628caca414d24
+#5 resolve docker.io/library/node:8.16-alpine@sha256:c4a9d1e4aac726bb2fac4a4e810d010a548d5cd62ec4f830b42628caca414d24 0.0s done
+#5 sha256:e820bbb6174b672a8eaf3c08aea105f0e436e4f85f46d973271b0cf73084deb5 1.16kB / 1.16kB done
+#5 sha256:26881633664e649bff5e69004622b8d89ea88b487cba3a2f79a29482cc3bda98 6.68kB / 6.68kB done
+#5 sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 0B / 2.79MB 0.1s
+#5 sha256:46183ae4fb34386c5ac73e8984c32a5314608c79dc4b4c745a875048a0648111 0B / 18.55MB 0.1s
+#5
+2026-01-14 21:42:06,364 - INFO - Building Dockerfile...
+2026-01-14 21:42:08,085 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:42:08,085 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.27kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/openjdk:8
+#2 ERROR: docker.io/library/openjdk:8: not found
+------
+ > [internal] load metadata for docker.io/library/openjdk:8:
+------
+Dockerfile:16
+--------------------
+  14 |     ################################################################################
+  15 |     
+  16 | >>> FROM openjdk:8
+  17 |     
+  18 |     ENV ENV=development
+--------------------
+ERROR: failed to build: failed to solve: openjdk:8: failed to resolve source metadata for docker.io/library/openjdk:8: docker.io/library/openjdk:8: not found
+2026-01-14 21:42:08,085 - INFO - Building Dockerfile...
+2026-01-14 21:42:08,576 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:42:08,576 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.14kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/openjdk:8
+#2 ERROR: docker.io/library/openjdk:8: not found
+------
+ > [internal] load metadata for docker.io/library/openjdk:8:
+------
+Dockerfile:16
+--------------------
+  14 |     ################################################################################
+  15 |     
+  16 | >>> FROM openjdk:8
+  17 |     
+  18 |     ENV NAMESPACE=namespace
+--------------------
+ERROR: failed to build: failed to solve: openjdk:8: failed to resolve source metadata for docker.io/library/openjdk:8: docker.io/library/openjdk:8: not found
+2026-01-14 21:42:08,576 - INFO - Building Dockerfile...
+2026-01-14 21:42:29,568 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:42:29,568 - INFO - Building Dockerfile...
+2026-01-14 21:43:11,632 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:43:11,632 - WARNING - ⚠ Partial success: 4 successful, 3 failed
+2026-01-14 21:43:11,632 - INFO - Summary: 4 successful, 3 failed out of 7 total

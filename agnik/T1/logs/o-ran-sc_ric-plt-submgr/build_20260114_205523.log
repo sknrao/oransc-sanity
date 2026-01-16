@@ -1,0 +1,6 @@
+2026-01-14 20:55:23,391 - INFO - Cloning repository: o-ran-sc/ric-plt-submgr
+2026-01-14 20:55:30,274 - INFO - Found 1 Dockerfile(s)
+2026-01-14 20:55:30,274 - INFO - Building Dockerfile...
+2026-01-14 20:55:32,906 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:55:32,906 - INFO - ✓ All builds successful for o-ran-sc/ric-plt-submgr
+2026-01-14 20:55:32,906 - INFO - Summary: 1 successful, 0 failed out of 1 total

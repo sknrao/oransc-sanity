@@ -1,0 +1,60 @@
+2026-01-14 19:38:59,404 - INFO - Cloning repository: o-ran-sc/ric-plt-dbaas
+2026-01-14 19:39:00,289 - INFO - Found 2 Dockerfile(s)
+2026-01-14 19:39:00,290 - INFO - Building Dockerfile.testapp...
+2026-01-14 19:39:01,762 - ERROR - ✗ Build failed: Dockerfile.testapp
+2026-01-14 19:39:01,762 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.testapp
+#1 transferring dockerfile: 1.49kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:latest
+#2 DONE 0.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/ubuntu:latest@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54
+#4 resolve docker.io/library/ubuntu:latest@sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54 0.0s done
+#4 sha256:c3a134f2ace4f6d480733efcfef27c60ea8ed48be1cd36f2c17ec0729775b2c8 2.29kB / 2.29kB done
+#4 sha256:c35e29c9450151419d9448b0fd75374fec4fff364a27f176fb458d472dfc9e54 6.69kB / 6.69kB done
+#4 sha256:4fdf0125919d24aec972544669dcd7d6a26a8ad7e6561c73d5549bd6db258ac2 424B / 424B done
+#4 CANCELED
+
+#5 [internal] load build context
+#5 transferring context: 2B done
+#5 DONE 0.1s
+
+#6 [2/4] RUN apt-get update &&     apt install -y r
+2026-01-14 19:39:01,762 - INFO - Building Dockerfile.redis...
+2026-01-14 19:39:03,682 - ERROR - ✗ Build failed: Dockerfile.redis
+2026-01-14 19:39:03,682 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.redis
+#1 transferring dockerfile: 2.86kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 29)
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 64)
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 81)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-go:2.0.0
+#2 DONE 0.7s
+
+#3 [internal] load metadata for docker.io/library/redis:6.2.14-alpine3.18
+#3 DONE 0.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [build 1/5] FROM docker.io/library/redis:6.2.14-alpine3.18@sha256:60e49e22fa5706cd8df7d5e0bc50ee9bab7c608039fa653c4d961014237cca46
+#6 resolve docker.io/library/redis:6.2.14-alpine3.18@sha256:60e49e22fa5706cd8df7d5e0bc50ee9bab7c608039fa653c4d961014237cca46
+#6 ...
+
+#5 [inter
+2026-01-14 19:39:03,682 - ERROR - ✗ All builds failed for o-ran-sc/ric-plt-dbaas
+2026-01-14 19:39:03,682 - INFO - Summary: 0 successful, 2 failed out of 2 total

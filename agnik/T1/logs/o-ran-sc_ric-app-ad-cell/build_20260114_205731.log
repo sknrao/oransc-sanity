@@ -1,0 +1,6 @@
+2026-01-14 20:57:31,777 - INFO - Cloning repository: o-ran-sc/ric-app-ad-cell
+2026-01-14 20:57:32,215 - INFO - Found 1 Dockerfile(s)
+2026-01-14 20:57:32,215 - INFO - Building Dockerfile...
+2026-01-14 20:59:42,966 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:59:42,966 - INFO - ✓ All builds successful for o-ran-sc/ric-app-ad-cell
+2026-01-14 20:59:42,966 - INFO - Summary: 1 successful, 0 failed out of 1 total

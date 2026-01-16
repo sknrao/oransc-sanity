@@ -1,0 +1,38 @@
+2026-01-14 21:44:25,553 - INFO - Cloning repository: o-ran-sc/ric-app-mc
+2026-01-14 21:44:26,343 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:44:26,343 - INFO - Building Dockerfile...
+2026-01-14 21:44:26,799 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:44:26,799 - INFO - Building Dockerfile...
+2026-01-14 21:44:29,939 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:44:29,940 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 4.15kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu18-c-go:1.9.0
+#2 DONE 0.0s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/ric-app-mc-listener:1.12.0
+#3 DONE 0.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [stage-1  1/16] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/ric-app-mc-listener:1.12.0@sha256:412cc00b8739ba31ae00a8074ef0b37e818d0f93ef756bd0421d460c218a8a32
+#5 DONE 0.0s
+
+#6 [stage-1  2/16] RUN apt-get update &&     apt-get install -y curl python python-pip libboost-all-dev libhiredis-dev &&     apt-get clean
+#6 CACHED
+
+#7 [project-build  1/47] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu18-c-go:1.9.0
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 10.57MB 0.2s done
+#8 DONE 0.2s
+
+#9 [project-build 16/47] W
+2026-01-14 21:44:29,940 - WARNING - ⚠ Partial success: 1 successful, 1 failed
+2026-01-14 21:44:29,940 - INFO - Summary: 1 successful, 1 failed out of 2 total

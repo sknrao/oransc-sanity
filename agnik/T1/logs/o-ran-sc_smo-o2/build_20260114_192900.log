@@ -1,0 +1,6 @@
+2026-01-14 19:29:00,812 - INFO - Cloning repository: o-ran-sc/smo-o2
+2026-01-14 19:29:01,254 - INFO - Found 1 Dockerfile(s)
+2026-01-14 19:29:01,255 - INFO - Building Dockerfile...
+2026-01-14 19:30:27,994 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:30:27,995 - INFO - ✓ All builds successful for o-ran-sc/smo-o2
+2026-01-14 19:30:27,995 - INFO - Summary: 1 successful, 0 failed out of 1 total

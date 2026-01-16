@@ -1,0 +1,55 @@
+2026-01-14 20:29:06,939 - INFO - Cloning repository: o-ran-sc/pti-o2
+2026-01-14 20:29:07,960 - INFO - Found 3 Dockerfile(s)
+2026-01-14 20:29:07,960 - INFO - Building Dockerfile...
+2026-01-14 20:31:31,993 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:31:31,993 - INFO - Building Dockerfile.localtest...
+2026-01-14 20:31:48,371 - ERROR - ✗ Build failed: Dockerfile.localtest
+2026-01-14 20:31:48,371 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.localtest
+#1 transferring dockerfile:
+#1 transferring dockerfile: 4.23kB done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for nexus3.onap.org:10001/onap/integration-python:12.0.0
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [ 1/22] FROM nexus3.onap.org:10001/onap/integration-python:12.0.0@sha256:2fbc724432f17e5b8529d0663535972c6dd22e2946e83630c3a3748bcd1a6e1c
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 134.38kB 0.1s done
+#5 DONE 0.2s
+
+#6 [ 2/22] RUN addgroup -S orano2 && adduser -S -D -h /home/orano2 orano2 orano2 &&     chown -R orano2:orano2 /home/orano2 &&      mkdir /var/log/orano2 &&     mkdir -p /src &&     mkdir -p /configs/ &&     mkdir -p /src/o2app/ &&     mkdir -p /src/helm_sdk/ &&     mkdir -p /etc/o2/ &&     chown -R orano2:orano2 /var/log/orano2 &&     chown -R orano2:orano2 /src &&     chow
+2026-01-14 20:31:48,371 - INFO - Building Dockerfile...
+2026-01-14 20:32:48,055 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:32:48,055 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 484B done
+#1 DONE 3.2s
+
+#2 [internal] load metadata for docker.io/library/python:3.10-slim-buster
+#2 DONE 1.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.5s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [ 1/10] FROM docker.io/library/python:3.10-slim-buster@sha256:37aa274c2d001f09b14828450d903c55f821c90f225fdfdd80c5180fcca77b3f
+#5 resolve docker.io/library/python:3.10-slim-buster@sha256:37aa274c2d001f09b14828450d903c55f821c90f225fdfdd80c5180fcca77b3f
+#5 resolve docker.io/library/python:3.10-slim-buster@sha256:37aa274c2d001f09b14828450d903c55f821c90f225fdfdd80c5180fcca77b3f 0.3s done
+#5 sha256:37aa274c2d001f09b14828450d903c55f821c90f225fdfdd80c5180fcca77b3f 988B / 988B done
+#5 sha256:68f714f81d6522d6ad2156abee2535307c2be24a96781f4823c06422dfff3a2c 1.37kB / 1.37k
+2026-01-14 20:32:48,055 - WARNING - ⚠ Partial success: 1 successful, 2 failed
+2026-01-14 20:32:48,055 - INFO - Summary: 1 successful, 2 failed out of 3 total

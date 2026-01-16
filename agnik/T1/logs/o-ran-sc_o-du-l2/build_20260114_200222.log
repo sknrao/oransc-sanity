@@ -1,0 +1,18 @@
+2026-01-14 20:02:22,679 - INFO - Cloning repository: o-ran-sc/o-du-l2
+2026-01-14 20:02:24,088 - INFO - Found 5 Dockerfile(s)
+2026-01-14 20:02:24,088 - INFO - Building Dockerfile...
+2026-01-14 20:09:09,779 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:09:09,779 - INFO - Building Dockerfile-cu-stub...
+2026-01-14 20:09:10,047 - ERROR - ✗ Build failed: Dockerfile-cu-stub
+2026-01-14 20:09:10,047 - ERROR - Error: ERROR: failed to build: unable to prepare context: path "/tmp/dockerfile_build_check/o-ran-sc_o-du-l2" not found
+2026-01-14 20:09:10,047 - INFO - Building Dockerfile.cu...
+2026-01-14 20:09:10,288 - ERROR - ✗ Build failed: Dockerfile.cu
+2026-01-14 20:09:10,288 - ERROR - Error: ERROR: failed to build: unable to prepare context: path "/tmp/dockerfile_build_check/o-ran-sc_o-du-l2" not found
+2026-01-14 20:09:10,288 - INFO - Building Dockerfile.ric...
+2026-01-14 20:09:10,544 - ERROR - ✗ Build failed: Dockerfile.ric
+2026-01-14 20:09:10,544 - ERROR - Error: ERROR: failed to build: unable to prepare context: path "/tmp/dockerfile_build_check/o-ran-sc_o-du-l2" not found
+2026-01-14 20:09:10,544 - INFO - Building Dockerfile.du...
+2026-01-14 20:09:10,756 - ERROR - ✗ Build failed: Dockerfile.du
+2026-01-14 20:09:10,756 - ERROR - Error: ERROR: failed to build: unable to prepare context: path "/tmp/dockerfile_build_check/o-ran-sc_o-du-l2" not found
+2026-01-14 20:09:10,756 - WARNING - ⚠ Partial success: 1 successful, 4 failed
+2026-01-14 20:09:10,756 - INFO - Summary: 1 successful, 4 failed out of 5 total

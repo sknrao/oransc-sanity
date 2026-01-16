@@ -1,0 +1,72 @@
+2026-01-14 21:43:17,974 - INFO - Cloning repository: o-ran-sc/sim-a1-interface
+2026-01-14 21:43:18,607 - INFO - Found 3 Dockerfile(s)
+2026-01-14 21:43:18,607 - INFO - Building Dockerfile...
+2026-01-14 21:43:19,625 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:43:19,625 - INFO - Building Dockerfile...
+2026-01-14 21:43:21,591 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:43:21,591 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.65kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.8-slim-buster
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [ 1/16] FROM docker.io/library/python:3.8-slim-buster@sha256:8799b0564103a9f36cfb8a8e1c562e11a9a6f2e3bb214e2adc23982b36a04511
+#5 DONE 0.0s
+
+#6 [ 2/16] RUN pip3 install "connexion[swagger-ui,flask,uvicorn]"
+#6 CACHED
+
+#4 [internal] load build context
+#4 transferring context: 28.10kB done
+#4 DONE 0.1s
+
+#7 [ 3/16] RUN apt-get update && apt-get install -y nginx=1.14.* nginx-extras curl
+#7 0.608 Ign:1 http://deb.debian.org/debian buster InRelease
+#7 0.624 Ign:2 http://deb.debian.org/debian-security buster/updates InRelease
+#7 0.777 Ign:3 http://deb.debian.org/debian buster-updates InRelease
+#7 0.795 Err:4 http://deb.d
+2026-01-14 21:43:21,591 - INFO - Building Dockerfile...
+2026-01-14 21:43:23,238 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:43:23,238 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.70kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.8-slim-buster
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/18] FROM docker.io/library/python:3.8-slim-buster@sha256:8799b0564103a9f36cfb8a8e1c562e11a9a6f2e3bb214e2adc23982b36a04511
+#4 DONE 0.0s
+
+#5 [ 2/18] RUN pip3 install "connexion[swagger-ui,flask,uvicorn]"
+#5 CACHED
+
+#6 [ 3/18] RUN pip3 install kafka-python
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 39.55kB done
+#7 DONE 0.0s
+
+#8 [ 4/18] RUN apt-get update && apt-get install -y nginx=1.14.* nginx-extras curl
+#8 0.480 Ign:1 http://deb.debian.org/debian buster InRelease
+#8 0.497 Ign:2 http://deb.debian.org/debian-security buster/updates InRelease
+#8 0.516 Ign:3 http://deb.debian.org/debian buster-updates InRelease
+#8 0.534 Err:4 http://
+2026-01-14 21:43:23,238 - WARNING - ⚠ Partial success: 1 successful, 2 failed
+2026-01-14 21:43:23,238 - INFO - Summary: 1 successful, 2 failed out of 3 total

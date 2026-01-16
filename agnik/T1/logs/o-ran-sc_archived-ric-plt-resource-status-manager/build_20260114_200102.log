@@ -1,0 +1,34 @@
+2026-01-14 20:01:02,721 - INFO - Cloning repository: o-ran-sc/archived-ric-plt-resource-status-manager
+2026-01-14 20:01:03,517 - INFO - Found 1 Dockerfile(s)
+2026-01-14 20:01:03,517 - INFO - Building Dockerfile...
+2026-01-14 20:01:04,246 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:01:04,246 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.86kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 23)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:3-u16.04-nng
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/ubuntu:16.04
+#3 DONE 0.2s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:3-u16.04-nng
+#2 ERROR: nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:3-u16.04-nng: not found
+------
+ > [internal] load metadata for nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:3-u16.04-nng:
+------
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 23)
+Dockerfile:23
+--------------------
+  21 |     #
+  22 |     
+  23 | >>> FROM nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:3-u16.04-nng as ubuntu
+  24 |     
+  25 |     WORKDIR /o
+2026-01-14 20:01:04,246 - ERROR - ✗ All builds failed for o-ran-sc/archived-ric-plt-resource-status-manager
+2026-01-14 20:01:04,246 - INFO - Summary: 0 successful, 1 failed out of 1 total

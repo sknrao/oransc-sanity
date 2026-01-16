@@ -1,0 +1,93 @@
+2026-01-14 20:51:06,496 - INFO - Cloning repository: o-ran-sc/ric-plt-e2mgr
+2026-01-14 20:51:07,491 - INFO - Found 5 Dockerfile(s)
+2026-01-14 20:51:07,491 - INFO - Building Dockerfile...
+2026-01-14 20:51:08,094 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:51:08,094 - INFO - Building Dockerfile...
+2026-01-14 20:51:09,200 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:51:09,200 - INFO - Building Dockerfile...
+2026-01-14 20:51:10,009 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:51:10,009 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.25kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 19)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:16.04
+#2 DONE 0.1s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng
+#3 ERROR: nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng: not found
+------
+ > [internal] load metadata for nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng:
+------
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 19)
+Dockerfile:19
+--------------------
+  17 |     ##############################################################################
+  18 |     
+  19 | >>> FROM nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng as ubuntu
+  20 |     
+  21 |     WORKDIR /opt/rmsimulator
+------
+2026-01-14 20:51:10,009 - INFO - Building Dockerfile...
+2026-01-14 20:51:10,399 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:51:10,399 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.21kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 19)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng
+#2 ERROR: nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng: not found
+
+#3 [internal] load metadata for docker.io/library/ubuntu:16.04
+#3 CANCELED
+------
+ > [internal] load metadata for nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng:
+------
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 19)
+Dockerfile:19
+--------------------
+  17 |     ##############################################################################
+  18 |     
+  19 | >>> FROM nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng as ubuntu
+  20 |     
+  21 |     WORKDIR /opt/kubsimulator
+------
+2026-01-14 20:51:10,399 - INFO - Building Dockerfile...
+2026-01-14 20:51:10,797 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:51:10,797 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.01kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 23)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng
+#2 ERROR: nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng: not found
+
+#3 [internal] load metadata for docker.io/library/ubuntu:16.04
+#3 CANCELED
+------
+ > [internal] load metadata for nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng:
+------
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 23)
+Dockerfile:23
+--------------------
+  21 |     #
+  22 |     
+  23 | >>> FROM nexus3.o-ran-sc.org:10004/bldr-ubuntu16-c-go:2-u16.04-nng as ubuntu
+  24 |     
+  25 |     WORKDIR /opt/xappmock
+--------------------
+ERROR: failed to build: failed to solve: nexus3.o-ran-sc.org:10004
+2026-01-14 20:51:10,797 - WARNING - ⚠ Partial success: 2 successful, 3 failed
+2026-01-14 20:51:10,797 - INFO - Summary: 2 successful, 3 failed out of 5 total

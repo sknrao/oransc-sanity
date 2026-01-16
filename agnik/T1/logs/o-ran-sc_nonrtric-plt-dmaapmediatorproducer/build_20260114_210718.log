@@ -1,0 +1,6 @@
+2026-01-14 21:07:18,433 - INFO - Cloning repository: o-ran-sc/nonrtric-plt-dmaapmediatorproducer
+2026-01-14 21:07:18,890 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:07:18,890 - INFO - Building Dockerfile...
+2026-01-14 21:07:48,441 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:07:48,441 - INFO - ✓ All builds successful for o-ran-sc/nonrtric-plt-dmaapmediatorproducer
+2026-01-14 21:07:48,441 - INFO - Summary: 1 successful, 0 failed out of 1 total

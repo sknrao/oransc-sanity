@@ -1,0 +1,8 @@
+2026-01-14 21:53:20,251 - INFO - Cloning repository: o-ran-sc/portal-aiml-dashboard
+2026-01-14 21:53:20,722 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:53:20,723 - INFO - Building Dockerfile...
+2026-01-14 21:54:56,220 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:54:56,220 - INFO - Building Dockerfile...
+2026-01-14 21:54:58,206 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:54:58,206 - INFO - ✓ All builds successful for o-ran-sc/portal-aiml-dashboard
+2026-01-14 21:54:58,206 - INFO - Summary: 2 successful, 0 failed out of 2 total

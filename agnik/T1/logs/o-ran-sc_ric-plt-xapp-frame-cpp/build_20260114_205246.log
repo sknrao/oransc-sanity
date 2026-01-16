@@ -1,0 +1,9 @@
+2026-01-14 20:52:46,635 - INFO - Cloning repository: o-ran-sc/ric-plt-xapp-frame-cpp
+2026-01-14 20:52:47,094 - INFO - Found 2 Dockerfile(s)
+2026-01-14 20:52:47,094 - INFO - Building Dockerfile...
+2026-01-14 21:02:47,100 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:02:47,100 - ERROR - Error: Build timeout (10 minutes)
+2026-01-14 21:02:47,100 - INFO - Building Dockerfile...
+2026-01-14 21:02:59,166 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:02:59,166 - WARNING - ⚠ Partial success: 1 successful, 1 failed
+2026-01-14 21:02:59,166 - INFO - Summary: 1 successful, 1 failed out of 2 total

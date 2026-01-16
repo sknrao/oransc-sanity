@@ -1,0 +1,35 @@
+2026-01-14 19:56:09,349 - INFO - Cloning repository: o-ran-sc/ric-plt-tracelibgo
+2026-01-14 19:56:09,748 - INFO - Found 1 Dockerfile(s)
+2026-01-14 19:56:09,748 - INFO - Building Dockerfile...
+2026-01-14 19:57:31,529 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:57:31,529 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.02kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/golang:1.12
+#2 DONE 1.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/golang:1.12@sha256:d0e79a9c39cdb3d71cc45fec929d1308d50420b79201467ec602b1b80cc314a8
+#5 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/golang:1.12@sha256:d0e79a9c39cdb3d71cc45fec929d1308d50420b79201467ec602b1b80cc314a8
+#5 resolve docker.io/library/golang:1.12@sha256:d0e79a9c39cdb3d71cc45fec929d1308d50420b79201467ec602b1b80cc314a8
+#5 resolve docker.io/library/golang:1.12@sha256:d0e79a9c39cdb3d71cc45fec929d1308d50420b79201467ec602b1b80cc314a8 0.2s done
+#5 ...
+
+#4 [internal] load build context
+#4 transferring context: 1.90kB done
+#4 DONE 0.2s
+
+#5 [1/4] FROM docker.io/library/golang:1.12@sha256:d0e79a9c3
+2026-01-14 19:57:31,529 - ERROR - ✗ All builds failed for o-ran-sc/ric-plt-tracelibgo
+2026-01-14 19:57:31,529 - INFO - Summary: 0 successful, 1 failed out of 1 total

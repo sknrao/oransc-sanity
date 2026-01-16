@@ -1,0 +1,36 @@
+2026-01-14 21:55:16,843 - INFO - Cloning repository: o-ran-sc/ric-app-qp-aimlfw
+2026-01-14 21:55:17,225 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:55:17,226 - INFO - Building Dockerfile...
+2026-01-14 21:55:47,783 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:55:47,783 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.51kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 17)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:20.04
+#2 DONE 0.0s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.1.0
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [builder 1/9] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.1.0@sha256:51b9caf5688418c648653263c363fff9e8c8617b61b153c106c17dab57e7e0f9
+#5 CACHED
+
+#6 [stage-1 1/8] FROM docker.io/library/ubuntu:20.04
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 404.84kB 0.0s done
+#7 DONE 0.1s
+
+#8 [stage-1 2/8] RUN apt update && apt install -y     iputils-ping     net-tools     curl     tcpdump     sudo     ca-certificates
+#8 0.482 
+#8 0.482 WARNING: apt does not hav
+2026-01-14 21:55:47,784 - ERROR - ✗ All builds failed for o-ran-sc/ric-app-qp-aimlfw
+2026-01-14 21:55:47,784 - INFO - Summary: 0 successful, 1 failed out of 1 total

@@ -1,0 +1,6 @@
+2026-01-14 21:53:13,538 - INFO - Cloning repository: o-ran-sc/aiml-fw-athp-data-extraction
+2026-01-14 21:53:13,992 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:53:13,993 - INFO - Building Dockerfile...
+2026-01-14 21:53:15,549 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:53:15,549 - INFO - ✓ All builds successful for o-ran-sc/aiml-fw-athp-data-extraction
+2026-01-14 21:53:15,549 - INFO - Summary: 1 successful, 0 failed out of 1 total

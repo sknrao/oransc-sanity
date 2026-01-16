@@ -1,0 +1,61 @@
+2026-01-14 20:00:40,050 - INFO - Cloning repository: o-ran-sc/ric-plt-xapp-frame
+2026-01-14 20:00:44,039 - INFO - Found 2 Dockerfile(s)
+2026-01-14 20:00:44,040 - INFO - Building Dockerfile...
+2026-01-14 20:01:00,541 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:01:00,541 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.37kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 21)
+#1 WARN: JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 54)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 0.0s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu18-c-go:1.9.0
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [stage-1 1/7] FROM docker.io/library/ubuntu:18.04
+#5 CACHED
+
+#6 [ubuntu-example-xapp 1/8] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu18-c-go:1.9.0
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 5.17kB done
+#7 DONE 0.0s
+
+#8 [ubuntu-example-xapp 2/8] RUN apt update && apt install -y iputils-ping net-tools curl sudo
+#8 0.348 
+#8 0.348 
+2026-01-14 20:01:00,541 - INFO - Building Dockerfile...
+2026-01-14 20:01:01,750 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:01:01,750 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.63kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 20)
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 58)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.1.0
+#2 DONE 0.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [xapp-base 1/8] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.1.0@sha256:51b9caf5688418c648653263c363fff9e8c8617b61b153c106c17dab57e7e0f9
+#5 resolve nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.1.0@sha256:51b9caf5688418c648653263c363fff9e8c8617b61b153c106c17dab57e7e0f9 0.0s done
+#5 sha256:1590675bd66ad2ba395b4e6cb2f427fdd269589746f11c9ba07505ac39f1f7a3 6.52kB / 6.52kB done
+#5 sha256:51b9caf5688418c648653263c363fff
+2026-01-14 20:01:01,750 - ERROR - ✗ All builds failed for o-ran-sc/ric-plt-xapp-frame
+2026-01-14 20:01:01,750 - INFO - Summary: 0 successful, 2 failed out of 2 total

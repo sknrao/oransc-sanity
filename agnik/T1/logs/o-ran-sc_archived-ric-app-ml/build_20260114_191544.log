@@ -1,0 +1,29 @@
+2026-01-14 19:15:44,774 - INFO - Cloning repository: o-ran-sc/archived-ric-app-ml
+2026-01-14 19:15:45,144 - INFO - Found 1 Dockerfile(s)
+2026-01-14 19:15:45,144 - INFO - Building Dockerfile...
+2026-01-14 19:16:29,723 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:16:29,723 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 373B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.7-stretch
+#2 DONE 1.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 3.93kB done
+#4 DONE 0.1s
+
+#5 [1/6] FROM docker.io/library/python:3.7-stretch@sha256:f678e6659fcd0a3fd4e3426f46b0b534253b0971da34dca6ce5b0c6e49b7cd64
+#5 resolve docker.io/library/python:3.7-stretch@sha256:f678e6659fcd0a3fd4e3426f46b0b534253b0971da34dca6ce5b0c6e49b7cd64 0.1s done
+#5 sha256:f678e6659fcd0a3fd4e3426f46b0b534253b0971da34dca6ce5b0c6e49b7cd64 1.22kB / 1.22kB done
+#5 sha256:7acd325004ca6f7ba97b0bbfe49288e107368f0d72f7cf031d6121dda0812651 2.22kB / 2.22kB done
+#5 sha256:abd3caf86f5b9d8f8e63437571297df5fa6d454140b9c1985c47d6ad526da824 0B / 11.29MB 0.1s
+#5 sha256:71c316554a558d4aa95c0be17c01e4a0366d6026a98e
+2026-01-14 19:16:29,723 - ERROR - ✗ All builds failed for o-ran-sc/archived-ric-app-ml
+2026-01-14 19:16:29,723 - INFO - Summary: 0 successful, 1 failed out of 1 total

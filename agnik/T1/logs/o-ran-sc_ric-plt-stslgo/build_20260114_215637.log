@@ -1,0 +1,43 @@
+2026-01-14 21:56:37,405 - INFO - Cloning repository: o-ran-sc/ric-plt-stslgo
+2026-01-14 21:56:38,030 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:56:38,031 - INFO - Building Dockerfile...
+2026-01-14 21:57:14,310 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:57:14,310 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 870B done
+#1 DONE 0.3s
+
+#2 [internal] load metadata for docker.io/library/golang:1.12
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.6s
+
+#4 [1/5] FROM docker.io/library/golang:1.12@sha256:d0e79a9c39cdb3d71cc45fec929d1308d50420b79201467ec602b1b80cc314a8
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 80.46kB 0.0s done
+#5 DONE 0.5s
+
+#6 [2/5] RUN mkdir -p /go/src/stslgo
+#6 DONE 3.5s
+
+#7 [3/5] COPY . /go/src/stslgo
+#7 DONE 1.5s
+
+#8 [4/5] RUN ls -altr /go/src/stslgo/ci
+#8 0.701 total 12
+#8 0.701 -rwxrwxr-x 1 root root  355 Jan 14 21:56 ci_test.sh
+#8 0.701 drwxrwxr-x 2 root root 4096 Jan 14 21:56 .
+#8 0.701 drwxr-xr-x 1 root root 4096 Jan 14 21:56 ..
+#8 DONE 2.0s
+
+#9 [5/5] RUN cd /go/src/stslgo && ci/ci_test.sh
+#9 0.795 go: finding github.com
+2026-01-14 21:57:14,310 - ERROR - ✗ All builds failed for o-ran-sc/ric-plt-stslgo
+2026-01-14 21:57:14,310 - INFO - Summary: 0 successful, 1 failed out of 1 total

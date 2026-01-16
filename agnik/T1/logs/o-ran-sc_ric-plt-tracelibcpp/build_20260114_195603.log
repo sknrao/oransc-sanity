@@ -1,0 +1,33 @@
+2026-01-14 19:56:03,951 - INFO - Cloning repository: o-ran-sc/ric-plt-tracelibcpp
+2026-01-14 19:56:04,339 - INFO - Found 1 Dockerfile(s)
+2026-01-14 19:56:04,340 - INFO - Building Dockerfile...
+2026-01-14 19:56:09,342 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:56:09,342 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.10kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/buildpack-deps:stretch
+#2 DONE 0.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/5] FROM docker.io/library/buildpack-deps:stretch@sha256:78e995165a5788c2f55aed6e548d8f6c1534830d4310c870408fccb2da8c5b2e
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 3.16kB done
+#5 DONE 0.2s
+
+#6 [2/5] RUN apt-get update && apt-get -q -y install   cmake   rpm   rename
+#6 0.789 Ign:1 http://security.debian.org/debian-security stretch/updates InRelease
+#6 0.791 Ign:2 http://deb.debian.org/debian stretch InRelease
+#6 0.807 Ign:3 http://deb.debian.org/debian stretch-updates InRelease
+#6 0.809 Ign:4 http://security.debian.org/debian-security stretch/updates Release
+#6 0.824 Ign:5 http://deb.debian.org/debian stretch Release
+#6 0.826 Ign:6
+2026-01-14 19:56:09,342 - ERROR - ✗ All builds failed for o-ran-sc/ric-plt-tracelibcpp
+2026-01-14 19:56:09,342 - INFO - Summary: 0 successful, 1 failed out of 1 total

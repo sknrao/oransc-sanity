@@ -1,0 +1,36 @@
+2026-01-14 19:06:53,292 - INFO - Cloning repository: o-ran-sc/ric-app-mc
+2026-01-14 19:06:54,283 - INFO - Found 2 Dockerfile(s)
+2026-01-14 19:06:54,284 - INFO - Building Dockerfile...
+2026-01-14 19:08:53,740 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:08:53,740 - INFO - Building Dockerfile...
+2026-01-14 19:15:44,755 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:15:44,755 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 4.15kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu18-c-go:1.9.0
+#2 DONE 0.0s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/ric-app-mc-listener:1.12.0
+#3 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [project-build  1/47] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu18-c-go:1.9.0
+#5 CACHED
+
+#6 [stage-1  1/16] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/ric-app-mc-listener:1.12.0@sha256:412cc00b8739ba31ae00a8074ef0b37e818d0f93ef756bd0421d460c218a8a32
+#6 resolve nexus3.o-ran-sc.org:10002/o-ran-sc/ric-app-mc-listener:1.12.0@sha256:412cc00b8739ba31ae00a8074ef0b37e818d0f93ef756bd0421d460c218a8a32 0.0s done
+#6 ...
+
+#7 [internal] load build context
+#7 transferring context: 10.57MB 0.2s done
+#7 DONE 0.2s
+
+#6 [stage-1  1/16] FROM nexus3.
+2026-01-14 19:15:44,755 - WARNING - ⚠ Partial success: 1 successful, 1 failed
+2026-01-14 19:15:44,755 - INFO - Summary: 1 successful, 1 failed out of 2 total

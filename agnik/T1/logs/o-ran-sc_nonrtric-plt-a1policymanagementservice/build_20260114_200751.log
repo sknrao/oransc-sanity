@@ -1,0 +1,31 @@
+2026-01-14 20:07:51,739 - INFO - Cloning repository: o-ran-sc/nonrtric-plt-a1policymanagementservice
+2026-01-14 20:07:52,395 - INFO - Found 1 Dockerfile(s)
+2026-01-14 20:07:52,395 - INFO - Building Dockerfile...
+2026-01-14 20:07:55,169 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:07:55,169 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.50kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 21)
+#1 DONE 0.2s
+
+#2 [internal] load metadata for nexus3.onap.org:10001/library/amazoncorretto:21-alpine3.22-jdk
+#2 DONE 0.9s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.3s
+
+#4 [jre-build 1/3] FROM nexus3.onap.org:10001/library/amazoncorretto:21-alpine3.22-jdk@sha256:801b86a5da334ca9dfa60008e6e1171cf364ca6e81061fa161c681721c1c7018
+#4 resolve nexus3.onap.org:10001/library/amazoncorretto:21-alpine3.22-jdk@sha256:801b86a5da334ca9dfa60008e6e1171cf364ca6e81061fa161c681721c1c7018
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 16.96kB done
+#5 DONE 0.3s
+
+#4 [jre-build 1/3] FROM nexus3.onap.org:10001/library/amazoncorretto:21-alpine3.22-jdk@sha256:801b86a5da334ca9dfa60008
+2026-01-14 20:07:55,169 - ERROR - ✗ All builds failed for o-ran-sc/nonrtric-plt-a1policymanagementservice
+2026-01-14 20:07:55,169 - INFO - Summary: 0 successful, 1 failed out of 1 total

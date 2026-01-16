@@ -1,0 +1,10 @@
+2026-01-14 21:03:07,361 - INFO - Cloning repository: o-ran-sc/ric-app-hw
+2026-01-14 21:03:07,966 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:03:07,967 - INFO - Building Dockerfile...
+2026-01-14 21:13:07,971 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:13:07,971 - ERROR - Error: Build timeout (10 minutes)
+2026-01-14 21:13:07,971 - INFO - Building Dockerfile-Unit-Tests...
+2026-01-14 21:23:07,977 - ERROR - ✗ Build failed: Dockerfile-Unit-Tests
+2026-01-14 21:23:07,977 - ERROR - Error: Build timeout (10 minutes)
+2026-01-14 21:23:07,978 - ERROR - ✗ All builds failed for o-ran-sc/ric-app-hw
+2026-01-14 21:23:07,978 - INFO - Summary: 0 successful, 2 failed out of 2 total

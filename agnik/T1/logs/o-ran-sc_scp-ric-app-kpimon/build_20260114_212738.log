@@ -1,0 +1,31 @@
+2026-01-14 21:27:38,593 - INFO - Cloning repository: o-ran-sc/scp-ric-app-kpimon
+2026-01-14 21:27:39,047 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:27:39,048 - INFO - Building Dockerfile...
+2026-01-14 21:27:39,750 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:27:39,750 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.48kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 0.0s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-ubuntu18-c-go:1.9.0
+#3 ERROR: nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-ubuntu18-c-go:1.9.0: not found
+------
+ > [internal] load metadata for nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-ubuntu18-c-go:1.9.0:
+------
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+Dockerfile:1
+--------------------
+   1 | >>> FROM nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-ubuntu18-c-go:1.9.0 as kpimonbuild
+   2 |     
+   3 |     ENV PATH $PATH:/usr/local/bin
+--------------------
+ERROR: failed to build: failed to solve: nexus3.o-ran-sc.org:10004/o-ran
+2026-01-14 21:27:39,750 - ERROR - ✗ All builds failed for o-ran-sc/scp-ric-app-kpimon
+2026-01-14 21:27:39,750 - INFO - Summary: 0 successful, 1 failed out of 1 total

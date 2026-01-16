@@ -1,0 +1,35 @@
+2026-01-14 21:59:19,611 - INFO - Cloning repository: o-ran-sc/oam-oam-controller
+2026-01-14 21:59:21,395 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:59:21,395 - INFO - Building Dockerfile...
+2026-01-14 21:59:25,721 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:59:25,721 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.57kB done
+#1 DONE 0.5s
+Dockerfile:23
+--------------------
+  21 |     
+  22 |     # Base bitnami nginx image
+  23 | >>> FROM ${base.image.repo}
+  24 |     LABEL maintainer="CCSDK Team (onap-ccsdk@lists.onap.org)"
+  25 |     USER root
+--------------------
+ERROR: failed to build: failed to solve: failed to process "${base.image.repo}": unsupported modifier (.) in substitution
+2026-01-14 21:59:25,721 - INFO - Building Dockerfile...
+2026-01-14 21:59:26,656 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:59:26,656 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 4.50kB done
+#1 DONE 0.1s
+Dockerfile:1
+--------------------
+   1 | >>> FROM ${base.sdnc.image.repo} AS stage0
+   2 |     FROM ${base.image.repo}
+   3 |     
+--------------------
+ERROR: failed to build: failed to solve: failed to process "${base.sdnc.image.repo}": unsupported modifier (.) in substitution
+2026-01-14 21:59:26,656 - ERROR - ✗ All builds failed for o-ran-sc/oam-oam-controller
+2026-01-14 21:59:26,656 - INFO - Summary: 0 successful, 2 failed out of 2 total

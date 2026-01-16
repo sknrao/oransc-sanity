@@ -1,0 +1,41 @@
+2026-01-14 21:57:15,007 - INFO - Cloning repository: o-ran-sc/ric-plt-conflictmgr
+2026-01-14 21:57:15,344 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:57:15,344 - INFO - Building Dockerfile...
+2026-01-14 21:57:20,298 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:57:20,299 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.04kB done
+#1 WARN: StageNameCasing: Stage name 'conflictMgrbuild' should be lowercase (line 11)
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 11)
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:20.04
+#2 DONE 0.0s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.0.0
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#5 [stage-1 1/7] FROM docker.io/library/ubuntu:20.04
+#5 DONE 0.0s
+
+#6 [conflictmgrbuild  1/15] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.0.0
+#6 DONE 0.0s
+
+#7 [stage-1 2/7] RUN mkdir /conflict
+#7 CACHED
+
+#8 [internal] load build context
+#8 transferring context: 86.34kB done
+#8 DONE 0.1s
+
+#9 [conflictmgrbuild 11/15] COPY go.sum go.sum
+#9 CACHED
+
+#10 [conflictmgrbuild  2/15] RUN wget -nv ht
+2026-01-14 21:57:20,299 - ERROR - ✗ All builds failed for o-ran-sc/ric-plt-conflictmgr
+2026-01-14 21:57:20,299 - INFO - Summary: 0 successful, 1 failed out of 1 total

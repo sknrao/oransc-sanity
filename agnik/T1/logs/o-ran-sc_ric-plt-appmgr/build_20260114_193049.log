@@ -1,0 +1,91 @@
+2026-01-14 19:30:49,019 - INFO - Cloning repository: o-ran-sc/ric-plt-appmgr
+2026-01-14 19:30:49,454 - INFO - Found 7 Dockerfile(s)
+2026-01-14 19:30:49,454 - INFO - Building Dockerfile...
+2026-01-14 19:33:27,277 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:33:27,277 - INFO - Building Dockerfile...
+2026-01-14 19:33:30,446 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:33:30,446 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.32kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.7-alpine
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/python:3.7-alpine@sha256:f3d31c8677d03f0b3c724446077f229a6ce9d3ac430f5c08cd7dff00292048c3
+#4 resolve docker.io/library/python:3.7-alpine@sha256:f3d31c8677d03f0b3c724446077f229a6ce9d3ac430f5c08cd7dff00292048c3 0.0s done
+#4 sha256:f3d31c8677d03f0b3c724446077f229a6ce9d3ac430f5c08cd7dff00292048c3 1.65kB / 1.65kB done
+#4 sha256:e6da3ee9bb64dd12b98fa609487f112fe1e365522e6e8345309db15c22a80a51 1.37kB / 1.37kB done
+#4 sha256:1bac8ae77e4af0b868b62a75115616a20e025e0451eeed05d94a4cfc4523e58a 6.87kB / 6.87kB done
+#4 DONE 0.1s
+
+#5 [2/3] RUN apk update && apk add   autoconf   automake   build-base   cmake   libtool   ninja   pkgconfig   python-dev  
+2026-01-14 19:33:30,446 - INFO - Building Dockerfile...
+2026-01-14 19:34:09,315 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:34:09,316 - INFO - Building Dockerfile...
+2026-01-14 19:36:41,615 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:36:41,615 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.31kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10001/ubuntu:18.04
+#2 DONE 1.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/12] FROM nexus3.o-ran-sc.org:10001/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98
+#4 resolve nexus3.o-ran-sc.org:10001/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98 0.0s done
+#4 CACHED
+
+#5 [ 2/12] RUN apt-get update && apt-get install -y     alien     autoconf     autoconf-archive     automake     autotools-dev     build-essential     cmake     g++      gcc     git     ksh     libbz2-dev     libicu-dev     libsctp-dev     libtool     lksctp-tools     make     python-dev     pkg-config     software-properties-common     sudo     wget     zlib1g     zlib1g-dev     zlibc     zip
+#5 0.
+2026-01-14 19:36:41,615 - INFO - Building Dockerfile...
+2026-01-14 19:37:09,320 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:37:09,320 - INFO - Building Dockerfile...
+2026-01-14 19:38:57,685 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:38:57,685 - INFO - Building Dockerfile...
+2026-01-14 19:38:59,393 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:38:59,393 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.72kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/python:3.7-alpine
+#2 DONE 0.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.3s
+
+#4 [1/4] FROM docker.io/library/python:3.7-alpine@sha256:f3d31c8677d03f0b3c724446077f229a6ce9d3ac430f5c08cd7dff00292048c3
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 2B done
+#5 DONE 0.1s
+
+#6 [2/4] ADD ./xapp_onboarder /opt/xapp_onboarder
+#6 ERROR: failed to calculate checksum of ref db9b553a-9819-4726-a7bb-a7b05c7defbe::590qqrggiec4sl84crt7fn7nm: "/xapp_onboarder": not found
+------
+ > [2/4] ADD ./xapp_onboarder /opt/xapp_onboarder:
+------
+Dockerfile:19
+--------------------
+  17 |     FROM python:3.7-alpine
+  18 |     
+  19 | >>> ADD ./xapp_onboarder /opt/xapp_onboarder
+  20 |     
+  21 |     RUN cd /opt/xapp_onboarder
+2026-01-14 19:38:59,393 - WARNING - ⚠ Partial success: 4 successful, 3 failed
+2026-01-14 19:38:59,393 - INFO - Summary: 4 successful, 3 failed out of 7 total

@@ -1,0 +1,36 @@
+2026-01-14 21:52:18,420 - INFO - Cloning repository: o-ran-sc/nonrtric-plt-dmaapadapter
+2026-01-14 21:52:18,856 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:52:18,857 - INFO - Building Dockerfile...
+2026-01-14 21:52:19,375 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:52:19,375 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.56kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10001/debian:11-slim
+#2 DONE 0.1s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10001/amazoncorretto:17.0.17
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [jre-build 1/3] FROM nexus3.o-ran-sc.org:10001/amazoncorretto:17.0.17@sha256:eba8935ced38cb0edcc6fd2c4e72f8ef83b23fa88fd2bcdefe52e79a8d7ab705
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 14.01kB done
+#6 DONE 0.0s
+
+#7 [stage-1 11/15] RUN groupadd nonrtric &&     useradd -r -g nonrtric nonrtric
+#7 CACHED
+
+#8 [stage-1  8/15] ADD /config/application_configuration.json /opt/app/dmaap-adapter-service/data/application_configuration.json_example
+#8 CACHED
+
+#9 [jre-build 3/3] RUN /usr/lib/jvm/java-17-amazon-corretto/bin/jlink --verbose --add-module
+2026-01-14 21:52:19,375 - ERROR - ✗ All builds failed for o-ran-sc/nonrtric-plt-dmaapadapter
+2026-01-14 21:52:19,375 - INFO - Summary: 0 successful, 1 failed out of 1 total

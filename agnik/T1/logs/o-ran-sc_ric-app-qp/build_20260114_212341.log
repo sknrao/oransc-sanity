@@ -1,0 +1,47 @@
+2026-01-14 21:23:41,486 - INFO - Cloning repository: o-ran-sc/ric-app-qp
+2026-01-14 21:23:41,808 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:23:41,809 - INFO - Building Dockerfile...
+2026-01-14 21:23:42,391 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:23:42,392 - INFO - Building Dockerfile-Unit-Test...
+2026-01-14 21:24:42,470 - ERROR - ✗ Build failed: Dockerfile-Unit-Test
+2026-01-14 21:24:42,470 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-Unit-Test
+#1 transferring dockerfile: 1.91kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/continuumio/miniconda3:23.10.0-1
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/13] FROM docker.io/continuumio/miniconda3:23.10.0-1
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 8.21kB done
+#5 DONE 0.0s
+
+#6 [ 4/13] RUN wget --content-disposition https://packagecloud.io/o-ran-sc/release/packages/debian/stretch/rmr_4.9.0_amd64.deb/download.deb && dpkg -i rmr_4.9.0_amd64.deb
+#6 CACHED
+
+#7 [ 3/13] RUN apt update && apt install -y gcc musl-dev
+#7 CACHED
+
+#8 [ 9/13] COPY src/ /tmp/src
+#8 CACHED
+
+#9 [ 8/13] COPY setup.py tox.ini LICENSE.txt /tmp/
+#9 CACHED
+
+#10 [11/13] RUN pip install /tmp
+#10 CACHED
+
+#11 [10/13] COPY tests/ /tmp/tests
+#11 CACHED
+
+#12 [ 6/13] RUN rm -f rmr_4.9.0_amd64.deb rmr-dev_4.9.0_
+2026-01-14 21:24:42,470 - WARNING - ⚠ Partial success: 1 successful, 1 failed
+2026-01-14 21:24:42,470 - INFO - Summary: 1 successful, 1 failed out of 2 total

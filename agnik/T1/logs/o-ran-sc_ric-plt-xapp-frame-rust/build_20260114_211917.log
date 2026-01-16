@@ -1,0 +1,29 @@
+2026-01-14 21:19:17,263 - INFO - Cloning repository: o-ran-sc/ric-plt-xapp-frame-rust
+2026-01-14 21:19:17,962 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:19:17,963 - INFO - Building Dockerfile...
+2026-01-14 21:20:49,351 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:20:49,351 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.35kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 23)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1-bullseye
+#2 DONE 1.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 1.35kB done
+#4 DONE 0.0s
+
+#5 [xapp-base 1/5] FROM docker.io/library/rust:1-bullseye@sha256:c6d501c039204c21e9fa374f234bd41bdc8b36cfd455a407ef145d9bef19f2b7
+#5 resolve docker.io/library/rust:1-bullseye@sha256:c6d501c039204c21e9fa374f234bd41bdc8b36cfd455a407ef145d9bef19f2b7 0.0s done
+#5 sha256:24af405f2300f6988a2a2eaae4ec7393c0f9119fea3a400a1864fa5905a9bb66 0B / 15.76MB 0.1s
+#5 sha256:e91529b594c86b803d1ccddf4f9d27516e8577c5b27e466be4f89f3a15da8944 0B / 54.76M
+2026-01-14 21:20:49,351 - ERROR - ✗ All builds failed for o-ran-sc/ric-plt-xapp-frame-rust
+2026-01-14 21:20:49,351 - INFO - Summary: 0 successful, 1 failed out of 1 total

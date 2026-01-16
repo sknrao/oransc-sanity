@@ -1,0 +1,76 @@
+2026-01-14 20:37:32,433 - INFO - Cloning repository: o-ran-sc/it-dev
+2026-01-14 20:37:32,997 - INFO - Found 8 Dockerfile(s)
+2026-01-14 20:37:32,997 - INFO - Building Dockerfile...
+2026-01-14 20:38:05,019 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:38:05,019 - INFO - Building Dockerfile...
+2026-01-14 20:43:34,160 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:43:34,160 - INFO - Building Dockerfile...
+2026-01-14 20:43:42,459 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:43:42,459 - INFO - Building Dockerfile...
+2026-01-14 20:44:01,741 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:44:01,741 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.31kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10001/ubuntu:18.04
+#2 DONE 0.9s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/12] FROM nexus3.o-ran-sc.org:10001/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98
+#4 resolve nexus3.o-ran-sc.org:10001/ubuntu:18.04@sha256:152dc042452c496007f07ca9127571cb9c29697f42acbfad72324b2bb2e43c98 0.0s done
+#4 DONE 0.0s
+
+#5 [ 4/12] RUN mkdir -p /opt/go
+#5 CACHED
+
+#6 [ 5/12] RUN wget -nv https://dl.google.com/go/go1.12.17.linux-amd64.tar.gz     && tar -xf go1.12.17.linux-amd64.tar.gz     && mv go /opt/go/1.12     && rm -f go*.gz
+#6 CACHED
+
+#7 [ 6/12] RUN wget -nv https://dl.google.com/go/go1.13.12.linux-amd64.tar.gz     && tar -xf go1.13.12.linux-amd64.tar.gz     && mv go /opt/go/1.13     && rm -f go*.gz
+#7 CACHED
+2026-01-14 20:44:01,741 - INFO - Building Dockerfile...
+2026-01-14 20:44:02,448 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:44:02,448 - INFO - Building Dockerfile...
+2026-01-14 20:44:09,857 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:44:09,857 - INFO - Building Dockerfile...
+2026-01-14 20:50:45,652 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:50:45,653 - INFO - Building Dockerfile...
+2026-01-14 20:50:46,546 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:50:46,546 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.72kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.7-alpine
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/python:3.7-alpine@sha256:f3d31c8677d03f0b3c724446077f229a6ce9d3ac430f5c08cd7dff00292048c3
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [2/4] ADD ./xapp_onboarder /opt/xapp_onboarder
+#6 ERROR: failed to calculate checksum of ref db9b553a-9819-4726-a7bb-a7b05c7defbe::s5rw496f1h5k4fi3u2vo083t1: "/xapp_onboarder": not found
+------
+ > [2/4] ADD ./xapp_onboarder /opt/xapp_onboarder:
+------
+Dockerfile:19
+--------------------
+  17 |     FROM python:3.7-alpine
+  18 |     
+  19 | >>> ADD ./xapp_onboarder /opt/xapp_onboarder
+  20 |     RUN cd /opt/xapp_onboarder && pip3 install . && rm -r /opt/xapp
+2026-01-14 20:50:46,547 - WARNING - ⚠ Partial success: 6 successful, 2 failed
+2026-01-14 20:50:46,547 - INFO - Summary: 6 successful, 2 failed out of 8 total

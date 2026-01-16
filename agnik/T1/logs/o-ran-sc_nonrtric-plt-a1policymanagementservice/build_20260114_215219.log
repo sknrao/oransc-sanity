@@ -1,0 +1,43 @@
+2026-01-14 21:52:19,384 - INFO - Cloning repository: o-ran-sc/nonrtric-plt-a1policymanagementservice
+2026-01-14 21:52:19,900 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:52:19,901 - INFO - Building Dockerfile...
+2026-01-14 21:52:20,694 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:52:20,694 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.50kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 21)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.onap.org:10001/library/amazoncorretto:21-alpine3.22-jdk
+#2 DONE 0.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 16.96kB done
+#4 DONE 0.0s
+
+#5 [stage-1  6/15] RUN mkdir -p /var/policy-management-service
+#5 CACHED
+
+#6 [stage-1 13/15] RUN chown -R nonrtric:nonrtric /var/log/policy-agent
+#6 CACHED
+
+#7 [stage-1  2/15] COPY --from=jre-build /customjre /jre
+#7 CACHED
+
+#8 [stage-1 14/15] RUN chown -R nonrtric:nonrtric /var/policy-management-service
+#8 CACHED
+
+#9 [jre-build 2/3] RUN apk add binutils
+#9 CACHED
+
+#10 [stage-1  3/15] WORKDIR /opt/app/policy-agent
+#10 CACHED
+
+#11 [stage-1  9/15] ADD /config/keystore.jks /opt/app/
+2026-01-14 21:52:20,694 - ERROR - ✗ All builds failed for o-ran-sc/nonrtric-plt-a1policymanagementservice
+2026-01-14 21:52:20,694 - INFO - Summary: 0 successful, 1 failed out of 1 total

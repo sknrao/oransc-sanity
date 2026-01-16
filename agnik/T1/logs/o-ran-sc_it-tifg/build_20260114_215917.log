@@ -1,0 +1,6 @@
+2026-01-14 21:59:17,063 - INFO - Cloning repository: o-ran-sc/it-tifg
+2026-01-14 21:59:17,667 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:59:17,667 - INFO - Building Dockerfile.ingestion...
+2026-01-14 21:59:19,602 - INFO - ✓ Build successful: Dockerfile.ingestion
+2026-01-14 21:59:19,603 - INFO - ✓ All builds successful for o-ran-sc/it-tifg
+2026-01-14 21:59:19,603 - INFO - Summary: 1 successful, 0 failed out of 1 total

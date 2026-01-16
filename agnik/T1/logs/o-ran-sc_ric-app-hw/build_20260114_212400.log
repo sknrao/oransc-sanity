@@ -1,0 +1,8 @@
+2026-01-14 21:24:00,862 - INFO - Cloning repository: o-ran-sc/ric-app-hw
+2026-01-14 21:24:01,264 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:24:01,264 - INFO - Building Dockerfile...
+2026-01-14 21:27:42,292 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:27:42,292 - INFO - Building Dockerfile-Unit-Tests...
+2026-01-14 21:37:41,516 - INFO - ✓ Build successful: Dockerfile-Unit-Tests
+2026-01-14 21:37:41,517 - INFO - ✓ All builds successful for o-ran-sc/ric-app-hw
+2026-01-14 21:37:41,517 - INFO - Summary: 2 successful, 0 failed out of 2 total

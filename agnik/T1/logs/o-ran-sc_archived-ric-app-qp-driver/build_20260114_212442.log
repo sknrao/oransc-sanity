@@ -1,0 +1,8 @@
+2026-01-14 21:24:42,476 - INFO - Cloning repository: o-ran-sc/archived-ric-app-qp-driver
+2026-01-14 21:24:42,793 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:24:42,794 - INFO - Building Dockerfile...
+2026-01-14 21:24:59,667 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:24:59,667 - INFO - Building Dockerfile-Unit-Test...
+2026-01-14 21:26:08,300 - INFO - ✓ Build successful: Dockerfile-Unit-Test
+2026-01-14 21:26:08,300 - INFO - ✓ All builds successful for o-ran-sc/archived-ric-app-qp-driver
+2026-01-14 21:26:08,300 - INFO - Summary: 2 successful, 0 failed out of 2 total

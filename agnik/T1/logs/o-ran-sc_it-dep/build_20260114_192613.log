@@ -1,0 +1,93 @@
+2026-01-14 19:26:13,249 - INFO - Cloning repository: o-ran-sc/it-dep
+2026-01-14 19:26:13,923 - INFO - Found 5 Dockerfile(s)
+2026-01-14 19:26:13,923 - INFO - Building Dockerfile...
+2026-01-14 19:27:15,012 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:27:15,012 - INFO - Building Dockerfile-smo-install...
+2026-01-14 19:27:35,427 - ERROR - ✗ Build failed: Dockerfile-smo-install
+2026-01-14 19:27:35,427 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-smo-install
+#1 transferring dockerfile: 1.50kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/6] FROM docker.io/library/ubuntu:18.04
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 15.55kB done
+#5 DONE 0.0s
+
+#6 [2/6] RUN apt-get update && apt-get -y install ca-certificates wget
+#6 0.630 Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [102 kB]
+#6 0.672 Get:2 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+#6 1.114 Get:3 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [3373 kB]
+#6 1.229 Get:4 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [102 kB]
+#6 1.363 Get:5 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [102 kB]
+#6 1.499 Get
+2026-01-14 19:27:35,428 - INFO - Building Dockerfile-package...
+2026-01-14 19:28:19,995 - ERROR - ✗ Build failed: Dockerfile-package
+2026-01-14 19:28:19,995 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-package
+#1 transferring dockerfile: 2.31kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/buildpack-deps:stretch
+#2 DONE 1.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/10] FROM docker.io/library/buildpack-deps:stretch@sha256:78e995165a5788c2f55aed6e548d8f6c1534830d4310c870408fccb2da8c5b2e
+#4 resolve docker.io/library/buildpack-deps:stretch@sha256:78e995165a5788c2f55aed6e548d8f6c1534830d4310c870408fccb2da8c5b2e 0.0s done
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 15.55kB done
+#5 DONE 0.1s
+
+#4 [ 1/10] FROM docker.io/library/buildpack-deps:stretch@sha256:78e995165a5788c2f55aed6e548d8f6c1534830d4310c870408fccb2da8c5b2e
+#4 sha256:78e995165a5788c2f55aed6e548d8f6c1534830d4310c870408fccb2da8c5b2e 1.22kB / 1.22kB done
+#4 sha256:13619606ee6f175a002a256dd18e68cb096f54c30fbd8a98cd86906fa651d4c8 1.38kB
+2026-01-14 19:28:19,995 - INFO - Building Dockerfile...
+2026-01-14 19:28:54,475 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:28:54,475 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.33kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/ubuntu:18.04
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 534B done
+#5 DONE 0.0s
+
+#6 [2/7] RUN apt-get update && apt-get -y install curl ca-certificates wget
+#6 0.553 Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [102 kB]
+#6 0.616 Get:2 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+#6 1.046 Get:3 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [3373 kB]
+#6 1.201 Get:4 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [102 kB]
+#6 1.356 Get:5 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [102 kB]
+#6 1.500 Get:6 http://archive.ubuntu.com/ubuntu
+2026-01-14 19:28:54,475 - INFO - Building Dockerfile...
+2026-01-14 19:29:00,766 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:29:00,766 - WARNING - ⚠ Partial success: 2 successful, 3 failed
+2026-01-14 19:29:00,766 - INFO - Summary: 2 successful, 3 failed out of 5 total

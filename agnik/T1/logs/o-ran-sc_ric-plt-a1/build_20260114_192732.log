@@ -1,0 +1,99 @@
+2026-01-14 19:27:32,006 - INFO - Cloning repository: o-ran-sc/ric-plt-a1
+2026-01-14 19:27:32,385 - INFO - Found 4 Dockerfile(s)
+2026-01-14 19:27:32,385 - INFO - Building Dockerfile...
+2026-01-14 19:29:41,133 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:29:41,134 - INFO - Building Dockerfile-query-receiver...
+2026-01-14 19:30:42,756 - ERROR - ✗ Build failed: Dockerfile-query-receiver
+2026-01-14 19:30:42,756 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-query-receiver
+#1 transferring dockerfile: 2.06kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-alpine3:12-a3.11
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/alpine:3.11
+#3 DONE 1.7s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-alpine3:12-a3.11
+#2 DONE 1.8s
+
+#4 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5
+#4 DONE 1.8s
+
+#5 [internal] load .dockerignore
+#5 transferring context:
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5@sha256:eb906735a7969bf0e341ba30c5087c84c393e283ae666edde423bb8f8ca0b24e
+#6 resolve nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5@sha256:eb906735a7969bf0e341ba30c5087c84c393e283ae666edde423bb8f8ca0b24e 0.1s done
+#6 ...
+
+#7 [internal] load build context
+#7 tran
+2026-01-14 19:30:42,756 - INFO - Building Dockerfile-delay-receiver...
+2026-01-14 19:30:47,591 - ERROR - ✗ Build failed: Dockerfile-delay-receiver
+2026-01-14 19:30:47,591 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-delay-receiver
+#1 transferring dockerfile: 2.06kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-alpine3:12-a3.11
+#2 DONE 2.8s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5
+#3 DONE 2.8s
+
+#4 [internal] load metadata for docker.io/library/alpine:3.11
+#4 DONE 2.9s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-1 1/5] FROM docker.io/library/alpine:3.11@sha256:bcae378eacedab83da66079d9366c8f5df542d7ed9ab23bf487e3e1a8481375d
+#6 DONE 0.0s
+
+#7 FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5@sha256:eb906735a7969bf0e341ba30c5087c84c393e283ae666edde423bb8f8ca0b24e
+#7 DONE 0.0s
+
+#8 [stage-0 1/8] FROM nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-alpine3:12-a3.11@sha256:d256cc0d26e739b65a62005bdbe896660cfdbc612ed276d5a1d7d1bd167650fc
+#8 DONE 0.0s
+
+#9 [
+2026-01-14 19:30:47,591 - INFO - Building Dockerfile-test-receiver...
+2026-01-14 19:30:49,001 - ERROR - ✗ Build failed: Dockerfile-test-receiver
+2026-01-14 19:30:49,001 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-test-receiver
+#1 transferring dockerfile: 2.05kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5
+#2 DONE 0.1s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-alpine3:12-a3.11
+#3 DONE 0.1s
+
+#4 [internal] load metadata for docker.io/library/alpine:3.11
+#4 DONE 0.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [stage-1 1/5] FROM docker.io/library/alpine:3.11@sha256:bcae378eacedab83da66079d9366c8f5df542d7ed9ab23bf487e3e1a8481375d
+#6 DONE 0.0s
+
+#7 [stage-0 1/8] FROM nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-alpine3:12-a3.11@sha256:d256cc0d26e739b65a62005bdbe896660cfdbc612ed276d5a1d7d1bd167650fc
+#7 DONE 0.0s
+
+#8 FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5@sha256:eb906735a7969bf0e341ba30c5087c84c393e283ae666edde423bb8f8ca0b24e
+#8 DONE 0.0s
+
+#9 [s
+2026-01-14 19:30:49,001 - WARNING - ⚠ Partial success: 1 successful, 3 failed
+2026-01-14 19:30:49,001 - INFO - Summary: 1 successful, 3 failed out of 4 total

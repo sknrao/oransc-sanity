@@ -1,0 +1,39 @@
+2026-01-14 21:35:01,056 - INFO - Cloning repository: o-ran-sc/ric-app-bouncer
+2026-01-14 21:35:03,609 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:35:03,609 - INFO - Building Dockerfile...
+2026-01-14 21:36:47,430 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:36:47,431 - INFO - Building Dockerfile...
+2026-01-14 21:36:49,279 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:36:49,280 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 6.00kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.0.0
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/31] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu20-c-go:1.0.0
+#4 DONE 0.0s
+
+#5 [ 2/31] RUN mkdir -p /playpen/assets /playpen/src /playpen/bin
+#5 CACHED
+
+#6 [ 3/31] WORKDIR /playpen
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 2B done
+#7 DONE 0.1s
+
+#8 [10/31] RUN apt-get update && apt-get install -y cmake gcc make git g++ wget
+#8 CACHED
+
+#9 [ 8/31] RUN apt-get install -y  g++ git libboost-atomic-dev libboost-thread-dev libboost-system-dev libboost-date-time-dev libboost-regex-dev libboost-filesystem-dev libboost-random-dev libboos
+2026-01-14 21:36:49,280 - WARNING - ⚠ Partial success: 1 successful, 1 failed
+2026-01-14 21:36:49,280 - INFO - Summary: 1 successful, 1 failed out of 2 total

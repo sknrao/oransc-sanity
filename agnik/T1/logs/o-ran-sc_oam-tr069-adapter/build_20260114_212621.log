@@ -1,0 +1,141 @@
+2026-01-14 21:26:21,202 - INFO - Cloning repository: o-ran-sc/oam-tr069-adapter
+2026-01-14 21:26:22,322 - INFO - Found 8 Dockerfile(s)
+2026-01-14 21:26:22,323 - INFO - Building Dockerfile...
+2026-01-14 21:26:25,792 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:26:25,792 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 1.65kB 0.0s done
+#1 DONE 0.3s
+
+#2 [internal] load metadata for docker.io/library/openjdk:8-alpine
+#2 ERROR: docker.io/library/openjdk:8-alpine: not found
+------
+ > [internal] load metadata for docker.io/library/openjdk:8-alpine:
+------
+Dockerfile:19
+--------------------
+  17 |     # ===============LICENSE_END=======================================================================
+  18 |     
+  19 | >>> FROM openjdk:8-alpine
+  20 |     
+  21 |     ARG JAR
+--------------------
+ERROR: failed to build: failed to solve: openjdk:8-alpine: failed to resolve source metadata for docker.io/library/openjdk:8-alpine: docker.io/library/openjdk:8-alpine: not found
+2026-01-14 21:26:25,792 - INFO - Building Dockerfile...
+2026-01-14 21:27:26,614 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:27:26,614 - INFO - Building Dockerfile...
+2026-01-14 21:27:28,338 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:27:28,338 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.25kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/openjdk:8-alpine
+#2 ERROR: docker.io/library/openjdk:8-alpine: not found
+------
+ > [internal] load metadata for docker.io/library/openjdk:8-alpine:
+------
+Dockerfile:19
+--------------------
+  17 |     # ===============LICENSE_END=======================================================================
+  18 |     
+  19 | >>> FROM openjdk:8-alpine
+  20 |     
+  21 |     ARG JAR
+--------------------
+ERROR: failed to build: failed to solve: openjdk:8-alpine: failed to resolve source metadata for docker.io/library/openjdk:8-alpine: docker.io/library/openjdk:8-alpine: not found
+2026-01-14 21:27:28,339 - INFO - Building Dockerfile...
+2026-01-14 21:27:28,722 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:27:28,722 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.40kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/openjdk:8-alpine
+#2 ERROR: docker.io/library/openjdk:8-alpine: not found
+------
+ > [internal] load metadata for docker.io/library/openjdk:8-alpine:
+------
+Dockerfile:19
+--------------------
+  17 |     # ===============LICENSE_END=======================================================================
+  18 |     
+  19 | >>> FROM openjdk:8-alpine
+  20 |     
+  21 |     ARG JAR
+--------------------
+ERROR: failed to build: failed to solve: openjdk:8-alpine: failed to resolve source metadata for docker.io/library/openjdk:8-alpine: docker.io/library/openjdk:8-alpine: not found
+2026-01-14 21:27:28,722 - INFO - Building Dockerfile...
+2026-01-14 21:27:29,148 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:27:29,148 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.89kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/openjdk:8-alpine
+#2 ERROR: docker.io/library/openjdk:8-alpine: not found
+------
+ > [internal] load metadata for docker.io/library/openjdk:8-alpine:
+------
+Dockerfile:19
+--------------------
+  17 |     # ===============LICENSE_END=======================================================================
+  18 |     
+  19 | >>> FROM openjdk:8-alpine
+  20 |     
+  21 |     ARG JAR
+--------------------
+ERROR: failed to build: failed to solve: openjdk:8-alpine: failed to resolve source metadata for docker.io/library/openjdk:8-alpine: docker.io/library/openjdk:8-alpine: not found
+2026-01-14 21:27:29,148 - INFO - Building Dockerfile...
+2026-01-14 21:27:29,524 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:27:29,524 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.90kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/openjdk:8-alpine
+#2 ERROR: docker.io/library/openjdk:8-alpine: not found
+------
+ > [internal] load metadata for docker.io/library/openjdk:8-alpine:
+------
+Dockerfile:19
+--------------------
+  17 |     # ===============LICENSE_END=======================================================================
+  18 |     
+  19 | >>> FROM openjdk:8-alpine
+  20 |     
+  21 |     ARG JAR
+--------------------
+ERROR: failed to build: failed to solve: openjdk:8-alpine: failed to resolve source metadata for docker.io/library/openjdk:8-alpine: docker.io/library/openjdk:8-alpine: not found
+2026-01-14 21:27:29,524 - INFO - Building Dockerfile...
+2026-01-14 21:27:37,789 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:27:37,789 - INFO - Building Dockerfile...
+2026-01-14 21:27:38,182 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:27:38,182 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.72kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/openjdk:8-alpine
+#2 ERROR: docker.io/library/openjdk:8-alpine: not found
+------
+ > [internal] load metadata for docker.io/library/openjdk:8-alpine:
+------
+Dockerfile:19
+--------------------
+  17 |     # ===============LICENSE_END=======================================================================
+  18 |     
+  19 | >>> FROM openjdk:8-alpine
+  20 |     
+  21 |     ARG JAR
+--------------------
+ERROR: failed to build: failed to solve: openjdk:8-alpine: failed to resolve source metadata for docker.io/library/openjdk:8-alpine: docker.io/library/openjdk:8-alpine: not found
+2026-01-14 21:27:38,182 - WARNING - ⚠ Partial success: 2 successful, 6 failed
+2026-01-14 21:27:38,182 - INFO - Summary: 2 successful, 6 failed out of 8 total

@@ -1,0 +1,29 @@
+2026-01-14 19:52:06,660 - INFO - Cloning repository: o-ran-sc/ric-plt-sdlgo
+2026-01-14 19:52:07,044 - INFO - Found 1 Dockerfile(s)
+2026-01-14 19:52:07,045 - INFO - Building Dockerfile...
+2026-01-14 19:52:55,730 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:52:55,730 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.01kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.20
+#2 DONE 1.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 1.88kB done
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/golang:1.20@sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f8526db21f7aebb0b0b4f18a
+#5 resolve docker.io/library/golang:1.20@sha256:8f9af7094d0cb27cc783c697ac5ba25efdc4da35f8526db21f7aebb0b0b4f18a 0.0s done
+#5 sha256:c1a446d8f0c5658cc9af7b207a521995cf26bcfe1c9e6a4e148ba4eb8ed2e8b5 1.79kB / 1.79kB done
+#5 sha256:d5beeac3653f7c94aeda867588172915ce848d8d49d4ca24d24245505949b64d 2.75kB / 2.75kB done
+#5 sha256:6a299ae9cfd996c1149a699d36cdaa76fa332c8e9d66d6678fa9a231d9ead04c 0B / 49.58MB 0.1s
+#5 sha256:e08e8703b2fb5e50153f792f3192087d26970d262806b397049d61b9a14b3af
+2026-01-14 19:52:55,730 - ERROR - ✗ All builds failed for o-ran-sc/ric-plt-sdlgo
+2026-01-14 19:52:55,730 - INFO - Summary: 0 successful, 1 failed out of 1 total

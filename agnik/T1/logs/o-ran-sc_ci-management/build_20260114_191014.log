@@ -1,0 +1,54 @@
+2026-01-14 19:10:14,574 - INFO - Cloning repository: o-ran-sc/ci-management
+2026-01-14 19:10:18,255 - INFO - Found 2 Dockerfile(s)
+2026-01-14 19:10:18,255 - INFO - Building Dockerfile...
+2026-01-14 19:11:20,023 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:11:20,024 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.80kB done
+#1 DONE 1.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10001/ubuntu:16.04
+#2 DONE 7.8s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 3.9s
+
+#4 [ 1/10] FROM nexus3.o-ran-sc.org:10001/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 DONE 0.0s
+
+#5 [ 4/10] RUN wget -nv https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5-Linux-x86_64.sh     && chmod +x cmake-3.14.5-Linux-x86_64.sh     && ./cmake-3.14.5-Linux-x86_64.sh --prefix=/usr/local --skip-license
+#5 CACHED
+
+#6 [ 2/10] RUN apt-get update && apt-get install -y     autoconf     autoconf-archive     automake     autotools-dev     build-essential     g++      gcc     git     libbz2-dev     libicu-dev     libsctp-dev     libtool     lksctp-tools 
+2026-01-14 19:11:20,024 - INFO - Building Dockerfile.build...
+2026-01-14 19:11:21,189 - ERROR - ✗ Build failed: Dockerfile.build
+2026-01-14 19:11:21,189 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.build
+#1 transferring dockerfile: 2.96kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/ubuntu:18.04
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 6.68kB done
+#5 DONE 0.0s
+
+#6 [5/7] WORKDIR /playpen/build
+#6 CACHED
+
+#7 [4/7] RUN    wget --content-disposition https://packagecloud.io/o-ran-sc/release/packages/debian/stretch//mdclog_0.0.4-1_amd64.deb/download.deb         && wget --content-disposition https://packagecloud.io/o-ran-sc/release/packages/debian/stretch//mdclog-dev_0.0.4-1_amd64.deb/download.deb          && wget --content-disposition https://packagecloud.io/o-ran-sc/staging/packages/debian/stretch//rmr-dev_4.1.4_amd64.deb/download.deb          && wget --content-disposition https://packag
+2026-01-14 19:11:21,190 - ERROR - ✗ All builds failed for o-ran-sc/ci-management
+2026-01-14 19:11:21,190 - INFO - Summary: 0 successful, 2 failed out of 2 total

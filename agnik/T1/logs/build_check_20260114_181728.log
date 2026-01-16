@@ -1,0 +1,33 @@
+2026-01-14 18:17:28,179 - INFO - Defaulting to 'sudo docker' (most common on servers)
+2026-01-14 18:17:28,180 - INFO - Running in TEST mode with 2 repositories
+2026-01-14 18:17:28,180 - INFO - Starting Dockerfile Build Checker
+2026-01-14 18:17:28,180 - INFO - Log file: /tmp/dockerfile_build_check/logs/build_check_20260114_181728.log
+2026-01-14 18:17:28,180 - INFO - Checking 2 repositories...
+2026-01-14 18:17:28,180 - INFO - 
+============================================================
+2026-01-14 18:17:28,180 - INFO - Checking repository: o-ran-sc/ric-app-ad
+2026-01-14 18:17:28,180 - INFO - ============================================================
+2026-01-14 18:17:28,180 - INFO - Cloning o-ran-sc/ric-app-ad...
+2026-01-14 18:17:28,753 - INFO - Found 2 Dockerfile(s)
+2026-01-14 18:17:28,753 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile...
+2026-01-14 18:17:28,768 - ERROR - ✗ Build failed for /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile
+2026-01-14 18:17:28,768 - ERROR - Error: sudo: docker: command not found
+
+2026-01-14 18:17:28,768 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile-Unit-Test...
+2026-01-14 18:17:28,779 - ERROR - ✗ Build failed for /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile-Unit-Test
+2026-01-14 18:17:28,779 - ERROR - Error: sudo: docker: command not found
+
+2026-01-14 18:17:28,784 - INFO - 
+============================================================
+2026-01-14 18:17:28,784 - INFO - Checking repository: o-ran-sc/ric-app-qp
+2026-01-14 18:17:28,784 - INFO - ============================================================
+2026-01-14 18:17:28,784 - INFO - Cloning o-ran-sc/ric-app-qp...
+2026-01-14 18:17:29,145 - INFO - Found 2 Dockerfile(s)
+2026-01-14 18:17:29,145 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile...
+2026-01-14 18:17:29,161 - ERROR - ✗ Build failed for /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile
+2026-01-14 18:17:29,161 - ERROR - Error: sudo: docker: command not found
+
+2026-01-14 18:17:29,161 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile-Unit-Test...
+2026-01-14 18:17:29,172 - ERROR - ✗ Build failed for /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile-Unit-Test
+2026-01-14 18:17:29,172 - ERROR - Error: sudo: docker: command not found
+

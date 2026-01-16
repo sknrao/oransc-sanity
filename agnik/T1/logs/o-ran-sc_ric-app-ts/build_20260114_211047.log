@@ -1,0 +1,32 @@
+2026-01-14 21:10:47,659 - INFO - Cloning repository: o-ran-sc/ric-app-ts
+2026-01-14 21:10:48,130 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:10:48,131 - INFO - Building Dockerfile...
+2026-01-14 21:12:15,108 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:12:15,109 - INFO - Building Dockerfile...
+2026-01-14 21:12:16,156 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:12:16,157 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.50kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 16)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-ubuntu18-c-go:8-u18.04
+#2 ERROR: nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-ubuntu18-c-go:8-u18.04: not found
+------
+ > [internal] load metadata for nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-ubuntu18-c-go:8-u18.04:
+------
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 16)
+Dockerfile:16
+--------------------
+  14 |     #   limitations under the License.
+  15 |     # ==================================================================================
+  16 | >>> FROM nexus3.o-ran-sc.org:10004/o-ran-sc/bldr-ubuntu18-c-go:8-u18.04 as buildenv
+  17 |     
+  18 |     RUN mkdir /playpen
+--------------------
+ERROR:
+2026-01-14 21:12:16,157 - WARNING - ⚠ Partial success: 1 successful, 1 failed
+2026-01-14 21:12:16,157 - INFO - Summary: 1 successful, 1 failed out of 2 total

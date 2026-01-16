@@ -1,0 +1,62 @@
+2026-01-14 21:17:03,618 - INFO - Cloning repository: o-ran-sc/ric-app-lp
+2026-01-14 21:17:05,126 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:17:05,127 - INFO - Building Dockerfile...
+2026-01-14 21:18:24,603 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:18:24,603 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.61kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/frolvlad/alpine-miniconda3:latest
+#2 ...
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5
+#3 DONE 0.4s
+
+#2 [internal] load metadata for docker.io/frolvlad/alpine-miniconda3:latest
+#2 DONE 1.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5@sha256:eb906735a7969bf0e341ba30c5087c84c393e283ae666edde423bb8f8ca0b24e
+#5 CACHED
+
+#6 [stage-0 1/9] FROM docker.io/frolvlad/alpine-miniconda3:latest@sha256:3bba6c34833619e7f74372a2d79952c4a9f4fc217f336230662073960e8bbe29
+#6 resolve docker.io/frolvlad/alpine-miniconda3:latest@sha256:3bba6c34833619e7f74372a2d79952c4a9f4fc217f336230662073960e8bbe29 0.0s done
+#6 sha256:134a62516dc345ad93e92e4523d136b9dd011bc4dd50c
+2026-01-14 21:18:24,603 - INFO - Building Dockerfile-Unit-Test...
+2026-01-14 21:19:17,253 - ERROR - ✗ Build failed: Dockerfile-Unit-Test
+2026-01-14 21:19:17,253 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-Unit-Test
+#1 transferring dockerfile: 1.48kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/frolvlad/alpine-miniconda3:latest
+#2 DONE 0.3s
+
+#3 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5
+#3 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [stage-0 1/8] FROM docker.io/frolvlad/alpine-miniconda3:latest@sha256:3bba6c34833619e7f74372a2d79952c4a9f4fc217f336230662073960e8bbe29
+#5 CACHED
+
+#6 FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-alpine3-rmr:4.0.5@sha256:eb906735a7969bf0e341ba30c5087c84c393e283ae666edde423bb8f8ca0b24e
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 14.91kB done
+#7 DONE 0.1s
+
+#8 [stage-0 2/8] RUN apk update && apk add gcc musl-dev g++ jpeg-dev zlib-dev
+#8 0.427 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+#8 0.
+2026-01-14 21:19:17,253 - ERROR - ✗ All builds failed for o-ran-sc/ric-app-lp
+2026-01-14 21:19:17,253 - INFO - Summary: 0 successful, 2 failed out of 2 total

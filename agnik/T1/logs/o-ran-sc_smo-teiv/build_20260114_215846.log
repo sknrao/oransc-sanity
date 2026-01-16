@@ -1,0 +1,104 @@
+2026-01-14 21:58:46,582 - INFO - Cloning repository: o-ran-sc/smo-teiv
+2026-01-14 21:58:48,335 - INFO - Found 3 Dockerfile(s)
+2026-01-14 21:58:48,336 - INFO - Building Dockerfile...
+2026-01-14 21:58:51,162 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:58:51,162 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.13kB done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/debian:bullseye-slim
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/8] FROM docker.io/library/debian:bullseye-slim@sha256:b32674fb57780ad57d7b0749242d3f585f462f4ec4a60ae0adacd945f9cb9734
+#4 resolve docker.io/library/debian:bullseye-slim@sha256:b32674fb57780ad57d7b0749242d3f585f462f4ec4a60ae0adacd945f9cb9734
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 4.19kB done
+#5 DONE 0.1s
+
+#6 [7/8] ADD ./copySqlSchemaFromPgsqlGenerator.sh /opt/app/pgsql-schema-generator/copySqlSchema.sh
+#6 CACHED
+
+#7 [3/8] RUN useradd -u 40514 -m -s /bin/false pgsql-schema-generator
+#7 CACHED
+
+#8 [5/8] WORKDIR /opt/app/pgsql-schema-generator
+#8 CACHED
+
+#9 [6/8] ADD src/main/resources/application.yaml /opt/app/pgsql-schema-generator/c
+2026-01-14 21:58:51,162 - INFO - Building Dockerfile...
+2026-01-14 21:58:52,520 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:58:52,520 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.28kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/debian:bullseye-slim
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/5] FROM docker.io/library/debian:bullseye-slim@sha256:b32674fb57780ad57d7b0749242d3f585f462f4ec4a60ae0adacd945f9cb9734
+#4 resolve docker.io/library/debian:bullseye-slim@sha256:b32674fb57780ad57d7b0749242d3f585f462f4ec4a60ae0adacd945f9cb9734
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 1.59kB done
+#5 DONE 0.2s
+
+#6 [2/5] RUN apt-get update &&     apt-get install -y --no-install-recommends     openjdk-17-jdk-headless
+#6 CACHED
+
+#7 [3/5] WORKDIR /opt/app/teiv
+#7 CACHED
+
+#8 [4/5] COPY src/main/resources/application.yaml config/application.yaml
+#8 CACHED
+
+#9 [5/5] COPY target/ /opt/app/teiv/focom-to-teiv-adapter.jar
+#9 ERROR: failed to calcula
+2026-01-14 21:58:52,520 - INFO - Building Dockerfile...
+2026-01-14 21:58:54,020 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:58:54,020 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.33kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/debian:bullseye-slim
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 1.82kB done
+#4 DONE 0.1s
+
+#5 [1/5] FROM docker.io/library/debian:bullseye-slim@sha256:b32674fb57780ad57d7b0749242d3f585f462f4ec4a60ae0adacd945f9cb9734
+#5 resolve docker.io/library/debian:bullseye-slim@sha256:b32674fb57780ad57d7b0749242d3f585f462f4ec4a60ae0adacd945f9cb9734
+#5 ...
+
+#6 [2/5] RUN apt-get update &&     apt-get install -y --no-install-recommends     openjdk-17-jdk-headless &&     rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [3/5] WORKDIR /opt/app/teiv
+#7 CACHED
+
+#8 [4/5] ADD src/main/resources/application.yaml /opt/app/teiv/config/application.yaml
+#8 CACHED
+
+#9 [5/5] ADD target/ /opt/app/teiv/ncmp-t
+2026-01-14 21:58:54,020 - ERROR - ✗ All builds failed for o-ran-sc/smo-teiv
+2026-01-14 21:58:54,020 - INFO - Summary: 0 successful, 3 failed out of 3 total

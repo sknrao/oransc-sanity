@@ -1,0 +1,406 @@
+2026-01-14 19:22:24,451 - INFO - Cloning repository: o-ran-sc/nonrtric
+2026-01-14 19:22:25,574 - INFO - Found 24 Dockerfile(s)
+2026-01-14 19:22:25,574 - INFO - Building Dockerfile_rhwi2...
+2026-01-14 19:22:28,726 - ERROR - ✗ Build failed: Dockerfile_rhwi2
+2026-01-14 19:22:28,726 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_rhwi2
+#1 transferring dockerfile: 1.11kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 1.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.1s done
+#5 sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 9.70kB / 9.70kB done
+#5 sha256:22bd1c41c958c762e9633f07a5fee8266300e5f25e18e269a6d87a4b870368aa 2.32kB / 2.32kB done
+#5 sha256:3e08bd36a50979e7b09561e4b804b1f112c9d6509c0a12b15bd7b1b410e8a34a 3.04kB / 3.04kB done
+#5 CANCELED
+
+#4 [internal] load build context
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#6
+2026-01-14 19:22:28,726 - INFO - Building Dockerfile_rhwi1...
+2026-01-14 19:22:30,269 - ERROR - ✗ Build failed: Dockerfile_rhwi1
+2026-01-14 19:22:30,269 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_rhwi1
+#1 transferring dockerfile: 1.11kB done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.1s done
+#5 ...
+
+#4 [internal] load build context
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#6 [2/5] RUN mkdir /app
+#6 CACHED
+
+#7 [3/5] COPY ./rapps-rapp-helloworld-invoker1 /app
+#7 ERROR: failed to calculate checksum of ref db9b553a-9819-4726-a7bb-a7b05c7defbe::stdfs8bx5tnghcpivntwl51rs: "/rapps-rapp-helloworld-invoker1": not found
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha25
+2026-01-14 19:22:30,269 - INFO - Building Dockerfile_rhwp...
+2026-01-14 19:22:31,757 - ERROR - ✗ Build failed: Dockerfile_rhwp
+2026-01-14 19:22:31,757 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_rhwp
+#1 transferring dockerfile: 1.11kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.1s done
+#5 sha256:22bd1c41c958c762e9633f07a5fee8266300e5f25e18e269a6d87a4b870368aa 2.32kB / 2.32kB done
+#5 sha256:3e08bd36a50979e7b09561e4b804b1f112c9d6509c0a12b15bd7b1b410e8a34a 3.04kB / 3.04kB done
+#5 sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 9.70kB / 9.70kB done
+#5 CANCELED
+
+#4 [internal] load build context
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#6 
+2026-01-14 19:22:31,757 - INFO - Building Dockerfile_rri...
+2026-01-14 19:22:33,207 - ERROR - ✗ Build failed: Dockerfile_rri
+2026-01-14 19:22:33,207 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_rri
+#1 transferring dockerfile: 1.04kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.1s done
+#5 ...
+
+#4 [internal] load build context
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 9.70kB / 9.70kB done
+#5 sha256:22bd1c41c958c762e9633f07a5fee8266300e5f25e18e269a6d87a4b870368aa 2.32kB /
+2026-01-14 19:22:33,208 - INFO - Building Dockerfile_rim...
+2026-01-14 19:22:35,226 - ERROR - ✗ Build failed: Dockerfile_rim
+2026-01-14 19:22:35,226 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_rim
+#1 transferring dockerfile: 1.12kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/7] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.1s done
+#5 ...
+
+#4 [internal] load build context
+#4 transferring context: 8.31kB done
+#4 DONE 0.1s
+
+#6 [2/7] RUN mkdir /app
+#6 CACHED
+
+#7 [3/7] COPY ./rapps-istio-mgr /app
+#7 ERROR: failed to calculate checksum of ref db9b553a-9819-4726-a7bb-a7b05c7defbe::3pvgwn53kgve8zo5q924v798l: "/rapps-istio-mgr": not found
+
+#5 [1/7] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb
+2026-01-14 19:22:35,226 - INFO - Building Dockerfile_wh...
+2026-01-14 19:22:36,796 - ERROR - ✗ Build failed: Dockerfile_wh
+2026-01-14 19:22:36,796 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_wh
+#1 transferring dockerfile: 1.06kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.1s done
+#5 ...
+
+#4 [internal] load build context
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#6 [2/5] RUN mkdir /app
+#6 CACHED
+
+#7 [3/5] COPY ./rapps-webhook /app
+#7 ERROR: failed to calculate checksum of ref db9b553a-9819-4726-a7bb-a7b05c7defbe::ycsydddlbez45ko993uge4wg8: "/rapps-webhook": not found
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b1869
+2026-01-14 19:22:36,796 - INFO - Building Dockerfile_rhi...
+2026-01-14 19:22:42,456 - ERROR - ✗ Build failed: Dockerfile_rhi
+2026-01-14 19:22:42,456 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_rhi
+#1 transferring dockerfile: 1.08kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 1.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.1s done
+#5 ...
+
+#4 [internal] load build context
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#6 [2/5] RUN mkdir /app
+#6 CACHED
+
+#7 [3/5] COPY ./rapps-helm-installer /app
+#7 ERROR: failed to calculate checksum of ref db9b553a-9819-4726-a7bb-a7b05c7defbe::t61vdlff1vgu5po7l5rz06r4b: "/rapps-helm-installer": not found
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134
+2026-01-14 19:22:42,456 - INFO - Building Dockerfile_jwt...
+2026-01-14 19:22:44,985 - ERROR - ✗ Build failed: Dockerfile_jwt
+2026-01-14 19:22:44,985 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_jwt
+#1 transferring dockerfile:
+#1 transferring dockerfile: 1.05kB 0.0s done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#4 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.0s done
+#4 sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 9.70kB / 9.70kB done
+#4 sha256:3e08bd36a50979e7b09561e4b804b1f112c9d6509c0a12b15bd7b1b410e8a34a 3.04kB / 3.04kB done
+#4 sha256:22bd1c41c958c762e9633f07a5fee8266300e5f25e18e269a6d87a4b870368aa 2.32kB / 2.32kB done
+#4 CANCELED
+
+#5 [internal] load build context
+#5 transferring context: 2B done
+#5 DONE 0.1s
+
+#6 [2/5] RUN mkdir
+2026-01-14 19:22:44,985 - INFO - Building Dockerfile_rkm...
+2026-01-14 19:22:46,128 - ERROR - ✗ Build failed: Dockerfile_rkm
+2026-01-14 19:22:46,128 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_rkm
+#1 transferring dockerfile: 1.08kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.0s done
+#5 sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 9.70kB / 9.70kB done
+#5 sha256:22bd1c41c958c762e9633f07a5fee8266300e5f25e18e269a6d87a4b870368aa 2.32kB / 2.32kB done
+#5 sha256:3e08bd36a50979e7b09561e4b804b1f112c9d6509c0a12b15bd7b1b410e8a34a 3.04kB / 3.04kB done
+#5 CANCELED
+
+#4 [internal] load build context
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#6 [
+2026-01-14 19:22:46,128 - INFO - Building Dockerfile_rrp...
+2026-01-14 19:22:47,814 - ERROR - ✗ Build failed: Dockerfile_rrp
+2026-01-14 19:22:47,814 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_rrp
+#1 transferring dockerfile: 1.08kB 0.0s done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/golang:latest
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260
+#5 resolve docker.io/library/golang:latest@sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 0.1s done
+#5 sha256:8bbd14091f2c61916134fa6aeb8f76b18693fcb29a39ec6d8be9242c0a7e9260 9.70kB / 9.70kB done
+#5 sha256:22bd1c41c958c762e9633f07a5fee8266300e5f25e18e269a6d87a4b870368aa 2.32kB / 2.32kB done
+#5 sha256:3e08bd36a50979e7b09561e4b804b1f112c9d6509c0a12b15bd7b1b410e8a34a 3.04kB / 3.04kB done
+#5 CANCELED
+
+#4 [internal] load build context
+#4 transferring context: 2B done
+#4 DONE 0.2s
+
+2026-01-14 19:22:47,814 - INFO - Building Dockerfile...
+2026-01-14 19:22:52,981 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:22:52,981 - INFO - Building Dockerfile...
+2026-01-14 19:22:53,905 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:22:53,905 - INFO - Building Dockerfile...
+2026-01-14 19:22:54,458 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:22:54,458 - INFO - Building Dockerfile...
+2026-01-14 19:22:55,027 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:22:55,027 - INFO - Building Dockerfile...
+2026-01-14 19:23:28,661 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:23:28,661 - INFO - Building DockerfileSimple...
+2026-01-14 19:23:29,578 - ERROR - ✗ Build failed: DockerfileSimple
+2026-01-14 19:23:29,579 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from DockerfileSimple
+#1 transferring dockerfile: 1.20kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10001/amazoncorretto:17.0.17
+#2 DONE 0.4s
+
+#3 [1/3] FROM nexus3.o-ran-sc.org:10001/amazoncorretto:17.0.17@sha256:eba8935ced38cb0edcc6fd2c4e72f8ef83b23fa88fd2bcdefe52e79a8d7ab705
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#5 [2/3] WORKDIR /app
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 2B done
+#6 DONE 0.1s
+
+#7 [3/3] COPY target/kafka-consumer-0.0.1.jar /app/consumer-0.0.1.jar
+#7 ERROR: failed to calculate checksum of ref db9b553a-9819-4726-a7bb-a7b05c7defbe::j232tx4j5ynz238p8nsujfkwo: "/target/kafka-consumer-0.0.1.jar": not found
+------
+ > [3/3] COPY target/kafka-consumer-0.0.1.jar /app/consumer-0.0.1.jar:
+------
+DockerfileSimple:28
+--------------------
+  26 |     WORKDIR /app
+  27 |     
+  28 
+2026-01-14 19:23:29,579 - INFO - Building Dockerfile...
+2026-01-14 19:24:23,810 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:24:23,810 - INFO - Building DockerfileSimple...
+2026-01-14 19:24:25,981 - ERROR - ✗ Build failed: DockerfileSimple
+2026-01-14 19:24:25,981 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from DockerfileSimple
+#1 transferring dockerfile: 1.20kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10001/amazoncorretto:17.0.17
+#2 DONE 1.6s
+
+#3 [1/3] FROM nexus3.o-ran-sc.org:10001/amazoncorretto:17.0.17@sha256:eba8935ced38cb0edcc6fd2c4e72f8ef83b23fa88fd2bcdefe52e79a8d7ab705
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.1s
+
+#5 [2/3] WORKDIR /app
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 2B done
+#6 DONE 0.1s
+
+#7 [3/3] COPY target/kafka-producer-0.0.1.jar /app/producer-0.0.1.jar
+#7 ERROR: failed to calculate checksum of ref db9b553a-9819-4726-a7bb-a7b05c7defbe::uejmngq8auftc50el2cf5i4tx: "/target/kafka-producer-0.0.1.jar": not found
+------
+ > [3/3] COPY target/kafka-producer-0.0.1.jar /app/producer-0.0.1.jar:
+------
+DockerfileSimple:28
+--------------------
+  26 |     WORKDIR /app
+  27 |     
+  28 
+2026-01-14 19:24:25,981 - INFO - Building Dockerfile...
+2026-01-14 19:25:19,933 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:25:19,933 - INFO - Building Dockerfile...
+2026-01-14 19:25:34,876 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:25:34,876 - INFO - Building Dockerfile...
+2026-01-14 19:25:39,133 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:25:39,133 - INFO - Building Dockerfile...
+2026-01-14 19:25:47,503 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:25:47,503 - INFO - Building Dockerfile...
+2026-01-14 19:26:03,428 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:26:03,428 - INFO - Building Dockerfile...
+2026-01-14 19:26:12,793 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:26:12,793 - WARNING - ⚠ Partial success: 12 successful, 12 failed
+2026-01-14 19:26:12,793 - INFO - Summary: 12 successful, 12 failed out of 24 total

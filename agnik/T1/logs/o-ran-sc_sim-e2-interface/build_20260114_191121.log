@@ -1,0 +1,371 @@
+2026-01-14 19:11:21,235 - INFO - Cloning repository: o-ran-sc/sim-e2-interface
+2026-01-14 19:11:22,538 - INFO - Found 13 Dockerfile(s)
+2026-01-14 19:11:22,539 - INFO - Building Dockerfile...
+2026-01-14 19:13:24,689 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:13:24,689 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.03kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:16.04
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 9.81kB done
+#5 DONE 0.1s
+
+#6 [2/6] RUN apt-get update 	&& apt-get install -y 	build-essential 	git 	cmake 	libsctp-dev 	lksctp-tools 	autoconf 	automake 	libtool 	bison 	flex   libboost-all-dev 	iputils-ping 	net-tools 	nano 	vim 	tcpdump 	net-tools 	nmap   && apt-get clean
+#6 0.513 Get:1 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+#6 0.650 Get:2 http://security.ubuntu.com/ubuntu xenial-security InRelease [106 kB]
+#6 0.848 Get:3 http://security.ubuntu.com/ubuntu xenial-secur
+2026-01-14 19:13:24,689 - INFO - Building Dockerfile_base...
+2026-01-14 19:14:12,860 - ERROR - ✗ Build failed: Dockerfile_base
+2026-01-14 19:14:12,860 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_base
+#1 transferring dockerfile: 1.64kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:16.04
+#2 DONE 1.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/8] FROM docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 7.66kB done
+#5 DONE 0.0s
+
+#6 [2/8] RUN apt-get update 	&& apt-get install -y 	build-essential 	git 	cmake 	libsctp-dev 	lksctp-tools 	autoconf 	automake 	libtool 	bison 	flex
+#6 0.741 Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [106 kB]
+#6 0.770 Get:2 http://archive.ubuntu.com/ubuntu xenial InRelease [247 kB]
+#6 1.316 Get:3 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [1151 kB]
+#6 1.460 Get:4 http://archive.ubuntu.com/ubuntu xenial-update
+2026-01-14 19:14:12,861 - INFO - Building Dockerfile...
+2026-01-14 19:14:13,489 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:14:13,489 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.33kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/e2sim_base:latest
+#2 ERROR: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+------
+ > [internal] load metadata for docker.io/library/e2sim_base:latest:
+------
+Dockerfile:19
+--------------------
+  17 |     #
+  18 |     
+  19 | >>> FROM e2sim_base
+  20 |     
+  21 |     # ------------ COPY E2SIM codes ------------------
+--------------------
+ERROR: failed to build: failed to solve: e2sim_base: failed to resolve source metadata for docker.io/library/e2sim_base:latest: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+2026-01-14 19:14:13,489 - INFO - Building Dockerfile...
+2026-01-14 19:14:25,332 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:14:25,332 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.07kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:16.04
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 17.71MB 0.5s done
+#5 DONE 0.5s
+
+#6 [2/6] RUN apt-get update 	&& apt-get install -y 	build-essential 	git 	cmake 	libsctp-dev 	lksctp-tools 	autoconf 	automake 	libtool 	bison 	flex   libboost-all-dev 	iputils-ping 	net-tools 	nano 	vim 	tcpdump 	net-tools 	nmap   && apt-get clean
+#6 CACHED
+
+#7 [3/6] COPY	 	./ /home/e2sim
+#7 DONE 0.8s
+
+#8 [4/6] WORKDIR /home/e2sim
+#8 DONE 0.1s
+
+#9 [5/6] RUN   ./build_e2sim --clean
+#9 0.350 [34mWill clean all previously producted files under build/[00m
+
+2026-01-14 19:14:25,332 - INFO - Building Dockerfile...
+2026-01-14 19:14:31,336 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:14:31,336 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.03kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:16.04
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/6] FROM docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 9.81kB done
+#5 DONE 0.1s
+
+#6 [2/6] RUN apt-get update 	&& apt-get install -y 	build-essential 	git 	cmake 	libsctp-dev 	lksctp-tools 	autoconf 	automake 	libtool 	bison 	flex   libboost-all-dev 	iputils-ping 	net-tools 	nano 	vim 	tcpdump 	net-tools 	nmap   && apt-get clean
+#6 CACHED
+
+#7 [3/6] COPY	 	./ /home/e2sim
+#7 CACHED
+
+#8 [4/6] WORKDIR /home/e2sim
+#8 CACHED
+
+#9 [5/6] RUN   ./build_e2sim --clean
+#9 2.315 /bin/sh: 1: ./build_e2sim: not found
+#9 ERROR: process "/bin/sh -c ./build_e2
+2026-01-14 19:14:31,336 - INFO - Building Dockerfile_base...
+2026-01-14 19:14:35,356 - ERROR - ✗ Build failed: Dockerfile_base
+2026-01-14 19:14:35,356 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_base
+#1 transferring dockerfile: 1.64kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:16.04
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/8] FROM docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 7.66kB done
+#5 DONE 0.1s
+
+#6 [2/8] RUN apt-get update 	&& apt-get install -y 	build-essential 	git 	cmake 	libsctp-dev 	lksctp-tools 	autoconf 	automake 	libtool 	bison 	flex
+#6 CACHED
+
+#7 [3/8] RUN apt-get install -y bash vim ksh iputils-ping
+#7 CACHED
+
+#8 [4/8] RUN apt-get clean
+#8 CACHED
+
+#9 [5/8] COPY	 	./ /home/e2sim
+#9 CACHED
+
+#10 [6/8] WORKDIR /home/e2sim
+#10 CACHED
+
+#11 [7/8] RUN	    ./docker/install_asn1c
+#11 0.533 /bin/sh: 1: ./docker/install_asn1c: not found
+#11 ERROR: p
+2026-01-14 19:14:35,356 - INFO - Building Dockerfile...
+2026-01-14 19:14:37,112 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:14:37,112 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.33kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/e2sim_base:latest
+#2 ERROR: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+------
+ > [internal] load metadata for docker.io/library/e2sim_base:latest:
+------
+Dockerfile:19
+--------------------
+  17 |     #
+  18 |     
+  19 | >>> FROM e2sim_base
+  20 |     
+  21 |     # ------------ COPY E2SIM codes ------------------
+--------------------
+ERROR: failed to build: failed to solve: e2sim_base: failed to resolve source metadata for docker.io/library/e2sim_base:latest: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+2026-01-14 19:14:37,112 - INFO - Building Dockerfile...
+2026-01-14 19:14:53,884 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:14:53,884 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.07kB done
+#1 DONE 0.5s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:16.04
+#2 DONE 4.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 2.2s
+
+#4 [1/6] FROM docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 5.96MB 0.2s done
+#5 DONE 0.6s
+
+#6 [2/6] RUN apt-get update 	&& apt-get install -y 	build-essential 	git 	cmake 	libsctp-dev 	lksctp-tools 	autoconf 	automake 	libtool 	bison 	flex   libboost-all-dev 	iputils-ping 	net-tools 	nano 	vim 	tcpdump 	net-tools 	nmap   && apt-get clean
+#6 CACHED
+
+#7 [3/6] COPY	 	./ /home/e2sim
+#7 DONE 2.3s
+
+#8 [4/6] WORKDIR /home/e2sim
+#8 DONE 0.1s
+
+#9 [5/6] RUN   ./build_e2sim --clean
+#9 0.373 [34mWill cle
+2026-01-14 19:14:53,884 - INFO - Building Dockerfile...
+2026-01-14 19:14:55,991 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:14:55,991 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.03kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:16.04
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 9.81kB done
+#5 DONE 0.0s
+
+#6 [2/6] RUN apt-get update 	&& apt-get install -y 	build-essential 	git 	cmake 	libsctp-dev 	lksctp-tools 	autoconf 	automake 	libtool 	bison 	flex   libboost-all-dev 	iputils-ping 	net-tools 	nano 	vim 	tcpdump 	net-tools 	nmap   && apt-get clean
+#6 CACHED
+
+#7 [3/6] COPY	 	./ /home/e2sim
+#7 CACHED
+
+#8 [4/6] WORKDIR /home/e2sim
+#8 CACHED
+
+#9 [5/6] RUN   ./build_e2sim --clean
+#9 0.411 /bin/sh: 1: ./build_e2sim: not found
+#9 ERROR: process "/bin/sh -c ./build_e2
+2026-01-14 19:14:55,991 - INFO - Building Dockerfile_base...
+2026-01-14 19:14:58,164 - ERROR - ✗ Build failed: Dockerfile_base
+2026-01-14 19:14:58,164 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile_base
+#1 transferring dockerfile: 1.64kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:16.04
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/8] FROM docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 7.66kB done
+#5 DONE 0.0s
+
+#6 [4/8] RUN apt-get clean
+#6 CACHED
+
+#7 [5/8] COPY	 	./ /home/e2sim
+#7 CACHED
+
+#8 [2/8] RUN apt-get update 	&& apt-get install -y 	build-essential 	git 	cmake 	libsctp-dev 	lksctp-tools 	autoconf 	automake 	libtool 	bison 	flex
+#8 CACHED
+
+#9 [3/8] RUN apt-get install -y bash vim ksh iputils-ping
+#9 CACHED
+
+#10 [6/8] WORKDIR /home/e2sim
+#10 CACHED
+
+#11 [7/8] RUN	    ./docker/install_asn1c
+#11 0.403 /bin/sh: 1: ./docker/install_asn1c: not found
+#11 ERROR: p
+2026-01-14 19:14:58,165 - INFO - Building Dockerfile...
+2026-01-14 19:14:58,832 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:14:58,832 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.33kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/e2sim_base:latest
+#2 ERROR: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+------
+ > [internal] load metadata for docker.io/library/e2sim_base:latest:
+------
+Dockerfile:19
+--------------------
+  17 |     #
+  18 |     
+  19 | >>> FROM e2sim_base
+  20 |     
+  21 |     # ------------ COPY E2SIM codes ------------------
+--------------------
+ERROR: failed to build: failed to solve: e2sim_base: failed to resolve source metadata for docker.io/library/e2sim_base:latest: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+2026-01-14 19:14:58,832 - INFO - Building Dockerfile...
+2026-01-14 19:19:33,998 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:19:33,998 - INFO - Building Dockerfile...
+2026-01-14 19:22:24,000 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:22:24,000 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 1.24kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 18)
+#1 DONE 0.2s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10001/o-ran-sc/bldr-ubuntu18-c-go:1.9.0
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/6] FROM nexus3.o-ran-sc.org:10001/o-ran-sc/bldr-ubuntu18-c-go:1.9.0@sha256:f9c41a15dc8d55b758a9ff3886426099e616b9a83ec5fe09ed9b07f1d7fab6cd
+#5 resolve nexus3.o-ran-sc.org:10001/o-ran-sc/bldr-ubuntu18-c-go:1.9.0@sha256:f9c41a15dc8d55b758a9ff3886426099e616b9a83ec5fe09ed9b07f1d7fab6cd
+#5 resolve nexus3.o-ran-sc.org:10001/o-ran-sc/bldr-ubuntu18-c-go:1.9.0@sha256:f9c41a15dc8d55b758a9ff3886426099e616b9a83ec5fe09ed9b07f1d7fab6cd 0.2s done
+#5 DONE 0.2s
+
+#6 [2/6] RUN mkdir /playpen
+#6 CACHED
+
+#4
+2026-01-14 19:22:24,001 - WARNING - ⚠ Partial success: 1 successful, 12 failed
+2026-01-14 19:22:24,001 - INFO - Summary: 1 successful, 12 failed out of 13 total

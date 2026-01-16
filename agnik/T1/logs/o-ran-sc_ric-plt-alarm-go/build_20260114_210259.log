@@ -1,0 +1,33 @@
+2026-01-14 21:02:59,639 - INFO - Cloning repository: o-ran-sc/ric-plt-alarm-go
+2026-01-14 21:03:00,142 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:03:00,143 - INFO - Building Dockerfile...
+2026-01-14 21:03:05,745 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:03:05,746 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.45kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 21)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu22-c-go:1.0.0
+#2 DONE 0.5s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:22.04
+#3 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [stage-1  1/11] FROM docker.io/library/ubuntu:22.04@sha256:104ae83764a5119017b8e8d6218fa0832b09df65aae7d5a6de29a85d813da2fb
+#6 CACHED
+
+#7 [ubuntu-alarm-manager 1/9] FROM nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu22-c-go:1.0.0@sha256:35959c1fd0a618a6e6b867833ae7883d595d264f1ffd7c49789c975dc240b8bd
+#7 resolve nexus3.o-ran-sc.org:10002/o-ran-sc/bldr-ubuntu22-c-go:1.0.0@sha256:35959c1fd0a618a6e6b867833ae7883d595d264f1ffd7c49789c975dc240b8bd 
+2026-01-14 21:03:05,746 - INFO - Building Dockerfile-Unit-Test...
+2026-01-14 21:03:07,353 - INFO - ✓ Build successful: Dockerfile-Unit-Test
+2026-01-14 21:03:07,353 - WARNING - ⚠ Partial success: 1 successful, 1 failed
+2026-01-14 21:03:07,353 - INFO - Summary: 1 successful, 1 failed out of 2 total

@@ -1,0 +1,51 @@
+2026-01-14 19:06:14,140 - INFO - Cloning repository: o-ran-sc/ric-app-ad
+2026-01-14 19:06:17,896 - INFO - Found 2 Dockerfile(s)
+2026-01-14 19:06:17,896 - INFO - Building Dockerfile...
+2026-01-14 19:06:19,082 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:06:19,082 - INFO - Building Dockerfile-Unit-Test...
+2026-01-14 19:07:53,287 - ERROR - ✗ Build failed: Dockerfile-Unit-Test
+2026-01-14 19:07:53,287 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-Unit-Test
+#1 transferring dockerfile: 1.85kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/continuumio/miniconda3:23.10.0-1
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [ 1/13] FROM docker.io/continuumio/miniconda3:23.10.0-1
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 8.11kB done
+#5 DONE 0.1s
+
+#6 [ 3/13] RUN apt update && apt install -y gcc musl-dev
+#6 CACHED
+
+#7 [ 6/13] RUN rm -f rmr_4.9.0_amd64.deb rmr-dev_4.9.0_amd64.deb
+#7 CACHED
+
+#8 [ 7/13] RUN pip install --upgrade pip && pip install tox
+#8 CACHED
+
+#9 [10/13] COPY src/ /tmp/src
+#9 CACHED
+
+#10 [ 2/13] RUN mkdir -p /opt/route/
+#10 CACHED
+
+#11 [ 9/13] RUN pip install /tmp
+#11 CACHED
+
+#12 [11/13] COPY tests/ /tmp/tests
+#12 CACHED
+
+#13 [ 5/13] RUN wget --content-disposition https://packagecloud.io/o-ran-sc/rel
+2026-01-14 19:07:53,287 - WARNING - ⚠ Partial success: 1 successful, 1 failed
+2026-01-14 19:07:53,287 - INFO - Summary: 1 successful, 1 failed out of 2 total

@@ -1,0 +1,29 @@
+2026-01-14 19:49:25,037 - INFO - Cloning repository: o-ran-sc/ric-plt-sdl
+2026-01-14 19:49:25,603 - INFO - Found 1 Dockerfile(s)
+2026-01-14 19:49:25,604 - INFO - Building Dockerfile-Test...
+2026-01-14 19:52:06,606 - ERROR - ✗ Build failed: Dockerfile-Test
+2026-01-14 19:52:06,606 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-Test
+#1 transferring dockerfile: 1.75kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/8] FROM docker.io/library/ubuntu:18.04
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 2.04kB done
+#5 DONE 0.1s
+
+#6 [2/8] RUN apt-get update &&     apt-get install -y         build-essential         automake         libtool         pkg-config         libgtest-dev         rpm         devscripts         gawk         debhelper         autoconf-archive         libboost-filesystem-dev         libboost-program-options-dev         libboost-system-dev         libhiredis-dev         valgrind &&     apt-get clean
+#6 0.541 Get:1 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+#6 0.592 Get:2 http://security.ubuntu.com/ubuntu bionic-security 
+2026-01-14 19:52:06,606 - ERROR - ✗ All builds failed for o-ran-sc/ric-plt-sdl
+2026-01-14 19:52:06,606 - INFO - Summary: 0 successful, 1 failed out of 1 total

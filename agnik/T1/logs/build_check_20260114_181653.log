@@ -1,0 +1,25 @@
+2026-01-14 18:16:53,443 - WARNING - Could not detect Docker command, using 'docker'
+2026-01-14 18:16:53,443 - INFO - Running in TEST mode with 2 repositories
+2026-01-14 18:16:53,443 - INFO - Starting Dockerfile Build Checker
+2026-01-14 18:16:53,443 - INFO - Log file: /tmp/dockerfile_build_check/logs/build_check_20260114_181653.log
+2026-01-14 18:16:53,443 - INFO - Checking 2 repositories...
+2026-01-14 18:16:53,443 - INFO - 
+============================================================
+2026-01-14 18:16:53,443 - INFO - Checking repository: o-ran-sc/ric-app-ad
+2026-01-14 18:16:53,443 - INFO - ============================================================
+2026-01-14 18:16:53,443 - INFO - Cloning o-ran-sc/ric-app-ad...
+2026-01-14 18:16:56,349 - INFO - Found 2 Dockerfile(s)
+2026-01-14 18:16:56,349 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile...
+2026-01-14 18:16:56,350 - ERROR - ✗ Build error for /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile: [Errno 2] No such file or directory: 'docker'
+2026-01-14 18:16:56,350 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile-Unit-Test...
+2026-01-14 18:16:56,351 - ERROR - ✗ Build error for /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile-Unit-Test: [Errno 2] No such file or directory: 'docker'
+2026-01-14 18:16:56,356 - INFO - 
+============================================================
+2026-01-14 18:16:56,356 - INFO - Checking repository: o-ran-sc/ric-app-qp
+2026-01-14 18:16:56,356 - INFO - ============================================================
+2026-01-14 18:16:56,356 - INFO - Cloning o-ran-sc/ric-app-qp...
+2026-01-14 18:16:56,939 - INFO - Found 2 Dockerfile(s)
+2026-01-14 18:16:56,939 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile...
+2026-01-14 18:16:56,940 - ERROR - ✗ Build error for /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile: [Errno 2] No such file or directory: 'docker'
+2026-01-14 18:16:56,940 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile-Unit-Test...
+2026-01-14 18:16:56,941 - ERROR - ✗ Build error for /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile-Unit-Test: [Errno 2] No such file or directory: 'docker'

@@ -1,0 +1,49 @@
+2026-01-14 20:07:55,180 - INFO - Cloning repository: o-ran-sc/aiml-fw-aimlfw-dep
+2026-01-14 20:07:55,566 - INFO - Found 4 Dockerfile(s)
+2026-01-14 20:07:55,566 - INFO - Building Dockerfile...
+2026-01-14 20:09:22,709 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:09:22,710 - INFO - Building Dockerfile...
+2026-01-14 20:09:46,460 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:09:46,460 - INFO - Building Dockerfile.pipeline...
+2026-01-14 20:13:06,354 - INFO - ✓ Build successful: Dockerfile.pipeline
+2026-01-14 20:13:06,354 - INFO - Building Dockerfile.leofs...
+2026-01-14 20:13:06,970 - ERROR - ✗ Build failed: Dockerfile.leofs
+2026-01-14 20:13:06,970 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.leofs
+#1 transferring dockerfile: 1.31kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/8] FROM docker.io/library/ubuntu:18.04
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 2B done
+#5 DONE 0.1s
+
+#6 [7/8] RUN wget https://github.com/leo-project/leofs/releases/download/1.4.3/leofs_1.4.3-1_ubuntu-18.04_amd64.deb
+#6 CACHED
+
+#7 [5/8] RUN apt-get install -y lsb-release
+#7 CACHED
+
+#8 [6/8] RUN apt-get install -y netcat-openbsd
+#8 CACHED
+
+#9 [3/8] RUN apt-get update && apt-get install -y wget
+#9 CACHED
+
+#10 [4/8] RUN apt-get -y install systemd
+#10 CACHED
+
+#11 [8/8] COPY tools/leofs/bin/leofs_start.sh leofs_start.sh
+#11 ERROR: failed to calculate checksum of ref db9b553a-9819-4726-a7bb-a7b05c7defbe::lcz0d04sshdw1s2asv54imzwl: "/tool
+2026-01-14 20:13:06,970 - WARNING - ⚠ Partial success: 3 successful, 1 failed
+2026-01-14 20:13:06,970 - INFO - Summary: 3 successful, 1 failed out of 4 total

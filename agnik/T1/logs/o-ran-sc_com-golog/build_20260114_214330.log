@@ -1,0 +1,38 @@
+2026-01-14 21:43:30,501 - INFO - Cloning repository: o-ran-sc/com-golog
+2026-01-14 21:43:31,094 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:43:31,094 - INFO - Building Dockerfile...
+2026-01-14 21:43:34,038 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:43:34,039 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 867B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/golang:1.18
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/4] FROM docker.io/library/golang:1.18@sha256:50c889275d26f816b5314fc99f55425fa76b18fcaf16af255f5d57f09e1f48da
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 867B 0.0s done
+#5 DONE 0.1s
+
+#6 [2/4] RUN mkdir -p /tmp/golog
+#6 CACHED
+
+#7 [3/4] COPY . /tmp/golog
+#7 CACHED
+
+#8 [4/4] RUN cd /tmp/golog && go test . -v
+#8 0.538 go: go.mod file not found in current directory or any parent directory; see 'go help modules'
+#8 ERROR: process "/bin/sh -c cd /tmp/golog && go test . -v" did not complete successfully: exit code: 1
+------
+ > [4/4] RUN cd /tmp/golog && go test . -v:
+0.538 go: go.mod file not found in current directory or any parent directory; see 
+2026-01-14 21:43:34,039 - ERROR - ✗ All builds failed for o-ran-sc/com-golog
+2026-01-14 21:43:34,039 - INFO - Summary: 0 successful, 1 failed out of 1 total

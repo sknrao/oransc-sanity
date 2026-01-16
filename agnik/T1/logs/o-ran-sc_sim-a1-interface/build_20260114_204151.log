@@ -1,0 +1,67 @@
+2026-01-14 20:41:51,613 - INFO - Cloning repository: o-ran-sc/sim-a1-interface
+2026-01-14 20:41:52,160 - INFO - Found 3 Dockerfile(s)
+2026-01-14 20:41:52,160 - INFO - Building Dockerfile...
+2026-01-14 20:42:57,239 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 20:42:57,242 - INFO - Building Dockerfile...
+2026-01-14 20:43:35,100 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:43:35,100 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.65kB done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/python:3.8-slim-buster
+#2 DONE 15.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [ 1/16] FROM docker.io/library/python:3.8-slim-buster@sha256:8799b0564103a9f36cfb8a8e1c562e11a9a6f2e3bb214e2adc23982b36a04511
+#5 resolve docker.io/library/python:3.8-slim-buster@sha256:8799b0564103a9f36cfb8a8e1c562e11a9a6f2e3bb214e2adc23982b36a04511 0.0s done
+#5 ...
+
+#4 [internal] load build context
+#4 transferring context: 28.10kB done
+#4 DONE 0.1s
+
+#5 [ 1/16] FROM docker.io/library/python:3.8-slim-buster@sha256:8799b0564103a9f36cfb8a8e1c562e11a9a6f2e3bb214e2adc23982b36a04511
+#5 sha256:cbfea27109a8b1136059a7973ccb8243889faf162ebc173a05909dcb0bec03c9 0B / 244B 0.1s
+#5 sha256:276dfcf5deffff3c5d540a8e0d9a18656a4c0
+2026-01-14 20:43:35,101 - INFO - Building Dockerfile...
+2026-01-14 20:43:38,845 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:43:38,845 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.70kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.8-slim-buster
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/18] FROM docker.io/library/python:3.8-slim-buster@sha256:8799b0564103a9f36cfb8a8e1c562e11a9a6f2e3bb214e2adc23982b36a04511
+#4 DONE 0.0s
+
+#5 [ 2/18] RUN pip3 install "connexion[swagger-ui,flask,uvicorn]"
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 39.55kB done
+#6 DONE 0.0s
+
+#7 [ 3/18] RUN pip3 install kafka-python
+#7 1.073 Collecting kafka-python
+#7 1.144   Downloading kafka_python-2.3.0-py2.py3-none-any.whl (326 kB)
+#7 1.311      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 326.3/326.3 kB 2.0 MB/s eta 0:00:00
+#7 1.775 Installing collected packages: kafka-python
+#7 2.127 Successfully installed kafka-python-2.3.0
+#7 2.127 WARNING: Running
+2026-01-14 20:43:38,845 - WARNING - ⚠ Partial success: 1 successful, 2 failed
+2026-01-14 20:43:38,846 - INFO - Summary: 1 successful, 2 failed out of 3 total

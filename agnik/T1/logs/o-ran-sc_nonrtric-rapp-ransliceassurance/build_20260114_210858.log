@@ -1,0 +1,45 @@
+2026-01-14 21:08:58,057 - INFO - Cloning repository: o-ran-sc/nonrtric-rapp-ransliceassurance
+2026-01-14 21:08:58,519 - INFO - Found 6 Dockerfile(s)
+2026-01-14 21:08:58,519 - INFO - Building Dockerfile-ProdSdnc...
+2026-01-14 21:09:03,848 - INFO - ✓ Build successful: Dockerfile-ProdSdnc
+2026-01-14 21:09:03,849 - INFO - Building Dockerfile-ics...
+2026-01-14 21:09:17,581 - INFO - ✓ Build successful: Dockerfile-ics
+2026-01-14 21:09:17,581 - INFO - Building Dockerfile...
+2026-01-14 21:09:53,317 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:09:53,317 - INFO - Building Dockerfile-simulator...
+2026-01-14 21:10:17,112 - INFO - ✓ Build successful: Dockerfile-simulator
+2026-01-14 21:10:17,113 - INFO - Building Dockerfile...
+2026-01-14 21:10:29,451 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:10:29,451 - INFO - Building Dockerfile...
+2026-01-14 21:10:47,649 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:10:47,649 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 376B done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 1)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/golang:1.15.2-alpine3.12
+#2 DONE 0.8s
+
+#3 [internal] load metadata for docker.io/library/alpine:latest
+#3 DONE 1.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [stage-1 1/4] FROM docker.io/library/alpine:latest@sha256:865b95f46d98cf867a156fe4a135ad3fe50d2056aa3f25ed31662dff6da4eb62
+#5 CACHED
+
+#6 [build 1/6] FROM docker.io/library/golang:1.15.2-alpine3.12@sha256:4d8abd16b03209b30b48f69a2e10347aacf7ce65d8f9f685e8c3e20a512234d9
+#6 resolve docker.io/library/golang:1.15.2-alpine3.12@sha256:4d8abd16b03209b30b48f69a2e10347aacf7ce65d8f9f685e8c3e20a512234d9 0.0s done
+#6 ...
+
+#7 [internal] load build context
+#7 transferring context: 14.58kB done
+#7 DONE 0.1s
+
+#6 [build 1/6
+2026-01-14 21:10:47,649 - WARNING - ⚠ Partial success: 5 successful, 1 failed
+2026-01-14 21:10:47,649 - INFO - Summary: 5 successful, 1 failed out of 6 total

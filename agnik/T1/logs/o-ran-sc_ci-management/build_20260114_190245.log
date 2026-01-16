@@ -1,0 +1,56 @@
+2026-01-14 19:02:45,298 - INFO - Cloning repository: o-ran-sc/ci-management
+2026-01-14 19:02:47,186 - INFO - Found 2 Dockerfile(s)
+2026-01-14 19:02:47,186 - INFO - Building Dockerfile...
+2026-01-14 19:05:32,183 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 19:05:32,184 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.80kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for nexus3.o-ran-sc.org:10001/ubuntu:16.04
+#2 DONE 3.4s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/10] FROM nexus3.o-ran-sc.org:10001/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+#4 resolve nexus3.o-ran-sc.org:10001/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6 0.0s done
+#4 sha256:58690f9b18fca6469a14da4e212c96849469f9b1be6661d2342a4bf01774aa50 0B / 46.50MB 0.1s
+#4 sha256:b51569e7c50720acf6860327847fe342a1afbe148d24c529fb81df105e3eed01 0B / 857B 0.1s
+#4 sha256:da8ef40b9ecabc2679fe2419957220c0272a965c5cf7e0269fa1aeeb8c56f2e1 0B / 528B 0.1s
+#4 sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6 1.42kB / 1.42kB done
+#4 sha256:a3785f78ab8547ae2710c89e627783cfa7
+2026-01-14 19:05:32,184 - INFO - Building Dockerfile.build...
+2026-01-14 19:06:46,564 - ERROR - ✗ Build failed: Dockerfile.build
+2026-01-14 19:06:46,565 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.build
+#1 transferring dockerfile: 2.96kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:18.04
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/7] FROM docker.io/library/ubuntu:18.04
+#4 DONE 0.0s
+
+#5 [2/7] RUN    apt-get update         && apt-get install -y git cmake make g++ wget curl libcurl4-gnutls-dev libcurlpp-dev libcurlpp0
+#5 ...
+
+#6 [internal] load build context
+#6 transferring context: 6.68kB done
+#6 DONE 0.0s
+
+#5 [2/7] RUN    apt-get update         && apt-get install -y git cmake make g++ wget curl libcurl4-gnutls-dev libcurlpp-dev libcurlpp0
+#5 0.554 Get:1 http://security.ubuntu.com/ubuntu bionic-security InRelease [102 kB]
+#5 0.788 Get:2 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+#5 0.803 Get:3 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [3373 kB]
+
+2026-01-14 19:06:46,565 - ERROR - ✗ All builds failed for o-ran-sc/ci-management
+2026-01-14 19:06:46,565 - INFO - Summary: 0 successful, 2 failed out of 2 total

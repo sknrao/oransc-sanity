@@ -1,0 +1,67 @@
+2026-01-14 20:59:42,972 - INFO - Cloning repository: o-ran-sc/sim-o1-ofhmp-interfaces
+2026-01-14 20:59:43,364 - INFO - Found 3 Dockerfile(s)
+2026-01-14 20:59:43,364 - INFO - Building Dockerfile...
+2026-01-14 20:59:45,247 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:59:45,247 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.44kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/pynts-base:latest
+#2 ERROR: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+------
+ > [internal] load metadata for docker.io/library/pynts-base:latest:
+------
+Dockerfile:18
+--------------------
+  16 |     # ***************************************************************************/
+  17 |     
+  18 | >>> FROM pynts-base:latest
+  19 |     
+  20 |     COPY ./o-ru-mplane/docker/yang /usr/local/share/yang/modules/pynts
+--------------------
+ERROR: failed to build: failed to solve: pynts-base:latest: failed to resolve source metadata for docker.io/library/pynts-base:latest: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization 
+2026-01-14 20:59:45,247 - INFO - Building Dockerfile...
+2026-01-14 20:59:48,970 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:59:48,970 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 5.46kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1
+#2 DONE 0.7s
+
+#3 docker-image://docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
+#3 resolve docker.io/docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 0.0s done
+#3 sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6 8.40kB / 8.40kB done
+#3 sha256:62b0eac4b38b65f257ba2525a1bc87978b5e339d6133b5daef1bde40fe7aa10f 850B / 850B done
+#3 sha256:6742480c08d7878bbb82a5f5b55d7cb17c5dea60d2068cb2bd37994f3a5c680e 1.33kB / 1.33kB done
+#3 sha256:77246a01651da592b7bae79e0e20ed3b4f2e4c00a1b54b7c921c91ae3fa9ef07 0B / 13.57MB 0.1s
+#3 sha256:77246a01651da592b7bae79e0e20ed3b4f2e4c00a1b54b7c921c91ae3fa9ef07 1.05MB / 13.57MB 0.2s
+#3 sha256:77246a01651da592b7bae79
+2026-01-14 20:59:48,970 - INFO - Building Dockerfile...
+2026-01-14 20:59:50,727 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 20:59:50,727 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.71kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/pynts-base:latest
+#2 ERROR: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: authorization failed
+------
+ > [internal] load metadata for docker.io/library/pynts-base:latest:
+------
+Dockerfile:18
+--------------------
+  16 |     # ***************************************************************************/
+  17 |     
+  18 | >>> FROM pynts-base:latest
+  19 |     
+  20 |     RUN apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get install -y \
+--------------------
+ERROR: failed to build: failed to solve: pynts-base:latest: failed to resolve source metadata for docker.io/library/pynts-base:latest: pull access denied, repository does not exist or may require authorization: server message: insufficient_scope: autho
+2026-01-14 20:59:50,727 - ERROR - ✗ All builds failed for o-ran-sc/sim-o1-ofhmp-interfaces
+2026-01-14 20:59:50,727 - INFO - Summary: 0 successful, 3 failed out of 3 total

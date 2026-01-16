@@ -1,0 +1,67 @@
+2026-01-14 18:47:16,940 - INFO - Docker found but requires sudo, using 'sudo docker'
+2026-01-14 18:47:16,940 - INFO - Running in TEST mode with 2 repositories
+2026-01-14 18:47:16,940 - INFO - Starting Dockerfile Build Checker
+2026-01-14 18:47:16,940 - INFO - Log file: /tmp/dockerfile_build_check/logs/build_check_20260114_184716.log
+2026-01-14 18:47:16,940 - INFO - Checking 2 repositories...
+2026-01-14 18:47:16,940 - INFO - 
+============================================================
+2026-01-14 18:47:16,940 - INFO - Checking repository: o-ran-sc/ric-app-ad
+2026-01-14 18:47:16,940 - INFO - ============================================================
+2026-01-14 18:47:16,941 - INFO - Cloning o-ran-sc/ric-app-ad...
+2026-01-14 18:47:17,489 - INFO - Found 2 Dockerfile(s)
+2026-01-14 18:47:17,489 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile...
+2026-01-14 18:47:18,008 - INFO - ✓ Build successful for /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile
+2026-01-14 18:47:18,058 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile-Unit-Test...
+2026-01-14 18:48:10,157 - ERROR - ✗ Build failed for /tmp/dockerfile_build_check/o-ran-sc_ric-app-ad/Dockerfile-Unit-Test
+2026-01-14 18:48:10,157 - ERROR - Error (first 500 chars): #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-Unit-Test
+#1 transferring dockerfile: 1.85kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/continuumio/miniconda3:23.10.0-1
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/13] FROM docker.io/continuumio/miniconda3:23.10.0-1
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 8.11kB done
+#5 DONE 0.0s
+
+#
+2026-01-14 18:48:10,166 - INFO - 
+============================================================
+2026-01-14 18:48:10,166 - INFO - Checking repository: o-ran-sc/ric-app-qp
+2026-01-14 18:48:10,166 - INFO - ============================================================
+2026-01-14 18:48:10,167 - INFO - Cloning o-ran-sc/ric-app-qp...
+2026-01-14 18:48:10,501 - INFO - Found 2 Dockerfile(s)
+2026-01-14 18:48:10,501 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile...
+2026-01-14 18:48:10,990 - INFO - ✓ Build successful for /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile
+2026-01-14 18:48:11,043 - INFO - Building /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile-Unit-Test...
+2026-01-14 18:48:50,714 - ERROR - ✗ Build failed for /tmp/dockerfile_build_check/o-ran-sc_ric-app-qp/Dockerfile-Unit-Test
+2026-01-14 18:48:50,714 - ERROR - Error (first 500 chars): #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-Unit-Test
+#1 transferring dockerfile: 1.91kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/continuumio/miniconda3:23.10.0-1
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [ 1/13] FROM docker.io/continuumio/miniconda3:23.10.0-1
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 8.21kB done
+#5 DONE 0.0s
+
+#

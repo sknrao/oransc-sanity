@@ -1,0 +1,77 @@
+2026-01-14 21:52:27,596 - INFO - Cloning repository: o-ran-sc/ric-app-hw-rust
+2026-01-14 21:52:28,716 - INFO - Found 2 Dockerfile(s)
+2026-01-14 21:52:28,716 - INFO - Building Dockerfile...
+2026-01-14 21:53:10,688 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:53:10,688 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.69kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 2)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/rust:1-bullseye
+#2 DONE 0.2s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:22.04
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [stage-1 1/7] FROM docker.io/library/ubuntu:22.04@sha256:104ae83764a5119017b8e8d6218fa0832b09df65aae7d5a6de29a85d813da2fb
+#5 DONE 0.0s
+
+#6 [xapp-rust-builder  1/11] FROM docker.io/library/rust:1-bullseye@sha256:c6d501c039204c21e9fa374f234bd41bdc8b36cfd455a407ef145d9bef19f2b7
+#6 DONE 0.0s
+
+#7 [stage-1 2/7] RUN mkdir /config
+#7 CACHED
+
+#8 [internal] load build context
+#8 transferring context: 12.26kB done
+#8 DONE 0.0s
+
+#9 [xapp-rust-builder  6/11] WORKDIR /ws
+#9 CACHED
+
+#10 [xapp-rust-builder  8/11] COPY config/* /w
+2026-01-14 21:53:10,688 - INFO - Building Dockerfile...
+2026-01-14 21:53:13,099 - ERROR - ✗ Build failed: Dockerfile
+2026-01-14 21:53:13,099 - ERROR - Error: #0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 1.62kB done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 2)
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/rust:1-bullseye
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/ubuntu:22.04
+#3 DONE 0.6s
+
+#2 [internal] load metadata for docker.io/library/rust:1-bullseye
+#2 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [xapp-rust-builder  1/11] FROM docker.io/library/rust:1-bullseye@sha256:c6d501c039204c21e9fa374f234bd41bdc8b36cfd455a407ef145d9bef19f2b7
+#5 DONE 0.0s
+
+#6 [stage-1 1/7] FROM docker.io/library/ubuntu:22.04@sha256:104ae83764a5119017b8e8d6218fa0832b09df65aae7d5a6de29a85d813da2fb
+#6 DONE 0.0s
+
+#7 [stage-1 2/7] RUN mkdir /config
+#7 CACHED
+
+#8 [internal] load build context
+#8 transferring context: 2B done
+#8 DONE 0.0s
+
+#
+2026-01-14 21:53:13,099 - ERROR - ✗ All builds failed for o-ran-sc/ric-app-hw-rust
+2026-01-14 21:53:13,099 - INFO - Summary: 0 successful, 2 failed out of 2 total

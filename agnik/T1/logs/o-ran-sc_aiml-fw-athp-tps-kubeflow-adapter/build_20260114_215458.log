@@ -1,0 +1,6 @@
+2026-01-14 21:54:58,215 - INFO - Cloning repository: o-ran-sc/aiml-fw-athp-tps-kubeflow-adapter
+2026-01-14 21:54:58,619 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:54:58,620 - INFO - Building Dockerfile...
+2026-01-14 21:55:00,265 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:55:00,265 - INFO - ✓ All builds successful for o-ran-sc/aiml-fw-athp-tps-kubeflow-adapter
+2026-01-14 21:55:00,265 - INFO - Summary: 1 successful, 0 failed out of 1 total

@@ -1,0 +1,6 @@
+2026-01-14 19:49:52,549 - INFO - Cloning repository: o-ran-sc/o-du-phy
+2026-01-14 19:49:54,038 - INFO - Found 1 Dockerfile(s)
+2026-01-14 19:49:54,039 - INFO - Building Dockerfile...
+2026-01-14 19:53:18,362 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 19:53:18,362 - INFO - ✓ All builds successful for o-ran-sc/o-du-phy
+2026-01-14 19:53:18,362 - INFO - Summary: 1 successful, 0 failed out of 1 total

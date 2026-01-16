@@ -1,0 +1,6 @@
+2026-01-14 21:53:16,907 - INFO - Cloning repository: o-ran-sc/aiml-fw-awmf-tm
+2026-01-14 21:53:17,453 - INFO - Found 1 Dockerfile(s)
+2026-01-14 21:53:17,453 - INFO - Building Dockerfile...
+2026-01-14 21:53:20,212 - INFO - ✓ Build successful: Dockerfile
+2026-01-14 21:53:20,213 - INFO - ✓ All builds successful for o-ran-sc/aiml-fw-awmf-tm
+2026-01-14 21:53:20,213 - INFO - Summary: 1 successful, 0 failed out of 1 total
