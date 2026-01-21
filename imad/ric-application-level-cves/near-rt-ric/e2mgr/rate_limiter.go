@@ -2,6 +2,7 @@ package middleware
 
 import (
 	"e2mgr/logger"
+	"net"
 	"net/http"
 	"sync"
 	"time"
@@ -63,9 +64,10 @@ func (rl *RateLimiter) cleanupVisitors() {
 
 func (rl *RateLimiter) Middleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		ip := r.RemoteAddr
-		limiter := rl.getVisitor(ip)
 
+		ip, _, _ := net.SplitHostPort(r.RemoteAddr)
+		limiter := rl.getVisitor(ip)
+		rl.logger.Infof("RateLimiter hit by: %s", ip)
 		if !limiter.Allow() {
 			rl.logger.Warnf("Rate limit exceeded for IP: %s", ip)
 			http.Error(w, "Too Many Requests", http.StatusTooManyRequests)
