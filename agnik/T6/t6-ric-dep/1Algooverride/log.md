@@ -1,3 +1,4 @@
+```
 ~/argo-parent-app.yaml
 
 export KUBECONFIG=~/.kube/config; kubectl apply -f ~/argo-parent-app.yaml
@@ -496,5 +497,5 @@ onap-strimzi-entity-operator-587b94dc9-lggd2        1/2     Running    11 (12s a
 onap-strimzi-kafka-bridge-857dff6bdd-sht84          1/1     Running    0              6m31s   10.244.0.33   nearrtric   <none>           <none>
 onap-strimzi-onap-strimzi-broker-0                  1/1     Running    0              76s     10.244.0.36   nearrtric   <none>           <none>
 onap-strimzi-onap-strimzi-controller-1              1/1     Running    0              76s     10.244.0.37   nearrtric   <none>           <none>
-
+```
 
