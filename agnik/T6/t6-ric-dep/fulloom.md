@@ -3,7 +3,8 @@ Current Status:
 Total Pods: 303
 Running Pods: 226
 
-=== **Non-Running Pods** (ONAP) ===
+**Non-Running Pods**
+```
 NAME                                                        READY   STATUS                  RESTARTS         AGE
 cassandra-dc1-default-sts-0                                 0/3     Pending                 0                66m
 cassandra-dc1-default-sts-1                                 0/3     Pending                 0                54m
@@ -68,3 +69,4 @@ onap-authentication-oauth2-proxy-7c5bd88bc6-8cf44           1/2     CrashLoopBac
 onap-portal-ng-ui-57c77dfc8c-m6lc7                          1/2     CrashLoopBackOff        6 (2m11s ago)    8m4s
 onap-portal-ng-ui-6c7896d7-ct66q                            1/2     CrashLoopBackOff        14 (2m16s ago)   74m
 agnik@agnik-Alpha-15-A3DD:~/Desktop/deployoran$
+```
