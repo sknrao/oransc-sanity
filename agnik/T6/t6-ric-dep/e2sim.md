@@ -1,4 +1,4 @@
-# E2 Simulator Deployment: Issues, Fixes, and Procedure
+# E2 Simulator Deployment: Issues, Fixes, and Procedure and Near-RT RIC A1 Registration
 
 **Date**: February 5, 2026
 **Target**: `hpe16` (Near-RT RIC Cluster)
@@ -101,3 +101,41 @@ sudo helm install e2sim ./helm -n ricplt \
 kubectl logs -n ricplt -l app=e2sim -f
 # Look for: "Received SETUP-RESPONSE-SUCCESS"
 ```
+
+## 3. Near-RT RIC A1 Registration (hpe16 <-> hpe15)
+
+This was the critical integration step. `hpe16` (RIC) needed to be registered with `hpe15` (SMO).
+
+### 3.1. Issue Encountered
+`hpe15` (SMO) could not reach `hpe16` (RIC) on port 30803.
+*   **Error**: active connection refused.
+*   **Cause**: The `service-ricplt-a1mediator-http` service on `hpe16` was type **ClusterIP**, exposing port 10000 internally but not externally.
+
+### 3.2. Fix: Expose A1 Mediator via NodePort
+We patched the service on **hpe16** to open NodePort 30803.
+
+**Command (Run on hpe16)**:
+```bash
+kubectl patch svc service-ricplt-a1mediator-http -n ricplt -p '{"spec": {"type": "NodePort", "ports": [{"port": 10000, "nodePort": 30803, "name": "http"}]}}'
+```
+
+### 3.3. Registration Execution
+We ran the registration script on **hpe15**.
+
+1.  **Configure**: Edited `config.env`.
+    ```bash
+    RIC_BASE_URL=http://10.200.105.60:30803
+    A1_NODEPORT=30094
+    ```
+2.  **Execute**:
+    ```bash
+    cd ~/ric-registration
+    ./register-ric.sh
+    ```
+3.  **Verify**:
+    ```bash
+    curl -s http://localhost:30094/a1-policy/v2/rics
+    # Output: {"rics":[{"ric_id":"hpe16-ric", "state":"AVAILABLE"}]}
+    ```
+
+---
