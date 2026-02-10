@@ -1,0 +1,15 @@
+meta {
+  name: Get Plugins
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://hpe16.anuket.iol.unh.edu:30806/default/plugins
+  body: none
+  auth: none
+}
+
+docs {
+  List all active Kong Gateway plugins (auth, rate-limiting, etc.).
+}

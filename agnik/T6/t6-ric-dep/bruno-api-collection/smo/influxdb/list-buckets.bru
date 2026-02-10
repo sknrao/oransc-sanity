@@ -1,0 +1,21 @@
+meta {
+  name: List Buckets
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://hpe15.anuket.iol.unh.edu:31814/api/v2/buckets
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Token xjIEDWCopZtjSgJwkUBI0tWwqpCTXPvZ
+}
+
+docs {
+  List all InfluxDB buckets.
+  Auth: Token mySuP3rS3cr3tT0keN
+  Known buckets: pm-bucket, pm-logg
+}

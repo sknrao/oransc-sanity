@@ -1,0 +1,26 @@
+meta {
+  name: Get Single Node
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://hpe15.anuket.iol.unh.edu:30267/rests/data/network-topology:network-topology/topology=topology-netconf/node=o-du-pynts-1122
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: admin
+  password: Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  Get details of a specific mounted NETCONF node.
+  Returns connection status, capabilities, and config.
+  Known nodes: o-du-pynts-1122, o-du, o-du-pynts-1123
+}

@@ -1,0 +1,21 @@
+meta {
+  name: Dashboard
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://hpe15.anuket.iol.unh.edu:30091/
+  body: none
+  auth: none
+}
+
+docs {
+  Non-RT-RIC Control Panel dashboard.
+  Returns the Angular-based UI for managing A1 policies.
+  Backend API available on port 30092.
+}
+
+assert {
+  res.status: eq 200
+}

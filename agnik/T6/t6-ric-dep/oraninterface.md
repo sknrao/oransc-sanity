@@ -1,12 +1,13 @@
 # O-RAN Interface Audit Report
+
 ---
 
 ## Summary
 
 | Server | Interfaces Tested | Working | Requires Auth | Issues |
 |--------|-------------------|---------|---------------|--------|
-| **HPE15** | 10 | 9 | 4 | 1 (Topology 404) |
-| **HPE16** | 2 | 2 | 0 | 0 |
+| **HPE15** | 12 | 11 | 4 | 1 (Topology 404) |
+| **HPE16** | 4 | 4 | 0 | 0 |
 
 ---
 
@@ -30,43 +31,48 @@
 
 ---
 
-### 2. ⚠️ SDNC API
+### 2. ✅ SDNC API (RESTCONF)
 | Property | Value |
 |----------|-------|
 | **URL** | http://hpe15.anuket.iol.unh.edu:30267 |
 | **Port** | 30267 |
 | **Username** | `admin` |
 | **Password** | `Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U` |
-| **Status** | ⚠️ **401 Unauthorized** (Expected - requires Basic Auth header) |
+| **Status** | ✅ **Working** (requires Basic Auth) |
 
 **Observations**:
-- API endpoint is active
-- **Tested with Basic Auth**:
-  - Health check endpoint: `/rests/operations/health:health-check` (no response/timeout)
-  - Network topology: `/restconf/data/network-topology:network-topology` → 404
-  - Alternate path: `/rests/data/network-topology:network-topology?content=nonconfig` (no output)
-- **Working curl example**: `curl -u admin:Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U http://hpe15.anuket.iol.unh.edu:30267/[endpoint]`
-- API paths may require RESTCONF 2.0 format (`/rests/` prefix) or specific YANG model paths
+- Requires Basic Auth header for all requests
+- **Tested RESTCONF Endpoints**:
+  - `GET /rests/data/network-topology:network-topology` → ✅ 200 — Returns 3 connected NETCONF nodes
+  - `GET /rests/data/network-topology:network-topology/topology=topology-netconf/node=o-du-pynts-1122` → ✅ 200 — Node details (host: 10.244.72.210, port: 830)
+  - `GET /rests/data/ietf-yang-library:modules-state` → ✅ 200 — 128 YANG modules loaded
+  - `PUT .../node=<id>` — Mount NETCONF device (template ready)
+  - `DELETE .../node=<id>` — Unmount NETCONF device (template ready)
 
 ---
 
-### 3. ⚠️ A1PMS (Policy Management Service)
+### 3. ✅ A1PMS (Policy Management Service)
 | Property | Value |
 |----------|-------|
 | **URL** | http://hpe15.anuket.iol.unh.edu:30094 |
 | **Port** | 30094 |
 | **Auth** | None |
-| **Status** | ⚠️ **404 on root** (Expected - API only) |
+| **Status** | ✅ **Working** (full CRUD tested) |
 
 **Observations**:
-- Root path returns "Whitelabel Error Page" (Spring Boot default)
+- Root path returns "Whitelabel Error Page" (Spring Boot default — expected)
 - **Tested API Endpoints**:
-  - `/a1-policy/v2/rics` → `{"rics":[{"ric_id":"hpe16-ric","managed_element_ids":[],"state":"AVAILABLE","policytype_ids":[]}]}`
-    - **RIC Status**: `hpe16-ric` is **AVAILABLE**
-    - No managed elements or policy types currently configured
-  - `/a1-policy/v2/policies` → `{"policy_ids":[]}`
-    - No active policies deployed
-- Use curl with specific paths: `curl http://hpe15.anuket.iol.unh.edu:30094/a1-policy/v2/rics`
+  - `GET /a1-policy/v2/rics` → ✅ `hpe16-ric` is **AVAILABLE**
+  - `GET /a1-policy/v2/rics/ric?ric_id=hpe16-ric` → ✅ RIC details (baseUrl: http://10.200.105.60:30803)
+  - `GET /a1-policy/v2/policy-types` → ✅ Empty (no xApps deployed yet)
+  - `GET /a1-policy/v2/policies` → ✅ Empty
+  - `GET /a1-policy/v2/services` → ✅ `test-service` registered
+  - `GET /a1-policy/v2/status` → ✅ `"success"`
+  - `GET /a1-policy/v2/configuration` → ✅ Shows RIC config with StdA1ClientVersion2 adapter
+  - `PUT /a1-policy/v2/services` → ✅ 201 — Service registration works
+  - `DELETE /a1-policy/v2/services/{id}` → ✅ 204 — Service deletion works
+  - `PUT /a1-policy/v2/services/{id}/keepalive` → ✅ 200 — Heartbeat works
+  - `PUT /a1-policy/v2/policies` → ⚠️ 423 — No policy types yet (needs xApp)
 
 ---
 
@@ -81,21 +87,22 @@
 
 **Observations**:
 - Full admin access to Keycloak console
-- Active realm: `nonrtric-realm`
-- **10 Configured Clients**:
+- **2 Realms**: `master`, `nonrtric-realm`
+- **13 Configured Clients in nonrtric-realm**:
   - `account`, `account-console` - User account management
   - `admin-cli`, `broker` - Admin tools
   - `console-setup` - Console configuration
-  - `dfc` - Data File Collector
-  - `kafka-producer-pm-json2influx` - PM data to InfluxDB
-  - `kafka-producer-pm-json2kafka` - PM data to Kafka
-  - `kafka-producer-pm-xml2json` - PM XML to JSON converter
-  - `nrt-pm-log` - Near-RT PM logging service
-- **10 Client Scopes** configured:
-  - Default: `acr`, `basic`, `email`, `profile`, `role_list`
-  - Optional: `address`, `microprofile-jwt`, `offline_access`, `organization`, `phone`
-- OpenID Connect endpoints active
-- All clients use `https://example.com/example/` as placeholder redirect URL
+  - `dfc` - Data File Collector (secret: `yI163T9pM3U1jtI2WqQKyN9pFaRZryFW`)
+  - `kafka-producer-pm-json2influx`, `kafka-producer-pm-json2kafka`, `kafka-producer-pm-xml2json` - PM data pipeline
+  - `nrt-pm-log` - Near-RT PM logging (secret: `u8AEJGDA6uSVGW1NpP4UFKhcd1MMtNlZ`)
+  - `pm-producer-json2kafka` (secret: `5VKEaVU19XaqfuIDkDMD134wyYgKCvVp`)
+  - `realm-management`, `security-admin-console`
+- **Admin API Auth**: Use bearer token from master realm (not basic auth)
+  ```
+  TOKEN=$(curl -s -X POST -d 'grant_type=password&client_id=admin-cli&username=admin&password=admin' \
+    http://hpe15.anuket.iol.unh.edu:30202/realms/master/protocol/openid-connect/token | jq -r '.access_token')
+  curl -H "Authorization: Bearer $TOKEN" http://hpe15.anuket.iol.unh.edu:30202/admin/realms
+  ```
 
 ---
 
@@ -201,17 +208,21 @@
 |----------|-------|
 | **URL** | http://hpe15.anuket.iol.unh.edu:31814 |
 | **Port** | 31814 |
-| **Username** | `admin` |
-| **Password** | `mySuP3rS3cr3tT0keN` |
+| **Login** | `admin` / `mySuP3rS3cr3tT0keN` |
+| **API Token** | `xjIEDWCopZtjSgJwkUBI0tWwqpCTXPvZ` |
 | **Status** | ✅ **Working** |
 
 **Observations**:
-- Successfully logged in and explored dashboard
-- Configured buckets:
-  - `pm-bucket` (Retention: Forever)
-  - `pm-logg` (Retention: Forever)
-  - `_monitor` (System, 7 days retention)
-  - `_task` (System, 3 days retention)
+- Version: v2.7.12
+- Health: `pass` — ready for queries and writes
+- Organization: `est` (id: `016ec2168b9eab4d`)
+- **4 Configured buckets**:
+  - `pm-bucket` (user, Retention: Forever)
+  - `pm-logg-bucket` (user, Retention: Forever)
+  - `_monitoring` (system, 7 days retention)
+  - `_tasks` (system, 3 days retention)
+- **API Auth**: Use `Authorization: Token xjIEDWCopZtjSgJwkUBI0tWwqpCTXPvZ` header
+- Flux queries working via POST `/api/v2/query?org=est`
 
 ---
 
@@ -229,9 +240,47 @@
 
 ---
 
+### 11. ✅ Non-RT-RIC Control Panel
+| Property | Value |
+|----------|-------|
+| **URL (Frontend)** | http://hpe15.anuket.iol.unh.edu:30091 |
+| **URL (Backend)** | http://hpe15.anuket.iol.unh.edu:30092 |
+| **Port** | 30091 (UI) / 30092 (API) |
+| **Auth** | None |
+| **Status** | ✅ **Working** |
+
+**Observations**:
+- Angular-based dashboard for managing Non-RT-RIC
+- Supports Light/Dark theme toggle
+- **Two main sections**: Policy Control, Information Coordinator
+
+#### Policy Control
+- **Policy Types**: None deployed yet
+  - "There are no policy types to display."
+  - Policy types are registered by xApps on the Near-RT RIC; will appear once xApps are deployed
+
+#### Information Coordinator — Producers
+| Producer | Status |
+|----------|--------|
+| `https://dmaapadapterservice.nonrtric:9088` | ✅ **ENABLED** |
+| `http://pm-producer-json2kafka-0.pm-producer-json2kafka.smo:8084` | ✅ **ENABLED** |
+
+- **DMAAP Adapter Service** — Bridges DMAAP (VES events, PM file notifications) to the Information Coordinator
+- **PM Producer JSON2Kafka** — Produces PM data (type: `PmData`) from filestore to Kafka
+
+#### Information Coordinator — Jobs
+| Job ID | Info Type | Owner | Status |
+|--------|-----------|-------|--------|
+| `PmData_5b3f4db6-3d9e-11ed-b878-0242ac120002` | `xml-file-data-to-filestore` | `pmproducer` | ⚠️ DISABLED |
+| `job-kp-influx-json-0` | `json-file-data-from-filestore-to-influx` | `console` | ⚠️ DISABLED |
+
+- Both jobs are currently DISABLED — expected in default deployment, can be enabled when PM data collection is needed
+
+---
+
 ## HPE16 (Near-RT RIC) Interfaces
 
-### 11. ✅ Kong Manager (API Gateway)
+### 12. ✅ Kong Manager (API Gateway)
 | Property | Value |
 |----------|-------|
 | **URL** | http://hpe16.anuket.iol.unh.edu:30806 |
@@ -240,41 +289,37 @@
 | **Status** | ✅ **Working** |
 
 **Observations**:
-- Admin panel accessible
-- No data/routes currently configured (empty dashboard)
+- Kong Manager OSS UI accessible
+- Gateway routes A1 Mediator API to backend services
+- Admin REST API is ClusterIP-only (not exposed via NodePort)
 
 ---
 
-### 12. ✅ A1 Mediator Interface
+### 13. ✅ A1 Mediator Interface
 | Property | Value |
 |----------|-------|
 | **URL** | http://hpe16.anuket.iol.unh.edu:30803 |
-| **Port** | 30803 |
+| **Port** | 30803 (via Kong gateway) |
 | **Auth** | None |
-| **Status** | ✅ **Working** (404 on root is expected) |
+| **Status** | ✅ **Working** |
 
 **Observations**:
-- Root path returns: `{"code":404,"message":"path / was not found"}`
+- Root path returns: `{"code":404,"message":"path / was not found"}` (expected — use API paths)
+- **Tested Endpoints**:
+  - `GET /A1-P/v2/policytypes` → ✅ 200 — Returns `[]` (no xApps with policy types deployed yet)
+  - `PUT /A1-P/v2/policytypes/{id}/policies/{pid}` — Create policy instance (template ready)
+  - `DELETE /A1-P/v2/policytypes/{id}/policies/{pid}` — Delete policy instance (template ready)
 
 ---
 
 ## Credentials Summary
 
-| Service | URL | Username | Password |
-|---------|-----|----------|----------|
-| SDNC Web/API | :30205 / :30267 | `admin` | `Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U` |
-| Keycloak | :30202 | `admin` | `admin` |
-| MinIO | :32208 | `admin` | `adminadmin` |
-| InfluxDB | :31814 | `admin` | `mySuP3rS3cr3tT0keN` |
-
----
-
-## Key Findings
-
-1. **All core SMO components operational** - SDNC, Keycloak, MinIO, InfluxDB, Redpanda all working
-2. **Network simulators connected** - 3 O-DU instances visible in SDNC (1 standard + 2 Pynts)
-3. **Kafka message bus healthy** - 28 topics, 27 consumer groups, all stable
-4. **PM data pipeline ready** - InfluxDB buckets configured for PM data storage
-5. **RIC A1 interface accessible** - Patched NodePort working as expected
+| Service | URL | Auth Method | Credentials |
+|---------|-----|-------------|-------------|
+| SDNC Web/API | :30205 / :30267 | Basic Auth | `admin` / `Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U` |
+| Keycloak | :30202 | Bearer Token | `admin` / `admin` (via master realm) |
+| MinIO | :32208 | Login | `admin` / `adminadmin` |
+| InfluxDB | :31814 | Token Header | `Token xjIEDWCopZtjSgJwkUBI0tWwqpCTXPvZ` |
+| InfluxDB | :31814 | Login | `admin` / `mySuP3rS3cr3tT0keN` |
 
 ---

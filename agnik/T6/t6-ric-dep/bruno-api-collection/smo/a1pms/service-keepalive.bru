@@ -1,0 +1,17 @@
+meta {
+  name: Service Keepalive
+  type: http
+  seq: 12
+}
+
+put {
+  url: http://hpe15.anuket.iol.unh.edu:30094/a1-policy/v2/services/test-rapp/keepalive
+  body: none
+  auth: none
+}
+
+docs {
+  Send keepalive heartbeat for a registered service.
+  Required if service was registered with keep_alive_interval_seconds > 0.
+  Replace "test-rapp" with actual service_id.
+}

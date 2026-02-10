@@ -1,0 +1,29 @@
+meta {
+  name: Query Data
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://hpe15.anuket.iol.unh.edu:31814/api/v2/query?org=est
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Token xjIEDWCopZtjSgJwkUBI0tWwqpCTXPvZ
+  Accept: application/csv
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "query": "from(bucket: \"pm-bucket\") |> range(start: -1h) |> limit(n: 10)",
+    "type": "flux"
+  }
+}
+
+docs {
+  Query PM data from InfluxDB using Flux query language.
+  Change the bucket name and time range as needed.
+}

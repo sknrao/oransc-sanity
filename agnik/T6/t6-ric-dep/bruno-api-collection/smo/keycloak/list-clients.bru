@@ -1,0 +1,45 @@
+meta {
+  name: List Clients
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://hpe15.anuket.iol.unh.edu:30202/admin/realms/nonrtric-realm/clients
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{keycloak_token}}
+}
+
+headers {
+  Accept: application/json
+}
+
+script:pre-request {
+  const axios = require('axios');
+  const params = new URLSearchParams();
+  params.append('grant_type', 'password');
+  params.append('client_id', 'admin-cli');
+  params.append('username', 'admin');
+  params.append('password', 'admin');
+  
+  try {
+    const res = await axios.post(
+      'http://hpe15.anuket.iol.unh.edu:30202/realms/master/protocol/openid-connect/token',
+      params.toString(),
+      { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+    );
+    bru.setVar('keycloak_token', res.data.access_token);
+  } catch(e) {
+    console.log('Token fetch failed:', e.message);
+  }
+}
+
+docs {
+  List all registered clients in the nonrtric-realm.
+  Automatically fetches admin bearer token before request.
+  Tested: ✅ Returns 13 clients including dfc, nrt-pm-log, pm-producer-json2kafka, etc.
+}

@@ -1,0 +1,17 @@
+meta {
+  name: Get Policy Status
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://hpe16.anuket.iol.unh.edu:30803/A1-P/v2/policytypes/20008/policies/test-policy-1/status
+  body: none
+  auth: none
+}
+
+docs {
+  Get status of a specific policy instance on the Near-RT RIC.
+  Replace 20008 with policy type ID and test-policy-1 with policy instance ID.
+  Returns enforcement status from the xApp.
+}

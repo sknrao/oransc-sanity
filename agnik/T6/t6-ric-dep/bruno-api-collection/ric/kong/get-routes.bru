@@ -1,0 +1,16 @@
+meta {
+  name: Get Routes
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://hpe16.anuket.iol.unh.edu:30806/default/routes
+  body: none
+  auth: none
+}
+
+docs {
+  List all configured Kong Gateway routes.
+  Shows how APIs are routed to backend services (A1, E2Mgr, etc.)
+}

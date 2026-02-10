@@ -1,0 +1,16 @@
+meta {
+  name: Health Check
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://hpe16.anuket.iol.unh.edu:30803/a1-p/healthcheck
+  body: none
+  auth: none
+}
+
+docs {
+  A1 Mediator health check via Kong gateway.
+  Returns health status of the A1 Mediator in Near-RT RIC.
+}

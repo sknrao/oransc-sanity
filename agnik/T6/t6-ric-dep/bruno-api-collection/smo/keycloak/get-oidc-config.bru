@@ -1,0 +1,20 @@
+meta {
+  name: OIDC Configuration
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://hpe15.anuket.iol.unh.edu:30202/realms/nonrtric-realm/.well-known/openid-configuration
+  body: none
+  auth: none
+}
+
+docs {
+  Returns OpenID Connect discovery document for nonrtric-realm.
+  Includes token endpoint, authorization endpoint, etc.
+}
+
+assert {
+  res.status: eq 200
+}

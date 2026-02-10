@@ -1,0 +1,16 @@
+meta {
+  name: Get Services
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://hpe16.anuket.iol.unh.edu:30806/default/services
+  body: none
+  auth: none
+}
+
+docs {
+  List all backend services registered in Kong Gateway.
+  Each service maps to a RIC platform component.
+}

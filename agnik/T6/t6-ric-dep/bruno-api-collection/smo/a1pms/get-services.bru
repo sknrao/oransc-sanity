@@ -1,0 +1,15 @@
+meta {
+  name: Get Services
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://hpe15.anuket.iol.unh.edu:30094/a1-policy/v2/services
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}
