@@ -1,0 +1,4 @@
+minio
+influxdb-client
+kafka-python
+requests
