@@ -8,7 +8,7 @@ set -e
 # Configuration
 E2SIM_REPO="https://gerrit.o-ran-sc.org/r/sim/e2-interface"
 IMAGE_NAME="e2simul"
-IMAGE_TAG="0.0.4"
+IMAGE_TAG="0.0.5"
 NAMESPACE="ricplt"
 BUILD_DIR="$HOME/e2sim_automated_build"
 
@@ -180,8 +180,15 @@ sudo helm install e2sim . -n "${NAMESPACE}" \
   --set image.pullPolicy=IfNotPresent
 
 echo ">>> [6/6] Verifying connection..."
+# Proactive Refresh: Restart RIC components to ensure RMR routes are fresh for the new simulator
+echo ">>> Refreshing RIC Platform RMR routes..."
+sudo kubectl rollout restart deployment deployment-ricplt-e2mgr -n "${NAMESPACE}"
+sudo kubectl rollout restart deployment deployment-ricplt-e2term-alpha -n "${NAMESPACE}"
+echo "Waiting for RIC components to stabilize..."
+sleep 20
+
 # Wait for pod to start
-echo "Waiting for pod to start..."
+echo "Waiting for E2 Simulator pod to start..."
 sleep 20
 POD_NAME=$(sudo kubectl get pods -n "${NAMESPACE}" -l app=e2simulator -o jsonpath='{.items[0].metadata.name}')
 echo ">>> Checking logs for $POD_NAME..."
