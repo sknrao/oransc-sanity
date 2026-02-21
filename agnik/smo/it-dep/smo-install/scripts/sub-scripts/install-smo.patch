@@ -1,0 +1,11 @@
+--- install-smo.sh
++++ install-smo.sh
+@@ -23,7 +23,7 @@ OVERRIDEYAML=$1
+ HELM_REPO=$2
+ 
+ echo "Installing SMO from HELM Repo : $HELM_REPO"
+-helm upgrade --install oran-smo "$HELM_REPO"/smo --namespace smo -f "$OVERRIDEYAML"  --timeout 15m
++helm upgrade --install oran-smo "$HELM_REPO"/smo --namespace smo -f "$OVERRIDEYAML"  --timeout 15m ${HELM_POST_RENDERER}
+ 
+ check_for_secrets() {
+     try=0

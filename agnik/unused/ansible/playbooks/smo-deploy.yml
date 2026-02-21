@@ -1,0 +1,151 @@
+---
+- name: Deploy SMO on Server 15
+  hosts: smo
+  become: yes
+  gather_facts: yes
+  
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  
+  tasks:
+    - name: Check if Kubernetes cluster exists
+      command: kubectl get nodes
+      register: k8s_check
+      failed_when: false
+      changed_when: false
+      environment:
+        KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    
+    - name: Display Kubernetes status
+      debug:
+        msg: "Kubernetes cluster status: {{ 'Running' if k8s_check.rc == 0 else 'Not found' }}"
+    
+    - name: Remove existing it-dep directory
+      file:
+        path: "{{ smo_install_dir }}"
+        state: absent
+      when: smo_install_dir is defined
+    
+    - name: Clone it-dep repository
+      git:
+        repo: "{{ smo_repo_url }}"
+        dest: "{{ smo_install_dir }}"
+        version: "{{ smo_branch }}"
+        force: yes
+    
+    - name: Checkout m-release branch
+      command: git checkout {{ smo_branch }}
+      args:
+        chdir: "{{ smo_install_dir }}"
+    
+    - name: Initialize Git submodules
+      command: git submodule update --init --recursive
+      args:
+        chdir: "{{ smo_install_dir }}"
+      register: submodule_result
+      changed_when: "'Submodule' in submodule_result.stdout"
+    
+    - name: Verify onap_oom submodule exists
+      stat:
+        path: "{{ smo_install_dir }}/smo-install/onap_oom"
+      register: onap_oom_check
+    
+    - name: Fail if onap_oom submodule not found
+      fail:
+        msg: "onap_oom submodule not initialized. Helm plugins will fail."
+      when: not onap_oom_check.stat.exists
+    
+    - name: Setup Helm and install plugins
+      command: bash smo-install/scripts/layer-0/0-setup-helm3.sh
+      args:
+        chdir: "{{ smo_install_dir }}"
+      register: helm_setup
+      changed_when: "'already installed' not in helm_setup.stdout"
+    
+    - name: Verify Helm plugins
+      command: helm plugin list
+      register: helm_plugins
+      environment:
+        KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    
+    - name: Display Helm plugins
+      debug:
+        var: helm_plugins.stdout_lines
+    
+    - name: Verify Helm repositories
+      command: helm repo list
+      register: helm_repos
+      environment:
+        KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    
+    - name: Display Helm repositories
+      debug:
+        var: helm_repos.stdout_lines
+    
+    - name: Make install script executable
+      file:
+        path: "{{ smo_install_dir }}/{{ smo_install_script }}"
+        mode: '0755'
+    
+    - name: Install SMO
+      shell: |
+        cd {{ smo_install_dir }}/smo-install/scripts/layer-2
+        bash 2-install-oran.sh {{ smo_install_params }}
+      environment:
+        KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+      async: 1800
+      poll: 30
+      register: smo_install
+    
+    - name: Wait for SMO installation to complete
+      async_status:
+        jid: "{{ smo_install.ansible_job_id }}"
+      register: job_result
+      until: job_result.finished
+      retries: 60
+      delay: 30
+    
+    - name: Check installation result
+      debug:
+        msg: "SMO installation completed with status: {{ job_result.ansible_job_id }}"
+    
+    - name: Verify SMO namespaces
+      command: kubectl get namespaces
+      register: namespaces
+      environment:
+        KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    
+    - name: Display namespaces
+      debug:
+        var: namespaces.stdout_lines
+    
+    - name: Verify SMO Helm releases
+      command: helm list -A
+      register: helm_releases
+      environment:
+        KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    
+    - name: Display Helm releases
+      debug:
+        var: helm_releases.stdout_lines
+    
+    - name: Check critical pods status
+      command: kubectl get pods -n onap | grep entity-operator
+      register: entity_operator
+      failed_when: false
+      environment:
+        KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    
+    - name: Check Kong deployment
+      command: kubectl get deployment oran-nonrtric-kong -n nonrtric
+      register: kong_deployment
+      failed_when: false
+      environment:
+        KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    
+    - name: Display critical components status
+      debug:
+        msg:
+          - "Entity Operator: {{ 'Running' if entity_operator.rc == 0 else 'Not found' }}"
+          - "Kong: {{ 'Available' if kong_deployment.rc == 0 else 'Not found' }}"
+

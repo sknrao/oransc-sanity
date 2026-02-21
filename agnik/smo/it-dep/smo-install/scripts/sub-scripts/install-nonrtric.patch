@@ -1,0 +1,11 @@
+--- install-nonrtric.sh
++++ install-nonrtric.sh
+@@ -31,7 +31,7 @@ OVERRIDEYAML=$1
+ HELM_REPO=$2
+ 
+ echo "Installing NONRTRIC from HELM Repo : $HELM_REPO"
+-helm upgrade --install oran-nonrtric "$HELM_REPO"/nonrtric --namespace nonrtric -f "$OVERRIDEYAML" --set nonrtric.persistence.mountPath="/dockerdata-nfs/deployment-$3"
++helm upgrade --install oran-nonrtric "$HELM_REPO"/nonrtric --namespace nonrtric -f "$OVERRIDEYAML" --set nonrtric.persistence.mountPath="/dockerdata-nfs/deployment-$3" ${HELM_POST_RENDERER}
+ 
+ check_for_secrets() {
+     try=0

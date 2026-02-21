@@ -1,0 +1,44 @@
+meta {
+  name: Mount NETCONF Device
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://hpe15.anuket.iol.unh.edu:30267/rests/data/network-topology:network-topology/topology=topology-netconf/node=test-device-1
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: admin
+  password: Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U
+}
+
+headers {
+  Content-Type: application/json
+  Accept: application/json
+}
+
+body:json {
+  {
+    "node": [
+      {
+        "node-id": "test-device-1",
+        "netconf-node-topology:host": "10.0.0.1",
+        "netconf-node-topology:port": 830,
+        "netconf-node-topology:username": "admin",
+        "netconf-node-topology:password": "admin",
+        "netconf-node-topology:tcp-only": false,
+        "netconf-node-topology:keepalive-delay": 120
+      }
+    ]
+  }
+}
+
+docs {
+  Mount (connect) a NETCONF device via SDNC.
+  Creates a new node in the topology-netconf topology.
+  Replace test-device-1, host, port, and credentials with actual values.
+  Existing nodes: o-du-pynts-1122, o-du, o-du-pynts-1123
+}

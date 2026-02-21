@@ -1,0 +1,17 @@
+meta {
+  name: Delete Policy Instance
+  type: http
+  seq: 4
+}
+
+delete {
+  url: http://hpe16.anuket.iol.unh.edu:30803/A1-P/v2/policytypes/20008/policies/test-policy-1
+  body: none
+  auth: none
+}
+
+docs {
+  Delete a policy instance from the Near-RT RIC.
+  Replace 20008 with the policy type ID.
+  Replace test-policy-1 with the policy instance ID to delete.
+}

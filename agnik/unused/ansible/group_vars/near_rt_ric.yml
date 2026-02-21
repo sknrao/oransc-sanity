@@ -1,0 +1,9 @@
+---
+# Near-RT RIC Deployment Variables
+ric_dep_repo_url: "https://gerrit.o-ran-sc.org/r/ric-plt/ric-dep"
+ric_dep_install_dir: "~/ric-dep"
+ric_recipe_file: "RECIPE_EXAMPLE/example_recipe_latest_stable.yaml"
+ric_install_script: "bin/install"
+helm_version: "v3.14.4"
+helm_repo_port: 8879
+

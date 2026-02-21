@@ -1,0 +1,17 @@
+meta {
+  name: Get Policy Types
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://hpe16.anuket.iol.unh.edu:30803/A1-P/v2/policytypes
+  body: none
+  auth: none
+}
+
+docs {
+  List all A1 policy types registered on the Near-RT RIC.
+  Returns array of policy type IDs.
+  Tested: [] (empty — no xApps with policy types deployed yet)
+}

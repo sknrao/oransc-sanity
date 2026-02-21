@@ -1,0 +1,25 @@
+meta {
+  name: Get Admin Token
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://hpe15.anuket.iol.unh.edu:30202/realms/master/protocol/openid-connect/token
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  grant_type: password
+  client_id: admin-cli
+  username: admin
+  password: admin
+}
+
+docs {
+  Get OAuth2 admin token from Keycloak master realm.
+  Uses password grant with admin-cli client.
+  Tested: ✅ Returns bearer token (expires in 60s)
+  Use this token in Authorization header for admin API calls.
+}

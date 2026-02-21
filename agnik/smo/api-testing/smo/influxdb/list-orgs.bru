@@ -1,0 +1,19 @@
+meta {
+  name: List Organizations
+  type: http
+  seq: 3
+}
+
+get {
+  url: http://hpe15.anuket.iol.unh.edu:31814/api/v2/orgs
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Token xjIEDWCopZtjSgJwkUBI0tWwqpCTXPvZ
+}
+
+docs {
+  List all InfluxDB organizations.
+}

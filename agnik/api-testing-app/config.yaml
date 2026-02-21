@@ -1,0 +1,29 @@
+## O-RAN Health Check App - Configuration
+## Edit these values to match your deployment.
+
+smo:
+  host: "hpe15.anuket.iol.unh.edu"
+  # A1PMS (ONAP Non-RT RIC A1 Policy Management Service)
+  a1pms_port: 30094
+  # InfluxDB (Metrics)
+  influxdb_port: 32529
+  influxdb_token: "pUMor3xYib0apuy0uit3NocEAzMLCWP"
+  influxdb_org: "est"
+  influxdb_bucket: "pm-bucket"
+  # Strimzi Kafka (using RedPanda console REST api)
+  kafka_admin_port: 31914
+  # SDNR RESTCONF (OAM gNB nodes)
+  sdnr_port: 30267
+  sdnr_user: "admin"
+  sdnr_password: "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U"
+
+ric:
+  host: "hpe16.anuket.iol.unh.edu"
+  # A1 Mediator
+  a1_mediator_port: 30093
+  # E2Mgr
+  e2mgr_port: 30850
+  # AppMgr
+  appmgr_port: 30851
+  # RtMgr
+  rtmgr_port: 30852

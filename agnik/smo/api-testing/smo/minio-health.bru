@@ -1,0 +1,21 @@
+meta {
+  name: MinIO Health
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://hpe15.anuket.iol.unh.edu:32208/minio/health/live
+  body: none
+  auth: none
+}
+
+docs {
+  MinIO health check.
+  Web UI: http://hpe15.anuket.iol.unh.edu:32208
+  Credentials: admin / adminadmin
+}
+
+assert {
+  res.status: eq 200
+}

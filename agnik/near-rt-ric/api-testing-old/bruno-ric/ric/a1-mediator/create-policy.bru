@@ -1,0 +1,30 @@
+meta {
+  name: Create Policy Instance
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://hpe16.anuket.iol.unh.edu:30803/A1-P/v2/policytypes/20008/policies/test-policy-1
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "threshold": 5,
+    "blocking_rate": 20
+  }
+}
+
+docs {
+  Create a policy instance for a given policy type.
+  Replace 20008 with actual policy type ID.
+  Replace test-policy-1 with desired policy instance ID.
+  Body must conform to the policy type schema.
+  Note: Requires a deployed xApp that registered a policy type.
+}

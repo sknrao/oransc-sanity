@@ -1,0 +1,36 @@
+meta {
+  name: Create Bucket
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://hpe15.anuket.iol.unh.edu:31814/api/v2/buckets
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Token xjIEDWCopZtjSgJwkUBI0tWwqpCTXPvZ
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "test-bucket",
+    "orgID": "016ec2168b9eab4d",
+    "retentionRules": [
+      {
+        "type": "expire",
+        "everySeconds": 86400
+      }
+    ]
+  }
+}
+
+docs {
+  Create a new InfluxDB bucket.
+  - orgID: 016ec2168b9eab4d (org "est")
+  - retentionRules: 86400s = 1 day retention
+  Existing buckets: pm-bucket, pm-logg-bucket, _monitoring, _tasks
+}

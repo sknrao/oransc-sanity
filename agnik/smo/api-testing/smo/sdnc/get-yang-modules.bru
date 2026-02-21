@@ -1,0 +1,24 @@
+meta {
+  name: Get YANG Modules
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://hpe15.anuket.iol.unh.edu:30267/rests/data/ietf-yang-library:modules-state
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: admin
+  password: Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  Returns all loaded YANG modules in the SDNC ODL controller.
+}

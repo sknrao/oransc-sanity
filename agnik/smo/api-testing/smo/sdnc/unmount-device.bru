@@ -1,0 +1,25 @@
+meta {
+  name: Unmount NETCONF Device
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://hpe15.anuket.iol.unh.edu:30267/rests/data/network-topology:network-topology/topology=topology-netconf/node=test-device-1
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: admin
+  password: Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U
+}
+
+headers {
+  Accept: application/json
+}
+
+docs {
+  Unmount (disconnect) a NETCONF device from SDNC.
+  Replace test-device-1 with the node-id to remove.
+}

@@ -1,0 +1,38 @@
+meta {
+  name: Create Policy
+  type: http
+  seq: 10
+}
+
+put {
+  url: http://hpe15.anuket.iol.unh.edu:30094/a1-policy/v2/policies
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "ric_id": "hpe16-ric",
+    "policy_id": "test-policy-1",
+    "service_id": "test-rapp",
+    "policytype_id": "",
+    "policy_data": {},
+    "transient": false,
+    "status_notification_uri": ""
+  }
+}
+
+docs {
+  Create or update an A1 policy via A1PMS.
+  - ric_id: target Near-RT RIC
+  - policy_id: unique ID for this policy
+  - service_id: must be a registered service
+  - policytype_id: empty for default type, or specific type ID
+  - policy_data: JSON policy content (schema depends on policy type)
+  Note: Requires a policy type to be registered on the RIC (via an xApp).
+        Currently no policy types are available, so this will return an error.
+}
