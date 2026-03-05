@@ -1,0 +1,36 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: simple-es-rapp
+  namespace: smo
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: rapp
+        image: simple-es-rapp:latest
+        imagePullPolicy: Never
+        env:
+        - name: KAFKA_BOOTSTRAP
+          value: "onap-strimzi-kafka-bootstrap.onap:9092"
+        - name: KAFKA_TOPIC
+          value: "unauthenticated.SEC_3GPP_PERFORMANCEASSURANCE_OUTPUT"
+        - name: KAFKA_USER
+          value: "strimzi-kafka-admin"
+        - name: KAFKA_PASS
+          value: "G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2"
+        - name: SDNR_URL
+          value: "http://sdnc.onap:8282"
+        - name: SDNR_USER
+          value: "admin"
+        - name: SDNR_PASS
+          value: "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U"
+        - name: NODE
+          value: "SOMETHING"
+        - name: ME
+          value: "ManagedElement-002"
+        - name: GNB
+          value: "GNBDUFunction-001"
