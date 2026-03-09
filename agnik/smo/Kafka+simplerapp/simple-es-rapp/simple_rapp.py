@@ -15,7 +15,7 @@ import logging
 
 # ─── CONFIG (from env vars or defaults) ───────────────
 KAFKA_BOOTSTRAP = os.getenv("KAFKA_BOOTSTRAP", "onap-strimzi-kafka-bootstrap.onap:9092")
-KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "unauthenticated.SEC_3GPP_PERFORMANCEASSURANCE_OUTPUT")
+KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "pmreports")
 KAFKA_GROUP = os.getenv("KAFKA_GROUP", "simple-es-rapp-group")
 KAFKA_USER = os.getenv("KAFKA_USER", "strimzi-kafka-admin")
 KAFKA_PASS = os.getenv("KAFKA_PASS", "G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2")
@@ -88,7 +88,11 @@ def make_decision(pm_data):
         for meas_info in meas_collection.get("measInfoList", []):
             meas_types = meas_info.get("measTypes", {}).get("sMeasTypesList", [])
             for meas_val in meas_info.get("measValuesList", []):
-                cell = meas_val.get("measObjInstId", "unknown")
+                raw_cell = meas_val.get("measObjInstId", "unknown")
+                # Extract NRCellDU ID from DN like "GNBDUFunction=001,NRCellDU=S1-B12-C1"
+                cell = raw_cell
+                if "NRCellDU=" in raw_cell:
+                    cell = raw_cell.split("NRCellDU=")[-1].split(",")[0]
                 for result in meas_val.get("measResults", []):
                     p = result.get("p", 0)
                     s_value = result.get("sValue", "0")

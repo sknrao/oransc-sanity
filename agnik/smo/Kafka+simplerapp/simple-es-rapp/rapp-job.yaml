@@ -17,7 +17,7 @@ spec:
         - name: KAFKA_BOOTSTRAP
           value: "onap-strimzi-kafka-bootstrap.onap:9092"
         - name: KAFKA_TOPIC
-          value: "unauthenticated.SEC_3GPP_PERFORMANCEASSURANCE_OUTPUT"
+          value: "pmreports"
         - name: KAFKA_USER
           value: "strimzi-kafka-admin"
         - name: KAFKA_PASS

@@ -10,8 +10,8 @@ Kafka (PM data) → Threshold (PRB < 20%?) → SDNR RESTCONF (LOCK/UNLOCK cell)
 
 | Phase | What | How |
 |-------|------|-----|
-| **Data** | Read PM counters from Kafka message bus | `confluent_kafka` consumer, SASL/SCRAM-SHA-512 auth |
-| **Decision** | If PRB usage < 20% → cell is idle | Simple threshold (no ML) |
+| **Data** | Read processed PM JSON from Kafka message bus | `confluent_kafka` consumer reading from `pmreports` |
+| **Decision** | If PRB usage < 20% → cell is idle | Simple threshold evaluating `RRU.PrbUsedUl` metric |
 | **Action** | Power off/on the cell via O1 interface | PATCH `NRCellDU/attributes/administrativeState` via SDNR |
 
 ## Files
@@ -19,20 +19,21 @@ Kafka (PM data) → Threshold (PRB < 20%?) → SDNR RESTCONF (LOCK/UNLOCK cell)
 | File | Purpose |
 |------|---------|
 | `simple_rapp.py` | The rApp code (~170 lines Python) |
-| `Dockerfile` | Container image (python:3.11-slim + confluent-kafka + requests) |
+| `Dockerfile` | Container image |
 | `rapp-job.yaml` | Kubernetes Job spec to deploy in `smo` namespace |
 
 ## Deploy
 
 ```bash
 # 1. Create ConfigMap from the script
-kubectl create configmap simple-rapp-code -n smo --from-file=simple_rapp.py
+kubectl create configmap simple-rapp-code -n smo --from-file=simple_rapp.py --dry-run=client -o yaml | kubectl apply -f -
 
 # 2. Deploy as a Job
+kubectl delete job simple-es-rapp -n smo --ignore-not-found
 kubectl apply -f rapp-job.yaml
 
 # 3. Check logs
-kubectl logs -n smo job/simple-es-rapp
+kubectl logs -n smo job/simple-es-rapp --tail=100
 ```
 
 ## Configuration (via environment variables)
@@ -40,7 +41,7 @@ kubectl logs -n smo job/simple-es-rapp
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `KAFKA_BOOTSTRAP` | `onap-strimzi-kafka-bootstrap.onap:9092` | Kafka server |
-| `KAFKA_TOPIC` | `unauthenticated.SEC_3GPP_PERFORMANCEASSURANCE_OUTPUT` | PM data topic |
+| `KAFKA_TOPIC` | `pmreports` | Processed JSON PM data topic |
 | `KAFKA_USER` | `strimzi-kafka-admin` | SASL username |
 | `KAFKA_PASS` | *(from k8s secret)* | SASL password |
 | `SDNR_URL` | `http://sdnc.onap:8282` | SDNR RESTCONF endpoint |
@@ -49,21 +50,20 @@ kubectl logs -n smo job/simple-es-rapp
 | `GNB` | `GNBDUFunction-001` | GNBDUFunction ID |
 | `PRB_THRESHOLD` | `20.0` | PRB % below which cell is considered idle |
 
-## Test Output (from k8s pod)
+## Test Output (from live O-RAN cluster)
 
-```
+```text
 --- PHASE 1: DATA (Kafka) ---
-[INFO] Kafka consumer created, topic: unauthenticated.SEC_3GPP_PERFORMANCEASSURANCE_OUTPUT
-[INFO] [DATA] Message #1 | partition=1 offset=798
-[INFO] [DATA] Message #2 | partition=1 offset=799
-[INFO] [DATA] Message #3 | partition=0 offset=802
-[INFO] [DATA] Total: 3 messages in 3.2s
+[INFO] Kafka consumer created, topic: pmreports
+[INFO] [DATA] Message #1 | partition=5 offset=0
+[INFO] [DATA] Total: 1 messages in 1.1s
 
 --- PHASE 2: DECISION (Threshold) ---
-[INFO] [DECISION] S1-B12-C1: PRB=8.3% -> LOCKED
+[INFO] [DECISION] S10-B9-C1: PRB=0.1% -> LOCKED
+[INFO] [DECISION] S10-B9-C1: PRB=79.2% -> UNLOCKED
 
 --- PHASE 3: ACTION (SDNR) ---
-[INFO]   S1-B12-C1: current=UNLOCKED, target=LOCKED
-[INFO] [ACTION] Cell S1-B12-C1 -> LOCKED: HTTP 200
-[INFO]   Verified: S1-B12-C1 = LOCKED
+[INFO]   S10-B9-C1: current=?, target=LOCKED
+[INFO] [ACTION] Cell S10-B9-C1 -> LOCKED: HTTP 500
+[INFO]   Verified: S10-B9-C1 = ?
 ```
