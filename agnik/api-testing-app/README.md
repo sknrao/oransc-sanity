@@ -1,78 +1,92 @@
-# O-RAN Health Check App
+# O-RAN Health Check App (Golang)
 
 Single-command tool to verify the health of a deployed O-RAN system (SMO + Near-RT RIC).
 
 ## Quick Start
 
+### 1. Configure
+Edit `config.yaml` to match your cluster's settings. The current file is pre-configured for the `hpe15`/`hpe16` environment.
+
+### 2. Run
+The tool is written in Golang. 
+
 ```bash
-# 1. Install dependencies
-pip3 install -r requirements.txt
+# If you have Go installed:
+go run main.go
 
-# 2. Edit config.yaml to match your server IPs/ports
-nano config.yaml
-
-# 3. Run
-python3 ric_health_check.py
+# Or run the pre-compiled binary:
+chmod +x api-tester
+./api-tester
 ```
 
 ## What It Checks
 
-| # | Category | Details |
-|---|----------|---------|
-| 1 | **Message Flow (Kafka)** | Connects to Strimzi Kafka, lists topics, highlights PM/DMAAP topics |
-| 2 | **gNB Count** | Queries SDNC RESTCONF (OAM path) AND E2Mgr NodeB states (Near-RT RIC path) |
-| 3 | **Policies** | Lists active A1 policies via A1PMS + lists policy types from A1 Mediator |
-| 4 | **Metrics (InfluxDB)** | Lists buckets, queries `pm-data` bucket for data in last 1 hour |
-| 5 | **Interface Health** | HTTP health check on: A1 Mediator, E2Mgr, AppMgr, RtMgr, A1PMS, InfluxDB, SDNC |
+| Category | Description |
+|----------|-------------|
+| **Kafka Flow** | Connects to Redpanda Console API to verify topic generation. |
+| **gNB Count** | Cross-references SDNC (OAM) and E2Mgr (RIC) gNB registration. |
+| **A1 Policies** | Checks A1PMS for active policies and A1 Mediator for policy types. |
+| **Metrics** | Queries InfluxDB `pm-bucket` for recent PM data entries. |
+| **Interfaces** | Verifies 7 core O-RAN interfaces (A1, E2, O1, etc.) are responsive. |
 
-## Default Config (config.yaml)
+## Important Configuration
+- **SMO Host**: `hpe15.anuket.iol.unh.edu`
+- **RIC Host**: `hpe16.anuket.iol.unh.edu`
+- **InfluxDB Port**: `32717` (NodePort)
+- **Kafka Admin**: `30385` (Redpanda Console NodePort)
 
-```yaml
-smo:
-  host: hpe15.anuket.iol.unh.edu   # SMO server
-  a1pms_port: 30094
-  influxdb_port: 31814
-  sdnr_port: 30267
+## Sample Output
 
-ric:
-  host: hpe16.anuket.iol.unh.edu   # Near-RT RIC server
-  a1_mediator_port: 30093
-  e2mgr_port: 30850
-```
-
-## Example Output
-
-```
-════════════════════════════════════════════════════════════
-  O-RAN SYSTEM HEALTH CHECK
+```text
+============================================================
+  O-RAN SYSTEM HEALTH CHECK (Golang)
+============================================================
   SMO  : hpe15.anuket.iol.unh.edu
   RIC  : hpe16.anuket.iol.unh.edu
+  Time : 2026-03-12 18:33:07
+============================================================
 
 ════════════════════════════════════════════════════════════
   1. Message Flow — Kafka / Strimzi
-  Kafka bootstrap reachable           ⚠️  WARN  → port up, no REST admin API
+════════════════════════════════════════════════════════════
+  Kafka topics discovered                       ✅ PASS  → Total: 30
 
+════════════════════════════════════════════════════════════
   2. gNB Count — OAM (SDNC) + Near-RT RIC (E2Mgr)
-  OAM gNBs connected                   ✅ PASS  → 3 connected / 5 total
-  Near-RT RIC E2Mgr NodeB list         ✅ PASS  → 1 gNBs registered
+════════════════════════════════════════════════════════════
+  OAM gNBs connected (SDNC)                     ✅ PASS  → 4 connected / 4 total
+  Near-RT RIC E2Mgr NodeB list                  ✅ PASS  → 1 gNBs registered
 
+════════════════════════════════════════════════════════════
   3. Policies — A1 Mediator + A1PMS
-  A1PMS active policies                ✅ PASS  → 0 policies
-  A1 Mediator policy types             ⚠️  WARN  → 0 types registered by xApps
+════════════════════════════════════════════════════════════
+  A1PMS active policies                         ✅ PASS  → 0 policies
+  A1 Mediator policy types                      ✅ PASS  → 1 types registered by xApps
 
+════════════════════════════════════════════════════════════
   4. Metrics — InfluxDB
-  InfluxDB ping                        ✅ PASS  → hpe15:31814
-  InfluxDB buckets                     ✅ PASS  → 3 found
-  PM data in 'pm-data' (last 1h)       ✅ PASS  → 42 data rows found
+════════════════════════════════════════════════════════════
+  InfluxDB ping                                 ✅ PASS  → hpe15.anuket.iol.unh.edu:32717
+  InfluxDB buckets                              ✅ PASS  → 4 found
+  PM data in 'pm-bucket'                        ✅ PASS  → 4 data rows found
 
-  5. Interface Accessibility
-  A1 Mediator        (hpe16:30093)     ✅ PASS  → HTTP 200
-  E2Mgr              (hpe16:30850)     ✅ PASS  → HTTP 200
-  ...
+════════════════════════════════════════════════════════════
+  5. Interface Accessibility — Health Endpoints
+════════════════════════════════════════════════════════════
+  A1 Mediator                                   ✅ PASS  → HTTP 200
+  E2Mgr                                         ✅ PASS  → HTTP 200
+  AppMgr                                        ✅ PASS  → HTTP 200
+  RtMgr                                         ✅ PASS  → HTTP 200
+  A1PMS                                         ✅ PASS  → HTTP 200
+  InfluxDB                                      ✅ PASS  → HTTP 204
+  SDNC RESTCONF                                 ✅ PASS  → HTTP 200
 
+============================================================
   SUMMARY
-  Kafka topics discovered:             8
-  gNBs (E2Mgr):                        1
-  PM data rows (last 1h):              42
-  Interfaces passed:                   7 / 7
+============================================================
+  Kafka topics:                                 30
+  gNBs (E2Mgr):                                 1
+  gNBs (OAM/SDNC):                              4
+  Active A1 Policies:                           0
+  Interfaces passed:                            7 / 7
 ```

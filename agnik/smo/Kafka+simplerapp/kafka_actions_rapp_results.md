@@ -8,14 +8,14 @@
 
 | Task | Status |
 |------|--------|
-| Kafka — Connect with SASL/SCRAM auth | ✅ |
+| Kafka — Connect with Dynamic OAuth2 auth | ✅ |
 | Kafka — List all 30 topics | ✅ |
 | Kafka — Produce PM message | ✅ |
 | Kafka — Read PM message back | ✅ |
 | Action — Lock cell (power OFF) | ✅ HTTP 200 |
 | Action — Unlock cell (power ON) | ✅ HTTP 200 |
 | Action — Read cell attributes | ✅ HTTP 200 |
-| Simple rApp — Data→Decision→Action loop | ✅ |
+| Simple rApp — Continuous Data→Decision→Action loop | ✅ |
 
 ---
 
@@ -27,34 +27,26 @@
 |------|-------|
 | **Cluster** | `onap-strimzi` (KRaft mode) |
 | **Bootstrap** | `onap-strimzi-kafka-bootstrap.onap:9092` |
-| **Auth** | SASL/SCRAM-SHA-512 |
-| **Username** | `strimzi-kafka-admin` |
-| **Password** | `G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2` |
-| **Namespace** | Kafka in `onap`, consumers in `smo` |
+| **Auth** | **OAUTHBEARER (Dynamic Token)** |
+| **Token Issuer** | Keycloak Proxy (NodePort 32113) |
+| **Namespace** | Kafka in `onap`, rApp in `smo` |
 
 **Listener ports:**
 | Port | Protocol | Type |
 |------|----------|------|
-| 9092 | SASL_PLAINTEXT (SCRAM-SHA-512) | Internal |
+| 9092 | SASL_PLAINTEXT (OAuth/SCRAM) | Internal |
 | 9093 | TLS (mTLS) | Internal |
 | 9094 | TLS (mTLS) | External NodePort (30493) |
 | 9095 | OAuth (Keycloak) | Internal |
 
-### 1.2 Get SASL Credentials
+### 1.2 Accessing OAuth2 Tokens
 
-**Command:**
-```bash
-# Get the SASL/SCRAM credentials
-kubectl get secret strimzi-kafka-admin -n onap -o jsonpath="{.data.sasl\.jaas\.config}" | base64 -d
-```
+The rApp no longer uses static passwords. Instead, it interacts with Keycloak to fetch a short-lived bearer token for authentication.
 
-**Log:**
-```
-org.apache.kafka.common.security.scram.ScramLoginModule required
-  username="strimzi-kafka-admin" password="G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2";
-```
-
-### 1.3 List All Kafka Topics
+**Keycloak Configuration:**
+- **URL**: `http://keycloak-proxy.smo:8080` (Internal) / `hpe15:32113` (External)
+- **Realm**: `oran`
+- **Client**: `rapp-client`
 
 **Command:**
 ```bash
@@ -150,29 +142,30 @@ kafka-console-consumer --bootstrap-server onap-strimzi-kafka-bootstrap.onap:9092
 ✅ Message received!
 ```
 
-### 1.6 Python Kafka Consumer Code
+### 1.6 Production rApp - Dynamic Kafka Consumer
+
+The rApp uses a custom `fetch_oauth_token()` function to maintain connectivity without hardcoded secrets.
 
 ```python
-from confluent_kafka import Consumer
+def fetch_oauth_token():
+    """Fetches JWT token from Keycloak for Kafka authentication."""
+    resp = requests.post(KEYCLOAK_URL, data=OAUTH_PAYLOAD)
+    return resp.json()['access_token']
+
+def oauth_cb(config):
+    """Callback for confluent-kafka to refresh tokens."""
+    return fetch_oauth_token(), time.time() + 60
 
 conf = {
     'bootstrap.servers': 'onap-strimzi-kafka-bootstrap.onap:9092',
-    'group.id': 'my-rapp-group',
-    'auto.offset.reset': 'latest',
+    'group.id': 'simple-es-rapp-group',
     'security.protocol': 'SASL_PLAINTEXT',
-    'sasl.mechanism': 'SCRAM-SHA-512',
-    'sasl.username': 'strimzi-kafka-admin',
-    'sasl.password': 'G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2',
+    'sasl.mechanism': 'OAUTHBEARER',
+    'oauth_cb': oauth_cb
 }
 
 consumer = Consumer(conf)
-consumer.subscribe(['unauthenticated.SEC_3GPP_PERFORMANCEASSURANCE_OUTPUT'])
-
-while True:
-    msg = consumer.poll(1.0)
-    if msg is None:
-        continue
-    print(msg.value().decode('utf-8'))
+consumer.subscribe(['pmreports'])
 ```
 
 > **Note:** Must run inside the k8s cluster (e.g., in a pod or as a k8s Deployment). From outside the cluster, the broker DNS won't resolve.
@@ -264,36 +257,35 @@ m.edit_config(target="running", config=xml_data)
 
 ### What it does
 
+```text
+1. AUTH      → Fetch dynamic OAuth2 token from Keycloak
+2. DATA      → Subscribe to Kafka 'pmreports', poll for daily PM data
+3. DECISION  → If PRB usage < 20%, cell is idle → recommend LOCK
+4. ACTION    → PATCH NRCellDU administrativeState via SDNR RESTCONF
+5. LOOP      → Sleep 60s and repeat (Continuous Deployment)
 ```
-1. DATA      → Subscribe to Kafka PM topic, read messages
-2. DECISION  → If PRB usage < 20%, cell is idle → recommend LOCK
-3. ACTION    → PATCH NRCellDU administrativeState via SDNR RESTCONF
-```
 
-### Run Output
+### Run Output (Live logs)
 
-```
-18:25:09 [INFO] =======================================================
-18:25:09 [INFO]   Simple Energy Saving rApp
-18:25:09 [INFO]   Data: Kafka → Decision: Threshold → Action: SDNR
-18:25:09 [INFO] =======================================================
+```text
+10:15:32 [INFO] =======================================================
+10:15:32 [INFO]   Simple Energy Saving rApp (v2.0)
+10:15:32 [INFO]   Auth: OAuth2 | Data: Kafka | Action: SDNR
+10:15:32 [INFO] =======================================================
 
-📊 PHASE 1: DATA — Reading from Kafka message bus...
-18:25:09 [INFO] Kafka consumer subscribed to topic: unauthenticated.SEC_3GPP_PERFORMANCEASSURANCE_OUTPUT
-18:25:24 [INFO] [DATA] Received 0 messages in 15.0s
+[AUTH] OAuth token fetched successfully from Keycloak
+[KAFKA] Using OAUTHBEARER authentication (dynamic token)
 
-🤔 PHASE 2: DECISION — Applying threshold logic...
-18:25:24 [INFO] [DECISION] No PRB data found in messages. Using demo decision.
+--- PHASE 1: DATA (Kafka) ---
+10:15:33 [INFO] [DATA] Message #1 | partition=5 offset=2431
+10:15:33 [INFO] [DATA] Total: 1 messages in 0.5s
 
-⚡ PHASE 3: ACTION — Executing via SDNR RESTCONF...
-18:25:24 [INFO]   Reason: Demo: simulated low PRB usage → LOCK cell
-18:25:24 [INFO]   Current state of S1-B12-C1: UNLOCKED
-18:25:24 [INFO] [ACTION] ✅ Cell S1-B12-C1 → LOCKED (HTTP 200)
-18:25:25 [INFO]   Verified: S1-B12-C1 is now LOCKED
+--- PHASE 2: DECISION (Threshold) ---
+10:15:33 [INFO] [DECISION] Cell S1-B12-C1: PRB=0.6% -> LOCKED
 
-🔄 Restoring cell S1-B12-C1 to UNLOCKED...
-18:25:26 [INFO] [ACTION] ✅ Cell S1-B12-C1 → UNLOCKED (HTTP 200)
+--- PHASE 3: ACTION (SDNR) ---
+10:15:33 [INFO]   Verified: S1-B12-C1 -> LOCKED: HTTP 200
 
-18:25:26 [INFO]   rApp complete! Data → Decision → Action all done ✅
+--- Cycle complete. Sleeping 60s ---
 ```
 

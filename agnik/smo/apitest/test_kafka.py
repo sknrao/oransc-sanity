@@ -33,7 +33,7 @@ KAFKA_POD = "onap-strimzi-onap-strimzi-broker-0"
 KAFKA_NS = "onap"
 
 SASL_USER = "strimzi-kafka-admin"
-SASL_PASS = "NCgQTlFIoaJijnVv5dZ5MQwM8ci99KAc"
+SASL_PASS = "G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2"
 
 TEST_TOPIC = "oran-api-test"
 

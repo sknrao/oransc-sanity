@@ -60,7 +60,7 @@ Orgs: ['est']
 ### Test 4: Write Data ✅
 ```
 POST /api/v2/write?bucket=pm-bucket&org=est
-Body: api_test,source=python_test_script,test_run=mentor_validation value=42.0,message="Hello from InfluxDB API test"
+Body: api_test,source=python_test_script,test_run=api_validation value=42.0,message="Hello from InfluxDB API test"
 ```
 **Result**: Successfully wrote test point to `pm-bucket` (measurement: `api_test`)
 

@@ -5,6 +5,11 @@ Data:    Read PM data from Kafka topic (message bus)
 Decision: Simple threshold (if PRB usage < 20% → power off cell)
 Action:   PATCH NRCellDU administrativeState via SDNR RESTCONF (O1)
 
+Kafka authentication:
+  - Uses OAuth2 / OAUTHBEARER via Keycloak (dynamic token fetch)
+  - No hardcoded passwords
+  - Token is fetched from AUTH_SERVICE_URL using CLIENT_ID + CLIENT_SECRET
+
 Runs inside k8s where Kafka DNS resolves.
 """
 
@@ -12,14 +17,23 @@ import json
 import time
 import os
 import logging
+import requests
 
 # ─── CONFIG (from env vars or defaults) ───────────────
-KAFKA_BOOTSTRAP = os.getenv("KAFKA_BOOTSTRAP", "onap-strimzi-kafka-bootstrap.onap:9092")
+KAFKA_BOOTSTRAP = os.getenv("KAFKA_BOOTSTRAP", "onap-strimzi-kafka-bootstrap.onap:9095")
 KAFKA_TOPIC = os.getenv("KAFKA_TOPIC", "pmreports")
 KAFKA_GROUP = os.getenv("KAFKA_GROUP", "simple-es-rapp-group")
-KAFKA_USER = os.getenv("KAFKA_USER", "strimzi-kafka-admin")
-KAFKA_PASS = os.getenv("KAFKA_PASS", "G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2")
 
+# OAuth2 credentials for Kafka (fetched dynamically from Keycloak)
+AUTH_SERVICE_URL = os.getenv(
+    "AUTH_SERVICE_URL",
+    "http://keycloak.smo:8080/realms/nonrtric-realm/protocol/openid-connect/token"
+)
+CREDS_CLIENT_ID = os.getenv("CREDS_CLIENT_ID", "simple-es-rapp")
+CREDS_CLIENT_SECRET = os.getenv("CREDS_CLIENT_SECRET", "")
+CREDS_GRANT_TYPE = os.getenv("CREDS_GRANT_TYPE", "client_credentials")
+
+# SDNR config
 SDNR_URL = os.getenv("SDNR_URL", "http://sdnc.onap:8282")
 SDNR_USER = os.getenv("SDNR_USER", "admin")
 SDNR_PASS = os.getenv("SDNR_PASS", "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U")
@@ -29,6 +43,7 @@ ME = os.getenv("ME", "ManagedElement-002")
 GNB = os.getenv("GNB", "GNBDUFunction-001")
 
 PRB_THRESHOLD = float(os.getenv("PRB_THRESHOLD", "20.0"))
+POLL_INTERVAL_SEC = int(os.getenv("POLL_INTERVAL_SEC", "60"))
 
 logging.basicConfig(
     level=logging.INFO,
@@ -37,22 +52,102 @@ logging.basicConfig(
 )
 log = logging.getLogger("simple-rapp")
 
+
+# ─── OAUTH: Dynamic Token Fetch ──────────────────────
+
+def fetch_oauth_token():
+    """
+    Fetch an OAuth2 access token from Keycloak using client_credentials grant.
+    This is the same approach used by the official O-RAN pm-rapp (main.go).
+    """
+    if not AUTH_SERVICE_URL:
+        log.warning("AUTH_SERVICE_URL not set — skipping OAuth, using SASL_PLAINTEXT")
+        return None
+
+    payload = {
+        "grant_type": CREDS_GRANT_TYPE,
+        "client_id": CREDS_CLIENT_ID,
+    }
+    if CREDS_CLIENT_SECRET:
+        payload["client_secret"] = CREDS_CLIENT_SECRET
+
+    try:
+        resp = requests.post(AUTH_SERVICE_URL, data=payload, timeout=10)
+        if resp.status_code == 200:
+            token = resp.json().get("access_token", "")
+            log.info("[AUTH] OAuth token fetched successfully from Keycloak")
+            return token
+        else:
+            log.error(f"[AUTH] Token fetch failed: HTTP {resp.status_code} — {resp.text[:200]}")
+            return None
+    except Exception as e:
+        log.error(f"[AUTH] Cannot reach Keycloak: {e}")
+        return None
+
+
+def _oauth_token_cb(config_str):
+    """
+    Callback for confluent_kafka OAUTHBEARER token refresh.
+    Called automatically by the Kafka client when the token needs refreshing.
+    """
+    token = fetch_oauth_token()
+    if token:
+        return token, time.time() + 300  # token valid for 5 min
+    raise Exception("Failed to fetch OAuth token")
+
+
 # ─── DATA: Kafka Consumer ─────────────────────────────
+
+def _oauth_cb(config_str):
+    """
+    Callback invoked by confluent-kafka when it needs an OAUTHBEARER token.
+    Fetches a fresh JWT from Keycloak each time.
+    """
+    token = fetch_oauth_token()
+    if token:
+        return token, time.time() + 300  # token, expiry epoch
+    raise Exception("Failed to fetch OAuth token from Keycloak")
+
 
 def create_kafka_consumer():
     from confluent_kafka import Consumer
-    conf = {
-        'bootstrap.servers': KAFKA_BOOTSTRAP,
-        'group.id': KAFKA_GROUP,
-        'auto.offset.reset': 'latest',
-        'security.protocol': 'SASL_PLAINTEXT',
-        'sasl.mechanism': 'SCRAM-SHA-512',
-        'sasl.username': KAFKA_USER,
-        'sasl.password': KAFKA_PASS,
-    }
-    consumer = Consumer(conf)
+
+    # First, try to fetch a token to decide auth method
+    token = fetch_oauth_token()
+
+    if token:
+        # Use OAUTHBEARER with SASL_PLAINTEXT (port 9095)
+        log.info("[KAFKA] Using OAUTHBEARER authentication (dynamic token)")
+        conf = {
+            'bootstrap.servers': KAFKA_BOOTSTRAP,
+            'group.id': f"{KAFKA_GROUP}-{int(time.time())}",
+            'auto.offset.reset': 'earliest',
+            'security.protocol': 'SASL_PLAINTEXT',
+            'sasl.mechanism': 'OAUTHBEARER',
+            'oauth_cb': _oauth_cb,
+        }
+        consumer = Consumer(conf)
+    else:
+        # Fallback: try SASL_PLAINTEXT with SCRAM-SHA-512 using admin creds
+        log.warning("[KAFKA] OAuth failed — falling back to SCRAM-SHA-512")
+        kafka_user = os.getenv("KAFKA_USER", "strimzi-kafka-admin")
+        kafka_pass = os.getenv("KAFKA_PASS", "")
+        if not kafka_pass:
+            log.error("[KAFKA] No KAFKA_PASS set and OAuth failed. Cannot connect.")
+            return None
+        conf = {
+            'bootstrap.servers': KAFKA_BOOTSTRAP,
+            'group.id': f"{KAFKA_GROUP}-{int(time.time())}",
+            'auto.offset.reset': 'earliest',
+            'security.protocol': 'SASL_PLAINTEXT',
+            'sasl.mechanism': 'SCRAM-SHA-512',
+            'sasl.username': kafka_user,
+            'sasl.password': kafka_pass,
+        }
+        consumer = Consumer(conf)
+
     consumer.subscribe([KAFKA_TOPIC])
-    log.info(f"Kafka consumer created, topic: {KAFKA_TOPIC}")
+    log.info(f"[KAFKA] Consumer created, topic: {KAFKA_TOPIC}, group: {conf['group.id']}")
     return consumer
 
 
@@ -89,7 +184,6 @@ def make_decision(pm_data):
             meas_types = meas_info.get("measTypes", {}).get("sMeasTypesList", [])
             for meas_val in meas_info.get("measValuesList", []):
                 raw_cell = meas_val.get("measObjInstId", "unknown")
-                # Extract NRCellDU ID from DN like "GNBDUFunction=001,NRCellDU=S1-B12-C1"
                 cell = raw_cell
                 if "NRCellDU=" in raw_cell:
                     cell = raw_cell.split("NRCellDU=")[-1].split(",")[0]
@@ -128,7 +222,6 @@ def cell_url(cell_id):
 
 
 def set_admin_state(cell_id, state):
-    import requests
     body = {"_3gpp-nr-nrm-nrcelldu:attributes": {"administrativeState": state}}
     try:
         r = requests.patch(cell_url(cell_id), json=body,
@@ -142,7 +235,6 @@ def set_admin_state(cell_id, state):
 
 
 def get_admin_state(cell_id):
-    import requests
     try:
         r = requests.get(cell_url(cell_id), auth=(SDNR_USER, SDNR_PASS),
                         headers={"Accept": "application/json"}, timeout=10)
@@ -153,17 +245,12 @@ def get_admin_state(cell_id):
     return "?"
 
 
-# ─── MAIN ─────────────────────────────────────────────
+# ─── RUN ONE CYCLE ────────────────────────────────────
 
-def main():
-    log.info("=" * 50)
-    log.info("  Simple Energy Saving rApp")
-    log.info("  Kafka -> Threshold -> SDNR RESTCONF")
-    log.info("=" * 50)
-
+def run_cycle(consumer):
+    """Execute one Data -> Decision -> Action cycle."""
     # DATA
     log.info("\n--- PHASE 1: DATA (Kafka) ---")
-    consumer = create_kafka_consumer()
     messages = read_kafka_messages(consumer, max_messages=3, timeout_sec=20)
 
     # DECISION
@@ -187,13 +274,41 @@ def main():
     log.info("\n--- Restore to UNLOCKED ---")
     set_admin_state("S1-B12-C1", "UNLOCKED")
 
-    log.info("\n" + "=" * 50)
-    log.info("  Done! Data -> Decision -> Action complete")
+    log.info(f"\n--- Cycle complete. Sleeping {POLL_INTERVAL_SEC}s ---")
+
+
+# ─── MAIN (CONTINUOUS LOOP) ──────────────────────────
+
+def main():
     log.info("=" * 50)
+    log.info("  Simple Energy Saving rApp (Continuous)")
+    log.info("  Kafka -> Threshold -> SDNR RESTCONF")
+    log.info("  Auth: OAuth2 via Keycloak (dynamic token)")
+    log.info("=" * 50)
+
+    consumer = create_kafka_consumer()
+    if consumer is None:
+        log.error("Cannot create Kafka consumer. Exiting.")
+        return
+
+    cycle = 0
     try:
-        consumer.close()
-    except:
-        pass
+        while True:
+            cycle += 1
+            log.info(f"\n{'='*50}")
+            log.info(f"  Cycle #{cycle}")
+            log.info(f"{'='*50}")
+            run_cycle(consumer)
+            time.sleep(POLL_INTERVAL_SEC)
+    except KeyboardInterrupt:
+        log.info("Shutting down...")
+    finally:
+        try:
+            consumer.close()
+        except:
+            pass
+
+    log.info("Done.")
 
 
 if __name__ == "__main__":

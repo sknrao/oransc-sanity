@@ -19,8 +19,8 @@ except ImportError:
     sys.exit(1)
 
 # ── Configuration ──────────────────────────────────────────────
-INFLUX_URL = os.getenv("INFLUX_URL", "http://hpe15.anuket.iol.unh.edu:31814")
-INFLUX_TOKEN = os.getenv("INFLUX_TOKEN", "xjIEDWCopZtjSgJwkUBI0tWwqpCTXPvZ")
+INFLUX_URL = os.getenv("INFLUX_URL", "http://hpe15.anuket.iol.unh.edu:32717")
+INFLUX_TOKEN = os.getenv("INFLUX_TOKEN", "b0xHhPZXON3wpCUDSH7dcud0RtobLOEx")
 INFLUX_ORG = os.getenv("INFLUX_ORG", "est")
 TEST_BUCKET = "pm-bucket"  # Use existing bucket
 
@@ -81,7 +81,7 @@ def run_tests():
         point = (
             Point("api_test")
             .tag("source", "python_test_script")
-            .tag("test_run", "mentor_validation")
+            .tag("test_run", "api_validation")
             .field("value", 42.0)
             .field("message", "Hello from InfluxDB API test")
             .time(datetime.utcnow(), WritePrecision.NS)

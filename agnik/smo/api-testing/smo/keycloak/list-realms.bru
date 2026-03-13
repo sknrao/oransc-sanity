@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: http://hpe15.anuket.iol.unh.edu:30202/admin/realms
+  url: http://hpe15.anuket.iol.unh.edu:32661/admin/realms
   body: none
   auth: bearer
 }
@@ -29,7 +29,7 @@ script:pre-request {
   
   try {
     const res = await axios.post(
-      'http://hpe15.anuket.iol.unh.edu:30202/realms/master/protocol/openid-connect/token',
+      'http://hpe15.anuket.iol.unh.edu:32661/realms/master/protocol/openid-connect/token',
       params.toString(),
       { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
     );

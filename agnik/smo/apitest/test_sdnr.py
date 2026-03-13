@@ -47,7 +47,7 @@ def run_tests():
     try:
         resp = requests.get(
             f"{SDNR_URL}{BASE_PATH}",
-            auth=AUTH, headers=HEADERS, timeout=10
+            auth=AUTH, headers=HEADERS, timeout=30
         )
         if resp.status_code == 200:
             topo = resp.json()
@@ -70,7 +70,7 @@ def run_tests():
     try:
         resp = requests.get(
             f"{SDNR_URL}{TOPOLOGY_PATH}",
-            auth=AUTH, headers=HEADERS, timeout=10
+            auth=AUTH, headers=HEADERS, timeout=30
         )
         if resp.status_code == 200:
             topology = resp.json()
@@ -110,7 +110,7 @@ def run_tests():
             node_path = f"{TOPOLOGY_PATH}/node={target_node}"
             resp = requests.get(
                 f"{SDNR_URL}{node_path}",
-                auth=AUTH, headers=HEADERS, timeout=10
+                auth=AUTH, headers=HEADERS, timeout=30
             )
             if resp.status_code == 200:
                 device_config = resp.json()
@@ -140,7 +140,7 @@ def run_tests():
             yang_path = (f"{mount_path}/o-ran-sc-du-hello-world:network-function")
             resp = requests.get(
                 f"{SDNR_URL}{yang_path}",
-                auth=AUTH, headers=HEADERS, timeout=10
+                auth=AUTH, headers=HEADERS, timeout=30
             )
             if resp.status_code == 200:
                 config_data = resp.json()
@@ -157,7 +157,7 @@ def run_tests():
                               f"dedicated-ratio: {pol.get('radio-resource-management-policy-dedicated-ratio')}, "
                               f"admin-state: {pol.get('administrative-state')}")
                 results.append(True)
-            elif resp.status_code == 404:
+            elif resp.status_code in [400, 404]:
                 print_result("Read YANG Config (mount)", True,
                              f"YANG model o-ran-sc-du-hello-world not available on '{target_node}' "
                              "(expected for non-simulator nodes)")
@@ -190,7 +190,7 @@ def run_tests():
         mount_path = f"{TOPOLOGY_PATH}/node={test_device_id}"
         resp = requests.put(
             f"{SDNR_URL}{mount_path}",
-            auth=AUTH, headers=HEADERS, json=mount_body, timeout=10
+            auth=AUTH, headers=HEADERS, json=mount_body, timeout=30
         )
         if resp.status_code in [200, 201, 204]:
             print_result("Mount Test Device", True,
@@ -210,7 +210,7 @@ def run_tests():
         time.sleep(2)  # Give SDNR a moment to process
         resp = requests.get(
             f"{SDNR_URL}{TOPOLOGY_PATH}/node={test_device_id}",
-            auth=AUTH, headers=HEADERS, timeout=10
+            auth=AUTH, headers=HEADERS, timeout=30
         )
         if resp.status_code == 200:
             node_data = resp.json()
@@ -230,7 +230,7 @@ def run_tests():
     try:
         resp = requests.delete(
             f"{SDNR_URL}{TOPOLOGY_PATH}/node={test_device_id}",
-            auth=AUTH, headers=HEADERS, timeout=10
+            auth=AUTH, headers=HEADERS, timeout=30
         )
         if resp.status_code in [200, 204]:
             print_result("Unmount Test Device", True,

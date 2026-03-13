@@ -6,12 +6,12 @@ smo:
   # A1PMS (ONAP Non-RT RIC A1 Policy Management Service)
   a1pms_port: 30094
   # InfluxDB (Metrics)
-  influxdb_port: 32529
-  influxdb_token: "pUMor3xYib0apuy0uit3NocEAzMLCWP"
+  influxdb_port: 32717
+  influxdb_token: "b0xHhPZXON3wpCUDSH7dcud0RtobLOEx"
   influxdb_org: "est"
   influxdb_bucket: "pm-bucket"
   # Strimzi Kafka (using RedPanda console REST api)
-  kafka_admin_port: 31914
+  kafka_admin_port: 30385
   # SDNR RESTCONF (OAM gNB nodes)
   sdnr_port: 30267
   sdnr_user: "admin"

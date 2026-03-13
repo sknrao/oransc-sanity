@@ -1,27 +1,40 @@
-
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: simple-es-rapp
   namespace: smo
+  labels:
+    app: simple-es-rapp
 spec:
-  backoffLimit: 0
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-es-rapp
   template:
+    metadata:
+      labels:
+        app: simple-es-rapp
     spec:
-      restartPolicy: Never
       containers:
       - name: rapp
-        image: simple-es-rapp:latest
-        imagePullPolicy: Never
+        image: python:3.9-slim
+        command: ["bash", "-c", "pip install --quiet confluent-kafka requests && python -u /app/simple_rapp.py"]
         env:
+        # Kafka bootstrap (port 9095 = SASL/OAUTHBEARER)
         - name: KAFKA_BOOTSTRAP
-          value: "onap-strimzi-kafka-bootstrap.onap:9092"
+          value: "onap-strimzi-kafka-bootstrap.onap:9095"
         - name: KAFKA_TOPIC
           value: "pmreports"
-        - name: KAFKA_USER
-          value: "strimzi-kafka-admin"
-        - name: KAFKA_PASS
-          value: "G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2"
+        # OAuth2 — dynamic token from Keycloak (no hardcoded passwords!)
+        - name: AUTH_SERVICE_URL
+          value: "http://keycloak.smo:8080/realms/nonrtric-realm/protocol/openid-connect/token"
+        - name: CREDS_CLIENT_ID
+          value: "simple-es-rapp"
+        - name: CREDS_CLIENT_SECRET
+          value: "simple-es-rapp-secret"
+        - name: CREDS_GRANT_TYPE
+          value: "client_credentials"
+        # SDNR
         - name: SDNR_URL
           value: "http://sdnc.onap:8282"
         - name: SDNR_USER
@@ -34,3 +47,13 @@ spec:
           value: "ManagedElement-002"
         - name: GNB
           value: "GNBDUFunction-001"
+        # Continuous polling interval (seconds)
+        - name: POLL_INTERVAL_SEC
+          value: "60"
+        volumeMounts:
+        - name: code-vol
+          mountPath: /app
+      volumes:
+      - name: code-vol
+        configMap:
+          name: simple-rapp-code

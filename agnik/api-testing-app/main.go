@@ -178,8 +178,18 @@ func checkGNBs(cfg *Config, results map[string]interface{}) {
 		json.Unmarshal(bodyOAM, &data)
 		connected := 0
 		total := 0
-		if topo, ok := data["network-topology:topology"].([]interface{}); ok && len(topo) > 0 {
-			if tmap, ok := topo[0].(map[string]interface{}); ok {
+		
+		var topology []interface{}
+		if val, err := getPath(data, "network-topology:network-topology", "topology"); err == nil {
+			topology, _ = val.([]interface{})
+		} else if val, err := getPath(data, "network-topology:topology", "topology"); err == nil {
+			topology, _ = val.([]interface{})
+		} else if val, err := getPath(data, "topology"); err == nil {
+			topology, _ = val.([]interface{})
+		}
+		
+		if len(topology) > 0 {
+			if tmap, ok := topology[0].(map[string]interface{}); ok {
 				if nodes, ok := tmap["node"].([]interface{}); ok {
 					total = len(nodes)
 					for _, n := range nodes {
@@ -193,6 +203,7 @@ func checkGNBs(cfg *Config, results map[string]interface{}) {
 				}
 			}
 		}
+
 		results["oam_gnbs"] = connected
 		if connected > 0 {
 			resultOut("OAM gNBs connected (SDNC)", Pass(), fmt.Sprintf("%d connected / %d total", connected, total))
@@ -383,4 +394,20 @@ func checkInterfaces(cfg *Config, results map[string]interface{}) {
 	}
 	results["iface_passed"] = passed
 	results["iface_total"] = len(endpoints)
+}
+
+func getPath(data map[string]interface{}, keys ...string) (interface{}, error) {
+	var current interface{} = data
+	for _, key := range keys {
+		if m, ok := current.(map[string]interface{}); ok {
+			if val, exists := m[key]; exists {
+				current = val
+			} else {
+				return nil, fmt.Errorf("key not found: %s", key)
+			}
+		} else {
+			return nil, fmt.Errorf("not a map at key: %s", key)
+		}
+	}
+	return current, nil
 }
