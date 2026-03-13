@@ -22,13 +22,6 @@ sudo KUBECONFIG=/etc/kubernetes/admin.conf kubectl delete deployment simple-es-r
 sudo KUBECONFIG=/etc/kubernetes/admin.conf kubectl delete configmap simple-rapp-code -n smo --ignore-not-found
 ```
 
-### Step 3: Copy updated code (Run locally)
-From your local machine, copy the latest script and manifest:
-```bash
-sshpass -p 1234 scp simple_rapp.py agnikmisra@hpe15.anuket.iol.unh.edu:/tmp/
-sshpass -p 1234 scp rapp-job.yaml agnikmisra@hpe15.anuket.iol.unh.edu:/tmp/
-```
-
 ### Step 4: Create ConfigMap & Deploy (Back in SSH)
 ```bash
 sudo KUBECONFIG=/etc/kubernetes/admin.conf kubectl create configmap simple-rapp-code --from-file=/tmp/simple_rapp.py -n smo
