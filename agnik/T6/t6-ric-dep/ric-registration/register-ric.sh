@@ -91,7 +91,7 @@ jq \
         name: $name,
         baseUrl: $url,
         managedElementIds: [],
-        customAdapterClass: "org.onap.ccsdk.oran.a1policymanagementservice.clients.StdA1ClientVersion2"
+        customAdapterClass: "org.onap.ccsdk.oran.a1policymanagementservice.clients.OscA1Client"
       } + (if $enable_ctrl == "true" then {controller: $ctrl} else {} end))
     ]
   )

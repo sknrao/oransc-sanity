@@ -1,0 +1,46 @@
+## Integration rApp — Unified Configuration
+## Edit these values to match your O-RAN deployment.
+
+smo:
+  host: "hpe15.anuket.iol.unh.edu"
+
+  # SDNR RESTCONF (O1 / OAM)
+  sdnr_port: 30267
+  sdnr_user: "admin"
+  sdnr_password: "Kp8bJ4SXszM0WXlhak3eHlcse2gAw84vaoGGmJvUy2U"
+
+  # InfluxDB (PM Metrics)
+  influxdb_port: 32717
+  influxdb_token: "b0xHhPZXON3wpCUDSH7dcud0RtobLOEx"
+  influxdb_org: "est"
+
+  # Kafka / Strimzi (Message Bus)
+  kafka_admin_port: 30385          # Redpanda Console REST API
+  kafka_broker_pod: "onap-strimzi-onap-strimzi-broker-0"
+  kafka_namespace: "onap"
+  kafka_sasl_user: "strimzi-kafka-admin"
+  kafka_sasl_pass: "G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2"
+
+  # MinIO S3 (File Storage)
+  minio_endpoint: "minio:9000"
+  minio_access_key: "admin"
+  minio_secret_key: "adminadmin"
+
+  # A1PMS (Non-RT RIC Policy Management)
+  a1pms_port: 30094
+
+  # SDNR node identifiers (for reset action)
+  node_id: "SOMETHING"
+  managed_element: "ManagedElement-002"
+  gnb_du_function: "GNBDUFunction-001"
+
+ric:
+  host: "hpe16.anuket.iol.unh.edu"
+  a1_mediator_port: 30093
+  e2mgr_port: 30850
+
+ssh:
+  host: "hpe15.anuket.iol.unh.edu"
+  user: "agnikmisra"
+  password: "1234"
+  kubeconfig: "/etc/kubernetes/admin.conf"

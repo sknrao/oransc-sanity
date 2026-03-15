@@ -1,0 +1,85 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: integration-rapp
+  namespace: smo
+  labels:
+    app: integration-rapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: integration-rapp
+  template:
+    metadata:
+      labels:
+        app: integration-rapp
+    spec:
+      serviceAccountName: default  # Needs permissions if executing kubectl, but we use sshpass fallback
+      containers:
+      - name: rapp
+        image: python:3.11-slim
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+        command: ["/bin/bash", "-c"]
+        args:
+          - |
+            apt-get update && apt-get install -y curl sshpass jq && \
+            curl -LO "https://dl.k8s.io/release/v1.28.0/bin/linux/amd64/kubectl" && \
+            chmod +x kubectl && mv kubectl /usr/local/bin/ && \
+            pip install --no-cache-dir flask requests pyyaml influxdb-client minio && \
+            cd /app && python3 backend.py --host 0.0.0.0 --port 5001
+        ports:
+        - containerPort: 5001
+        volumeMounts:
+        - name: code-volume
+          mountPath: /app
+        - name: template-volume
+          mountPath: /app/templates
+        - name: kubeconfig
+          mountPath: /etc/kubernetes/admin.conf
+          readOnly: true
+      volumes:
+      - name: code-volume
+        configMap:
+          name: integration-rapp-code
+          items:
+            - key: backend.py
+              path: backend.py
+            - key: cli.py
+              path: cli.py
+            - key: config.yaml
+              path: config.yaml
+            - key: kafka_consume.sh
+              path: kafka_consume.sh
+      - name: template-volume
+        configMap:
+          name: integration-rapp-code
+          items:
+            - key: index.html
+              path: index.html
+      - name: kubeconfig
+        hostPath:
+          path: /etc/kubernetes/admin.conf
+          type: File
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: integration-rapp-service
+  namespace: smo
+spec:
+  type: NodePort
+  selector:
+    app: integration-rapp
+  ports:
+    - protocol: TCP
+      port: 5001
+      targetPort: 5001
+      nodePort: 31001

@@ -1,0 +1,674 @@
+#!/usr/bin/env python3
+"""
+Integration rApp — Backend API Server
+=======================================
+Flask-based backend exposing 8 REST endpoints for O-RAN deployment verification.
+Combines SDNR, InfluxDB, Kafka, MinIO, and A1PMS into a single tool.
+
+Usage:
+    python backend.py              # Start web server on port 5000
+    python backend.py --port 8080  # Custom port
+"""
+
+import os
+import sys
+import json
+import time
+import subprocess
+import yaml
+import requests
+from requests.auth import HTTPBasicAuth
+from flask import Flask, jsonify, request, render_template
+
+# ── Load Config ────────────────────────────────────────────
+CONFIG_PATH = os.getenv("CONFIG_PATH", "config.yaml")
+
+def load_config():
+    with open(CONFIG_PATH) as f:
+        return yaml.safe_load(f)
+
+CFG = load_config()
+SMO = CFG["smo"]
+RIC = CFG["ric"]
+SSH = CFG["ssh"]
+
+SDNR_URL = f"http://{SMO['host']}:{SMO['sdnr_port']}"
+SDNR_AUTH = HTTPBasicAuth(SMO["sdnr_user"], SMO["sdnr_password"])
+SDNR_HEADERS = {"Accept": "application/json", "Content-Type": "application/json"}
+
+INFLUX_URL = f"http://{SMO['host']}:{SMO['influxdb_port']}"
+INFLUX_TOKEN = SMO["influxdb_token"]
+INFLUX_ORG = SMO["influxdb_org"]
+
+A1PMS_URL = f"http://{SMO['host']}:{SMO['a1pms_port']}"
+E2MGR_URL = f"http://{RIC['host']}:{RIC['e2mgr_port']}"
+A1MED_URL = f"http://{RIC['host']}:{RIC['a1_mediator_port']}"
+
+app = Flask(__name__)
+
+# Suppress request logging noise
+import logging
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.WARNING)
+
+
+# ═══════════════════════════════════════════════════════════
+#  FEATURE 1: List Connected SDNR Nodes
+# ═══════════════════════════════════════════════════════════
+
+def get_sdnr_nodes():
+    """Query SDNR RESTCONF for all NETCONF nodes and their status."""
+    url = f"{SDNR_URL}/rests/data/network-topology:network-topology"
+    try:
+        resp = requests.get(url, auth=SDNR_AUTH, headers=SDNR_HEADERS, timeout=30)
+        if resp.status_code != 200:
+            return {"error": f"HTTP {resp.status_code}", "nodes": []}
+
+        data = resp.json()
+        topologies = data.get("network-topology:network-topology", {}).get("topology", [])
+        nodes = []
+        for topo in topologies:
+            for node in topo.get("node", []):
+                nodes.append({
+                    "node_id": node.get("node-id"),
+                    "status": node.get("netconf-node-topology:connection-status", "unknown"),
+                    "host": node.get("netconf-node-topology:host", "?"),
+                    "port": node.get("netconf-node-topology:port", "?"),
+                })
+        connected = [n for n in nodes if n["status"] == "connected"]
+        return {
+            "total": len(nodes),
+            "connected": len(connected),
+            "nodes": nodes,
+        }
+    except Exception as e:
+        return {"error": str(e), "nodes": []}
+
+
+@app.route("/api/nodes")
+def api_nodes():
+    return jsonify(get_sdnr_nodes())
+
+
+# ═══════════════════════════════════════════════════════════
+#  FEATURE 2: Reset a Node (LOCK → UNLOCK via SDNR)
+# ═══════════════════════════════════════════════════════════
+
+def _cell_url(cell_id, node_id=None):
+    if node_id is None:
+        node_id = SMO.get("node_id", "SOMETHING")
+    
+    # Auto-detect if node_id is missing or generic
+    if not node_id or node_id == "SOMETHING":
+        nodes_info = get_sdnr_nodes()
+        connected = [n for n in nodes_info.get("nodes", []) if n.get("status") == "connected"]
+        if connected:
+            node_id = connected[0]["node_id"]
+            print(f"DEBUG: Auto-detected connected node: {node_id}")
+        else:
+            node_id = "o-du-pynts-1123" # Last resort fallback
+
+    me = SMO.get("managed_element", "ManagedElement-001")
+    gnb = SMO.get("gnb_du_function", "GNBDUFunction-001")
+    return (
+        f"{SDNR_URL}/rests/data/network-topology:network-topology"
+        f"/topology=topology-netconf/node={node_id}/yang-ext:mount"
+        f"/_3gpp-common-managed-element:ManagedElement={me}"
+        f"/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction={gnb}"
+        f"/_3gpp-nr-nrm-nrcelldu:NRCellDU={cell_id}/attributes"
+    )
+
+def reset_node(cell_id, node_id=None):
+    """Reset a cell by setting it to LOCKED, then back to UNLOCKED."""
+    results = {"cell_id": cell_id, "node_id": node_id, "steps": []}
+    target_url = _cell_url(cell_id, node_id)
+    
+    # Update node_id in results if it was auto-detected inside _cell_url
+    if not node_id:
+        try:
+            # We can't easily extract it back from the URL string without parsing, 
+            # but we can at least log the URL used.
+            results["target_url"] = target_url
+        except: pass
+
+    # Step 1: Read current state
+    try:
+        r = requests.get(target_url, auth=SDNR_AUTH,
+                         headers={"Accept": "application/json"}, timeout=30)
+        if r.status_code == 200:
+            current = r.json().get("_3gpp-nr-nrm-nrcelldu:attributes", {}).get("administrativeState", "?")
+            results["steps"].append({"action": "READ", "state": current, "status": "OK"})
+        else:
+            results["steps"].append({"action": "READ", "status": f"HTTP {r.status_code}"})
+            results["error"] = f"Cannot read cell state: HTTP {r.status_code}"
+            return results
+    except Exception as e:
+        results["error"] = str(e)
+        return results
+
+    # Step 2: LOCK
+    body = {"_3gpp-nr-nrm-nrcelldu:attributes": {"administrativeState": "LOCKED"}}
+    try:
+        r = requests.patch(target_url, json=body, auth=SDNR_AUTH,
+                           headers=SDNR_HEADERS, timeout=30)
+        results["steps"].append({"action": "LOCK", "http": r.status_code,
+                                 "status": "OK" if r.status_code == 200 else "FAIL"})
+    except Exception as e:
+        results["steps"].append({"action": "LOCK", "status": f"ERROR: {e}"})
+
+    time.sleep(1)
+
+    # Step 3: UNLOCK (restore)
+    body = {"_3gpp-nr-nrm-nrcelldu:attributes": {"administrativeState": "UNLOCKED"}}
+    try:
+        r = requests.patch(target_url, json=body, auth=SDNR_AUTH,
+                           headers=SDNR_HEADERS, timeout=30)
+        results["steps"].append({"action": "UNLOCK", "http": r.status_code,
+                                 "status": "OK" if r.status_code == 200 else "FAIL"})
+    except Exception as e:
+        results["steps"].append({"action": "UNLOCK", "status": f"ERROR: {e}"})
+
+    # Step 4: Verify
+    time.sleep(1)
+    try:
+        r = requests.get(target_url, auth=SDNR_AUTH,
+                         headers={"Accept": "application/json"}, timeout=30)
+        if r.status_code == 200:
+            final = r.json().get("_3gpp-nr-nrm-nrcelldu:attributes", {}).get("administrativeState", "?")
+            results["steps"].append({"action": "VERIFY", "state": final, "status": "OK"})
+            results["final_state"] = final
+    except:
+        pass
+
+    return results
+
+
+@app.route("/api/nodes/<cell_id>/reset", methods=["POST"])
+def api_reset_node(cell_id):
+    body = request.get_json(force=True, silent=True) or {}
+    node_id = body.get("node_id")
+    return jsonify(reset_node(cell_id, node_id))
+
+
+# ═══════════════════════════════════════════════════════════
+#  FEATURE 3: List Kafka Topics with Message Counts
+# ═══════════════════════════════════════════════════════════
+
+def _run_kafka_cmd(cmd):
+    """Execute a command inside the Kafka broker pod via SSH + kubectl exec."""
+    full_cmd = (
+        f"sshpass -p {SSH['password']} ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no "
+        f"{SSH['user']}@{SSH['host']} "
+        f"\"sudo KUBECONFIG={SSH['kubeconfig']} kubectl exec -n {SMO['kafka_namespace']} "
+        f"{SMO['kafka_broker_pod']} -- bash -c '{cmd}'\""
+    )
+    try:
+        result = subprocess.run(full_cmd, shell=True, capture_output=True, text=True, timeout=30)
+        return result.stdout.strip(), result.returncode
+    except subprocess.TimeoutExpired:
+        return "TIMEOUT", 1
+    except Exception as e:
+        return str(e), 1
+
+
+def get_kafka_topics():
+    """List all Kafka topics and identify which ones have messages."""
+    # Method 1: Try Redpanda Console REST API (faster)
+    try:
+        url = f"http://{SMO['host']}:{SMO['kafka_admin_port']}/api/topics"
+        resp = requests.get(url, timeout=10)
+        if resp.status_code == 200:
+            topics_data = resp.json().get("topics", [])
+            topics = []
+            for t in topics_data:
+                name = t.get("topicName", t.get("name", "?"))
+                # Use logDirSummary.totalSizeBytes to detect data presence
+                size_bytes = t.get("logDirSummary", {}).get("totalSizeBytes", 0)
+                topics.append({
+                    "name": name,
+                    "size_bytes": size_bytes,
+                    "has_messages": size_bytes > 0,
+                    "partitions": t.get("partitionCount", 0),
+                })
+            # Sort: topics with data first
+            topics.sort(key=lambda x: (-x["size_bytes"], x["name"]))
+            return {"total": len(topics), "topics": topics, "method": "redpanda-console"}
+    except:
+        pass
+
+    # Method 2: kubectl exec fallback
+    sasl_cfg = (
+        f"security.protocol=SASL_PLAINTEXT\\n"
+        f"sasl.mechanism=SCRAM-SHA-512\\n"
+        f"sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule "
+        f"required username=\\\"{SMO['kafka_sasl_user']}\\\" "
+        f"password=\\\"{SMO['kafka_sasl_pass']}\\\";"
+    )
+    setup = f"echo -e \\\"{sasl_cfg}\\\" > /tmp/client.properties"
+    list_cmd = "bin/kafka-topics.sh --bootstrap-server localhost:9092 --command-config /tmp/client.properties --list"
+    output, rc = _run_kafka_cmd(f"{setup} && {list_cmd}")
+    if rc == 0 and output:
+        names = [t for t in output.split("\n") if t.strip()]
+        topics = [{"name": n, "messages": -1, "has_messages": None} for n in names]
+        return {"total": len(topics), "topics": topics, "method": "kubectl-exec"}
+
+    return {"error": "Cannot reach Kafka", "topics": []}
+
+
+@app.route("/api/kafka/topics")
+def api_kafka_topics():
+    return jsonify(get_kafka_topics())
+
+
+# ═══════════════════════════════════════════════════════════
+#  FEATURE 4: Show Latest Message from a Topic
+# ═══════════════════════════════════════════════════════════
+
+def get_latest_message(topic_name):
+    """Consume the latest message from a given Kafka topic via helper script."""
+    script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kafka_consume.sh")
+
+    # When running ON the server, use the script directly
+    is_on_server = os.path.exists(SSH.get('kubeconfig', '/etc/kubernetes/admin.conf'))
+    
+    if is_on_server:
+        # If running on the host as agnikmisra, we need to pass the sudo password
+        if os.getuid() != 0:
+            full_cmd = f"echo {SSH['password']} | sudo -S bash {script_path} {topic_name}"
+        else:
+            full_cmd = f"bash {script_path} {topic_name}"
+    else:
+        full_cmd = (
+            f"sshpass -p {SSH['password']} ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no "
+            f"{SSH['user']}@{SSH['host']} 'bash /tmp/integration-rapp/kafka_consume.sh {topic_name}'"
+        )
+
+    try:
+        result = subprocess.run(full_cmd, shell=True, capture_output=True, text=True, timeout=30)
+        output = result.stdout.strip()
+        # Filter out kubectl noise like "Defaulted container..."
+        lines = [l for l in output.split("\n") if not l.startswith("Defaulted container")]
+        clean_output = "\n".join(lines).strip()
+        
+        if result.returncode == 0 and clean_output:
+            try:
+                value = json.loads(clean_output)
+            except:
+                value = clean_output
+            return {"topic": topic_name, "value": value, "method": "kubectl-exec-script"}
+    except subprocess.TimeoutExpired:
+        return {"topic": topic_name, "error": "Timeout — topic may be empty"}
+    except Exception as e:
+        return {"topic": topic_name, "error": str(e)}
+
+    return {"topic": topic_name, "error": "No messages found or topic is empty"}
+
+
+@app.route("/api/kafka/topics/<topic_name>/latest")
+def api_kafka_latest(topic_name):
+    return jsonify(get_latest_message(topic_name))
+
+
+# ═══════════════════════════════════════════════════════════
+#  FEATURE 5: Check 3 Integration Points
+# ═══════════════════════════════════════════════════════════
+
+def check_integration_points():
+    """
+    Three integration points:
+    (a) PNF registration in Kafka OR Nodes in SDNR
+    (b) RICs in Near-RT-RIC (Non-RT RIC A1PMS connectivity)
+    (c) E2 Nodes in RIC (Near-RT RIC E2Mgr connectivity)
+    """
+    results = {"checks": [], "all_pass": True}
+
+    # (a) PNF/Kafka PM + SDNR Nodes
+    check_a = {"name": "SDNR Nodes / Kafka PM Messages", "status": "FAIL", "details": {}}
+    
+    # Check SDNR nodes (Must have > 0 connected)
+    nodes_info = get_sdnr_nodes()
+    connected_count = nodes_info.get("connected", 0)
+    check_a["details"]["sdnr_nodes"] = connected_count
+    sdnr_ok = connected_count > 0
+
+    # Check Kafka data (Actually check if 'pmreports' has any message)
+    kafka_ok = False
+    try:
+        # Check if pmreports has data in Redpanda Console
+        url = f"http://{SMO['host']}:{SMO['kafka_admin_port']}/api/topics"
+        resp = requests.get(url, timeout=10)
+        if resp.status_code == 200:
+            topics = resp.json().get("topics", [])
+            pm_topic = next((t for t in topics if t.get("topicName") == "pmreports"), None)
+            if pm_topic:
+                size = pm_topic.get("logDirSummary", {}).get("totalSizeBytes", 0)
+                check_a["details"]["kafka_pm_size_bytes"] = size
+                kafka_ok = size > 0
+            else:
+                # Fallback to any VES topic
+                ves_topics = [t for t in topics if "VES" in t.get("topicName", "")]
+                check_a["details"]["ves_topics_count"] = len(ves_topics)
+                kafka_ok = len(ves_topics) > 0
+    except:
+        pass
+
+    check_a["status"] = "PASS" if (sdnr_ok and kafka_ok) else ("WARN" if (sdnr_ok or kafka_ok) else "FAIL")
+    results["checks"].append(check_a)
+
+    # (b) RICs in Non-RT RIC (A1PMS)
+    check_b = {"name": "RICs in Non-RT RIC (A1PMS)", "status": "FAIL", "details": {}}
+    try:
+        resp = requests.get(f"{A1PMS_URL}/a1-policy/v2/rics", timeout=10)
+        if resp.status_code == 200:
+            rics = resp.json().get("rics", [])
+            check_b["details"]["rics"] = rics
+            check_b["details"]["count"] = len(rics)
+            # CRITICAL: Empty list is NOT a success for integration
+            check_b["status"] = "PASS" if len(rics) > 0 else "FAIL"
+        else:
+            check_b["details"]["http"] = resp.status_code
+    except Exception as e:
+        check_b["details"]["error"] = str(e)
+    results["checks"].append(check_b)
+
+    # (c) E2 Nodes in RIC (E2Mgr)
+    check_c = {"name": "E2 Nodes in Near-RT RIC (E2Mgr)", "status": "FAIL", "details": {}}
+    try:
+        resp = requests.get(f"{E2MGR_URL}/v1/nodeb/states", timeout=10)
+        if resp.status_code == 200:
+            e2_nodes = resp.json()
+            if isinstance(e2_nodes, list):
+                check_c["details"]["nodes"] = e2_nodes
+                check_c["details"]["count"] = len(e2_nodes)
+                # CRITICAL: Empty list is NOT a success for integration
+                check_c["status"] = "PASS" if len(e2_nodes) > 0 else "FAIL"
+        else:
+            check_c["details"]["http"] = resp.status_code
+    except Exception as e:
+        check_c["details"]["error"] = str(e)
+    results["checks"].append(check_c)
+
+    results["all_pass"] = all(c["status"] == "PASS" for c in results["checks"])
+    return results
+
+
+@app.route("/api/integration-check")
+def api_integration_check():
+    return jsonify(check_integration_points())
+
+
+# ═══════════════════════════════════════════════════════════
+#  FEATURE 6: Check MinIO for XML/JSON Files
+# ═══════════════════════════════════════════════════════════
+
+def check_minio_files():
+    """List buckets and check for XML and JSON files in MinIO."""
+    try:
+        from minio import Minio
+    except ImportError:
+        return {"error": "minio package not installed. Run: pip install minio"}
+
+    try:
+        client = Minio(
+            SMO["minio_endpoint"],
+            access_key=SMO["minio_access_key"],
+            secret_key=SMO["minio_secret_key"],
+            secure=False,
+        )
+        buckets = client.list_buckets()
+        result = {"buckets": [], "total_xml": 0, "total_json": 0}
+
+        for bucket in buckets:
+            bucket_info = {"name": bucket.name, "xml_files": [], "json_files": []}
+            try:
+                objects = list(client.list_objects(bucket.name, recursive=True))
+                for obj in objects[:100]:  # Limit to 100 per bucket
+                    name = obj.object_name
+                    if name.endswith(".xml"):
+                        bucket_info["xml_files"].append({"name": name, "size": obj.size})
+                        result["total_xml"] += 1
+                    elif name.endswith(".json"):
+                        bucket_info["json_files"].append({"name": name, "size": obj.size})
+                        result["total_json"] += 1
+            except Exception as e:
+                bucket_info["error"] = str(e)
+            result["buckets"].append(bucket_info)
+
+        return result
+    except Exception as e:
+        return {"error": str(e)}
+
+
+@app.route("/api/minio/files")
+def api_minio_files():
+    return jsonify(check_minio_files())
+
+
+# ═══════════════════════════════════════════════════════════
+#  FEATURE 7: List InfluxDB Buckets with Data
+# ═══════════════════════════════════════════════════════════
+
+def get_influxdb_buckets():
+    """List all InfluxDB buckets and check which ones have recent data."""
+    headers = {"Authorization": f"Token {INFLUX_TOKEN}"}
+    result = {"buckets": [], "health": None}
+
+    # Health check
+    try:
+        resp = requests.get(f"{INFLUX_URL}/health", timeout=10)
+        if resp.status_code == 200:
+            health = resp.json()
+            result["health"] = {"status": health.get("status"), "version": health.get("version")}
+    except Exception as e:
+        result["health"] = {"error": str(e)}
+
+    # List buckets
+    try:
+        resp = requests.get(f"{INFLUX_URL}/api/v2/buckets", headers=headers, timeout=10)
+        if resp.status_code != 200:
+            result["error"] = f"HTTP {resp.status_code}"
+            return result
+
+        data = resp.json()
+        for b in data.get("buckets", []):
+            name = b.get("name", "?")
+            bucket_info = {"name": name, "id": b.get("id"), "has_data": False, "row_count": 0}
+
+            # Skip internal buckets for data check
+            if name.startswith("_"):
+                bucket_info["note"] = "system bucket"
+                result["buckets"].append(bucket_info)
+                continue
+
+            # Query for recent data
+            try:
+                query = f'from(bucket: "{name}") |> range(start: -24h) |> first() |> limit(n: 5)'
+                qresp = requests.post(
+                    f"{INFLUX_URL}/api/v2/query?org={INFLUX_ORG}",
+                    headers={**headers, "Content-Type": "application/vnd.flux", "Accept": "application/csv"},
+                    data=query, timeout=10,
+                )
+                if qresp.status_code == 200:
+                    lines = [l for l in qresp.text.strip().split("\n") if l and not l.startswith("#")]
+                    row_count = max(0, len(lines) - 1)  # subtract header
+                    bucket_info["has_data"] = row_count > 0
+                    bucket_info["row_count"] = row_count
+            except:
+                pass
+
+            result["buckets"].append(bucket_info)
+    except Exception as e:
+        result["error"] = str(e)
+
+    return result
+
+
+@app.route("/api/influxdb/buckets")
+def api_influxdb_buckets():
+    return jsonify(get_influxdb_buckets())
+
+
+# ═══════════════════════════════════════════════════════════
+#  FEATURE 8: Send A1 Policy (Non-RT → Near-RT)
+# ═══════════════════════════════════════════════════════════
+
+
+def send_a1_policy(policy_type_id="", policy_id=None, ric_id=None, policy_data=None):
+    print(f"DEBUG A1: Entering send_a1_policy(type='{policy_type_id}', id='{policy_id}', ric='{ric_id}')", flush=True)
+    if policy_id is None:
+        policy_id = f"integration-rapp-policy-{int(time.time())}"
+    result = {"policy_id": policy_id, "steps": []}
+
+    # Step 1: Get available RICs
+    try:
+        resp = requests.get(f"{A1PMS_URL}/a1-policy/v2/rics", timeout=10)
+        if resp.status_code == 200:
+            rics = resp.json().get("rics", [])
+            result["steps"].append({"action": "LIST_RICS", "count": len(rics), "status": "OK"})
+            if not ric_id and rics:
+                ric_id = rics[0].get("ric_id", "")
+        else:
+            result["steps"].append({"action": "LIST_RICS", "status": f"HTTP {resp.status_code}"})
+    except Exception as e:
+        result["steps"].append({"action": "LIST_RICS", "status": f"ERROR: {e}"})
+
+    # Step 2: Get policy types
+    try:
+        resp = requests.get(f"{A1PMS_URL}/a1-policy/v2/policy-types", timeout=10)
+        if resp.status_code == 200:
+            types = resp.json().get("policytype_ids", resp.json().get("policy_type_ids", []))
+            result["steps"].append({"action": "LIST_TYPES", "types": types, "status": "OK"})
+            if not policy_type_id and types:
+                policy_type_id = types[0]
+        else:
+            result["steps"].append({"action": "LIST_TYPES", "status": f"HTTP {resp.status_code}"})
+    except Exception as e:
+        result["steps"].append({"action": "LIST_TYPES", "status": f"ERROR: {e}"})
+
+    if not ric_id:
+        result["error"] = "No RIC available to send policy to"
+        return result
+
+    # Step 3: Create/Send the policy
+    print(f"DEBUG A1: Before payload selection, policy_type_id='{policy_type_id}' (type: {type(policy_type_id)})", flush=True)
+    if policy_data is None:
+        if str(policy_type_id) == "20000":
+            policy_data = {"threshold": 10}
+            print(f"DEBUG A1: Selected threshold payload for type 20000", flush=True)
+        else:
+            policy_data = {"scope": {"ueId": "integration-test"}, "qosObjectives": {"priorityLevel": 1}}
+            print(f"DEBUG A1: Selected generic payload (policy_type_id != '20000')", flush=True)
+
+    policy_body = {
+        "ric_id": ric_id,
+        "policy_id": policy_id,
+        "policytype_id": str(policy_type_id) if policy_type_id else "",
+        "policy_data": policy_data,
+        "service_id": "integration-rapp",
+    }
+
+    try:
+        print(f"DEBUG A1: Sending PUT to {A1PMS_URL}/a1-policy/v2/policies with body: {json.dumps(policy_body)}", flush=True)
+        resp = requests.put(
+            f"{A1PMS_URL}/a1-policy/v2/policies",
+            json=policy_body,
+            headers={"Content-Type": "application/json"},
+            timeout=15,
+        )
+        print(f"DEBUG A1: A1PMS Response: {resp.status_code} - {resp.text}", flush=True)
+        if resp.status_code in [200, 201]:
+            result["steps"].append({"action": "SEND_POLICY", "status": "OK", "http": resp.status_code})
+            # Verify via GET
+            vresp = requests.get(f"{A1PMS_URL}/a1-policy/v2/policies/{policy_id}", timeout=10)
+            result["steps"].append({
+                "action": "VERIFY_POLICY",
+                "status": "OK" if vresp.status_code == 200 else "FAIL",
+                "http": vresp.status_code
+            })
+            result["sent"] = vresp.status_code == 200
+        else:
+            result["steps"].append({
+                "action": "SEND_POLICY",
+                "http": resp.status_code,
+                "status": "FAIL",
+                "response": resp.text[:500]
+            })
+            result["sent"] = False
+    except Exception as e:
+        result["steps"].append({"action": "SEND_POLICY", "status": f"ERROR: {e}"})
+        result["sent"] = False
+
+    return result
+
+
+@app.route("/api/policy", methods=["POST"])
+def api_send_policy():
+    body = request.get_json(force=True, silent=True) or {}
+    print(f"DEBUG A1 API: Received request with body: {body}", flush=True)
+    return jsonify(send_a1_policy(
+        policy_type_id=body.get("policy_type_id", ""),
+        policy_id=body.get("policy_id"),
+        ric_id=body.get("ric_id"),
+        policy_data=body.get("policy_data"),
+    ))
+
+
+def get_all_policies():
+    """Fetch all policies from A1PMS and enrich with details."""
+    try:
+        # 1. Get all policy IDs
+        resp = requests.get(f"{A1PMS_URL}/a1-policy/v2/policies", timeout=10)
+        if resp.status_code != 200:
+            return {"error": f"A1PMS Error: {resp.status_code}", "policies": []}
+        
+        policy_ids = resp.json().get("policy_ids", [])
+        detailed_policies = []
+        
+        # 2. Fetch details for each (or at least basic info)
+        for pid in policy_ids:
+            try:
+                p_resp = requests.get(f"{A1PMS_URL}/a1-policy/v2/policies/{pid}", timeout=5)
+                if p_resp.status_code == 200:
+                    detailed_policies.append(p_resp.json())
+                else:
+                    detailed_policies.append({"policy_id": pid, "status": "Error fetching details"})
+            except:
+                detailed_policies.append({"policy_id": pid, "status": "Timeout"})
+                
+        return {"total": len(policy_ids), "policies": detailed_policies}
+    except Exception as e:
+        return {"error": str(e), "policies": []}
+
+
+@app.route("/api/policies")
+def api_list_policies():
+    return jsonify(get_all_policies())
+
+
+# ═══════════════════════════════════════════════════════════
+#  Web GUI Route
+# ═══════════════════════════════════════════════════════════
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
+# ═══════════════════════════════════════════════════════════
+#  Main
+# ═══════════════════════════════════════════════════════════
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Integration rApp — Backend API")
+    parser.add_argument("--port", type=int, default=5000, help="Port to listen on")
+    parser.add_argument("--host", default="0.0.0.0", help="Host to bind to")
+    args = parser.parse_args()
+
+    print(f"\n{'='*60}")
+    print(f"  🚀 Integration rApp — Backend API")
+    print(f"  GUI: http://localhost:{args.port}")
+    print(f"  API: http://localhost:{args.port}/api/")
+    print(f"{'='*60}\n")
+
+    app.run(host=args.host, port=args.port, debug=True)

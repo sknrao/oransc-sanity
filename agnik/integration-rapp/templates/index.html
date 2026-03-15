@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O-RAN Integration rApp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Light Blue Theme Palette */
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #2563eb;
+            --primary-light: #eff6ff;
+            --primary-hover: #1d4ed8;
+            --success: #10b981;
+            --success-bg: #ecfdf5;
+            --danger: #ef4444;
+            --danger-bg: #fef2f2;
+            --radius: 16px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        .header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 24px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-logo {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.025em;
+        }
+
+        .header .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--success-bg);
+            color: var(--success);
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding: 24px 32px;
+            max-width: 98vw;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: #bfdbfe;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .card-title-wrap {
+            flex: 1;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .card-body {
+            margin-top: auto;
+            padding-top: 16px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .input-row input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+            background: var(--surface);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-danger {
+            background: var(--danger-bg);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .btn-danger:hover {
+            background: #fee2e2;
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .result-box {
+            margin-top: 16px;
+            background: #1e293b;
+            /* Keep JSON dark for readability */
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 0.8rem;
+            max-height: 350px;
+            overflow-y: auto;
+            display: none;
+            font-family: 'Fira Code', monospace;
+            line-height: 1.6;
+            color: #f8fafc;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-box.visible {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* JSON Syntax Highlighting */
+        .string {
+            color: #a5d6ff;
+        }
+
+        .number {
+            color: #79c0ff;
+        }
+
+        .boolean {
+            color: #ff7b72;
+            font-weight: bold;
+        }
+
+        .null {
+            color: #ff7b72;
+            font-style: italic;
+        }
+
+        .key {
+            color: #7ee787;
+            font-weight: 500;
+        }
+
+        .error-result {
+            background: var(--danger-bg);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .loading-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--primary-light);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding: 32px;
+            margin-top: 20px;
+        }
+
+        .footer span {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .result-box::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+
+        /* Side-by-Side Results Layout */
+        .results-container {
+            display: none;
+            gap: 16px;
+            margin-top: 16px;
+            flex-direction: column;
+        }
+
+        .results-container.visible {
+            display: flex;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .result-panel {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .result-panel-header {
+            padding: 10px 16px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .formatted-panel.result-panel {
+            background: var(--bg);
+        }
+
+        .formatted-panel .result-panel-header {
+            background: var(--surface);
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .json-panel.result-panel {
+            display: none;
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .json-panel.result-panel.visible {
+            display: flex;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .json-panel .result-panel-header {
+            background: #0f172a;
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+        }
+
+        .formatted-view {
+            padding: 20px;
+            font-size: 0.85rem;
+            max-height: 500px;
+            overflow-x: auto;
+            overflow-y: auto;
+            color: var(--text-main);
+            flex: 1;
+            background: #ffffff;
+        }
+
+        .json-view {
+            padding: 20px;
+            font-size: 0.8rem;
+            max-height: 500px;
+            overflow-x: auto;
+            overflow-y: auto;
+            font-family: 'Fira Code', monospace;
+            line-height: 1.6;
+            color: #f8fafc;
+            flex: 1;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        /* Ultra Tree View 3.0 (Responsive & Squashing-Proof) */
+        .tree-node {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 4px 0;
+            border-left: 2px solid var(--border);
+            padding-left: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .tree-node:hover {
+            border-left-color: var(--primary);
+        }
+
+        .tree-header {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            padding: 4px 0;
+            flex-wrap: wrap;
+        }
+
+        .tree-key {
+            font-weight: 700;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: capitalize;
+            min-width: 120px;
+        }
+
+        .tree-val {
+            flex: 1;
+            min-width: 0;
+            font-size: 0.85rem;
+        }
+
+        .tree-content {
+            width: 100%;
+            margin-top: 4px;
+        }
+
+        /* Responsive Table for 3.0 */
+        .data-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            background: #fff;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            table-layout: auto;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            white-space: nowrap;
+            /* NO SQUASHING */
+            vertical-align: top;
+        }
+
+        .data-table th {
+            background: #f1f5f9;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table td:last-child,
+        .data-table th:last-child {
+            border-right: none;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        /* High Contrast for Policy List */
+        #policy-list-content .data-table td {
+            color: #ffffff;
+            /* Default for dark container */
+        }
+
+        #policy-list-content .data-table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+
+
+        /* Badges & Status */
+        .badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        .badge.true,
+        .badge.PASS {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge.false,
+        .badge.FAIL {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge.WARN {
+            background: #fef9c3;
+            color: #854d0e;
+        }
+
+        .badge.null {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .badge-policy {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .data-source-note {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 500;
+        }
+
+        .data-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .data-list li {
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .data-list li:last-child {
+            border-bottom: none;
+        }
+
+        .kv-pair {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .kv-key {
+            font-weight: 600;
+            color: var(--text-muted);
+            min-width: 120px;
+            flex-shrink: 0;
+        }
+
+        .kv-val {
+            word-break: break-word;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .badge.true {
+            background: var(--success-bg);
+            color: var(--success);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .badge.false {
+            background: var(--danger-bg);
+            color: var(--danger);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                padding: 16px;
+                gap: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                padding: 16px;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .kv-pair {
+                flex-direction: column;
+            }
+
+            .kv-key {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="header-logo">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                    </path>
+                </svg>
+            </div>
+            <div>
+                <h1>O-RAN Integration rApp</h1>
+                <div class="subtitle">Deployment Verification Dashboard</div>
+            </div>
+        </div>
+        <div class="status-badge">
+            <span class="status-dot"></span> Cluster Online
+        </div>
+    </div>
+
+    <div class="grid">
+        <!-- 1: Nodes -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                        </path>
+                    </svg>
+                </div>
+                <div class="card-title-wrap">
+                    <div class="card-title">SDNR Connected Nodes</div>
+                    <div class="card-desc">Scan NETCONF node registrations in O-RAN SMO.</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary" onclick="runApi('/api/nodes', 'result-1')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    Check Nodes
+                </button>
+                <div class="result-box" id="result-1"></div>
+            </div>
+        </div>
+
+        <!-- 2: Reset -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon" style="background: var(--danger-bg); color: var(--danger);">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                        </path>
+                    </svg>
+                </div>
+                <div class="card-title-wrap">
+                    <div class="card-title">Reset Cell Node</div>
+                    <div class="card-desc">Cycle admin state LOCK → UNLOCK. (Auto-detects node if empty).</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="input-row">
+                    <input type="text" id="reset-node-id" placeholder="Node ID (e.g. du-pynts-1123)" value="">
+                    <input type="text" id="reset-cell-id" placeholder="Cell ID" value="S1-B12-C1">
+                </div>
+                <button class="btn btn-danger" onclick="resetNode()">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    Execute Reset
+                </button>
+                <div class="result-box" id="result-2"></div>
+            </div>
+        </div>
+
+        <!-- 3: Topics -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                    </svg>
+                </div>
+                <div class="card-title-wrap">
+                    <div class="card-title">Kafka PM Topics</div>
+                    <div class="card-desc">Identify Redpanda topics actively holding data.</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary" onclick="runApi('/api/kafka/topics', 'result-3')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                    </svg>
+                    List Topics
+                </button>
+                <div class="result-box" id="result-3"></div>
+            </div>
+        </div>
+
+        <!-- 4: Message -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="card-title-wrap">
+                    <div class="card-title">Peek Kafka Offset</div>
+                    <div class="card-desc">Retrieve the absolute latest message payload.</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="input-row">
+                    <input type="text" id="topic-name" placeholder="Topic name" value="pmreports">
+                </div>
+                <button class="btn btn-primary" onclick="getLatestMessage()">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                        </path>
+                    </svg>
+                    Fetch Latest
+                </button>
+                <div class="result-box" id="result-4"></div>
+            </div>
+        </div>
+
+        <!-- 5: Integration -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="card-title-wrap">
+                    <div class="card-title">Integration Heartbeat</div>
+                    <div class="card-desc">Verify PNF, Near-RT RICs, and E2 Nodes globally.</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary" onclick="runApi('/api/integration-check', 'result-5')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                        </path>
+                    </svg>
+                    Run Integrity Check
+                </button>
+                <div class="result-box" id="result-5"></div>
+            </div>
+        </div>
+
+        <!-- 6: MinIO -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4">
+                        </path>
+                    </svg>
+                </div>
+                <div class="card-title-wrap">
+                    <div class="card-title">MinIO Object Store</div>
+                    <div class="card-desc">Count stored XML/JSON PM files across S3 buckets.</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary" onclick="runApi('/api/minio/files', 'result-6')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4">
+                        </path>
+                    </svg>
+                    Scan Storage
+                </button>
+                <div class="result-box" id="result-6"></div>
+            </div>
+        </div>
+
+        <!-- 7: Influx -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                </div>
+                <div class="card-title-wrap">
+                    <div class="card-title">InfluxDB Timeseries</div>
+                    <div class="card-desc">Identify buckets receiving data in the last 24h.</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary" onclick="runApi('/api/influxdb/buckets', 'result-7')">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+                    </svg>
+                    Check Metrics
+                </button>
+                <div class="result-box" id="result-7"></div>
+            </div>
+        </div>
+
+        <!-- 8: Policy -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                    </svg>
+                </div>
+                <div class="card-title-wrap">
+                    <div class="card-title">A1 Policy Management</div>
+                    <div class="card-desc">Push intent-based policies via A1PMS dynamically.</div>
+                    <div class="data-source-note">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Source: A1PMS Pod (Non-RT RIC)
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-primary" onclick="sendPolicy()">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                        Send Test Policy
+                    </button>
+                    <button class="btn btn-outline" onclick="listPolicies()">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        List Policies
+                    </button>
+                </div>
+                <div class="result-box" id="result-8"></div>
+                <div id="policy-list-container" class="result-box"
+                    style="display:none; margin-top:16px; border-top: 1px solid rgba(255,255,255,0.1); padding-top:16px;">
+                    <h4
+                        style="margin: 0 0 12px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue);">
+                        Active Policies</h4>
+                    <div id="policy-list-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        Based on Advanced Analytics • <span>Integration rApp</span> Architecture • v1.1
+    </div>
+
+    <script>
+        // Custom JSON Syntax Highlighter
+        function syntaxHighlight(json) {
+            if (typeof json != 'string') {
+                json = JSON.stringify(json, undefined, 2);
+            }
+            json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                var cls = 'number';
+                if (/^"/.test(match)) {
+                    if (/:$/.test(match)) {
+                        cls = 'key';
+                    } else {
+                        cls = 'string';
+                    }
+                } else if (/true|false/.test(match)) {
+                    cls = 'boolean';
+                } else if (/null/.test(match)) {
+                    cls = 'null';
+                }
+                return '<span class="' + cls + '">' + match + '</span>';
+            });
+        }
+
+        function buildFormattedHTML(obj, isNested = false) {
+            if (obj === null) return '<span class="badge null">null</span>';
+            if (typeof obj === 'boolean') return `<span class="badge ${obj}">${obj}</span>`;
+            if (obj === 'PASS' || obj === 'FAIL' || obj === 'WARN') return `<span class="badge ${obj}">${obj}</span>`;
+            if (typeof obj !== 'object') return `<span>${obj}</span>`;
+
+            if (Array.isArray(obj)) {
+                if (obj.length === 0) return '<em>empty list</em>';
+                if (typeof obj[0] === 'object' && obj[0] !== null) {
+                    let keys = new Set();
+                    obj.forEach(o => Object.keys(o).forEach(k => keys.add(k)));
+                    keys = Array.from(keys);
+
+                    let html = '<div class="data-table-wrapper"><table class="data-table"><thead><tr>';
+                    keys.forEach(k => html += `<th>${k}</th>`);
+                    html += '</tr></thead><tbody>';
+                    obj.forEach(row => {
+                        html += '<tr>';
+                        keys.forEach(k => {
+                            let val = row[k] !== undefined ? row[k] : null;
+                            html += `<td>${buildFormattedHTML(val, true)}</td>`;
+                        });
+                        html += '</tr>';
+                    });
+                    html += '</tbody></table></div>';
+                    return html;
+                } else {
+                    return `<div class="data-list">${obj.map(item => `<div class="data-list-item">${buildFormattedHTML(item, true)}</div>`).join('')}</div>`;
+                }
+            }
+
+            // Ultra Tree View 3.0 Engine
+            let html = '<div class="tree-container">';
+            for (let key in obj) {
+                let val = obj[key];
+                let isComplex = (val !== null && typeof val === 'object');
+
+                html += `
+                    <div class="tree-node">
+                        <div class="tree-header">
+                            <span class="tree-key">${key}</span>
+                            ${!isComplex ? `<span class="tree-val">${buildFormattedHTML(val, true)}</span>` : ''}
+                        </div>
+                        ${isComplex ? `<div class="tree-content">${buildFormattedHTML(val, true)}</div>` : ''}
+                    </div>`;
+            }
+            html += '</div>';
+            return html;
+        }
+
+        function showResult(id, data, isError = false) {
+            const box = document.getElementById(id);
+
+            if (isError) {
+                box.className = 'result-box error-result visible';
+                box.innerHTML = data.error || data;
+                return;
+            }
+
+            const jsonStr = syntaxHighlight(data);
+            const formattedHtml = buildFormattedHTML(data, false);
+
+            box.className = 'results-container visible';
+            box.style.marginTop = '16px';
+            box.innerHTML = `
+                <div class="result-panel formatted-panel">
+                    <div class="result-panel-header">
+                        <div class="header-title">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                            Visualized Data
+                        </div>
+                        <button class="btn btn-primary" style="padding: 4px 12px; font-size: 0.75rem; width: auto; box-shadow: none;" onclick="this.closest('.results-container').querySelector('.json-panel').classList.toggle('visible'); this.innerText = this.innerText === 'View Raw JSON' ? 'Hide Raw JSON' : 'View Raw JSON';">View Raw JSON</button>
+                    </div>
+                    <div class="formatted-view">${formattedHtml}</div>
+                </div>
+                <div class="result-panel json-panel">
+                    <div class="result-panel-header">
+                        <div class="header-title">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            Raw JSON
+                        </div>
+                    </div>
+                    <div class="json-view">${jsonStr}</div>
+                </div>
+            `;
+        }
+
+        function showLoading(id) {
+            const box = document.getElementById(id);
+            box.className = 'result-box visible';
+            box.style.marginTop = '16px';
+            box.innerHTML = `<div class="loading-overlay" style="padding:16px;"><div class="spinner"></div> Executing remote command...</div>`;
+        }
+
+        async function runApi(url, resultId) {
+            showLoading(resultId);
+            try {
+                const resp = await fetch(url);
+                const data = await resp.json();
+                showResult(resultId, data, resp.status !== 200 && data.error);
+            } catch (e) {
+                showResult(resultId, { error: e.message }, true);
+            }
+        }
+
+        async function resetNode() {
+            const cellId = document.getElementById('reset-cell-id').value || 'S1-B12-C1';
+            const nodeId = document.getElementById('reset-node-id').value || '';
+            showLoading('result-2');
+            try {
+                const resp = await fetch(`/api/nodes/${cellId}/reset`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ node_id: nodeId })
+                });
+                const data = await resp.json();
+                showResult('result-2', data, resp.status !== 200 && data.error);
+            } catch (e) {
+                showResult('result-2', { error: e.message }, true);
+            }
+        }
+
+        async function getLatestMessage() {
+            const topic = document.getElementById('topic-name').value || 'pmreports';
+            showLoading('result-4');
+            try {
+                const resp = await fetch(`/api/kafka/topics/${encodeURIComponent(topic)}/latest`);
+                const data = await resp.json();
+                showResult('result-4', data, data.error ? true : false);
+            } catch (e) {
+                showResult('result-4', { error: e.message }, true);
+            }
+        }
+
+        async function listPolicies() {
+            const container = document.getElementById('policy-list-container');
+            const content = document.getElementById('policy-list-content');
+            container.style.display = 'block';
+            content.innerHTML = '<div class="loading-mini"></div>';
+
+            try {
+                const resp = await fetch('/api/policies');
+                const data = await resp.json();
+
+                if (data.error) {
+                    content.innerHTML = `<div class="error-text">${data.error}</div>`;
+                    return;
+                }
+
+                if (data.total === 0) {
+                    content.innerHTML = '<div class="info-text">No active policies found.</div>';
+                    return;
+                }
+
+                let html = '<table class="data-table"><thead><tr><th>Policy ID</th><th>RIC</th><th>Type</th></tr></thead><tbody>';
+                data.policies.forEach(p => {
+                    html += `<tr>
+                        <td class="monospaced" style="font-size: 11px; font-weight: 500; color: #fff;">${p.policy_id || '?'}</td>
+                        <td style="color: #e2e8f0;">${p.ric_id || '?'}</td>
+                        <td><span class="badge-policy">${p.policytype_id || 'v1'}</span></td>
+                    </tr>`;
+                });
+                html += '</tbody></table>';
+                content.innerHTML = html;
+            } catch (e) {
+                content.innerHTML = `<div class="error-text">Failed to fetch: ${e.message}</div>`;
+            }
+        }
+
+        async function sendPolicy() {
+            showLoading('result-8');
+            try {
+                const resp = await fetch('/api/policy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({})
+                });
+                const data = await resp.json();
+                showResult('result-8', data, resp.status !== 200 && data.error);
+            } catch (e) {
+                showResult('result-8', { error: e.message }, true);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+flask
+requests
+pyyaml
+influxdb-client
+minio
+sshpass
