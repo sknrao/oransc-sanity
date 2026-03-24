@@ -240,9 +240,7 @@ The K8s deployment uses a ConfigMap for code delivery and mounts the host kubeco
 - **T12** (End-to-End O-RAN): The Integration Check feature (Feature 5) is a direct implementation of the end-to-end pre-release check
 - **T13** (API Checks): All 8 features serve as automated API checks for pre-release verification
 
-### Companion Document
 
-A full technical deep-dive covering every API's exact HTTP calls, data flows, Mermaid sequence diagrams, and Q&A is available in **`INTEGRATION_RAPP_DEEPDIVE.md`**.
 
 ---
 
