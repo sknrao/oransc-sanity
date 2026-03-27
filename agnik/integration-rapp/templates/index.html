@@ -984,7 +984,45 @@
                     <div id="policy-list-content"></div>
                 </div>
             </div>
+            </div>
         </div>
+
+        <!-- 9: Netconf RPC -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M4 6h16v12H4z"></path>
+                    </svg>
+                </div>
+                <div class="card-title-wrap">
+                    <div class="card-title">Netconf RPC Execution</div>
+                    <div class="card-desc">Execute an ietf-netconf:get-config RPC directly against an SDNR-connected Node.</div>
+                    <div class="data-source-note">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Source: SDNR RESTCONF (OAM)
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="input-row">
+                    <input type="text" id="rpc-node-id" class="input-field" placeholder="Enter Node ID (e.g. O-RAN-DU-01)"
+                        value="O-RAN-DU-01">
+                    <button class="btn btn-primary" onclick="runRpcConfig()">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        Execute
+                    </button>
+                </div>
+                <div class="result-box" id="result-9"></div>
+            </div>
+        </div>
+
     </div>
 
     <div class="footer">
@@ -1134,6 +1172,26 @@
                 showResult('result-2', data, resp.status !== 200 && data.error);
             } catch (e) {
                 showResult('result-2', { error: e.message }, true);
+            }
+        }
+
+        async function runRpcConfig() {
+            const nodeId = document.getElementById('rpc-node-id').value;
+            const resultId = 'result-9';
+            if (!nodeId) {
+                alert("Please provide the Node ID");
+                return;
+            }
+            showLoading(resultId);
+            try {
+                const res = await fetch(`/api/nodes/${nodeId}/rpc/get-config`, {
+                    method: 'POST'
+                });
+                const data = await res.json();
+                // Because RPC data can be huge, we can use the pre-built `showResult` which calls syntaxHighlight for massive JSONs.
+                showResult(resultId, data, data.status === 'error');
+            } catch (err) {
+                showResult(resultId, { error: err.message }, true);
             }
         }
 

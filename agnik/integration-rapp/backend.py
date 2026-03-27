@@ -29,20 +29,19 @@ def load_config():
 
 CFG = load_config()
 SMO = CFG["smo"]
-RIC = CFG["ric"]
-SSH = CFG["ssh"]
 
-SDNR_URL = f"http://{SMO['host']}:{SMO['sdnr_port']}"
+SDNR_URL = SMO.get("sdnr_url", "http://sdnc.onap.svc.cluster.local:8282")
 SDNR_AUTH = HTTPBasicAuth(SMO["sdnr_user"], SMO["sdnr_password"])
 SDNR_HEADERS = {"Accept": "application/json", "Content-Type": "application/json"}
 
-INFLUX_URL = f"http://{SMO['host']}:{SMO['influxdb_port']}"
+INFLUX_URL = SMO.get("influxdb_url", "http://influxdb2.smo.svc.cluster.local:8086")
 INFLUX_TOKEN = SMO["influxdb_token"]
 INFLUX_ORG = SMO["influxdb_org"]
 
-A1PMS_URL = f"http://{SMO['host']}:{SMO['a1pms_port']}"
-E2MGR_URL = f"http://{RIC['host']}:{RIC['e2mgr_port']}"
-A1MED_URL = f"http://{RIC['host']}:{RIC['a1_mediator_port']}"
+A1PMS_URL = SMO.get("a1pms_url", "http://policymanagementservice.nonrtric.svc.cluster.local:8081")
+
+KAFKA_ADMIN_URL = SMO.get("kafka_admin_url", "http://redpanda-console.smo.svc.cluster.local:8080")
+MINIO_ENDPOINT = SMO.get("minio_endpoint", "minio.smo.svc.cluster.local:9000")
 
 app = Flask(__name__)
 
@@ -194,28 +193,11 @@ def api_reset_node(cell_id):
 #  FEATURE 3: List Kafka Topics with Message Counts
 # ═══════════════════════════════════════════════════════════
 
-def _run_kafka_cmd(cmd):
-    """Execute a command inside the Kafka broker pod via SSH + kubectl exec."""
-    full_cmd = (
-        f"sshpass -p {SSH['password']} ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no "
-        f"{SSH['user']}@{SSH['host']} "
-        f"\"sudo KUBECONFIG={SSH['kubeconfig']} kubectl exec -n {SMO['kafka_namespace']} "
-        f"{SMO['kafka_broker_pod']} -- bash -c '{cmd}'\""
-    )
-    try:
-        result = subprocess.run(full_cmd, shell=True, capture_output=True, text=True, timeout=30)
-        return result.stdout.strip(), result.returncode
-    except subprocess.TimeoutExpired:
-        return "TIMEOUT", 1
-    except Exception as e:
-        return str(e), 1
-
-
 def get_kafka_topics():
     """List all Kafka topics and identify which ones have messages."""
     # Method 1: Try Redpanda Console REST API (faster)
     try:
-        url = f"http://{SMO['host']}:{SMO['kafka_admin_port']}/api/topics"
+        url = f"{KAFKA_ADMIN_URL}/api/topics"
         resp = requests.get(url, timeout=10)
         if resp.status_code == 200:
             topics_data = resp.json().get("topics", [])
@@ -236,23 +218,23 @@ def get_kafka_topics():
     except:
         pass
 
-    # Method 2: kubectl exec fallback
-    sasl_cfg = (
-        f"security.protocol=SASL_PLAINTEXT\\n"
-        f"sasl.mechanism=SCRAM-SHA-512\\n"
-        f"sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule "
-        f"required username=\\\"{SMO['kafka_sasl_user']}\\\" "
-        f"password=\\\"{SMO['kafka_sasl_pass']}\\\";"
-    )
-    setup = f"echo -e \\\"{sasl_cfg}\\\" > /tmp/client.properties"
-    list_cmd = "bin/kafka-topics.sh --bootstrap-server localhost:9092 --command-config /tmp/client.properties --list"
-    output, rc = _run_kafka_cmd(f"{setup} && {list_cmd}")
-    if rc == 0 and output:
-        names = [t for t in output.split("\n") if t.strip()]
-        topics = [{"name": n, "messages": -1, "has_messages": None} for n in names]
-        return {"total": len(topics), "topics": topics, "method": "kubectl-exec"}
-
-    return {"error": "Cannot reach Kafka", "topics": []}
+    # Method 2: kafka-python fallback
+    try:
+        from kafka import KafkaConsumer
+        consumer = KafkaConsumer(
+            bootstrap_servers=SMO.get("kafka_bootstrap_server", "localhost:9092"),
+            security_protocol="SASL_PLAINTEXT",
+            sasl_mechanism="SCRAM-SHA-512",
+            sasl_plain_username=SMO.get("kafka_sasl_user", "strimzi-kafka-admin"),
+            sasl_plain_password=SMO.get("kafka_sasl_pass", ""),
+            request_timeout_ms=5000
+        )
+        partitions = consumer.topics()
+        topics = [{"name": n, "messages": -1, "has_messages": None} for n in partitions]
+        consumer.close()
+        return {"total": len(topics), "topics": topics, "method": "kafka-python"}
+    except Exception as e:
+        return {"error": f"Cannot reach Kafka: {e}", "topics": []}
 
 
 @app.route("/api/kafka/topics")
@@ -265,43 +247,50 @@ def api_kafka_topics():
 # ═══════════════════════════════════════════════════════════
 
 def get_latest_message(topic_name):
-    """Consume the latest message from a given Kafka topic via helper script."""
-    script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kafka_consume.sh")
-
-    # When running ON the server, use the script directly
-    is_on_server = os.path.exists(SSH.get('kubeconfig', '/etc/kubernetes/admin.conf'))
-    
-    if is_on_server:
-        # If running on the host as agnikmisra, we need to pass the sudo password
-        if os.getuid() != 0:
-            full_cmd = f"echo {SSH['password']} | sudo -S bash {script_path} {topic_name}"
-        else:
-            full_cmd = f"bash {script_path} {topic_name}"
-    else:
-        full_cmd = (
-            f"sshpass -p {SSH['password']} ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no "
-            f"{SSH['user']}@{SSH['host']} 'bash /tmp/integration-rapp/kafka_consume.sh {topic_name}'"
-        )
-
+    """Consume the latest message from a given Kafka topic natively without SSH."""
     try:
-        result = subprocess.run(full_cmd, shell=True, capture_output=True, text=True, timeout=30)
-        output = result.stdout.strip()
-        # Filter out kubectl noise like "Defaulted container..."
-        lines = [l for l in output.split("\n") if not l.startswith("Defaulted container")]
-        clean_output = "\n".join(lines).strip()
+        from kafka import KafkaConsumer, TopicPartition
+        consumer = KafkaConsumer(
+            bootstrap_servers=SMO.get("kafka_bootstrap_server", "localhost:9092"),
+            security_protocol="SASL_PLAINTEXT",
+            sasl_mechanism="SCRAM-SHA-512",
+            sasl_plain_username=SMO.get("kafka_sasl_user", "strimzi-kafka-admin"),
+            sasl_plain_password=SMO.get("kafka_sasl_pass", ""),
+            consumer_timeout_ms=5000,
+            auto_offset_reset='latest'
+        )
         
-        if result.returncode == 0 and clean_output:
+        # Find partitions
+        partitions = consumer.partitions_for_topic(topic_name)
+        if not partitions:
+            return {"topic": topic_name, "error": "Topic not found or empty partitions"}
+            
+        # Try to read the last message from the first partition
+        tp = TopicPartition(topic_name, list(partitions)[0])
+        consumer.assign([tp])
+        consumer.seek_to_end(tp)
+        end_offset = consumer.position(tp)
+        
+        if end_offset == 0:
+            consumer.close()
+            return {"topic": topic_name, "error": "No messages found or topic is empty"}
+            
+        # Seek just before the end offset
+        consumer.seek(tp, end_offset - 1)
+        records = consumer.poll(timeout_ms=5000)
+        consumer.close()
+        
+        if tp in records and len(records[tp]) > 0:
+            msg = records[tp][0].value.decode('utf-8')
             try:
-                value = json.loads(clean_output)
+                value = json.loads(msg)
             except:
-                value = clean_output
-            return {"topic": topic_name, "value": value, "method": "kubectl-exec-script"}
-    except subprocess.TimeoutExpired:
-        return {"topic": topic_name, "error": "Timeout — topic may be empty"}
+                value = msg
+            return {"topic": topic_name, "value": value, "method": "kafka-python"}
+            
+        return {"topic": topic_name, "error": "Timeout or failed to fetch message"}
     except Exception as e:
         return {"topic": topic_name, "error": str(e)}
-
-    return {"topic": topic_name, "error": "No messages found or topic is empty"}
 
 
 @app.route("/api/kafka/topics/<topic_name>/latest")
@@ -332,10 +321,9 @@ def check_integration_points():
     sdnr_ok = connected_count > 0
 
     # Check Kafka data (Actually check if 'pmreports' has any message)
-    kafka_ok = False
+    # Method 1: Try Redpanda Console REST API (faster)
     try:
-        # Check if pmreports has data in Redpanda Console
-        url = f"http://{SMO['host']}:{SMO['kafka_admin_port']}/api/topics"
+        url = f"{KAFKA_ADMIN_URL}/api/topics"
         resp = requests.get(url, timeout=10)
         if resp.status_code == 200:
             topics = resp.json().get("topics", [])
@@ -371,22 +359,8 @@ def check_integration_points():
         check_b["details"]["error"] = str(e)
     results["checks"].append(check_b)
 
-    # (c) E2 Nodes in RIC (E2Mgr)
-    check_c = {"name": "E2 Nodes in Near-RT RIC (E2Mgr)", "status": "FAIL", "details": {}}
-    try:
-        resp = requests.get(f"{E2MGR_URL}/v1/nodeb/states", timeout=10)
-        if resp.status_code == 200:
-            e2_nodes = resp.json()
-            if isinstance(e2_nodes, list):
-                check_c["details"]["nodes"] = e2_nodes
-                check_c["details"]["count"] = len(e2_nodes)
-                # CRITICAL: Empty list is NOT a success for integration
-                check_c["status"] = "PASS" if len(e2_nodes) > 0 else "FAIL"
-        else:
-            check_c["details"]["http"] = resp.status_code
-    except Exception as e:
-        check_c["details"]["error"] = str(e)
-    results["checks"].append(check_c)
+    # (c) E2 Nodes in RIC (Near-RT-RIC) connectivity is intentionally omitted.
+    # The integration rApp should only deal with SMO / Non-RT-RIC components per architectural mandate.
 
     results["all_pass"] = all(c["status"] == "PASS" for c in results["checks"])
     return results
@@ -410,7 +384,7 @@ def check_minio_files():
 
     try:
         client = Minio(
-            SMO["minio_endpoint"],
+            MINIO_ENDPOINT,
             access_key=SMO["minio_access_key"],
             secret_key=SMO["minio_secret_key"],
             secure=False,
@@ -427,7 +401,7 @@ def check_minio_files():
                     if name.endswith(".xml"):
                         bucket_info["xml_files"].append({"name": name, "size": obj.size})
                         result["total_xml"] += 1
-                    elif name.endswith(".json"):
+                    elif name.endswith(".json") or name.endswith(".json.gz"):
                         bucket_info["json_files"].append({"name": name, "size": obj.size})
                         result["total_json"] += 1
             except Exception as e:
@@ -464,6 +438,7 @@ def get_influxdb_buckets():
 
     # List buckets
     try:
+        auth = HTTPBasicAuth(SMO.get("influxdb_user", "admin"), SMO.get("influxdb_password", "admin"))
         resp = requests.get(f"{INFLUX_URL}/api/v2/buckets", headers=headers, timeout=10)
         if resp.status_code != 200:
             result["error"] = f"HTTP {resp.status_code}"
@@ -643,6 +618,38 @@ def get_all_policies():
 @app.route("/api/policies")
 def api_list_policies():
     return jsonify(get_all_policies())
+
+
+# ═══════════════════════════════════════════════════════════
+#  FEATURE 8: Execute Netconf RPC (get-config)
+# ═══════════════════════════════════════════════════════════
+
+def exec_netconf_rpc(node_id):
+    """Execute ietf-netconf:get-config RPC on a specific SDNR Node."""
+    target_url = (
+        f"{SDNR_URL}/rests/operations/network-topology:network-topology/"
+        f"topology=topology-netconf/node={node_id}/yang-ext:mount/ietf-netconf:get-config"
+    )
+    payload = {"input": {"source": {"running": {}}}}
+    
+    try:
+        r = requests.post(
+            target_url, 
+            json=payload, 
+            auth=SDNR_AUTH,
+            headers=SDNR_HEADERS, 
+            timeout=30
+        )
+        if r.status_code in [200, 201]:
+            return {"status": "success", "data": r.json()}
+        else:
+            return {"status": "error", "message": f"HTTP {r.status_code}", "details": r.text}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.route("/api/nodes/<node_id>/rpc/get-config", methods=["POST"])
+def api_rpc_get_config(node_id):
+    return jsonify(exec_netconf_rpc(node_id))
 
 
 # ═══════════════════════════════════════════════════════════

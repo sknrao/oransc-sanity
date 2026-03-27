@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: python
+  pullPolicy: IfNotPresent
+  tag: "3.11-slim"
+
+service:
+  type: NodePort
+  port: 5001
+  nodePort: 31001
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+# If you choose to inject the code via ConfigMap (like the old setup), enable this
+# and ensure the configmap 'integration-rapp-code' exists before deploying.
+useCodeConfigMap: true

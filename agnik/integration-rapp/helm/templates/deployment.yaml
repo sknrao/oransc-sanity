@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: rapp
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        resources:
+          requests:
+            cpu: {{ .Values.resources.requests.cpu }}
+            memory: {{ .Values.resources.requests.memory }}
+          limits:
+            cpu: {{ .Values.resources.limits.cpu }}
+            memory: {{ .Values.resources.limits.memory }}
+{{- if .Values.useCodeConfigMap }}
+        # If using configmap approach over pre-built docker image
+        command: ["/bin/bash", "-c"]
+        args:
+          - |
+            pip install --no-cache-dir flask requests pyyaml influxdb-client minio kafka-python && \
+            cd /app && python3 backend.py --host 0.0.0.0 --port 5001
+        volumeMounts:
+        - name: code-volume
+          mountPath: /app/backend.py
+          subPath: backend.py
+        - name: code-volume
+          mountPath: /app/cli.py
+          subPath: cli.py
+        - name: code-volume
+          mountPath: /app/config.yaml
+          subPath: config.yaml
+        - name: template-volume
+          mountPath: /app/templates/index.html
+          subPath: index.html
+{{- end }}
+        ports:
+        - containerPort: 5001
+{{- if .Values.useCodeConfigMap }}
+      volumes:
+      - name: code-volume
+        configMap:
+          name: integration-rapp-code
+      - name: template-volume
+        configMap:
+          name: integration-rapp-code
+{{- end }}
