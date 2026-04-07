@@ -41,11 +41,11 @@ flowchart TB
     User -- "HTTP :5001" --> RAPP
 
     %% Southbound Logic
-    RAPP -- "REST" --> A1PMS
+    RAPP -- "REST (/a1-policy)" --> A1PMS
     RAPP -- "RESTCONF" --> SDNR
     RAPP -- "S3 API" --> MinIO
     RAPP -- "Flux/HTTP" --> Influx
-    RAPP -- "Native Protocol" --> Kafka
+    RAPP -- "Native (9092/9093)" --> Kafka
 
     %% External Control
     A1PMS -. "A1-P" .-> NearRIC
@@ -121,9 +121,14 @@ sequenceDiagram
     participant Kafka as Kafka Broker
 
     UI->>App: GET /api/kafka/topics/pmreports/latest
-    App->>K8s: Resolve onap-strimzi-kafka-bootstrap.onap.svc
-    K8s->>App: Internal IP: 9092
+    App->>K8s: Resolve onap-strimzi-kafka-bootstrap
+    K8s->>App: Port 9092 (Plain) / 9093 (SCRAM)
     
+    rect rgb(230, 230, 250)
+    Note over App, Kafka: SASL/SCRAM Handshake (if 9093)
+    App->>Kafka: Authenticate (dcae-ves-collector-ku)
+    end
+
     App->>Kafka: Create Consumer (topic: pmreports)
     App->>Kafka: SeekToEnd() & Fetch(Offset-1)
     Kafka->>App: Latest PM event (JSON)
@@ -168,12 +173,12 @@ sequenceDiagram
     participant RIC as Near-RT RIC
 
     UI->>App: POST /api/policy (Trigger Test)
-    App->>A1: GET /a1-p/v2/rics (Find available RICs)
-    A1->>App: [hpe16-ric]
+    App->>A1: GET /a1-policy/v2/rics (Discovery)
+    A1->>App: [hpe1122-ric]
     
-    App->>A1: PUT /a1-p/v2/policies/test-id (Type: 20000)
+    App->>A1: PUT /a1-policy/v2/policies/test-id (Type: 20000)
     Note right of A1: Dispatches via A1-P interface
-    A1-->>RIC: Policy Data
+    A1-->>RIC: Policy Data (JSON Intent)
     RIC-->>A1: 201 Created
     A1->>App: 201 Created
     

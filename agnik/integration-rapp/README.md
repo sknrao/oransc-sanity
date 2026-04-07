@@ -98,26 +98,57 @@ python backend.py --host 0.0.0.0 --port 5001
 # 1. Update ConfigMap with the latest Python code
 kubectl create configmap integration-rapp-code -n smo --from-file=. --dry-run=client -o yaml | kubectl apply -f -
 
-# 2. Deploy or Upgrade the rApp via Helm
-helm upgrade --install integration-rapp ./helm -n smo
-
 # 3. Verify Pods
 kubectl get pods -n smo -l app=integration-rapp
 ```
 
 ---
 
-## 🛠 Troubleshooting Commands
+## ⚙️ Configuration & Environment
 
-**Find Service DNS Names:**
-```bash
-kubectl get svc -A | grep -i 'a1pms\|sdnr\|influxdb\|kafka'
-```
+The rApp can be configured via `config.yaml` or **Environment Variables** (recommended for production).
 
-**Find Strimzi Kafka Credentials:**
-```bash
-kubectl get secret strimzi-kafka-admin -n onap -o jsonpath='{.data.password}' | base64 -d
-```
+### 1. Environment Profiles
+
+| Variable | Standard O-RAN SMO (9092) | Custom SCRAM SMO (9093) |
+|:---|:---|:---|
+| `SDNR_URL` | `http://sdnc.onap.svc.cluster.local:8282` | Same |
+| `SDNR_USER` | `admin` | `strimzi-kafka-admin` |
+| `SDNR_PASS` | `Kp8bJ4SXszMBEPXh` | (Your SCRAM Password) |
+| `KAFKA_BOOTSTRAP` | `onap-strimzi-kafka-bootstrap:9092` | `onap-strimzi-kafka-bootstrap:9093` |
+| `INFLUX_TOKEN` | (Standard Token) | (Hardened Token) |
+| `A1PMS_URL` | `http://policymanagementservice.nonrtric:8081` | Same |
+
+### 2. Priority Rules
+The application follows this strict priority for settings:
+1. **Environment Variables** (highest priority)
+2. **`config.yaml` values**
+3. **Internal Defaults** (lowest priority)
+
+---
+
+## ✅ Deployment Verification
+
+After deployment, use the **Integration Heartbeat** dashboard to check:
+- **SDNR Connected Nodes**: Green if RU/DU simulators are registered.
+- **Kafka Message Bus**: Green if `pmreports` topic is active.
+- **InfluxDB PM Storage**: Green if the token can list metrics buckets.
+- **A1 Policy Management**: Green if A1PMS (Non-RT RIC) is reachable.
+
+---
+
+## 🛠 Troubleshooting
+
+- **Broad UI / Layout Issues**: Ensure you are using the latest `templates/index.html` with the `max-width: 1400px` fix.
+- **Kafka Auth Errors**: Check if you are using port **9093** for SCRAM or **9092** for Plaintext. The backend automatically detects the protocol based on credentials.
+- **Find Service DNS Names**:
+  ```bash
+  kubectl get svc -A | grep -i 'a1pms\|sdnr\|influxdb\|kafka'
+  ```
+- **Find Strimzi Kafka Credentials**:
+  ```bash
+  kubectl get secret strimzi-kafka-admin -n onap -o jsonpath='{.data.password}' | base64 -d
+  ```
 
 ---
 *Production Documentation • O-RAN Integration rApp • v2.1*

@@ -9,18 +9,17 @@ smo:
 
   # InfluxDB (PM Metrics)
   influxdb_url: "http://influxdb2.smo.svc.cluster.local:8086"
-  influxdb_token: "b0xHhPZXON3wpCUDSH7dcud0RtobLOEx"
+  influxdb_token: "rCnD19DMvOZQgR2g5VWUGbDmdXO6FW1n"
   influxdb_org: "est"
   influxdb_user: "admin"
   influxdb_password: "admin"
 
-  # Kafka / Strimzi (Message Bus)
-  # > To find credentials: kubectl get secret strimzi-kafka-admin -n onap -o jsonpath='{.data.password}' | base64 -d
+  # Port 9093 = SCRAM listener (for reading topic metadata in rApp)
+  # VES writes via plain port 9092; rApp uses SCRAM port 9093 to list topics
   kafka_admin_url: "http://redpanda-console.smo.svc.cluster.local:8080"
-  # Use the internal K8s service DNS instead of pod name for pod-to-pod communication
-  kafka_bootstrap_server: "onap-strimzi-kafka-bootstrap.onap.svc.cluster.local:9092"
-  kafka_sasl_user: "strimzi-kafka-admin"
-  kafka_sasl_pass: "G7ITDUBrDBRlZmSKtEMYt9sY2k1ZfBn2"
+  kafka_bootstrap_server: "onap-strimzi-kafka-bootstrap.onap.svc.cluster.local:9093"
+  kafka_sasl_user: "dcae-ves-collector-ku"
+  kafka_sasl_pass: "hsEuEieFDitxL5gAuUJrasV3jF0ghM8n"
 
   # MinIO S3 (File Storage)
   minio_endpoint: "minio.smo.svc.cluster.local:9000"
